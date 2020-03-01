@@ -1,5 +1,5 @@
 ---
-title: "test"
+title: "Statistics"
 author_profile: true
 layout: categories
 permalink: /test/
