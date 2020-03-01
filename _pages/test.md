@@ -5,4 +5,4 @@ layout: categories
 permalink: /test/
 taxonomy: Statistics
 ---
-adsfsdfsd
+Statistics Page
