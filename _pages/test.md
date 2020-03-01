@@ -2,6 +2,6 @@
 title: "test"
 author_profile: true
 layout: categories
-permalink: /categories/stat/
+permalink: /test/
 taxonomy: Statistics
 ---
