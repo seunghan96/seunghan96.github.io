@@ -1,8 +1,8 @@
 ---
 title: "TITLE"
 author_profile: true
-layout: category
-permalink: /stat/
+layout: categories
+permalink: categories/stat/
 taxonomy: Statistics_tax
 ---
 Introduction of page
