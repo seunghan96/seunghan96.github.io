@@ -2,7 +2,7 @@
 title: "TITLE"
 author_profile: true
 layout: categories
-permalink: categories/stat/
+permalink: /categories/stat/
 taxonomy: Statistics_tax
 ---
 Introduction of page
