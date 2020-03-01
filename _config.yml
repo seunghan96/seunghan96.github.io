@@ -108,7 +108,7 @@ analytics:
 # Site Author
 author:
   name             : "Seunghan Lee"
-  avatar           : "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/img/SeunghanLee.jpg"
   bio              : "Business/Statistics at Yonsei Univ"
   location         : "Somewhere"
   email            :
@@ -301,5 +301,5 @@ defaults:
       share: true
       related: true
       header:
-          overlay_image: /assets/img/main.png
+          overlay_image: /assets/img/main.jpg
           overlay_filter: "0.5"
