@@ -2,7 +2,7 @@
 title: "Statistics"
 author_profile: true
 layout: categories
-permalink: /test/
+permalink: /statistics/
 taxonomy: Statistics
 ---
 Statistics Page
