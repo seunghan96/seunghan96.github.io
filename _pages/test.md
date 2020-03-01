@@ -1,5 +1,5 @@
 ---
-title: "제목"
+title: "TITLE"
 author_profile: true
 layout: categories
 permalink: /perma/
