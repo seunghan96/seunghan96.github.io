@@ -1,7 +1,7 @@
 ---
 title: "Statistics"
 author_profile: true
-layout: category
+layout: categories
 permalink: categories/stat/
 taxonomy: Statistics
 ---
