@@ -146,7 +146,7 @@ footer:
       url: "https://github.com/seunghan96/datascience/"
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: mailto: seunghan9612@gmail.com
+      url: mailto:seunghan9612@gmail.com
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
