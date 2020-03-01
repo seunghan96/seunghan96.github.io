@@ -1,11 +1,11 @@
 # main links
 main:
   - title: "Data Science"
-    url: /datascience/
+    url: /categories/datascience/
   #- title: ""
   #  url: 
   - title: "Statistics"
-    url: /statistics/
+    url: /categories/statistics/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
