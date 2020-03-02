@@ -6,7 +6,7 @@ main:
     url: /categories/dl/    
   - title: "Reinforcement Learning"
     url: /categories/rl/    
-  - title: "Statistics"
+  - title: "ALL"
     url: /categories/stat/    
   
   # - title: "Sitemap"
