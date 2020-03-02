@@ -1,7 +1,7 @@
 ---
 title: "Reinforcement Learning"
 author_profile: true
-layout: categories
+layout: category
 permalink: categories/rl/
 taxonomy: ReinforcementLearning
 class: wide
