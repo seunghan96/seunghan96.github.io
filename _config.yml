@@ -107,11 +107,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "seunghan96"
+  name             : "Seunghan Lee"
   avatar           : "/assets/img/SeunghanLee.jpg"
   bio              : "Business/Statistics at Yonsei Univ"
   location         : "Seoul, S.Korea"
-  email            : "seunghan9612@gmail.com
+  email            : "seunghan9612@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
