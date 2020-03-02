@@ -6,6 +6,8 @@ main:
     url: /categories/dl/    
   - title: "Reinforcement Learning"
     url: /categories/rl/    
+  - title: "Statistics"
+    url: /categories/st/      
   - title: "ALL"
     url: /categories/stat/    
   
