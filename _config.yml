@@ -202,6 +202,7 @@ highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
+mathjax: true
 
 
 # Markdown Processing
@@ -210,7 +211,6 @@ kramdown:
   hard_wrap: false
   auto_ids: true
   footnote_nr: 1
-  mathjax: true
   entity_output: as_char
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
