@@ -1,7 +1,7 @@
 ---
 title: "Deep Learning"
 author_profile: true
-layout: categories
+layout: category
 permalink: /categories/dl/
 taxonomy: DeepLearning
 class: wide
