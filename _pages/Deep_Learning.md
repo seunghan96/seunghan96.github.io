@@ -2,7 +2,7 @@
 title: "Deep Learning"
 author_profile: true
 layout: categories
-permalink: categories/dl/
+permalink: /dl/
 taxonomy: DeepLearning
 class: wide
 ---
