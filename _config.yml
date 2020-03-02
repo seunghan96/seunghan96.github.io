@@ -15,7 +15,7 @@ remote_theme             : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "Seoul S.Korea"
+locale                   : "Seoul, S.Korea"
 title                    : "Welcome to Datascience"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
@@ -110,8 +110,8 @@ author:
   name             : "Seunghan Lee"
   avatar           : "/assets/img/SeunghanLee.jpg"
   bio              : "Business/Statistics at Yonsei Univ"
-  location         : "Seoul, South Korea"
-  email            :
+  location         : "Seoul, S.Korea"
+  email            : "seunghan9612@gmail.com
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
