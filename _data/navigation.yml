@@ -1,12 +1,13 @@
 # main links
 main:
-  - title: "Data Science"
-    url: /categories/datascience/
-  #- title: ""
-  #  url: 
+  - title: "Machine Learning"
+    url: /categories/ml/    
+  - title: "Deep Learning"
+    url: /categories/dl/    
+  - title: "Reinforcement Learning"
+    url: /categories/rl/    
   - title: "Statistics"
-    url: /categories/stat/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
+    url: /categories/stat/    
+  
   # - title: "Sitemap"
   #   url: /sitemap/
