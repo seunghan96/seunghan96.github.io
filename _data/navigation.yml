@@ -3,7 +3,7 @@ main:
   - title: "Machine Learning"
     url: /categories/ml/    
   - title: "Deep Learning"
-    url: /categories/dl/    
+    url: /dl/    
   - title: "Reinforcement Learning"
     url: /categories/rl/    
   - title: "Statistics"
