@@ -37,7 +37,7 @@ comments:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
     # https://developers.facebook.com/docs/plugins/comments
-    appid                :
+    appid                :R
     num_posts            : # 5 (default)
     colorscheme          : # "light" (default), "dark"
   utterances:
@@ -107,7 +107,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Seunghan Lee"
+  name             : "seunghan96"
   avatar           : "/assets/img/SeunghanLee.jpg"
   bio              : "Business/Statistics at Yonsei Univ"
   location         : "Seoul, S.Korea"
