@@ -11,7 +11,7 @@ feature_row2:
   - image_path: /assets/img/ML.jpg
     alt: "placeholder image 2"
     title: "Machine Learning"
-    # excerpt: ' '
+    excerpt: ' '
     url: "categories/ml/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -19,7 +19,7 @@ feature_row2:
   - image_path: /assets/img/DL.jpg
     alt: "placeholder image 2"
     title: "Deep Learning"
-    # excerpt: ' '
+    excerpt: ' '
     url: "categories/dl/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -27,7 +27,7 @@ feature_row2:
   - image_path: /assets/img/RL.png
     alt: "placeholder image 2"
     title: "Reinforcement Learning"
-    # excerpt: ' '
+    excerpt: ' '
     url: "categories/rl/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -35,7 +35,7 @@ feature_row2:
   - image_path: /assets/img/ST.jpg
     alt: "placeholder image 2"
     title: "Statistics"
-    # excerpt: ' '
+    excerpt: ' '
     url: "/categories/st/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -45,7 +45,7 @@ feature_row:
   - image_path: /assets/img/pig.jpg
     alt: "placeholder image 2"
     title: "Seunghan Lee"
-    excerpt: '연세대학교 경영학과,응용통계학과<br> DataScience 학회 DSL 소속 <br> T. 010-8768-8472 <br> E. seunghan9612@gmail.com'
+    excerpt: '연세대 경영학과,응용통계학과<br> DataScience 학회 DSL 소속 <br> T. 010-8768-8472 <br> E. seunghan9612@gmail.com'
     url: "https://github.com/seunghan96"
     btn_label: "Read More"
     btn_class: "btn--primary"
