@@ -44,7 +44,7 @@ feature_row:
   - image_path: /assets/img/SeunghanLee2.jpg
     alt: "placeholder image 2"
     title: "Seunghan Lee"
-    excerpt: 'Yonsei Univerisity <br> (major 1) Business Administration <br> (major 2) Applied Statistics <br> Data Science Lab <br> T. 010-8768-8472 <br> E. seunghan9612@gmail.com'
+    excerpt: 'Yonsei Univerisity <br> (major 1) Business Administration <br> (major 2) Applied Statistics <br> Data Science Lab <br> <br> T. 010-8768-8472 <br> E. seunghan9612@gmail.com'
     url: "https://github.com/seunghan96"
     btn_label: "Read More"
     btn_class: "btn--primary"
