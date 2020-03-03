@@ -31,11 +31,20 @@ feature_row2:
     url: "categories/rl/"
     btn_label: "Read More"
     btn_class: "btn--primary"
-  - image_path: /assets/img/ST.jpg
+    
+  - image_path: /assets/img/ST2.jpg
     alt: "placeholder image 2"
     title: "Statistics"
     excerpt: ' '
     url: "categories/st/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/etc.jpg
+    alt: "placeholder image 2"
+    title: "Others"
+    excerpt: 'Projects, Competetion ...'
+    url: "categories/etc/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
