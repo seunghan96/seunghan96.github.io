@@ -24,14 +24,13 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/RL.png
+  - image_path: /assets/img/RL.jpg
     alt: "placeholder image 2"
     title: "Reinforcement Learning"
     excerpt: ' '
     url: "categories/rl/"
     btn_label: "Read More"
     btn_class: "btn--primary"
-
   - image_path: /assets/img/ST.jpg
     alt: "placeholder image 2"
     title: "Statistics"
