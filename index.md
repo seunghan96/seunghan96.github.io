@@ -11,7 +11,7 @@ feature_row2:
   - image_path: /assets/img/ML.jpg
     alt: "placeholder image 2"
     title: "Machine Learning"
-    excerpt: ' '
+    excerpt: 'About Various ML Algorithms..'
     url: "categories/ml/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -19,7 +19,7 @@ feature_row2:
   - image_path: /assets/img/DL.jpg
     alt: "placeholder image 2"
     title: "Deep Learning"
-    excerpt: ' '
+    excerpt: 'Natural Language Processing, Computer Vision..'
     url: "categories/dl/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -27,15 +27,15 @@ feature_row2:
   - image_path: /assets/img/RL.jpg
     alt: "placeholder image 2"
     title: "Reinforcement Learning"
-    excerpt: ' '
+    excerpt: 'Q-Learning, DQN..'
     url: "categories/rl/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/ST2.jpg
+  - image_path: /assets/img/ST.jpg
     alt: "placeholder image 2"
     title: "Statistics"
-    excerpt: ' '
+    excerpt: 'Bayesian Statistics'
     url: "/categories/st/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -43,7 +43,7 @@ feature_row2:
   - image_path: /assets/img/etc.jpg
     alt: "placeholder image 2"
     title: "Others"
-    excerpt: 'Projects, Competetion ...'
+    excerpt: 'Projects, Competetion..'
     url: "/categories/etc/"
     btn_label: "Read More"
     btn_class: "btn--primary"
