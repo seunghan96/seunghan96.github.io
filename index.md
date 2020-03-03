@@ -42,7 +42,7 @@ feature_row2:
     
     
 feature_row:
-  - image_path: /assets/img/pig.jpg
+  - image_path: /assets/img/SeunghanLee.jpg
     alt: "placeholder image 2"
     title: "Seunghan Lee"
     excerpt: '연세대 경영학과,응용통계학과<br> DataScience 학회 DSL 소속 <br> T. 010-8768-8472 <br> E. seunghan9612@gmail.com'
