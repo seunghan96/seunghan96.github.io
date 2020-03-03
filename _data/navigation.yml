@@ -8,6 +8,8 @@ main:
     url: /categories/rl/    
   - title: "Statistics"
     url: /categories/st/      
+  - title: "Others"
+    url: /categories/etc/     
   - title: "ALL"
     url: /categories/stat/    
   
