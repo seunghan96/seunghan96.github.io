@@ -36,7 +36,7 @@ feature_row2:
     alt: "placeholder image 2"
     title: "Statistics"
     excerpt: ' '
-    url: "categories/st/"
+    url: "/categories/st/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
@@ -44,7 +44,7 @@ feature_row2:
     alt: "placeholder image 2"
     title: "Others"
     excerpt: 'Projects, Competetion ...'
-    url: "categories/etc/"
+    url: "/categories/etc/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
