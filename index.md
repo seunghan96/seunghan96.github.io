@@ -19,7 +19,7 @@ feature_row2:
   - image_path: /assets/img/DL.jpg
     alt: "placeholder image 2"
     title: "Deep Learning"
-    excerpt: 'Natural Language Processing, Computer Vision..'
+    excerpt: 'NLP, Computer Vision..'
     url: "categories/dl/"
     btn_label: "Read More"
     btn_class: "btn--primary"
