@@ -31,7 +31,15 @@ feature_row2:
     url: "categories/rl/"
     btn_label: "Read More"
     btn_class: "btn--primary"
-    
+
+  - image_path: /assets/img/NE.jpg
+    alt: "placeholder image 2"
+    title: "Network Embedding"
+    excerpt: 'Deep Walk, LINE, node2vec...'
+    url: "/categories/se/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"    
+
   - image_path: /assets/img/ST2.jpg
     alt: "placeholder image 2"
     title: "Statistics"
