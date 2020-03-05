@@ -36,7 +36,7 @@ feature_row2:
     alt: "placeholder image 2"
     title: "Network Embedding"
     excerpt: 'Deep Walk, LINE, node2vec...'
-    url: "/categories/e/"
+    url: "/categories/ne/"
     btn_label: "Read More"
     btn_class: "btn--primary"    
 
