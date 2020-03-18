@@ -218,61 +218,60 @@ for i in train.columns[-45:-41]:
     print(pd.concat([ratio,value],axis=1),'\n\n')
 ```
 
-    < Wilderness_Area1 >
-                  1.0   1.0
-    Cover_Type             
-    1.0         0.295  1062
-    2.0         0.315  1134
-    3.0         0.000     0
-    4.0         0.000     0
-    5.0         0.238   856
-    6.0         0.000     0
-    7.0         0.152   545 
+```python
+< Wilderness_Area1 >
+              1.0   1.0
+Cover_Type             
+1.0         0.295  1062
+2.0         0.315  1134
+3.0         0.000     0
+4.0         0.000     0
+5.0         0.238   856
+6.0         0.000     0
+7.0         0.152   545 
 
 
-​    
-​    < Wilderness_Area2 >
-​                  1.0  1.0
-​    Cover_Type            
-​    1.0         0.363  181
-​    2.0         0.132   66
-​    3.0         0.000    0
-​    4.0         0.000    0
-​    5.0         0.000    0
-​    6.0         0.000    0
-​    7.0         0.505  252 
+< Wilderness_Area2 >
+              1.0  1.0
+Cover_Type            
+1.0         0.363  181
+2.0         0.132   66
+3.0         0.000    0
+4.0         0.000    0
+5.0         0.000    0
+6.0         0.000    0
+7.0         0.505  252 
 
-
-​    
-​    < Wilderness_Area3 >
-​                  1.0   1.0
-​    Cover_Type             
-​    1.0         0.144   917
-​    2.0         0.148   940
-​    3.0         0.136   863
-​    4.0         0.000     0
-​    5.0         0.205  1304
-​    6.0         0.152   962
-​    7.0         0.215  1363 
-
-
-​    
-​    < Wilderness_Area4 >
-​                  1.0   1.0
-​    Cover_Type             
-​    1.0         0.000     0
-​    2.0         0.004    20
-​    3.0         0.277  1297
-​    4.0         0.462  2160
-​    5.0         0.000     0
-​    6.0         0.256  1198
-​    7.0         0.000     0 
-
-
- <br>
     
+< Wilderness_Area3 >
+              1.0   1.0
+Cover_Type             
+1.0         0.144   917
+2.0         0.148   940
+3.0         0.136   863
+4.0         0.000     0
+5.0         0.205  1304
+6.0         0.152   962
+7.0         0.215  1363 
 
->### Q2. 토양 종류 (Soil_Type)에 따른 Cover_Type(Y값)은?
+   
+< Wilderness_Area4 >
+              1.0   1.0
+Cover_Type             
+1.0         0.000     0
+2.0         0.004    20
+3.0         0.277  1297
+4.0         0.462  2160
+5.0         0.000     0
+6.0         0.256  1198
+7.0         0.000     0 
+```
+
+  
+
+<br>    
+
+### Q2. 토양 종류 (Soil_Type)에 따른 Cover_Type(Y값)은?
 
 ### (1) Graph
 
@@ -303,7 +302,7 @@ for i in train.columns[-41:-1]:
 
 <br>
 
->### Q3. 그 외의 Numerical 변수들에 따른 Cover_Type(Y값)은?
+### Q3. 그 외의 Numerical 변수들에 따른 Cover_Type(Y값)은?
 
 
 ```python
@@ -313,8 +312,6 @@ for i in train.columns[0:9]:
     plt.title(i, fontsize=20)
 plt.show()
 ```
-
-<br>
 
 <br>
 
@@ -349,7 +346,7 @@ y = y_train
 ### Default 
 
 - hyperparameter tuning 이전
-- 최고 성능을 보인 것은 **LightGBM : 84.38% **이었다.
+- 최고 성능을 보인 것은 **LightGBM : 84.38%**이었다.
 
 
 ```python
@@ -362,18 +359,20 @@ for name, clf in zip(names, clf_list):
     print('cv score : ', cross_val_score(clf, X, y, cv=5).mean())
 ```
 
-    ---- DecisionTree ----
-    cv score :  0.7683527742073142
-    ---- RandomForest ----
-    cv score :  0.8197792619059616
-    ---- LGBM ----
-    cv score :  0.8438330690017872
-    ---- XGB ----
-    cv score :  0.7504086609575861
+```python
+---- DecisionTree ----
+cv score :  0.7683527742073142
+---- RandomForest ----
+cv score :  0.8197792619059616
+---- LGBM ----
+cv score :  0.8438330690017872
+---- XGB ----
+cv score :  0.7504086609575861
+```
 
 <br>
 
-#### Hyperparameter Tuning
+### Hyperparameter Tuning
 
 - 최적의 hyperparameter를 찾기 위해, 두 가지 방식 (Grid Search & Random Search)을 사용하였다. 
 
@@ -459,20 +458,23 @@ for name, clf, param_list in zip(names, clf_list, params_list):
   - min_samples_split (분기가 일어나기 위한 최소한의 sample 개수) : 2
   - max_depth (tree의 최대 깊이) : 22
 
-    5-fold cross validation scores & best parameters :
-    
-    ---- DecisionTree with RandomSearch ----
-    best_params :  {'criterion': 'gini', 'max_depth': 18, 'max_leaf_nodes': 17, 'min_samples_leaf': 5, 'min_samples_split': 11}
-    cv score :  0.647404544674101
-    ---- RandomForest with RandomSearch ----
-    best_params :  {'n_estimators': 391, 'min_samples_split': 2, 'max_depth': 22}
-    cv score :  0.8495366799306494
-    ---- LGBM with RandomSearch ----
-    best_params :  {'colsample_bytree': 0.4747474747474748, 'learning_rate': 0.05, 'max_depth': 9, 'min_child_samples': 10, 'min_child_weight': 1, 'n_estimators': 373, 'num_leaves': 89, 'reg_alpha': 5, 'reg_lambda': 0.1, 'subsample': 0.7034482758620689}
-    cv score :  0.8291166436732764
-    ---- XGB with RandomSearch ----
-    best_params :  {'subsample': 0.6, 'min_child_weight': 5, 'max_depth': 356, 'gamma': 0, 'eta': 0.20457142857142857, 'colsample_bytree': 0.8}
-    cv score :  0.8467260432797161
+```python
+5-fold cross validation scores & best parameters :
+---- DecisionTree with RandomSearch ----
+best_params :  {'criterion': 'gini', 'max_depth': 18, 'max_leaf_nodes': 17, 'min_samples_leaf': 5, 'min_samples_split': 11}
+cv score :  0.647404544674101
+---- RandomForest with RandomSearch ----
+best_params :  {'n_estimators': 391, 'min_samples_split': 2, 'max_depth': 22}
+cv score :  0.8495366799306494
+---- LGBM with RandomSearch ----
+best_params :  {'colsample_bytree': 0.4747474747474748, 'learning_rate': 0.05, 'max_depth': 9, 'min_child_samples': 10, 'min_child_weight': 1, 'n_estimators': 373, 'num_leaves': 89, 'reg_alpha': 5, 'reg_lambda': 0.1, 'subsample': 0.7034482758620689}
+cv score :  0.8291166436732764
+---- XGB with RandomSearch ----
+best_params :  {'subsample': 0.6, 'min_child_weight': 5, 'max_depth': 356, 'gamma': 0, 'eta': 0.20457142857142857, 'colsample_bytree': 0.8}
+cv score :  0.8467260432797161
+```
+
+
 
 <br>
 
