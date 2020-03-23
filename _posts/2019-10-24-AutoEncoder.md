@@ -43,7 +43,7 @@ Auto Encoder은 다음과 같이 두 부분으로 구성된다
 - 입력 데이터를 잠재 벡터로 변환 시키는 역할 
 - 입력 데이터의 '핵심'이 되는 부분만을 잘 담아서 저차원으로 인코딩하는 것이 핵심!
 - 잠재 벡터 : $$ z = f(x) $$
-- 수식 : $$p(z|x)$$
+- 수식 : $$p(z\mid x)$$
 
 
 
@@ -51,13 +51,13 @@ Auto Encoder은 다음과 같이 두 부분으로 구성된다
 
 - Encoder에서 생성된 잠재 벡터를 입력으로 받아, 최대한 원래의 입력(인코더의 입력)과 유사하게끔 복원해내는 것이 핵심!
 
-- 수식 : $$p(x|z)$$
+- 수식 : $$p(x\mid z)$$
 
 - 손실 함수(Loss Function)을 통해 복원된 입력과, 원래의 입력이 얼마나 다른 지 확인!
 
-  $$ L = -logp(x|z)$$
+  $$ L = -logp(x\mid z)$$
 
-  손실함수의 ex) MSE, Binary Cross Entropy(=Log Loss), Structural Similarity Index
+  ex) MSE, Binary Cross Entropy(=Log Loss), Structural Similarity Index
 
 
 
@@ -101,7 +101,7 @@ $$ L = (x_{orig},\widetilde{x}) = MSE = \frac{1}{m} \sum_{i=1}^{m}(x_{orig},\wid
 
 아래의 그림을 통해 쉽게 이해할 수 있을 것이다.
 
-<img src="https://miro.medium.com/max/1743/1*G0V4dz4RKTKGpebeoSWB0A.png" width="550" /> </br>
+<img src="https://miro.medium.com/max/1743/1*G0V4dz4RKTKGpebeoSWB0A.png" width="750" /> 
 
 <br>
 
