@@ -1,5 +1,5 @@
 ---
-title: WGAN (Implementation with Python)
+title: Implementing WGAN with Python
 categories: [DL,GAN]
 tags: [Deep Learning, WGAN]
 excerpt: WGAN
@@ -50,7 +50,10 @@ def Generator(inputs, img_size):
     return G
 ```
 
+
+
 ## (2) Discriminator
+
 - input : image
 - output : 0~1 사이의 값 (0:fake ~ 1:real)
 
@@ -79,6 +82,8 @@ def Discriminator(inputs):
     
     return D    
 ```
+
+
 
 ## (3) Implement GAN with Generator & Discriminator
 
@@ -124,6 +129,8 @@ def build_GAN():
     params = (dim,batch_size,n_critic,clip_val,train_steps,model_name)
     train(models,x_train,params)
 ```
+
+
 
 ## (4) Train
 

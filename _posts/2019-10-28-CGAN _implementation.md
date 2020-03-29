@@ -1,5 +1,5 @@
 ---
-title: CGAN (Implementation with Python)
+title: Implementing CGAN with Python
 categories: [DL,GAN]
 tags: [Deep Learning, DCGAN]
 excerpt: CGAN
@@ -51,7 +51,10 @@ def Generator(inputs,y_labels img_size): # CGAN이므로, y label값도 같이 �
     return G
 ```
 
+
+
 ## (2) Discriminator
+
 - input : image
 - output : 0~1 사이의 값 (0:fake ~ 1:real)
 
@@ -81,7 +84,10 @@ def Discriminator(inputs): # Discriminator에도 마찬가지로 y label을 inpu
     return D    
 ```
 
+
+
 ## (3) Implement GAN with Generator & Discriminator
+
 - DCGAN과 동일
 
 
@@ -125,6 +131,8 @@ def build_GAN():
     params = (dim,batch_size,train_steps,model_name)
     train(models,x_train,params)
 ```
+
+
 
 ## (4) Train
 

@@ -1,5 +1,5 @@
 ---
-title: DCGAN (Implementation with Python)
+title: Implementing DCGAN with Python
 categories: [DL,GAN]
 tags: [Deep Learning, DCGAN]
 excerpt: DCGAN
@@ -10,6 +10,15 @@ excerpt: DCGAN
 # 1. DCGAN 구현하기
 
 ## (1) Generator
+
+- input : noise vector와, 만들어 낼 image의 크기
+- output : (fake) image를 만드는 generator
+
+layer의 구성 :
+
+- 1) Batch Normalization
+- 2) Activation Function ( ReLU & Sigmoid )
+- 3) Conv2DTranspose ( Deconvolution을 해주는 layer )
 
 
 ```python
@@ -40,9 +49,7 @@ def Generator(inputs, img_size):
     return G
 ```
 
-Conv2DTranspose는 직관적으로는 convolution이 하는 역할의 반대라고 생각하면 된다. 근데 실제 계산 과정은 뭔가 조금 다르다. 정상적인 방향의 convolution에서 filter가 한 번 계산될 때, 여러개 input 데이터가 filter와 곱해져서 하나의 output 데이터를 만든다. 반면 이를 역으로 생각한다면, 하나의 데이터로 여러 개의 데이터를 만들어야 하고, 그에 해당하는 여러 개의 데이터는 또 다른 데이터로부터 구해지는 것들과 병합돼야 한다. 이게 말로 설명하기 너무 어려운데, 기본 convolution은 many to one 계산의 반복이었다면, deconvolution은 many to many의 계산이 이루어져야 한다.
 
-출처: https://leestation.tistory.com/776 [LeeCreation! Media & Robot]
 
 ## (2) Discriminator
 
@@ -71,6 +78,8 @@ def Discriminator(inputs):
     
     return D    
 ```
+
+
 
 ## (3) Implement GAN with Generator & Discriminator
 
@@ -115,6 +124,8 @@ def build_GAN():
     params = (dim,batch_size,train_steps,model_name)
     train(models,x_train,params)
 ```
+
+
 
 ## (4) Train
 
