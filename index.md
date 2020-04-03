@@ -18,8 +18,24 @@ feature_row2:
     
   - image_path: /assets/img/ML.jpg
     alt: "placeholder image 2"
-    title: "Machine Learning"
-    excerpt: 'About Various ML Algorithms...'
+    title: "Deep Learning (1) - CV"
+    excerpt: 'Computer Vision'
+    url: "categories/ml/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/ML.jpg
+    alt: "placeholder image 2"
+    title: "Deep Learning (2) - NLP"
+    excerpt: 'Natural Language Processing'
+    url: "categories/ml/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+  
+  - image_path: /assets/img/ML.jpg
+    alt: "placeholder image 2"
+    title: "Deep Learning (3) - GAN"
+    excerpt: 'Generative Adversarial Network'
     url: "categories/ml/"
     btn_label: "Read More"
     btn_class: "btn--primary"
