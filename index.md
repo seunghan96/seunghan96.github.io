@@ -16,6 +16,14 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+  - image_path: /assets/img/ML.jpg
+    alt: "placeholder image 2"
+    title: "Machine Learning"
+    excerpt: 'About Various ML Algorithms...'
+    url: "categories/ml/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/DL.jpg
     alt: "placeholder image 2"
     title: "Deep Learning"
