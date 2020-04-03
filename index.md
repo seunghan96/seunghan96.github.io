@@ -40,14 +40,6 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/DL.jpg
-    alt: "placeholder image 2"
-    title: "Deep Learning"
-    excerpt: 'NLP, Computer Vision...'
-    url: "categories/dl/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
   - image_path: /assets/img/RL.jpg
     alt: "placeholder image 2"
     title: "Reinforcement Learning"
