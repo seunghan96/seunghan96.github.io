@@ -5,7 +5,7 @@ permalink: /
 header:
   overlay_filter: "0.2"
   overlay_image: /assets/img/main.jpg
-excerpt: "Studying Data Science at Yonsei University"
+excerpt: "Studying Data Science at Yonsei University - Seunghan Lee"
 
 feature_row2:
   - image_path: /assets/img/ML.jpg
