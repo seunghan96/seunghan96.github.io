@@ -1,17 +1,21 @@
 # main links
 main:
-  - title: "Machine Learning"
+  - title: "ML"
     url: /categories/ml/    
-  - title: "Deep Learning"
-    url: /categories/dl/    
-  - title: "Reinforcement Learning"
-    url: /categories/rl/    
-  - title: "Statistics"
-    url: /categories/st/      
+  - title: "CV"
+    url: /categories/cv/    
+  - title: "NLP"
+    url: /categories/nlp/    
+  - title: "GAN"
+    url: /categories/gan/      
+  - title: "RL"
+    url: /categories/rl/      
+  - title: "NE"
+    url: /categories/ne/     
+  - title: "STAT"
+    url: /categories/st/     
   - title: "Others"
-    url: /categories/etc/     
-  - title: "ALL"
-    url: /categories/stat/    
+    url: /categories/etc/    
   
   # - title: "Sitemap"
   #   url: /sitemap/
