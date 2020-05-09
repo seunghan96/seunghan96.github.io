@@ -5,6 +5,8 @@ tags: [Machine Learning, FM, Recommendation System]
 excerpt: Factorization Machine
 ---
 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # Factorization Machine
 
 참고 논문 : Factorization Machines ( Steffen Rendle, Department of Reasoning for Intelligence )
