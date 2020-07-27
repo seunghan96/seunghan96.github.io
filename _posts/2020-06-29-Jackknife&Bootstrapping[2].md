@@ -1,5 +1,5 @@
 ---
-title: Jackknife & Bootstrapping [1]
+title: Jackknife & Bootstrapping [2]
 categories: [ML,STAT]
 tags: [Machine Learning, Replication variance estimation,Jackknife, Bootstrapping]
 excerpt: Replication Variance Estimation
