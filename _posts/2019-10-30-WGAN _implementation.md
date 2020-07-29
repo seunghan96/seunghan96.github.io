@@ -1,5 +1,5 @@
 ---
-title: Implementing WGAN with Python
+title: Implementing WGAN with TF2
 categories: [DL,GAN]
 tags: [Deep Learning, WGAN]
 excerpt: WGAN

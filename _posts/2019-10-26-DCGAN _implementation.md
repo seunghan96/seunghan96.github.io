@@ -1,5 +1,5 @@
 ---
-title: Implementing DCGAN with Python
+title: Implementing DCGAN with TF2
 categories: [DL,GAN]
 tags: [Deep Learning, DCGAN]
 excerpt: DCGAN
