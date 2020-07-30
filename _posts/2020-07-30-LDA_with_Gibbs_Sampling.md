@@ -9,6 +9,8 @@ excerpt: LDA with Collapsed Gibbs Sampling
 
 # LDA with Collapsed Gibbs Sampling
 
+- 참고 : https://github.com/aailabkaist/Introduction-to-Artificial-Intelligence-Machine-Learning
+
 ## 1. LDA
 
 ​	LDA는 토픽 모델링(Topic Modeling)의 방법 중 하나로, 주어진 문서(document)에 적절한 주제(topic)를 파악하는 방법이다. 기본적으로, **"문서는 Topic들의 혼합으로 구성있고, 각각의 Topic은 확률 분포에 기반하여 단어를 생성"** 한다는 가정을 하고 있다. 쉽게 말해, 다음과 같은 생각으로 문서가 작성되는 것이다.
