@@ -1,5 +1,5 @@
 ---
-title: Summary of Bayesian DL papers
+title: Summary of Bayesian DL papers (1)
 categories: [BNN]
 tags: [Bayesian Machine Learning, Bayesian Deep Learning, Probabilistic Deep Learning, Uncertainty Estimation, Variational Inference]
 excerpt: Bayesian ML/DL, Probabilistic DL, Uncertainty Estimation
@@ -21,9 +21,9 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-#### 01. A Practical Bayesian Framework for Backpropagation Networks
+## 01. A Practical Bayesian Framework for Backpropagation Networks
 
-#### MacKay, D. J. (1992)
+### MacKay, D. J. (1992)
 
 ( download paper here :  [Download]({{ '/assets/pdf/BNN/01.A Practical Bayesian Framework for Backpropagation Networks.pdf' | /assets/pdf/BNN/01.A Practical Bayesian Framework for Backpropagation Networks.pdf }}) )
 
@@ -31,15 +31,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
 - loss function = train loss + regularizer
   - train loss : for good fit
   - regularizer : for generalization
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]1.A Practical Bayesian Framework for Backpropagation Networks(1992).pdf' | /assets/pdf/BNN/review/[review]1.A Practical Bayesian Framework for Backpropagation Networks(1992).pdf }})
 
 
 
-#### 02. Bayesian Learning for Neural Network (1)
 
-#### Neal, R. M. (2012) 
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 02. Bayesian Learning for Neural Network (1)
+
+### Neal, R. M. (2012) 
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/02.Bayesian Learning for Neural Network.pdf' | /assets/pdf/BNN/paper/02.Bayesian Learning for Neural Network.pdf }}) )
 
 - Bayesian view in NN : find predictive distribution by "Integration", rather than "maximization"
 - BNN : not only single guess! also "UNCERTAINTY"
@@ -53,22 +55,26 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - MH algorithm, Gibbs...
   - Hybrid Monte Carlo : auxiliary variable, 'momentum'
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]2-1.Bayesian Learning For Neural Network(1995).pdf' | /assets/pdf/BNN/review/[review]2-1.Bayesian Learning For Neural Network(1995).pdf }})
 
 
 
-#### 02. Bayesian Learning for Neural Network (2)
+
+
+## 02. Bayesian Learning for Neural Network (2)
 
 - priors of weight? obscure in NN
 - Infinte network = 'non-parametric model'
   - "network with 1 hidden layers with  INFINITE number of unit is an universal approximator"
   - "converges to GP(Gaussian Process)"
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]2-2.Bayesian Learning For Neural Network(1995).pdf' | /assets/pdf/BNN/review/[review]2-2.Bayesian Learning For Neural Network(1995).pdf }})
 
 
 
-#### 02. Bayesian Learning for Neural Network (3)
+
+
+## 02. Bayesian Learning for Neural Network (3)
 
 - Hamiltonian Monte Carlo
   - draw auxiliary momentum variable
@@ -76,15 +82,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - leap frog integrator
   - Metropolis acceptance step
 - HMC is the most promising mC method
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]2-3.Bayesian Learning For Neural Network(1995).pdf' | /assets/pdf/BNN/review/[review]2-3.Bayesian Learning For Neural Network(1995).pdf }})
 
 
 
-#### 03. Keeping Neural Networks Simple by Minimizing the Description Length of the Weights
 
-#### Hinton, G. E., & Van Camp, D. (1993)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 03. Keeping Neural Networks Simple by Minimizing the Description Length of the Weights
+
+### Hinton, G. E., & Van Camp, D. (1993)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/03.Keeping Neural Networks Simple by Minimmizing the Description Length of the Weights.pdf' | /assets/pdf/BNN/paper/03.Keeping Neural Networks Simple by Minimmizing the Description Length of the Weights.pdf }}) )
 
 - MDL (Minimum Description Length) Principle
 
@@ -105,15 +113,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
   - start of Variational Inference...?
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]3.Keeping Neural Networks Simple by Minimizing the Description Length of the Weights(1993).pdf' | /assets/pdf/BNN/review/[review]3.Keeping Neural Networks Simple by Minimizing the Description Length of the Weights(1993).pdf }})
 
 
 
-#### 04. Practical Variational Inference for Neural Networks
 
-#### Graves, A. (2011)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 04. Practical Variational Inference for Neural Networks
+
+### Graves, A. (2011)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/04.Practical Variational Inference for Neural Networks.pdf' | /assets/pdf/BNN/paper/04.Practical Variational Inference for Neural Networks.pdf }}) )
 
 - introduce "Stochastic Variational method" 
 
@@ -134,15 +144,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - each weight requires a separate mean \& variance
   - cannot compute derivative of loss function(-ELBO) directly.... use MC integration
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]4.Practical Variational Inference for Neural Networks(2011).pdf' | /assets/pdf/BNN/review/[review]4.Practical Variational Inference for Neural Networks(2011).pdf }})
 
 
 
-#### 05. Ensemble Learning in Bayesian Neural Networks
 
-#### Barber, D., & Bishop, C. M. (1998)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 05. Ensemble Learning in Bayesian Neural Networks
+
+### Barber, D., & Bishop, C. M. (1998)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/05.Ensemble Learning in Bayesian Neural Networks.pdf' | /assets/pdf/BNN/paper/05.Ensemble Learning in Bayesian Neural Networks.pdf }}) )
 
 - Bayesian for NN : 3 approaches
 
@@ -171,15 +183,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
     proposed) full covariance
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]5.Ensemble Learning in Bayesian Neural Networks(1998).pdf' | /assets/pdf/BNN/review/[review]5.Ensemble Learning in Bayesian Neural Networks(1998).pdf }})
 
 
 
-#### 06. Weight Uncertainty in Neural Networks
 
-#### Barber, D., & Bishop, C. M. (1998)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 06. Weight Uncertainty in Neural Networks
+
+### Barber, D., & Bishop, C. M. (1998)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/06.Weight Uncertainty in Neural Networks.pdf' | /assets/pdf/BNN/paper/06.Weight Uncertainty in Neural Networks.pdf }}) )
 
 - Bayes by Backprop
 
@@ -196,15 +210,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
   - early stopping, weight decay, dropout ....
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]6.Weight Uncertainty in Neural Networks(2015).pdf' |/assets/pdf/BNN/review/[review]6.Weight Uncertainty in Neural Networks(2015).pdf  }})
 
 
 
-#### 07. Expectation Propagation for Approximate Bayesian Inference
 
-#### Minka, T. P. (2013)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 07. Expectation Propagation for Approximate Bayesian Inference
+
+### Minka, T. P. (2013)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/07.Expectation Propagation for Approximate Bayesian Inference(2001).pdf' | /assets/pdf/BNN/paper/07.Expectation Propagation for Approximate Bayesian Inference(2001).pdf }}) )
 
 - Expectation Propagation 
 
@@ -219,15 +235,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - original ADF) approximate posterior that  includes each observation term $t_i$
   - new interpretation) using an exact posterior with $\tilde{t_i}$ (=ratio of new \& old posterior )
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]7.Expecation Propagation for Approximate Bayesian Inference(2001).pdf' | /assets/pdf/BNN/review/[review]7.Expecation Propagation for Approximate Bayesian Inference(2001).pdf }})
 
 
 
-#### 08. Probabilistic Backpropagation for Scalable Learning for Bayesian Neural Networks
 
-#### Hernández-Lobato, J. M., & Adams, R. (2015, June)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 08. Probabilistic Backpropagation for Scalable Learning for Bayesian Neural Networks
+
+### Hernández-Lobato, J. M., & Adams, R. (2015, June)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/08.Probabilistic Backpropagation for Scalable Learning for Bayesian Neural Networks.pdf' | /assets/pdf/BNN/paper/08.Probabilistic Backpropagation for Scalable Learning for Bayesian Neural Networks.pdf }}) )
 
 - Probabilistic NN
 
@@ -257,29 +275,33 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - 2) account for uncertainty
   - 3) average over the parameter values
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]8.Probabilistic Backpropagation for Scalable Learning of Bayesian Neural Networks(2015).pdf' | /assets/pdf/BNN/review/[review]8.Probabilistic Backpropagation for Scalable Learning of Bayesian Neural Networks(2015).pdf }})
 
 
 
-#### 09. Priors For Infinite Networks 
 
-#### Neal, R. M. (1994)
+
+## 09. Priors For Infinite Networks 
+
+### Neal, R. M. (1994)
 
 ( part of  **2.Bayesian Learning for Neural Network (2)** )
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/09.Priors For Infinte Networks (1994).pdf' | /assets/pdf/BNN/paper/09.Priors For Infinte Networks (1994) }}) )
 
 - infinite network = non-parametric model
 - Priors over functions reach reasonable limits, as the number of hidden units in the network goes infinity!
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]9.Priors For Infinite Networks (1994).pdf' | /assets/pdf/BNN/review/[review]9.Priors For Infinite Networks (1994).pdf }})
 
 
 
-#### 10. Computing with Infinite Networks
 
-#### Williams, C. K. (1997)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 10. Computing with Infinite Networks
+
+### Williams, C. K. (1997)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/10.Comuting with Infinite Networks (1997).pdf' | /assets/pdf/BNN/paper/10.Comuting with Infinite Networks (1997).pdf }}) )
 
 - when number of hidden units $H \rightarrow \infty$, it is same as GP (Neal, 1994)
 
@@ -292,15 +314,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
     $\rightarrow$ the covariance function of GP can be calculated analytically!
 
 - review note 수정요함 (시공간자료분석)
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]10.Computing with Infinite Networks (1997).pdf' | /assets/pdf/BNN/review/[review]10.Computing with Infinite Networks (1997).pdf }})
 
 
 
-#### 11. Deep Neural Networks as Gaussian Processes
 
-#### Lee, J., Bahri, Y., Novak, R., Schoenholz, S. S., Pennington, J., & Sohl-Dickstein, J. (2017)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 11. Deep Neural Networks as Gaussian Processes
+
+### Lee, J., et al. (2017)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/11.Deep Neural Networks as Gaussian Processes.pdf' | /assets/pdf/BNN/paper/11.Deep Neural Networks as Gaussian Processes.pdf }}) )
 
 - Neal (1994) : 1-layer NN = GP
 
@@ -308,15 +332,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 - recursive, deterministic computation of kernel function
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]11.Deep Neural Networks as Gaussian Processes (2018).pdf' | /assets/pdf/BNN/review/[review]11.Deep Neural Networks as Gaussian Processes (2018).pdf }})
 
 
 
-#### 12. Representing Inferential Uncertainty in Deep Neural Networks through Sampling
 
-#### McClure, P., & Kriegeskorte, N. (2016)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 12. Representing Inferential Uncertainty in Deep Neural Networks through Sampling
+
+### McClure, P., & Kriegeskorte, N. (2016)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/12.Representing Inferential Uncertainty in Deep Neural Networks through Sampling (2017).pdf' | /assets/pdf/BNN/paper/12.Representing Inferential Uncertainty in Deep Neural Networks through Sampling (2017).pdf}}) )
 
 - Bayesian model catches model uncertainty
 - Bayesian DNN trained with..
@@ -325,15 +351,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - 3) Gaussian drop out
   - 4) Gaussian drop connect
   - **5) Spike-and Slab Dropout**
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]12.Representing Inferential Uncertainty in Deep Neural Networks through Sampling (2017).pdf' | /assets/pdf/BNN/review/[review]12.Representing Inferential Uncertainty in Deep Neural Networks through Sampling (2017).pdf }})
 
 
 
-#### 13. Bayesian Uncertainty Estimation for Batch Normalized Deep Networks 
 
-#### Teye, M., Azizpour, H., & Smith, K. (2018)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 13. Bayesian Uncertainty Estimation for Batch Normalized Deep Networks 
+
+### Teye, M., Azizpour, H., & Smith, K. (2018)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/13.Bayesian Uncertainty Estimation for Batch Normalized Deep Networks (2018).pdf' | /assets/pdf/BNN/paper/13.Bayesian Uncertainty Estimation for Batch Normalized Deep Networks (2018).pdf }}) )
 
 - BN (Batch Normalization) = approximate inference in Bayesian models
 
@@ -363,15 +391,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
   update these params stochastically! )
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]13.Bayesian Uncertainty Estimation for Batch Normalized Deep Networks (2018).pdf' | /assets/pdf/BNN/review/[review]13.Bayesian Uncertainty Estimation for Batch Normalized Deep Networks (2018).pdf }})
 
 
 
-#### 14. Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles
 
-#### Lakshminarayanan, B., Pritzel, A., & Blundell, C. (2017)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 14. Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles
+
+### Lakshminarayanan, B., Pritzel, A., & Blundell, C. (2017)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/14.Simple and Scalable Predictive Uncertainty (2017).pdf' | /assets/pdf/BNN/paper/14.Simple and Scalable Predictive Uncertainty (2017).pdf }}) )
 
 - propose an alternative to BNN 
 
@@ -396,15 +426,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
     ( adversarial examples : close to the original training examples, but are misclassified by NN )
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]14.Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles (2017).pdf' | /assets/pdf/BNN/review/[review]14.Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles (2017).pdf }})
 
 
 
-#### 15. Fast Dropout Training
 
-#### Wang, S., & Manning, C. (2013)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 15. Fast Dropout Training
+
+### Wang, S., & Manning, C. (2013)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/15.Fast Dropout Training (2013).pdf' | /assets/pdf/BNN/paper/15.Fast Dropout Training (2013).pdf }}) )
 
 - Dropout : repeatedly sampling makes it slower
 
@@ -426,15 +458,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
     with GA ) sample from $S$ .... $O(mK)$ times 
 
 - summary 수정요함
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]15.Fast Dropout Training (2013).pdf' | /assets/pdf/BNN/review/[review]15.Fast Dropout Training (2013).pdf }})
 
 
 
-#### 16. Variational Dropout and Local Reparameterization Trick
 
-#### Kingma, D. P., Salimans, T., & Welling, M. (2015)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 16. Variational Dropout and Local Reparameterization Trick
+
+### Kingma, D. P., Salimans, T., & Welling, M. (2015)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/16.Variational Dropout and Local Reparameterization Trick (2015).pdf' | /assets/pdf/BNN/paper/16.Variational Dropout and Local Reparameterization Trick (2015).pdf }}) )
 
 - propose LRT for reducing variance of SGVB
   - LRT : Local Reparameterization Trick
@@ -454,15 +488,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
     ( = generalization of Gaussian dropout )
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]16.Variational Dropout and Local Reparameterization Trick (2015).pdf' | /assets/pdf/BNN/review/[review]16.Variational Dropout and Local Reparameterization Trick (2015).pdf }})
 
 
 
-#### 17. Dropout as a Bayesian Approximation : Representing Model Uncertainty in Deep Learning 
 
-#### Gal, Y., & Ghahramani, Z. (2016)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 17. Dropout as a Bayesian Approximation : Representing Model Uncertainty in Deep Learning 
+
+### Gal, Y., & Ghahramani, Z. (2016)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/17.Dropout as a Bayesian Approximation_Representing Model Uncertainty in Deep Learning (2016).pdf' | /assets/pdf/BNN/paper/17.Dropout as a Bayesian Approximation_Representing Model Uncertainty in Deep Learning (2016).pdf }}) )
 
 - Model Uncertainty with Dropout NNs
 
@@ -480,15 +516,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - [step 2] find $W$
   - [step 3] MC Dropout ( estimate mean, variance )
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]17.Dropout as Bayesian Approximation (2016).pdf' | /assets/pdf/BNN/review/[review]17.Dropout as Bayesian Approximation (2016).pdf }})
 
 
 
-#### 18. Variational Dropout Sparsifies Deep Neural Networks
 
-#### Molchanov, D., Ashukha, A., & Vetrov, D. (2017)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 18. Variational Dropout Sparsifies Deep Neural Networks
+
+### Molchanov, D., Ashukha, A., & Vetrov, D. (2017)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/18.Variational Dropout Sparsifies Deep Neural Networks (2017).pdf' | /assets/pdf/BNN/paper/18.Variational Dropout Sparsifies Deep Neural Networks (2017).pdf }}) )
 
 - Key point
 
@@ -502,15 +540,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 - Instead of injecting noise...use "Sparsity"
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]18.Variational Dropout Sparsifies Deep Neural Networks (2017).pdf' | /assets/pdf/BNN/review/[review]18.Variational Dropout Sparsifies Deep Neural Networks (2017).pdf }})
 
 
 
-#### 19. Relevance Vector Machine Explained
 
-#### Fletcher, T. (2010)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 19. Relevance Vector Machine Explained
+
+### Fletcher, T. (2010)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/19.Relevance Vector Machine Explained (2010).pdf' | /assets/pdf/BNN/paper/19.Relevance Vector Machine Explained (2010).pdf }}) )
 
 - problems with SVM (Support Vector Machine)
 
@@ -530,15 +570,17 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
     ( can be solved with sparsity )
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]19.Relevance Vector Machine Explained (2010).pdf' | /assets/pdf/BNN/review/[review]19.Relevance Vector Machine Explained (2010).pdf }})
 
 
 
-#### 20. Uncertainty in Deep Learning (1)
 
-#### Gal, Y. (2016)
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 20. Uncertainty in Deep Learning (1)
+
+### Gal, Y. (2016)
+
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/20.Uncertainty in Deep Learning (2016).pdf' | /assets/pdf/BNN/paper/20.Uncertainty in Deep Learning (2016).pdf }}) )
 
 - Importance of knowing what we don't know
 
@@ -565,11 +607,13 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - adapt the model output "stochastically" as a way of model regularization
   - predictive mean/variance \& random output
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]20-1.Uncertainty in Deep Learning (2016).pdf' | /assets/pdf/BNN/review/[review]20-1.Uncertainty in Deep Learning (2016).pdf }})
 
 
 
-#### 20. Uncertainty in Deep Learning (2)
+
+
+## 20. Uncertainty in Deep Learning (2)
 
 - review of Variational Inference
   - ELBO = (1) + (2)
@@ -582,11 +626,13 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - 1) Variational Inference ( above )
   - 2) Sampling based techniques ( HMC, Langevin method , SGLD ...)
   - 3) Ensemble methods ( produce point estimate many times )
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]20-2.Uncertainty in Deep Learning (2016).pdf' | /assets/pdf/BNN/review/[review]20-2.Uncertainty in Deep Learning (2016).pdf }})
 
 
 
-#### 20. Uncertainty in Deep Learning (3)
+
+
+## 20. Uncertainty in Deep Learning (3)
 
 - Bayesian Deep Learning : based on 2 works
 
@@ -642,118 +688,4 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 - Bayesian CNN/RNN
 
-- summary : [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }})
-
-
-
-
-
-1. 
-
-#### 21.Variational Inference using Implicit Distributions 
-
-
-
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
-
-#### 22. Semi-Implicit Variational Inference 
-
-23.Unbiased Implicit Variational Inference (2019)
-
-24.A Contrastive Divergence for Combining Variational Inference and MCMC (2019)
-
-25.Non-linear Independent Components Estimation (NICE) (2014)
-
-26.Variational Inference with Normalizing Flows (2016)
-
-27.Density Estimation using Real NVP (2017)
-
-28.Glow_Generative Flow with Invertible 1x1 Convolutions (2018)
-
-29.What Uncertainties Do We Need in Bayesian Deep Learning(2017)
-
-30.Uncertainty quantification using Bayesian neural networks in classification_Application to ischemic stroke lesion segmentation (2018)
-
-31.Uncertainty Estimations by Softplus normalization in Bayesian Convolutional Neural Networks with Variational Inference
-
-32.MADE_Masked Autoencoder for Distribution Estimation (2015)
-
-33.Functional Variational Bayesian Neural Networks
-
-33.Improved Variational Inference with Inverse Autoregressive Flow (2016)
-
-34.Function Space Particle Optimization For Bayesian Neural Networks
-
-34.Masked Autoregressive Flow for Density Estimation (2017)
-
-35.Gaussian Process Behaviour in Wide Deep Neural Networks
-
-36.Practical Learning of Deep Gaussian Processes via Random Fourier Features
-
-37.Mapping Gaussian Process Priors to Bayesian Neural Networks
-
-38.VIME ; Variational Information Maximizing Exploration
-
-39.Bayesian Optimization with Robust Bayesian Neural Networks
-
-40.Bayesian GAN
-
-41.Learning And Policy Search in Stochastic Dynamical Systems with Bayesian Neural Networks
-
-42.Model Selection in Bayesian Neural Networks via Horseshoe Priors
-
-43.Learning Structural Weight Uncertainty for Sequential Decision-Making
-
-44.Task Agnostic Continual Learning Using Online Variational Bayes
-
-45.Variational Continual Learning
-
-46.A Scalable Laplace Approximation for Neural Networks
-
-47.Online Structured Laplace Approximations For Overcoming Catastrophic Forgetting
-
-48.Loss-Calibrated Approximate Inference in Bayesian Neural Networks
-
-49.Dropout Inference in Bayesian Neural Networks with Alpha-divergences
-
-50.Noisy Natural Gradient as Variational Inference
-
-51.Bayesian Dark Knowledge
-
-52.Variational Implicit Processes
-
-53.Learning Structured Weight Uncertainty in Bayesian Neural Networks
-
-54.Multiplicative Normalizing Flows for Variational Bayesian Neural Networks
-
-55.Kernel Implicit Variational Inference
-
-56.Bayesian Hypernetworks
-
-57.Fast and Scalable Bayesian Deep Learning by Weight-Perturbation in Adam
-
-58.Adversarial Distillation of Bayesian Neural Network Posteriors
-
-59.SLANG_Fast Structured Covariance Approximations for Bayesian Deep Learing with Natural Gradient
-
-60.Sparse Bayesisan Learning and the Relevance Vector Machine (2001)
-
-61.Uncertainty Decomposition in Bayesian Neural Networks with Latent Variables
-
-62.Dropout as a Bayesian Approximation_Representing Model Uncertainty in Deep Learning
-
-63.Bayesian Compression for Deep Learning
-
-64.Structured Variational Learning of Bayesian Neural Networks with Horseshoe Priors
-
-65.Noise Contrastive Priors for Functional Uncertainty
-
-66.Variance Networks ; When Expectation Does Not Meet Your Expectations
-
-67.Sylvester Normalizing Flows for Variational Inference (2019)
-
-68.The Description Length of Deep Learning Models
-
-69.Deterministic Variational Inference For Robust Bayesian Neural Networks
-
-70.Understanding Priors in Bayesian Neural Networks at the Unit Level
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]20-3.Uncertainty in Deep Learning (2016).pdf' | /assets/pdf/BNN/review/[review]20-3.Uncertainty in Deep Learning (2016).pdf }})
