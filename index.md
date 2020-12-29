@@ -8,7 +8,7 @@ header:
 excerpt: "Statistical Approach to ML/DL <br> ( Field of interest : Bayesian Neural Network )"
 
 feature_row2:
-  - image_path: /assets/img/BNN.pg
+  - image_path: /assets/img/BNN.png
     alt: "placeholder image 2"
     title: "Bayesian NN"
     excerpt: 'Paper review about BNN/Probabilistic DL'
@@ -16,7 +16,8 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/ML.jpg
+  - image_path: /assets/img/ML.j
+  
     alt: "placeholder image 2"
     title: "Machine Learning"
     excerpt: # 'About Various ML Algorithms...'
