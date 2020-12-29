@@ -5,7 +5,7 @@ permalink: /
 header:
   overlay_filter: "0.2"
   overlay_image: /assets/img/main.jpg
-excerpt: "Studying Data Science at Yonsei University - Seunghan Lee"
+excerpt: "Statistical Approach to ML/DL - Seunghan Lee"
 
 feature_row2:
   - image_path: /assets/img/ML.jpg
@@ -77,7 +77,7 @@ feature_row:
   - image_path: /assets/img/SeunghanLee2.jpg
     alt: "placeholder image 2"
     title: "Seunghan Lee"
-    excerpt: 'Yonsei Univerisity <br> (major 1) Business Administration <br> (major 2) Applied Statistics <br> Data Science Lab <br> <br> T. 010-8768-8472 <br> E. seunghan9612@gmail.com'
+    excerpt: 'DataScience Lab 1기 회장 <br> (학부) 연세대 경영/응용통계 <br> (석박통합) 연세대 통계데이터사이언스 대학원 <br> <br> T. 010-8768-8472 <br> E. seunghan9612@gmail.com'
     url: "https://github.com/seunghan96"
     btn_label: "Read More"
     btn_class: "btn--primary"
