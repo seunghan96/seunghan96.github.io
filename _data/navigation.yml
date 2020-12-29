@@ -16,8 +16,10 @@ main:
     url: /categories/ne/     
   - title: "STAT"
     url: /categories/st/     
-  - title: "Others"
+  - title: "ETC"
     url: /categories/etc/    
-  
+  - title: "about me"
+    url: /categories/ME/    
+
   # - title: "Sitemap"
   #   url: /sitemap/
