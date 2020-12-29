@@ -18,7 +18,7 @@ feature_row2:
     
   - image_path: /assets/img/CV2.jpg
     alt: "placeholder image 2"
-    title: "Deep Learning (1) - CV"
+    title: "Computer Vision"
     excerpt: 'Computer Vision'
     url: "categories/cv/"
     btn_label: "Read More"
@@ -26,7 +26,7 @@ feature_row2:
     
   - image_path: /assets/img/NLP.jpg
     alt: "placeholder image 2"
-    title: "Deep Learning (2) - NLP"
+    title: "Natural Language Processing"
     excerpt: 'Natural Language Processing'
     url: "categories/nlp/"
     btn_label: "Read More"
@@ -34,7 +34,7 @@ feature_row2:
   
   - image_path: /assets/img/GAN.jpg
     alt: "placeholder image 2"
-    title: "Deep Learning (3) - GAN"
+    title: "Generative Adversarial Network"
     excerpt: 'Generative Adversarial Network'
     url: "categories/gan/"
     btn_label: "Read More"
