@@ -11,7 +11,7 @@ feature_row2:
   - image_path: /assets/img/ML.jpg
     alt: "placeholder image 2"
     title: "Machine Learning"
-    excerpt: 'About Various ML Algorithms...'
+    excerpt: # 'About Various ML Algorithms...'
     url: "categories/ml/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -19,7 +19,7 @@ feature_row2:
   - image_path: /assets/img/CV2.jpg
     alt: "placeholder image 2"
     title: "Computer Vision"
-    excerpt: 'Computer Vision'
+    excerpt: # 'Computer Vision'
     url: "categories/cv/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -27,7 +27,7 @@ feature_row2:
   - image_path: /assets/img/NLP.jpg
     alt: "placeholder image 2"
     title: "Natural Language Processing"
-    excerpt: 'Natural Language Processing'
+    excerpt: # 'Natural Language Processing'
     url: "categories/nlp/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -35,7 +35,7 @@ feature_row2:
   - image_path: /assets/img/GAN.jpg
     alt: "placeholder image 2"
     title: "Generative Adversarial Network"
-    excerpt: 'Generative Adversarial Network'
+    excerpt: # 'Generative Adversarial Network'
     url: "categories/gan/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -43,7 +43,7 @@ feature_row2:
   - image_path: /assets/img/RL.jpg
     alt: "placeholder image 2"
     title: "Reinforcement Learning"
-    excerpt: 'Q-Learning, DQN...'
+    excerpt: # 'Q-Learning, DQN...'
     url: "categories/rl/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -51,15 +51,15 @@ feature_row2:
   - image_path: /assets/img/NE.jpg
     alt: "placeholder image 2"
     title: "Network Embedding"
-    excerpt: 'Deep Walk, LINE, node2vec...'
+    excerpt: # 'Deep Walk, LINE, node2vec...'
     url: "/categories/ne/"
     btn_label: "Read More"
     btn_class: "btn--primary"    
 
   - image_path: /assets/img/ST2.jpg
     alt: "placeholder image 2"
-    title: "Statistics"
-    excerpt: 'Bayesian Statistics...'
+    title: "Bayesian Statistics"
+    excerpt: # 'Bayesian Statistics...'
     url: "/categories/st/"
     btn_label: "Read More"
     btn_class: "btn--primary"
