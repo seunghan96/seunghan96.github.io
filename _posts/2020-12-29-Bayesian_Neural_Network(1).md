@@ -31,7 +31,9 @@ I have summarized the **must read + advanced papers** of papers regarding....
 - loss function = train loss + regularizer
   - train loss : for good fit
   - regularizer : for generalization
+- summary : [Download]({{ '/assets/pdf/BNN/review/[review]1.A Practical Bayesian Framework for Backpropagation Networks(1992).pdf' | /assets/pdf/BNN/review/[review]1.A Practical Bayesian Framework for Backpropagation Networks(1992).pdf }})
 - summary : [Download]({{ '/assets/pdf/BNN/review/1.A Practical Bayesian Framework for Backpropagation Networks(1992).pdf' | /assets/pdf/BNN/review/1.A Practical Bayesian Framework for Backpropagation Networks(1992).pdf }})
+- summary : [Download]({{ '/assets/pdf/BNN/review/1.A Practical Bayesian Framework for Backpropagation Networks(1992).pdf' | 1.A Practical Bayesian Framework for Backpropagation Networks(1992).pdf }})
 
 
 
