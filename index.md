@@ -67,7 +67,7 @@ feature_row2:
   - image_path: /assets/img/etc.jpg
     alt: "placeholder image 2"
     title: "Project & Competition"
-    excerpt: 'Projects, Competition...'
+    excerpt: #'Projects, Competition...'
     url: "/categories/etc/"
     btn_label: "Read More"
     btn_class: "btn--primary"
