@@ -25,7 +25,7 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 ### MacKay, D. J. (1992)
 
-( download paper here :  [Download]({{ '/assets/pdf/BNN/01.A Practical Bayesian Framework for Backpropagation Networks.pdf' | /assets/pdf/BNN/01.A Practical Bayesian Framework for Backpropagation Networks.pdf }}) )
+( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/01.A Practical Bayesian Framework for Backpropagation Networks.pdf' | /assets/pdf/BNN/paper/01.A Practical Bayesian Framework for Backpropagation Networks.pdf }}) )
 
 - how Bayesian Framework can be applied to Neural Network
 - loss function = train loss + regularizer
@@ -39,7 +39,7 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 ## 02. Bayesian Learning for Neural Network (1)
 
-### Neal, R. M. (2012) 
+### Neal, R. M. (2012) 	
 
 ( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/02.Bayesian Learning for Neural Network.pdf' | /assets/pdf/BNN/paper/02.Bayesian Learning for Neural Network.pdf }}) )
 
