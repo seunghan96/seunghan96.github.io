@@ -21,7 +21,7 @@ title_separator          : "-"
 subtitle                 : # d
 name                     : "Seunghan Lee"
 description              : "(학부) 연세대 경영/응용통계 <br> (석박통합) 연세대 통계데이터사이언스학과 <br> DataScience Lab"
-url                      : "https://seunghan96.github.io/"
+url                      : "/assets/pdf/temp.pdf" #"https://seunghan96.github.io/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "seunghan96/seunghan96.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
