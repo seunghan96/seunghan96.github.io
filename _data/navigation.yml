@@ -1,5 +1,7 @@
 # main links
 main:
+  - title: "BNN"
+    url: /categories/bnn/    
   - title: "ML"
     url: /categories/ml/    
   - title: "CV"
