@@ -106,10 +106,10 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
   - bits back argument
 
-    - step 1) sender collapse the weights drawn from $Q(w)$
+    - step 1) sender collapse the weights drawn from $$Q(w)$$
 
-    - step 2) sender sends each weight for $Q(w)$ and sends the data misfit
-    - step 3) receiver recovers the exact same posterior $Q(w)$ with correct output & misfits
+    - step 2) sender sends each weight for $$Q(w)$$ and sends the data misfit
+    - step 3) receiver recovers the exact same posterior $$Q(w)$$ with correct output & misfits
     - step 4) calculate true expected description length for a noisy weight
 
   - start of Variational Inference...?
@@ -161,7 +161,7 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
   - 1) Gaussian Approximation
     - knwon as Laplace's method
-    - centered at the mode of $p(w\mid D)$
+      - centered at the mode of $$p(w\mid D)$$
   - 2) MCMC
     - generate samples from the posterior
     - computationally expensive
@@ -175,7 +175,7 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
   - minimize KL divergence 
 
-  - choice of $Q$ ( approximating distribution )
+  - choice of $$Q$$ ( approximating distribution )
 
     - should be close to true posterior
     - analytically tractable integration
@@ -234,7 +234,7 @@ I have summarized the **must read + advanced papers** of papers regarding....
 - novel interpretation of ADF
 
   - original ADF) approximate posterior that  includes each observation term $t_i$
-  - new interpretation) using an exact posterior with $\tilde{t_i}$ (=ratio of new \& old posterior )
+  - new interpretation) using an exact posterior with $$\tilde{t_i}$$ (=ratio of new \& old posterior )
 
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]7.Expecation Propagation for Approximate Bayesian Inference(2001).pdf' | /assets/pdf/BNN/review/[review]7.Expecation Propagation for Approximate Bayesian Inference(2001).pdf }})
 
@@ -304,7 +304,7 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 ( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/10.Comuting with Infinite Networks (1997).pdf' | /assets/pdf/BNN/paper/10.Comuting with Infinite Networks (1997).pdf }}) )
 
-- when number of hidden units $H \rightarrow \infty$, it is same as GP (Neal, 1994)
+- when number of hidden units $$H \rightarrow \infty$$, it is same as GP (Neal, 1994)
 
 - Neal (1994) : Infinite NN=GP , but does not give the covariance function
 
@@ -388,7 +388,7 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 - network is trained just as a regular BN network!
 
-  ( but, instead of replacing $w=\{\mu_B, \sigma_B\})$ with population values from $D$,
+  ( but, instead of replacing $$w=\{\mu_B, \sigma_B\})$$ with population values from $D$,
 
   update these params stochastically! )
 
@@ -448,15 +448,15 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - 1) slow training
   - 2) loss of information
 
-- with Gaussian Approximation $Y \rightarrow S$:
+- with Gaussian Approximation $$Y \rightarrow S$$:
 
   - faster(without actually sampling) + efficient(use all data)
 
-  - ( $m$ : number of dimension , $K$ : number of samples)
+  - ( $$m$$ : number of dimension , $$K$$ : number of samples)
 
-    original dropout ) sample from $Y$ .... $O(mK)$ times 
+    original dropout ) sample from $$Y$$ .... $$O(mK)$$ times 
 
-    with GA ) sample from $S$ .... $O(mK)$ times 
+    with GA ) sample from $$S$$ .... $$O(mK)$$ times 
 
 - summary 수정요함
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]15.Fast Dropout Training (2013).pdf' | /assets/pdf/BNN/review/[review]15.Fast Dropout Training (2013).pdf }})
@@ -479,7 +479,7 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
   - translates uncertainty about global parameters into local noise ( which is independent across mini-batch )
   - can be parallelized
-  - has variance ( inversely proportional to the mini-batch size $M$ )
+  - has variance ( inversely proportional to the mini-batch size $$M$$ )
 
 - connection with dropout
 
@@ -513,8 +513,8 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 - obtaining model uncertainty
 
-  - [step 1] sample $T$ set of vectors
-  - [step 2] find $W$
+  - [step 1] sample $$T$$ set of vectors
+  - [step 2] find $$W$$
   - [step 3] MC Dropout ( estimate mean, variance )
 
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]17.Dropout as Bayesian Approximation (2016).pdf' | /assets/pdf/BNN/review/[review]17.Dropout as Bayesian Approximation (2016).pdf }})
@@ -557,7 +557,7 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
   - not a probabilistic prediction
   - only binary decision
-  - have to tune the hyperparameter $C$
+  - have to tune the hyperparameter $$C$$
 
 - SVM vs RVM
 
