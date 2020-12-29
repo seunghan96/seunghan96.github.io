@@ -7,6 +7,8 @@ excerpt: Bayesian ML/DL, Probabilistic DL, Uncertainty Estimation
 
 # Summary of Bayesian DL papers [1~20]
 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 I have summarized the **must read + advanced papers** of papers regarding....
 
 - various methods using Variational Inference
@@ -17,11 +19,10 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 - Uncertainty Estimation
 
-  
 
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-## 01. A Practical Bayesian Framework for Backpropagation Networks
+
+## 01. A Practical Bayesian Framework for Backpropagation Networks 
 
 ### MacKay, D. J. (1992)
 
@@ -76,12 +77,12 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 ## 02. Bayesian Learning for Neural Network (3)
 
-- Hamiltonian Monte Carlo
+- Hamiltonian Monte Carlo (HMC)
   - draw auxiliary momentum variable
   - calculate derivative
   - leap frog integrator
   - Metropolis acceptance step
-- HMC is the most promising mC method
+- HMC is the most promising MC method
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]2-3.Bayesian Learning For Neural Network(1995).pdf' | /assets/pdf/BNN/review/[review]2-3.Bayesian Learning For Neural Network(1995).pdf }})
 
 
@@ -134,14 +135,14 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 - takes a view of MDL
 
-  ( ELBO (Variational Free Energy)can be viewd with MDL principle! )
+  ( ELBO (Variational Free Energy)can be viewed with MDL principle! )
 
   - ELBO : entropy loss + complexity loss
   - MDL : cost of transmitting the model + cost of transmitting the prior
 
 - Diagonal Gaussian posterior
 
-  - each weight requires a separate mean \& variance
+  - each weight requires a separate mean & variance
   - cannot compute derivative of loss function(-ELBO) directly.... use MC integration
 
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]4.Practical Variational Inference for Neural Networks(2011).pdf' | /assets/pdf/BNN/review/[review]4.Practical Variational Inference for Neural Networks(2011).pdf }})
