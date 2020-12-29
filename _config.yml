@@ -18,9 +18,9 @@ minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "n
 locale                   : "Seoul, S.Korea"
 title                    : "Data Science & Statistics"
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
+subtitle                 : "abc"
 name                     : "Seunghan Lee"
-description              : "Yonsei University <br> Business Administration & Applied Statistics"
+description              : "(학부) 연세대 경영/응용통계 <br> (석박통합) 연세대 통계데이터사이언스학과" <br> DataScience Lab
 url                      : "https://seunghan96.github.io/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "seunghan96/seunghan96.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
