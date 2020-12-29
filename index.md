@@ -5,7 +5,7 @@ permalink: /
 header:
   overlay_filter: "0.2"
   overlay_image: /assets/img/main.jpg
-excerpt: "Statistical Approach to ML/DL - Seunghan Lee"
+excerpt: "Statistical Approach to ML/DL ( "
 
 feature_row2:
   - image_path: /assets/img/ML.jpg
