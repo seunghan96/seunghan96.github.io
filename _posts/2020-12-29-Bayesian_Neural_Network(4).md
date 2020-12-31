@@ -1,11 +1,11 @@
 ---
-title: Summary of Bayesian DL papers (21~30)
+title: Summary of Bayesian DL papers (31~40)
 categories: [BNN]
 tags: [Bayesian Machine Learning, Bayesian Deep Learning, Probabilistic Deep Learning, Uncertainty Estimation, Variational Inference]
 excerpt: Bayesian ML/DL, Probabilistic DL, Uncertainty Estimation
 ---
 
-# Summary of Bayesian DL papers [21~30]
+# Summary of Bayesian DL papers [31~40]
 
 I have summarized the **must read + advanced papers** of papers regarding....
 
@@ -23,61 +23,35 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 
 
-## 21.Variational Inference using Implicit Distributions 
+## 31.Uncertainty Estimations by Softplus normalization in Bayesian Convolutional Neural Networks with Variational Inference
 
+## 32.MADE_Masked Autoencoder for Distribution Estimation (2015)
 
+## 33.Functional Variational Bayesian Neural Networks
 
-( download paper here :  [Download]({{ '/assets/pdf/temp.pdf' | /assets/pdf/temp.pdf }}) )
+## 33.Improved Variational Inference with Inverse Autoregressive Flow (2016)
 
-## 22. Semi-Implicit Variational Inference 
+## 34.Function Space Particle Optimization For Bayesian Neural Networks
 
+## 34.Masked Autoregressive Flow for Density Estimation (2017)
 
+## 35.Gaussian Process Behaviour in Wide Deep Neural Networks
 
-## 23.Unbiased Implicit Variational Inference (2019)
+## 36.Practical Learning of Deep Gaussian Processes via Random Fourier Features
 
-## 24.A Contrastive Divergence for Combining Variational Inference and MCMC (2019)
+## 37.Mapping Gaussian Process Priors to Bayesian Neural Networks
 
-## 25.Non-linear Independent Components Estimation (NICE) (2014)
+## 38.VIME ; Variational Information Maximizing Exploration
 
-## 26.Variational Inference with Normalizing Flows (2016)
+## 39.Bayesian Optimization with Robust Bayesian Neural Networks
 
-## 27.Density Estimation using Real NVP (2017)
+## 40.Bayesian GAN
 
-## 28.Glow_Generative Flow with Invertible 1x1 Convolutions (2018)
+## 41.Learning And Policy Search in Stochastic Dynamical Systems with Bayesian Neural Networks
 
-## 29.What Uncertainties Do We Need in Bayesian Deep Learning(2017)
+## 42.Model Selection in Bayesian Neural Networks via Horseshoe Priors
 
-## 30.Uncertainty quantification using Bayesian neural networks in classification_Application to ischemic stroke lesion segmentation (2018)
-
-31.Uncertainty Estimations by Softplus normalization in Bayesian Convolutional Neural Networks with Variational Inference
-
-32.MADE_Masked Autoencoder for Distribution Estimation (2015)
-
-33.Functional Variational Bayesian Neural Networks
-
-33.Improved Variational Inference with Inverse Autoregressive Flow (2016)
-
-34.Function Space Particle Optimization For Bayesian Neural Networks
-
-34.Masked Autoregressive Flow for Density Estimation (2017)
-
-35.Gaussian Process Behaviour in Wide Deep Neural Networks
-
-36.Practical Learning of Deep Gaussian Processes via Random Fourier Features
-
-37.Mapping Gaussian Process Priors to Bayesian Neural Networks
-
-38.VIME ; Variational Information Maximizing Exploration
-
-39.Bayesian Optimization with Robust Bayesian Neural Networks
-
-40.Bayesian GAN
-
-41.Learning And Policy Search in Stochastic Dynamical Systems with Bayesian Neural Networks
-
-42.Model Selection in Bayesian Neural Networks via Horseshoe Priors
-
-43.Learning Structural Weight Uncertainty for Sequential Decision-Making
+## 43.Learning Structural Weight Uncertainty for Sequential Decision-Making
 
 44.Task Agnostic Continual Learning Using Online Variational Bayes
 
