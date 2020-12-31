@@ -16,6 +16,14 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+   - image_path: /assets/img/prml.jpg
+    alt: "placeholder image 2"
+    title: "PRML"
+    excerpt: 'Pattern Recognition & Machine Learning'
+    url: "categories/prml/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/ML.jpg  
     alt: "placeholder image 2"
     title: "Machine Learning"
