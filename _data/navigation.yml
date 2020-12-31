@@ -2,6 +2,8 @@
 main:
   - title: "BNN"
     url: /categories/bnn/    
+  - title: "PRML"
+    url: /categories/prml/    
   - title: "ML"
     url: /categories/ml/    
   - title: "CV"
