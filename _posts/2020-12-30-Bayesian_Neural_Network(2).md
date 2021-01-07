@@ -39,8 +39,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 <br>
 
-<br>
-
 ## 12. Representing Inferential Uncertainty in Deep Neural Networks through Sampling
 
 ### McClure, P., & Kriegeskorte, N. (2016)
@@ -60,8 +58,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 <br>
 
-<br>
-
 ## 13. Bayesian Uncertainty Estimation for Batch Normalized Deep Networks 
 
 ### Teye, M., Azizpour, H., & Smith, K. (2018)
@@ -76,29 +72,24 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 - BN
 
-  - training) use mini batch ( estimated mean \& var for each mini-batch )
-
-    evaluation) use all the training data
-
-  - train with mini-batch optimization... minimizing 
-
+  - training) use mini batch ( estimated mean & var for each mini-batch )
+- evaluation) use all the training data
+  
 - (1) Bayesian Modeling : VA (Variational Approximation)
 
   (2) DNN with Batch Normalization
 
-  $$\rightarrow$$ (1) = (2)
+  $$\rightarrow$$ result : (1) = (2)
 
 - predictive uncertainty in Batch Normalized Deep Nets!
 
 - network is trained just as a regular BN network!
 
-  ( but, instead of replacing $$w=\{\mu_B, \sigma_B\})$$ with population values from $D$,
+  ( but, instead of replacing $$w=\{\mu_B, \sigma_B\})$$ with population values from $$D$$,
 
   update these params stochastically! )
 
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]13.Bayesian Uncertainty Estimation for Batch Normalized Deep Networks (2018).pdf' | /assets/pdf/BNN/review/[review]13.Bayesian Uncertainty Estimation for Batch Normalized Deep Networks (2018).pdf }})
-
-<br>
 
 <br>
 
@@ -130,12 +121,9 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - Ensembles
 
   - Adversarial training
-
-    ( adversarial examples : close to the original training examples, but are misclassified by NN )
-
+( adversarial examples : close to the original train data, but misclassified by NN )
+  
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]14.Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles (2017).pdf' | /assets/pdf/BNN/review/[review]14.Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles (2017).pdf }})
-
-<br>
 
 <br>
 
@@ -158,7 +146,9 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 - with Gaussian Approximation $$Y \rightarrow S$$:
 
-  - faster(without actually sampling) + efficient(use all data)
+  - (1) faster ( without actually sampling )  
+
+    (2) efficient ( use all data )
 
   - ( $$m$$ : number of dimension , $$K$$ : number of samples)
 
@@ -167,8 +157,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
     with GA ) sample from $$S$$ .... $$O(K)$$ times 
 
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]15.Fast Dropout Training (2013).pdf' | /assets/pdf/BNN/review/[review]15.Fast Dropout Training (2013).pdf }})
-
-<br>
 
 <br>
 
@@ -186,7 +174,8 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 - LRT :
 
-  - translates uncertainty about global parameters into local noise ( which is independent across mini-batch )
+  - translates uncertainty about global parameters into local noise 
+    ( which is independent across mini-batch )
   - can be parallelized
   - has variance ( inversely proportional to the mini-batch size $$M$$ )
 
@@ -199,8 +188,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
     ( = generalization of Gaussian dropout )
 
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]16.Variational Dropout and Local Reparameterization Trick (2015).pdf' | /assets/pdf/BNN/review/[review]16.Variational Dropout and Local Reparameterization Trick (2015).pdf }})
-
-<br>
 
 <br>
 
@@ -234,8 +221,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 <br>
 
-<br>
-
 ## 18. Variational Dropout Sparsifies Deep Neural Networks
 
 ### Molchanov, D., Ashukha, A., & Vetrov, D. (2017)
@@ -255,8 +240,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
 - Instead of injecting noise...use "Sparsity"
 
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]18.Variational Dropout Sparsifies Deep Neural Networks (2017).pdf' | /assets/pdf/BNN/review/[review]18.Variational Dropout Sparsifies Deep Neural Networks (2017).pdf }})
-
-<br>
 
 <br>
 
@@ -287,8 +270,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
     ( can be solved with sparsity )
 
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]19.Relevance Vector Machine Explained (2010).pdf' | /assets/pdf/BNN/review/[review]19.Relevance Vector Machine Explained (2010).pdf }})
-
-<br>
 
 <br>
 
@@ -331,8 +312,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 <br>
 
-<br>
-
 ## 20. Uncertainty in Deep Learning (2)
 
 - review of Variational Inference
@@ -347,8 +326,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - 2) Sampling based techniques ( HMC, Langevin method , SGLD ...)
   - 3) Ensemble methods ( produce point estimate many times )
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]20-2.Uncertainty in Deep Learning (2016).pdf' | /assets/pdf/BNN/review/[review]20-2.Uncertainty in Deep Learning (2016).pdf }})
-
-<br>
 
 <br>
 

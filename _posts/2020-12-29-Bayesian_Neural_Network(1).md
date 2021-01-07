@@ -38,8 +38,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 <br>
 
-<br>
-
 ## 02. Bayesian Learning for Neural Network (1)
 
 ### Neal, R. M. (2012) 	
@@ -64,8 +62,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 <br>
 
-<br>
-
 ## 02. Bayesian Learning for Neural Network (2)
 
 - priors of weight? obscure in NN
@@ -74,8 +70,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - "converges to GP(Gaussian Process)"
 
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]2-2.Bayesian Learning For Neural Network(1995).pdf' | /assets/pdf/BNN/review/[review]2-2.Bayesian Learning For Neural Network(1995).pdf }})
-
-<br>
 
 <br>
 
@@ -90,8 +84,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - Metropolis acceptance step
 - HMC is the most promising MC method
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]2-3.Bayesian Learning For Neural Network(1995).pdf' | /assets/pdf/BNN/review/[review]2-3.Bayesian Learning For Neural Network(1995).pdf }})
-
-<br>
 
 <br>
 
@@ -128,8 +120,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 <br>
 
-<br>
-
 ## 04. Practical Variational Inference for Neural Networks
 
 ### Graves, A. (2011)
@@ -156,8 +146,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - cannot compute derivative of loss function(-ELBO) directly.... use MC integration
 
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]4.Practical Variational Inference for Neural Networks(2011).pdf' | /assets/pdf/BNN/review/[review]4.Practical Variational Inference for Neural Networks(2011).pdf }})
-
-<br>
 
 <br>
 
@@ -202,8 +190,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 <br>
 
-<br>
-
 ## 06. Weight Uncertainty in Neural Networks
 
 ### Barber, D., & Bishop, C. M. (1998)
@@ -231,8 +217,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 <br>
 
-<br>
-
 ## 07. Expectation Propagation for Approximate Bayesian Inference
 
 ### Minka, T. P. (2013)
@@ -253,8 +237,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
   - new interpretation) using an exact posterior with $$\tilde{t_i}$$ (=ratio of new \& old posterior )
 
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]7.Expecation Propagation for Approximate Bayesian Inference(2001).pdf' | /assets/pdf/BNN/review/[review]7.Expecation Propagation for Approximate Bayesian Inference(2001).pdf }})
-
-<br>
 
 <br>
 
@@ -300,8 +282,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 <br>
 
-<br>
-
 ## 09. Priors For Infinite Networks 
 
 ### Neal, R. M. (1994)
@@ -313,8 +293,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
 - infinite network = non-parametric model
 - Priors over functions reach reasonable limits, as the number of hidden units in the network goes infinity!
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]9.Priors For Infinite Networks (1994).pdf' | /assets/pdf/BNN/review/[review]9.Priors For Infinite Networks (1994).pdf }})
-
-<br>
 
 <br>
 
@@ -336,7 +314,6 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
     $$\rightarrow$$ the covariance function of GP can be calculated analytically!
 
-- review note 수정 요함
 - summary : [Download]({{ '/assets/pdf/BNN/review/[review]10.Computing with Infinite Networks (1997).pdf' | /assets/pdf/BNN/review/[review]10.Computing with Infinite Networks (1997).pdf }})
 
 
