@@ -1,5 +1,5 @@
 ---
-title: (Pytorch) Dropout as a Bayesian Approximation ; Representing Model Uncertainty in Deep Learning
+title: (Pytorch) Dropout as a Bayesian Approximation : Representing Model Uncertainty in Deep Learning (2016)
 categories: [BNN]
 tags: [Bayesian Machine Learning, Bayesian Deep Learning, Probabilistic Deep Learning, Uncertainty Estimation, Variational Inference]
 excerpt: Dropout as a Bayesian Approximation
@@ -10,6 +10,8 @@ excerpt: Dropout as a Bayesian Approximation
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 ( 참고 : https://github.com/cpark321/uncertainty-deep-learning/ )
+
+
 
 # 1. Import Packages
 
