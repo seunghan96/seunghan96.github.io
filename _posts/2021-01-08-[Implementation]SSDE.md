@@ -1,9 +1,11 @@
 ---
-title: [Implementation] Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles 
+title: (Pytorch) Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles 
 categories: [BNN]
 tags: [Bayesian Machine Learning, Bayesian Deep Learning, Probabilistic Deep Learning, Uncertainty Estimation, Variational Inference]
 excerpt: Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles 
 ---
+
+
 
 # Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles (DeepMind, NIPS 2017)
 
