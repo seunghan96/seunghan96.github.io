@@ -1,11 +1,13 @@
 ---
-title: (Pytorch) Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles 
+title: (Pytorch) Dropout as a Bayesian Approximation : Representing Model Uncertainty in Deep Learning
 categories: [BNN]
 tags: [Bayesian Machine Learning, Bayesian Deep Learning, Probabilistic Deep Learning, Uncertainty Estimation, Variational Inference]
 excerpt: Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles 
 ---
 
-# Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles (DeepMind, NIPS 2017)
+
+
+# Dropout as a Bayesian Approximation : Representing Model Uncertainty in Deep Learning (2016)
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
