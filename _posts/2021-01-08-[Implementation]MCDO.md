@@ -215,6 +215,8 @@ plt.show()
 
 를 구한뒤, 시각적으로 uncertainty를 확인해본다.
 
+![figure2](/assets/img/BNN_code/2-5.png)
+
 ```python
 def uncertainity_estimate(x, model, num_samples, l2):
     scaled_outputs = np.hstack([model(x).cpu().detach().numpy() for _ in range(num_samples)]) 
