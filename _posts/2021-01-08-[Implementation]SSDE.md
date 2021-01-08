@@ -167,7 +167,7 @@ class SSDE(nn.Module):
 
 차원 설정
 
-```
+```python
 input_dim = 1
 inter_dim = 30
 output_dim = 1
@@ -177,7 +177,7 @@ output_dim = 1
 
 epoch 수 설정 & train/test split
 
-```
+```python
 n_epoch=1000
 val_idx = np.random.choice(n, int(n*0.2),replace=False)
 train_idx = np.array(list(set(np.arange(n))-set(val_idx)))
@@ -189,7 +189,7 @@ y_train,y_val = Y_noise[train_idx],Y_noise[val_idx]
 
 `train` 함수
 
-```
+```python
 def train(n_epoch,opt,x_train,y_train,x_val,y_val):
   for epoch in range(1,n_epoch+1):
     mu_pred,sigma_pred = model(x_train)
@@ -205,6 +205,12 @@ def train(n_epoch,opt,x_train,y_train,x_val,y_val):
       print('Epoch %d, Train Loss %f, Val Loss %f' %(epoch,float(train_loss),float(val_loss)))
 ```
 
+<br>
+
+모델을 학습시킨다
+
+- optimizer : Adam
+
 ![figure2](/assets/img/BNN_code/1-3.png)
 
 <br>
@@ -213,7 +219,7 @@ def train(n_epoch,opt,x_train,y_train,x_val,y_val):
 
 총 1000개의 (mu,sigma) pair 완성
 
-```
+```python
 mu_result,sigma_result = model(X)
 ```
 
@@ -221,7 +227,7 @@ mu_result,sigma_result = model(X)
 
 Visualization
 
-```
+```python
 plt.figure(1, figsize=(15, 9))
 plt.plot([i[0] for i in X], [i for i in Y_noise], 'b', linewidth=0.1)
 plt.plot([i[0] for i in X], [i for i in mu_result], 'b', linewidth=3)
@@ -232,7 +238,7 @@ plt.plot([i[0] for i in X], [i for i in lower], 'r', linewidth = 3)
 plt.show()
 ```
 
-![figure2](/assets/img/BNN_code/1-3.png)
+![figure2](/assets/img/BNN_code/1-4.png)
 
 
 
