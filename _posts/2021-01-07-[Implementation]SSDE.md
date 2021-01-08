@@ -30,7 +30,7 @@ import torch.optim as optim
 (1) 임의의 가상 dataset을 만든다 ( n =10000 )
 
 - Y_real : $$f(x)$$
-- Y_noise : $$f(x)$$ + $$\epsilon$$, where $$\epsilon \sim N(0,1)$$
+- Y_noise : $$f(x)$$ + $$\epsilon$$, where $$\epsilon \sim N(0,1.5^2)$$
 
 ```python
 def func(x):
