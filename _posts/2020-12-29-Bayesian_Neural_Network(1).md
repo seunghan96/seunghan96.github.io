@@ -153,7 +153,7 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 ## 05. Ensemble Learning in Bayesian Neural Networks
 
-### Barber, D., & Bishop, C. M. (1998)
+### Charles Blundell, et.al ( 2015 )
 
 ( download paper here :  [Download]({{ '/assets/pdf/BNN/paper/05.Ensemble Learning in Bayesian Neural Networks.pdf' | /assets/pdf/BNN/paper/05.Ensemble Learning in Bayesian Neural Networks.pdf }}) )
 
