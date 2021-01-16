@@ -11,7 +11,7 @@ feature_row2:
   - image_path: /assets/img/BNN.png
     alt: "placeholder image 2"
     title: "Bayesian NN"
-    excerpt: 'Paper review about BNN/Probabilistic DL'
+    excerpt: 'Paper review about BNN / VI / Probabilistic DL'
     url: "categories/bnn/"
     btn_label: "Read More"
     btn_class: "btn--primary"
