@@ -5,7 +5,7 @@ permalink: /
 header:
   overlay_filter: "0.2"
   overlay_image: /assets/img/main.jpg
-excerpt: "Statistical Approach to ML/DL <br> ( Field of interest : Bayesian Neural Network, Variational Inference )"
+excerpt: "Statistical Approach to ML/DL <br> ( Field of interest : Bayesian NN, Variational Inference )"
 
 feature_row2:
   - image_path: /assets/img/BNN.png
