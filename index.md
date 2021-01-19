@@ -5,13 +5,13 @@ permalink: /
 header:
   overlay_filter: "0.2"
   overlay_image: /assets/img/main.jpg
-excerpt: "Statistical Approach to ML/DL <br> ( Field of interest : Bayesian Neural Network )"
+excerpt: "Statistical Approach to ML/DL <br> ( Field of interest : Bayesian NN, Variational Inference )"
 
 feature_row2:
   - image_path: /assets/img/BNN.png
     alt: "placeholder image 2"
     title: "Bayesian NN"
-    excerpt: 'Paper review about BNN/Probabilistic DL'
+    excerpt: 'Paper review about BNN / VI / Probabilistic DL'
     url: "categories/bnn/"
     btn_label: "Read More"
     btn_class: "btn--primary"
