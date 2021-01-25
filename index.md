@@ -10,7 +10,7 @@ excerpt: "Statistical Approach to ML/DL <br> ( Field of interest : Bayesian NN, 
 feature_row2:
   - image_path: /assets/img/BNN.png
     alt: "placeholder image 2"
-    title: "BNN, Variational Inference"
+    title: "Bayesian NN & Variational Inference"
     excerpt: 'Paper review about BNN / VI / Probabilistic DL'
     url: "categories/bnn/"
     btn_label: "Read More"
