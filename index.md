@@ -63,6 +63,14 @@ feature_row2:
     url: "categories/rl/"
     btn_label: "Read More"
     btn_class: "btn--primary"
+  
+  - image_path: /assets/img/RS.jpg
+    alt: "placeholder image 2"
+    title: "Recommender System"
+    excerpt: # 'RecSys using ML/DL'
+    url: "categories/rs/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
 
   - image_path: /assets/img/NE.jpg
     alt: "placeholder image 2"
