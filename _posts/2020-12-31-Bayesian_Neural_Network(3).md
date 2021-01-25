@@ -1,11 +1,11 @@
 ---
-title: Summary of Bayesian DL papers (21~30)
+title: (PAPER REVIEW) VI/BNN/NF paper 21~30
 categories: [BNN]
-tags: [Bayesian Machine Learning, Bayesian Deep Learning, Probabilistic Deep Learning, Uncertainty Estimation, Variational Inference]
-excerpt: Bayesian ML/DL, Probabilistic DL, Uncertainty Estimation
+tags: [Variational Inference, Bayesian Neural Network, Normalizing Flows]
+excerpt: Variational Inference, Bayesian Neural Network, Normalizing Flows
 ---
 
-# Summary of Bayesian DL papers [21~30]
+# [Paper Review] VI/BNN/NF paper 21~30
 
 I have summarized the **must read + advanced papers** of papers regarding....
 
@@ -15,7 +15,7 @@ I have summarized the **must read + advanced papers** of papers regarding....
 
 - Probabilistic Deep Learning
 
-- Uncertainty Estimation
+- Normalizing Flows
 
   
 
