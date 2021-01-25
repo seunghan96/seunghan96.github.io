@@ -13,7 +13,9 @@ main:
   - title: "GAN"
     url: /categories/gan/      
   - title: "RL"
-    url: /categories/rl/      
+    url: /categories/rl/   
+  - title: "RS"
+    url: /categories/rs/   
   - title: "NE"
     url: /categories/ne/     
   - title: "STAT"
