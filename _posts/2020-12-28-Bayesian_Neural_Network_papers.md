@@ -1,11 +1,11 @@
 ---
-title: Bayesian DL papers
+title: Paper list of VI,BNN,NF
 categories: [BNN]
-tags: [Bayesian Machine Learning, Bayesian Deep Learning, Probabilistic Deep Learning, Uncertainty Estimation]
-excerpt: Bayesian ML/DL, Probabilistic DL, Uncertainty Estimation
+tags: [Variational Inference, Bayesian Neural Network, Normalizing Flows]
+excerpt: Variational Inference, Bayesian Neural Network, Normalizing Flows
 ---
 
-# [Must Read] Bayesian DL papers
+# Paper list of VI,BNN,etc...
 
 01.A Practical Bayesian Framework for Backpropagation Networks
 
@@ -26,6 +26,8 @@ excerpt: Bayesian ML/DL, Probabilistic DL, Uncertainty Estimation
 09.Priors For Infinte Networks (1994)
 
 10.Comuting with Infinite Networks (1997)
+
+<br>
 
 11.Deep Neural Networks as Gaussian Processes
 
@@ -49,6 +51,8 @@ excerpt: Bayesian ML/DL, Probabilistic DL, Uncertainty Estimation
 
 20.Uncertainty in Deep Learning (2016)
 
+<br>
+
 21.Variational Inference using Implicit Distributions (2017)
 
 22.Semi-Implicit Variational Inference (2018)
@@ -69,86 +73,74 @@ excerpt: Bayesian ML/DL, Probabilistic DL, Uncertainty Estimation
 
 30.Uncertainty quantification using Bayesian neural networks in classification_Application to ischemic stroke lesion segmentation (2018)
 
+<br>
+
 31.Uncertainty Estimations by Softplus normalization in Bayesian Convolutional Neural Networks with Variational Inference
 
 32.MADE_Masked Autoencoder for Distribution Estimation (2015)
 
-33.Functional Variational Bayesian Neural Networks
-
 33.Improved Variational Inference with Inverse Autoregressive Flow (2016)
-
-34.Function Space Particle Optimization For Bayesian Neural Networks
 
 34.Masked Autoregressive Flow for Density Estimation (2017)
 
-35.Gaussian Process Behaviour in Wide Deep Neural Networks
+( paper 35 ~ 47 : Basics of Variational Inference )
 
-36.Practical Learning of Deep Gaussian Processes via Random Fourier Features
+35.Nonparametric Variational Inference(2012)
 
-37.Mapping Gaussian Process Priors to Bayesian Neural Networks
+36.Variational Bayesian Inference with Stochastic Search(2012)
 
-38.VIME ; Variational Information Maximizing Exploration
+37.Black Box Variational Inference(2013)
 
-39.Bayesian Optimization with Robust Bayesian Neural Networks
+38.Variational Inference in Nonconjugate Models(2013)
 
-40.Bayesian GAN
+39.Auto-Encoding Variational Bayes(2014)
 
-41.Learning And Policy Search in Stochastic Dynamical Systems with Bayesian Neural Networks
+40.Doubly Stochastic Variational Bayes for non-Conjugate Inference(2014)
 
-42.Model Selection in Bayesian Neural Networks via Horseshoe Priors
+<br>
 
-43.Learning Structural Weight Uncertainty for Sequential Decision-Making
+41.Neural Variational Inference and Learning in Belief Networks (2014)
 
-44.Task Agnostic Continual Learning Using Online Variational Bayes
+42.Smoothed Gradients for Stochastic Variational Inference (2014)
 
-45.Variational Continual Learning
+43.Structured Stochastic Variational Inference (2014)
 
-46.A Scalable Laplace Approximation for Neural Networks
+44.Stochastic Backpropagation and Approximate Inference in Deep Generative Models(2014)
 
-47.Online Structured Laplace Approximations For Overcoming Catastrophic Forgetting
+45.Copula variational inference(2015)
 
-48.Loss-Calibrated Approximate Inference in Bayesian Neural Networks
+46.Hierarchical Variational Models(2015)
 
-49.Dropout Inference in Bayesian Neural Networks with Alpha-divergences
+47.Markov Chain Monte Carlo and Variational Inference ; Briding the Gap
 
-50.Noisy Natural Gradient as Variational Inference
+48.A Stochastic Decoder for Neural Machine Translation (2018)
 
-51.Bayesian Dark Knowledge
+49.Gaussian Processes for Big Data (2013)
 
-52.Variational Implicit Processes
+50.Adversarial Autoencoders (2016)
 
-53.Learning Structured Weight Uncertainty in Bayesian Neural Networks
+<br>
 
-54.Multiplicative Normalizing Flows for Variational Bayesian Neural Networks
+51.Practical Deep Learning with Bayesian Principles (2019)
 
-55.Kernel Implicit Variational Inference
+52.Autoencoding Variational Inference for Topic Models (2017)
 
-56.Bayesian Hypernetworks
+53.Topic Modeling in Embedding Spaces (2019)
 
-57.Fast and Scalable Bayesian Deep Learning by Weight-Perturbation in Adam
+54.Neural Variational Inference for Text Processing (2016)
 
-58.Adversarial Distillation of Bayesian Neural Network Posteriors
+55.A Comprehensive guide to Bayesian Convolutional Neural Network with Variational Inference (2019)
 
-59.SLANG_Fast Structured Covariance Approximations for Bayesian Deep Learing with Natural Gradient
+56.A Theoretically Grounded Application of Dropout in Recurrent Neural Networks (2016)
 
-60.Sparse Bayesisan Learning and the Relevance Vector Machine (2001)
+57.Variational Inference ; A Review for Statisticians
 
-61.Uncertainty Decomposition in Bayesian Neural Networks with Latent Variables
+58.Advances in Variational Inference
 
-62.Dropout as a Bayesian Approximation_Representing Model Uncertainty in Deep Learning
+59.f-VAEs ; Improve VAEs with Conditional Flows
 
-63.Bayesian Compression for Deep Learning
+60.Normalizing Flows ; An Introduction and Review of Current Methods (2020)
 
-64.Structured Variational Learning of Bayesian Neural Networks with Horseshoe Priors
+<br>
 
-65.Noise Contrastive Priors for Functional Uncertainty
-
-66.Variance Networks ; When Expectation Does Not Meet Your Expectations
-
-67.Sylvester Normalizing Flows for Variational Inference (2019)
-
-68.The Description Length of Deep Learning Models
-
-69.Deterministic Variational Inference For Robust Bayesian Neural Networks
-
-70.Understanding Priors in Bayesian Neural Networks at the Unit Level
+61.Normalizing Flows for Probabilistic Modeling and Inference (2019)
