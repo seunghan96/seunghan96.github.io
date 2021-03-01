@@ -19,7 +19,9 @@ main:
   - title: "NE"
     url: /categories/ne/     
   - title: "STAT"
-    url: /categories/st/     
+    url: /categories/st/
+  - title: "DE"
+    url: /categories/de/
   - title: "ETC"
     url: /categories/etc/    
   - title: "about me"
