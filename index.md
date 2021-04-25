@@ -109,7 +109,7 @@ feature_row:
   - image_path: /assets/img/SeunghanLee2.jpg
     alt: "placeholder image 2"
     title: "Seunghan Lee"
-    excerpt: 'DataScience Lab 1기 회장 <br> (학부) 연세대 경영/응용통계 <br> (석박통합) 연세대 통계데이터사이언스 대학원 <br> <br> T. 010-8768-8472 <br> E. seunghan9612@gmail.com'
+    excerpt: 'DataScience Lab 1기 회장 <br> (학부) 연세대 경영/응용통계 <br> (석박통합) 연세대 통계데이터사이언스 대학원 <br> <br> T. 010-8768-8472 <br> E. seunghan96@naver.com'
     url: "https://github.com/seunghan96"
     btn_label: "Read More"
     btn_class: "btn--primary"
