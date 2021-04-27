@@ -35,7 +35,7 @@ feature_row2:
   - image_path: /assets/img/STUDY.jpg  
     alt: "placeholder image 2"
     title: "Paper Reading Study"
-    excerpt: # 'Meta Learning, Continual Learning, Intepretable DL'
+    excerpt: 'Meta Learning, Continual Learning, Intepretable DL'
     url: "categories/study/"
     btn_label: "Read More"
     btn_class: "btn--primary"
