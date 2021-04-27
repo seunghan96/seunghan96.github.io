@@ -5,7 +5,9 @@ main:
   - title: "PRML"
     url: /categories/prml/    
   - title: "ML"
-    url: /categories/ml/    
+    url: /categories/ml/   
+  - title: "Study"
+    url: /categories/study/
   - title: "CV"
     url: /categories/cv/    
   - title: "NLP"
