@@ -1,5 +1,5 @@
 ---
-title: (paper) Multimodal Learning (1) Multimodal Representations
+title: \[multimodal\] Multimodal Learning (1) Multimodal Representations
 categories: [STUDY]
 tags: [Multimodal Deep Learning]
 excerpt: Multimodal Learning, Multimodal Representations

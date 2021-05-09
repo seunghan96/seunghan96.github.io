@@ -1,17 +1,17 @@
 ---
-title: Multimodal Deep Learning
+title: \[multimodal\] Multimodal Learning 소개
 categories: [STUDY]
 tags: [Multimodal Deep Learning]
 excerpt: Multimodal Deep Learning에 대한 소개글
 ---
 
-# Multimodal Deep Learning
+# Multimodal Learning 소개
 
 ( 참고 : http://dmqm.korea.ac.kr/activity/seminar/272 )
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-**Multimodal Deep Learning에 대해 간단히 소개하는 글**
+**Multimodal (Deep) Learning에 대해 간단히 소개하는 글**
 
 <br>
 

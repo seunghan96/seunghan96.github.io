@@ -1,5 +1,5 @@
 ---
-title: (paper) Multimodal Learning (3) Alignment, (4) Fusion
+title: \[multimodal\] Multimodal Learning (3) Alignment, (4) Fusion
 categories: [STUDY]
 tags: [Multimodal Deep Learning]
 excerpt: Multimodal Learning, Multimodal Representations
