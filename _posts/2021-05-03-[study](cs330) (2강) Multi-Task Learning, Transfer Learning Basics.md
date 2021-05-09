@@ -317,13 +317,13 @@ Negative Transfer가 발생하는 이유?
 
 ## (3) Ranking Problem
 
-#### Input :
+**Input** :
 
 ![figure2](/assets/img/study/img36.png)
 
 <br>
 
-#### Output : 
+**Output :**
 
 - **1) engagement** and **2) satisfaction** with candidate video
 

@@ -48,7 +48,7 @@ excerpt: Meta Learning에 대한 소개글
 
   - 모든 task ( 기존+신규 task )의 분포 상 최고의 성능을 내도록 최적화
 
-    $$\theta^{*}=\arg \min _{\theta} \mathbb{E}_{\mathcal{D} \sim p(\mathcal{D})}\left[\mathcal{L}_{\theta}(\mathcal{D})\right]$$
+    $$\theta^{*}=\arg \min _{\theta} \mathbb{E}_{\mathcal{D} \sim p(\mathcal{D})}\left[\mathcal{L}_{\theta}(\mathcal{D})\right]$$.
 
 
 <br>
@@ -84,8 +84,10 @@ Tasks example)
 ### K-shot N-class classification
 
 - meta learning (X) : $$\theta^{*}=\arg \max _{\theta} \mathbb{E}_{B \subset \mathcal{D}}\left[\sum_{(\mathbf{x}, y) \in B} P_{\theta}(y \mid \mathbf{x})\right]$$
+
 - meta learning (O) : $$\theta=\arg \max _{\theta} E_{L \subset \mathcal{L}}\left[E_{S^{L} \subset \mathcal{D}, B^{L} \subset \mathcal{D}}\left[\sum_{(x, y) \in B^{L}} P_{\theta}\left(x, y, S^{L}\right)\right]\right]$$
-  - 한 줄 요약 : Support set을 추가로 사용하여, unknown label에 대해서도 잘 예측하게끔 하기!
+
+  한 줄 요약 : Support set을 추가로 사용하여, unknown label에 대해서도 잘 예측하게!
 
 <br>
 
@@ -132,7 +134,7 @@ $$\begin{array}{llll}
 
 KDE (Kernel Density Estimation)과 그 개념이 유사하다. 꽤 직관적이다!
 
-$y$의 predictied probability = support set sample들의 label의 weighted sum
+$$y$$의 predictied probability = support set sample들의 label의 weighted sum
 
 - weight : 두 sample간의 similarity
 - $$P_{\theta}(y \mid \mathbf{x}, S)=\sum_{\left(\mathbf{x}_{i}, y_{i}\right) \in S} k_{\theta}\left(\mathbf{x}, \mathbf{x}_{i}\right) y_{i}$$.
@@ -196,7 +198,7 @@ Example
 ### Prototypical Networks
 
 - 프로토타입(prototype) : Class 별 Support set의 평균 위치
-  - $$\mathbf{v}_{c}=\frac{1}{\left|S_{c}\right|} \sum_{\left(\mathbf{x}_{i}, y_{i}\right) \in S_{c}} f_{\theta}\left(\mathbf{x}_{i}\right)$$.
+  - $$\mathbf{v}_{c}=\frac{1}{\mid S_{c} \mid} \sum_{\left(\mathbf{x}_{i}, y_{i}\right) \in S_{c}} f_{\theta}\left(\mathbf{x}_{i}\right)$$.
 - ex) 5-way 5-shot task :
   - 5개 class를 대표하는 Prototype vector & Query vector사이의 거리만 계산
 - Query 예측에 필요한 계산량 : N*K $$\rightarrow$$ N

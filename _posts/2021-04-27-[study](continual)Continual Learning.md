@@ -118,13 +118,13 @@ Continual Learning에는 다음과 같은 3가지의 접근 방법이 있다.
   - $$\begin{aligned}
     \log p(\theta \mid D) &=\log p(D \mid \theta)+\log p(\theta)-\log p(D) \\
     &=\log p\left(D_{B} \mid \theta\right)+\log p\left(\theta \mid D_{A}\right)-\log p\left(D_{B}\right)
-    \end{aligned}$$
+    \end{aligned}$$.
 
 - true posterior는 intractable하기 때문에, Laplace Approximation을 사용하여 Gaussian으로 근사한다. ( mean params :  $$\theta_{A}^{*}$$ )
 
 - 아래 식과 같이 Fisher Information matrix가 붙은 penalty term을 loss function에 넣어서 regularize한다.
 
-$$\mathcal{L}(\theta)=\mathcal{L}_{B}(\theta)+\sum_{i} \frac{\lambda}{2} F_{i}\left(\theta_{i}-\theta_{A, i}^{*}\right)^{2}$$
+  - $$\mathcal{L}(\theta)=\mathcal{L}_{B}(\theta)+\sum_{i} \frac{\lambda}{2} F_{i}\left(\theta_{i}-\theta_{A, i}^{*}\right)^{2}$$.
 
 <br>
 
