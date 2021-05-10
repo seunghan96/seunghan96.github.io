@@ -8,4 +8,6 @@ excerpt: Business Analytics and Data Mining 프로젝트
 
 # [Project] 정기 예금 가입 유도 전략
 
-<iframe src="https://yonsei-my.sharepoint.com/personal/seunghan96_o365_yonsei_ac_kr/_layouts/15/Doc.aspx?sourcedoc={9f3fe52b-6951-44f5-a5d4-ef78428e7177}&amp;action=embedview&amp;wdAr=1.7777777777777777" width="1186px" height="691px" frameborder="0">포함된 <a target="_blank" href="https://office.com">Microsoft Office</a> 프레젠테이션, 제공: <a target="_blank" href="https://office.com/webapps">Office</a></iframe>
+Business Analytics and Data Mining 수업에서 진행한 프로젝트 발표자료 ( 2019/11/21 )
+
+<embed src="/assets/pdf/191121_FinalProject_PPT.pdf" type="application/pdf" />
