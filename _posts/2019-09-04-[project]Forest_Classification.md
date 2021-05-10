@@ -1,6 +1,6 @@
 ---
 title: (프로젝트) Forest Classification
-categories: [ML,Others,발표자료]
+categories: [ML,Others,PPT]
 tags: [Machine Learning, XGBoost]
 excerpt: Data Science Lab 프로젝트
 ---
