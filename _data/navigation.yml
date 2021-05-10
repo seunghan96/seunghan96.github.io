@@ -24,6 +24,8 @@ main:
     url: /categories/st/
   - title: "DE"
     url: /categories/de/
+  - title: "PPT"
+    url: /categories/ppt/
   - title: "ETC"
     url: /categories/etc/    
   - title: "about me"
