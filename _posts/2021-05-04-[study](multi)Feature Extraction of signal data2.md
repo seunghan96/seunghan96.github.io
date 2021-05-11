@@ -1,5 +1,5 @@
 ---
-title: \[multimodal\] Feature Extraction of signal data - (2) MFCC
+title: \[multimodal\] FE of signal data - (2) MFCC
 categories: [STUDY]
 tags: [Multimodal Learning]
 excerpt: Signal Data, Fourier Transform, MFCC
@@ -7,7 +7,7 @@ excerpt: Signal Data, Fourier Transform, MFCC
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-# Feature Extraction of signal data
+# [ Feature Extraction of signal data ]
 
 Signal data에서 feature를 뽑아내는 대표적인 2가지 방법은 아래와 같다.
 
@@ -26,17 +26,20 @@ MFCC ?
 - 음성 인식 시스템에서 자주 사용되는 feature
 - NN기반 feature extraction 방법과 달리, "공식"에 기반한 방법
 
-
+<br>
 
 # 2. Mel-Frequency Cepstral Coefficients (MFCC)
 
 - Step1 ) 입력 signal을 짧은 구간으로 나눔 ( called **"frame"** )
+  <br>
 - Step2 )**각 frame에 Fourier Transform** 실시
   - Fourier Transform : "time" $$\rightarrow$$ "frequency"
   - 모든 frame에 Fourier Transform을 한 것을 **"Spectrum"**이라고 부름
-
+  <br>
+  
 - Step 3) **Spectrum**에 Mel Filter Bank 필터 적용 ( called **"Mel Spectrum"** )
   - Mel Filter Bank : 사람의 말 소리 인식에 민감한 frequency는 세밀하게, 그렇지 않은 부분은 덜 촘촘히 분석하는 필터
+    <br>
 - Step 4) **MFCC** 생성
   - **MFCC** : log(Mel Spectrum)에 Inverse Fourier Transform한 것
     - 다시 time 도메인으로 컴백!
@@ -45,7 +48,7 @@ MFCC ?
 
 <br>
 
-<img src= "https://i.imgur.com/Pn5LGTk.png" width="550" />.
+<img src= "https://i.imgur.com/Pn5LGTk.png" width="550" />
 
 <br>
 
@@ -90,7 +93,6 @@ $$\rightarrow$$ 정확히 파악하기 어려울 수도!
 위에서 말한 것 처럼, signal을 매우 작은 시간 단위로 framing한다. 이렇게 해서 생긴 여러 frame들에 어떠한 함수를 적용할 때, smoothing하는 방법이다.
 
 **ex) Hamming Window**
-
 <br>
 
 ### Hamming Window
@@ -101,6 +103,7 @@ $$w[n]=0.54-0.46 \cos \left(\frac{2 \pi n}{N-1}\right)$$.
   - $$0.54-0.46(-1)=1$$ 이므로
 - frame 양 끝의 값들 : 작은 값이 곱해짐
   - $$0.54-0.46(1)=0.12$$ 이므로
+    <br>
 
 <img src= "https://i.imgur.com/tHPxKTg.png" width="450" />.
 
@@ -129,7 +132,7 @@ MFCCs를 생성한 이후, 성능 향상 위해 Lift 혹은 Mean Normalization�
 
 ## (2) Power Spectrum
 
-공식 : $$\text { Power }=\frac{|X[k]|^{2}}{N}$$
+공식 : $$\text { Power }=\frac{\mid X[k]\mid^{2}}{N}$$
 
 <br>
 
@@ -137,7 +140,9 @@ MFCCs를 생성한 이후, 성능 향상 위해 Lift 혹은 Mean Normalization�
 
 사람의 목소리 인식은 LOW frequency 영역대가 HIGH frequency 영역대보다 민감하다.
 
-따라서, LOW frequency 영역대를 보다 자세히 볼 필요가 있다. 그러기 위해 사용하는 것이 **"Filter Banks"**
+따라서, LOW frequency 영역대를 보다 자세히 볼 필요가 있다. 
+
+그러기 위해 사용하는 것이 **"Filter Banks"**
 
 여기서 사용하는 필터는 **Mel Scale(멜 스케일)**
 
