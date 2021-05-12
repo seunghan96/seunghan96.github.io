@@ -63,7 +63,7 @@ ex) **속도**를 "시간"과 "거리"의 관점에서 바라봄
 - 3) 적분 (Integration) : 리만 적분
 - 4) 직교성 (Orthogonality) : 벡터의 내적이 아니라, "함수의 내적"!
 
-$\rightarrow$ "시간의 영역"에 있는 데이터를 "주파수의 영역"에 있는 영역으로 어떻게 옮길 수 있는지?
+$$\rightarrow$$ "시간의 영역"에 있는 데이터를 "주파수의 영역"에 있는 영역으로 어떻게 옮길 수 있는지?
 
 <br>
 
@@ -71,7 +71,7 @@ $\rightarrow$ "시간의 영역"에 있는 데이터를 "주파수의 영역"에
 
 아래의 식은 Foureir Seires(푸리에 급수)이다. 
 
-$\hat{f}(x)=\frac{a_{0}}{2}+\sum_{n=1}^{\infty} a_{n} \cos \left(\frac{2 \pi n x}{T}\right)+\sum_{n=1}^{\infty} b_{n} \sin \left(\frac{2 \pi n x}{T}\right)$
+$$\hat{f}(x)=\frac{a_{0}}{2}+\sum_{n=1}^{\infty} a_{n} \cos \left(\frac{2 \pi n x}{T}\right)+\sum_{n=1}^{\infty} b_{n} \sin \left(\frac{2 \pi n x}{T}\right)$$
 
 <br>
 
@@ -81,9 +81,9 @@ $\hat{f}(x)=\frac{a_{0}}{2}+\sum_{n=1}^{\infty} a_{n} \cos \left(\frac{2 \pi n x
 
 - **[Point 2]** 직류 & 교류
 
-  - 직류(DC)를 나타내는 term : $\frac{a_{0}}{2}$ 
+  - 직류(DC)를 나타내는 term : $$\frac{a_{0}}{2}$$ 
     - 주기성 함수를 위/아래로 옮기는 상수
-  - 교류(AC)를 나타내는 term : $\sum_{n=1}^{\infty} a_{n} \cos \left(\frac{2 \pi n x}{T}\right)+\sum_{n=1}^{\infty} b_{n} \sin \left(\frac{2 \pi n x}{T}\right)$  (반복을 하는 주기성을 가짐)
+  - 교류(AC)를 나타내는 term : $$\sum_{n=1}^{\infty} a_{n} \cos \left(\frac{2 \pi n x}{T}\right)+\sum_{n=1}^{\infty} b_{n} \sin \left(\frac{2 \pi n x}{T}\right)$$  (반복을 하는 주기성을 가짐)
     - 주기는 sin & cos를 섞어서(혹은 하나만 사용하여) 나타낼 수 있다!
 
   <img src= "https://s3-ap-northeast-2.amazonaws.com/opentutorials-user-file/module/4391/11599.png" width="450" />.
@@ -98,7 +98,7 @@ $\hat{f}(x)=\frac{a_{0}}{2}+\sum_{n=1}^{\infty} a_{n} \cos \left(\frac{2 \pi n x
 
 아래는 식은 Euler Formula (오일러 공식)이다.
 
-$e^{+i \omega t}=\cos (\omega t)+i \sin (\omega t)$
+$$e^{+i \omega t}=\cos (\omega t)+i \sin (\omega t)$$
 
 위 식이 담고 있는 의미를 알아보자.
 
@@ -110,42 +110,42 @@ $e^{+i \omega t}=\cos (\omega t)+i \sin (\omega t)$
 
   - Sine 함수
 
-    - 기본 sine 함수 ) $f(t)=1 * \sin (2 \pi * t)$
+    - 기본 sine 함수 ) $$f(t)=1 * \sin (2 \pi * t)$$
 
     - 위의 그림처럼 해주기 위해서는....
 
-      ( 위상 + )  $f(t)=1 * \sin (2 \pi *(t+\varphi))$
+      ( 위상 + )  $$f(t)=1 * \sin (2 \pi *(t+\varphi))$$
 
-      ( 왼쪽으로 움직임 , where $\varphi>0$ )
+      ( 왼쪽으로 움직임 , where $$\varphi>0$$ )
 
   - Cosine 함수
 
-    - 기본 coinse 함수 ) $f(t)=1 * \cos (2 \pi *t)$
+    - 기본 coinse 함수 ) $$f(t)=1 * \cos (2 \pi *t)$$
 
     - 위의 그림처럼 해주기 위해서는....
 
-      ( 위상 \- ) $f(t)=1 * \cos (2 \pi *(t-\varphi>0))$
+      ( 위상 \- ) $$f(t)=1 * \cos (2 \pi *(t-\varphi>0))$$
 
-      ( 오른쪽으로 움직임, where $\varphi>0$ )
+      ( 오른쪽으로 움직임, where $$\varphi>0$$ )
 
   - 위상을 사용하지 않아도 되는 방법?
 
     (1) cosine & sine을 섞어서 사용하기
 
-    - $f(t)=\frac{\sqrt{2}}{2} \sin (2 \pi * t)+\frac{\sqrt{2}}{2} \cos (2 \pi * t)$.
+    - $$f(t)=\frac{\sqrt{2}}{2} \sin (2 \pi * t)+\frac{\sqrt{2}}{2} \cos (2 \pi * t)$$.
 
     (2) Euler 함수 사용하기
 
-    - $f(t)=1 * e^{i 2 \pi *(t-0.125)}$.
+    - $$f(t)=1 * e^{i 2 \pi *(t-0.125)}$$.
     - 물리적으로 의미가 있는 부분을 가져오기 위해서는 "실수"부분을 가져오면 된다!
       
 
 - **[Point 3]** 따라서, 아래의 오일러 함수로 어떠한 주기성 함수도 표현할 수 있다
 
-  - $f(t)=A * e^{i 2 \pi f *(t-\varphi)}$.
-    - $A$ : 진폭
-    - $f$ : 주파수
-    - $\varphi$ : 위상
+  - $$f(t)=A * e^{i 2 \pi f *(t-\varphi)}$$.
+    - $$A$$ : 진폭
+    - $$f$$ : 주파수
+    - $$\varphi$$ : 위상
       
 
 - **[Point 4]** 오일러 함수가 Fourier Transform에서 유용한 또 다른 이유? "지수 함수"
@@ -183,7 +183,7 @@ SKIP
 
 "함수"의 내적 & 직교성?
 
-- 함수의 내적 : $\langle\hat{f}, \hat{g}\rangle=\int f(t) g(t) d t$
+- 함수의 내적 : $$\langle\hat{f}, \hat{g}\rangle=\int f(t) g(t) d t$$
 
 <br>
 
@@ -193,7 +193,7 @@ SKIP
 
 - cosine과 sine이 직교(서로 연관성 X)하는 그림
 
-- $\langle\hat{f}, \hat{g}\rangle=\int \sin (t) \cos (t) d t=0$.
+- $$\langle\hat{f}, \hat{g}\rangle=\int \sin (t) \cos (t) d t=0$$.
 
   - *왜 0이라는 사실이 중요한가?*
 
@@ -207,33 +207,33 @@ SKIP
 
 **오일러 공식**을 사용하여 전개해보면...
 
-$\begin{array}{l}
+$$\begin{array}{l}
 \hat{f}(\omega)=\int_{-\infty}^{\infty} f(t) e^{i \omega t} d t \\
 \hat{f}(\omega)=\int_{-\infty}^{\infty} f(t)[\cos (\omega t)+i \sin (\omega t)] d t \\
 \hat{f}(\omega)=\int_{-\infty}^{\infty} f(t) \cos (\omega t) d t+i \int_{-\infty}^{\infty} f(t) \sin (\omega t) d t
-\end{array}$
+\end{array}$$
 
 <br>
 
-위의 식에서, 우선 sine함수만 사용하여 변환을 해볼 것이다. ( $\int_{-\infty}^{\infty} f(t) \sin (\omega t) d t$ )
+위의 식에서, 우선 sine함수만 사용하여 변환을 해볼 것이다. ( $$\int_{-\infty}^{\infty} f(t) \sin (\omega t) d t$$ )
 
 <br>
 
 **[ Example ]**
 
-$F_1(t)$ 와 같은 data가 있다고 해보자. 이 data에 어떠한 주기성이 있는지를 알아보고자 한다.
+$$F_1(t)$$ 와 같은 data가 있다고 해보자. 이 data에 어떠한 주기성이 있는지를 알아보고자 한다.
 
-그 기준점이 될 함수로 $sin(2\pi \cdot f \cdot t)$를 사용할 것이다. ( $f$ : 주파수 )
+그 기준점이 될 함수로 $$sin(2\pi \cdot f \cdot t)$$를 사용할 것이다. ( $$f$$ : 주파수 )
 
-주파수로 $f=1$을 놓을 것이다.
+주파수로 $$f=1$$을 놓을 것이다.
 
-이 두 함수 ( $F_1(t)$ 와  $sin(2\pi \cdot 1 \cdot t)$ )를 곱한 뒤, 적분을 하는 것은, **이 두 함수 사이의 연관성을 찾는 것**을 의미한다. 그 값은 0이 된다 ( when $f=1$ )
+이 두 함수 ( $$F_1(t)$$ 와  $$sin(2\pi \cdot 1 \cdot t)$$ )를 곱한 뒤, 적분을 하는 것은, **이 두 함수 사이의 연관성을 찾는 것**을 의미한다. 그 값은 0이 된다 ( when $$f=1$$ )
 
 ![figure2](/assets/img/study/img48.png)
 
 
 
-이와 같이, 주파수($f$ )를 늘려감에 따라 그 결과값을 아래와 같이 기록해갈 것이다.
+이와 같이, 주파수($$f$$ )를 늘려감에 따라 그 결과값을 아래와 같이 기록해갈 것이다.
 
 ![figure2](/assets/img/study/img49.png)
 
@@ -255,8 +255,8 @@ $F_1(t)$ 와 같은 data가 있다고 해보자. 이 data에 어떠한 주기성
 
 하지만 위 처럼 sine과 cosine을 따로따로 하지 않고, **"오일러 공식"을 사용해서 한번에 할 수 있다!**
 
-- (before) $\int_{-\infty}^{\infty} f(t) \cos (\omega t) d t, \quad \int_{-\infty}^{\infty} f(t) \sin (\omega t) d t$
-- (after) $\int_{-\infty}^{\infty} f(t) * e^{i \omega t} d t$
+- (before) $$\int_{-\infty}^{\infty} f(t) \cos (\omega t) d t, \quad \int_{-\infty}^{\infty} f(t) \sin (\omega t) d t$$
+- (after) $$\int_{-\infty}^{\infty} f(t) * e^{i \omega t} d t$$
 
 <br>
 
