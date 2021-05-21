@@ -35,7 +35,7 @@ feature_row2:
   - image_path: /assets/img/STUDY.jpg  
     alt: "placeholder image 2"
     title: "Paper Reading Study"
-    excerpt: 'Meta Learning, Continual Learning, Intepretable DL'
+    excerpt: 'Meta, Continual, Interptetable, Reliable DL'
     url: "categories/study/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -79,7 +79,47 @@ feature_row2:
     url: "categories/rs/"
     btn_label: "Read More"
     btn_class: "btn--primary"
-
+    
+  - image_path: /assets/img/META.jpg  
+    alt: "placeholder image 2"
+    title: "Meta Learning"
+    excerpt: #''
+    url: "categories/meta/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/CONT.jpg  
+    alt: "placeholder image 2"
+    title: "Continual Learning"
+    excerpt: #'Meta, Continual, Interptetable, Reliable DL'
+    url: "categories/study/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/RELI.jpg  
+    alt: "placeholder image 2"
+    title: "Reliable Deep Learning"
+    excerpt: #'Meta, Continual, Interptetable, Reliable DL'
+    url: "categories/reli/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/INTE.jpg  
+    alt: "placeholder image 2"
+    title: "Interpretable Deep Learning"
+    excerpt: #'Meta, Continual, Interptetable, Reliable DL'
+    url: "categories/inte/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/MULT.jpg  
+    alt: "placeholder image 2"
+    title: "Multimodal Deep Learning"
+    excerpt: #'Meta, Continual, Interptetable, Reliable DL'
+    url: "categories/mult/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/NE.jpg
     alt: "placeholder image 2"
     title: "Network Embedding"
