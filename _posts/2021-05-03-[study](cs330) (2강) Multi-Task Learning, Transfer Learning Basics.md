@@ -1,6 +1,6 @@
 ---
 title: \[cs330\] (2강) Multi-Task Learning, Transfer Learning Basics
-categories: [META]
+categories: [META,STUDY]
 tags: [Multi-task Learning, Meta Learning]
 excerpt: CS330 Multi-task and Meta Learning 강의 
 ---
