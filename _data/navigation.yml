@@ -18,6 +18,16 @@ main:
     url: /categories/rl/   
   - title: "RS"
     url: /categories/rs/   
+  - title: "META"
+    url: /categories/meta/   
+  - title: "CONT"
+    url: /categories/cont/   
+  - title: "RELI"
+    url: /categories/reli/   
+  - title: "INTE"
+    url: /categories/inte/   
+  - title: "MULT"
+    url: /categories/mult/   
   - title: "NE"
     url: /categories/ne/     
   - title: "STAT"
