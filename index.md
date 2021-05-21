@@ -80,7 +80,7 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/META.jpg  
+  - image_path: /assets/img/META.png
     alt: "placeholder image 2"
     title: "Meta Learning"
     excerpt: #''
@@ -88,7 +88,7 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/CONT.jpg  
+  - image_path: /assets/img/CONT.png
     alt: "placeholder image 2"
     title: "Continual Learning"
     excerpt: #'Meta, Continual, Interptetable, Reliable DL'
@@ -96,7 +96,7 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/RELI.jpg  
+  - image_path: /assets/img/RELI.png
     alt: "placeholder image 2"
     title: "Reliable Deep Learning"
     excerpt: #'Meta, Continual, Interptetable, Reliable DL'
@@ -104,7 +104,7 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/INTE.jpg  
+  - image_path: /assets/img/INTE.png
     alt: "placeholder image 2"
     title: "Interpretable Deep Learning"
     excerpt: #'Meta, Continual, Interptetable, Reliable DL'
@@ -112,7 +112,7 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/MULT.jpg  
+  - image_path: /assets/img/MULT.png
     alt: "placeholder image 2"
     title: "Multimodal Deep Learning"
     excerpt: #'Meta, Continual, Interptetable, Reliable DL'
