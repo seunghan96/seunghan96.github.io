@@ -1,6 +1,6 @@
 ---
 title: \[multimodal\] (1) Multimodal Representations
-categories: [STUDY]
+categories: [MULT]
 tags: [Multimodal Deep Learning]
 excerpt: Multimodal Learning, Multimodal Representations
 ---

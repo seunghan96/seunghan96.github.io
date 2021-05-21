@@ -1,6 +1,6 @@
 ---
 title: \[continual\] Continual Learning 소개
-categories: [STUDY]
+categories: [CONT]
 tags: [Continual Learning]
 excerpt: Continual Learning에 대한 소개글
 ---

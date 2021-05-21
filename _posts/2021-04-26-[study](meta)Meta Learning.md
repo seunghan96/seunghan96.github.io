@@ -1,6 +1,6 @@
 ---
 title: \[meta\] Meta Learning 소개
-categories: [STUDY]
+categories: [META]
 tags: [Meta Learning]
 excerpt: Meta Learning에 대한 소개글
 ---

@@ -1,6 +1,6 @@
 ---
 title: \[multimodal\] (2) Translation
-categories: [STUDY]
+categories: [MULT]
 tags: [Multimodal Deep Learning]
 excerpt: Multimodal Learning, Translation
 ---

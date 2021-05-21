@@ -1,6 +1,6 @@
 ---
 title: \[multimodal\] Multimodal Learning 소개
-categories: [STUDY]
+categories: [MULT]
 tags: [Multimodal Deep Learning]
 excerpt: Multimodal Deep Learning에 대한 소개글
 ---

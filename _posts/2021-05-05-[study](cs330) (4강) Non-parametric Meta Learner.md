@@ -1,6 +1,6 @@
 ---
 title: \[cs330\] (4강) Non-parametric Meta-Learners
-categories: [STUDY]
+categories: [META,STUDY]
 tags: [Multi-task Learning, Meta Learning]
 excerpt: CS330 Multi-task and Meta Learning 강의 
 ---

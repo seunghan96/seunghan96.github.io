@@ -1,6 +1,6 @@
 ---
 title: \[multimodal\] Neural FE of signal data - (2) SincNet 
-categories: [STUDY]
+categories: [MULT]
 tags: [Multimodal Learning]
 excerpt: Signal Data, Wav2Vec, SincNet, PASE
 ---

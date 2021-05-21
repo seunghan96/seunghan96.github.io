@@ -1,6 +1,6 @@
 ---
 title: \[multimodal\] Multimodal Transformer
-categories: [STUDY]
+categories: [MULT]
 tags: [Multimodal Learning]
 excerpt: Multimodal Transformer, Cross-modal attention, self-attention
 ---

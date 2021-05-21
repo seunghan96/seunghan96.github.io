@@ -1,6 +1,6 @@
 ---
 title: \[cs330\] (3강) Optimization-based Meta Learning
-categories: [STUDY]
+categories: [META,STUDY]
 tags: [Multi-task Learning, Meta Learning]
 excerpt: CS330 Multi-task and Meta Learning 강의 
 
