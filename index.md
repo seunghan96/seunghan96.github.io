@@ -92,7 +92,7 @@ feature_row2:
     alt: "placeholder image 2"
     title: "Continual Learning"
     excerpt: #'Meta, Continual, Interptetable, Reliable DL'
-    url: "categories/study/"
+    url: "categories/cont/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
