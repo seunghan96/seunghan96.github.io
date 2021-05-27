@@ -15,6 +15,17 @@ excerpt: Deep Learning Uncertainty, Calibration
 2. Introduction
 2. Definition
    1. Reliability Diagrams 
+   2. Expected Calibration Error (ECE)
+   3. Maximum Calibration Error (MCE)
+   4. Negative Log Likelihood (NLL)
+3. Observing Miscalibration
+   1. Model Capacity
+   2. Batch Normalization (BN)
+   3. Weight decay
+   4. NLL
+4. Calibration Methods
+   1. Binary case
+   2. Multi-class case
 
 <br>
 
