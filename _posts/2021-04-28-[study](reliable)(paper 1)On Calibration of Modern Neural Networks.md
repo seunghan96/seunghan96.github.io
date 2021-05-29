@@ -129,11 +129,11 @@ NN으로 Multi-class classification하는 상황을 가정한다.
 
 - 2) ($$M$$개 bin의) accuracy를 각각 구함
 
-  $$\operatorname{acc}\left(B_{m}\right)=\frac{1}{\left|B_{m}\right|} \sum_{i \in B_{m}} \mathbf{1}\left(\hat{y}_{i}=y_{i}\right)$$.
+  $$\operatorname{acc}\left(B_{m}\right)=\frac{1}{ \mid B_{m} \mid } \sum_{i \in B_{m}} \mathbf{1}\left(\hat{y}_{i}=y_{i}\right)$$.
 
 - 3) ($$M$$개 bin의) average confidence를 각각 구함
 
-  $$\operatorname{conf}\left(B_{m}\right)=\frac{1}{\left|B_{m}\right|} \sum_{i \in B_{m}} \hat{p}_{i}$$.
+  $$\operatorname{conf}\left(B_{m}\right)=\frac{1}{ \mid B_{m} \mid } \sum_{i \in B_{m}} \hat{p}_{i}$$.
 
   ( $$\hat{p}_i$$ : sample $$i$$의 confidence )
 
@@ -151,7 +151,7 @@ PERFECT case : $$\operatorname{acc}\left(B_{m}\right)=\operatorname{conf}\left(B
 
 KEY : **E [ confidence & accuracy사이의 차이 ]**
 
-- $$\underset{\hat{P}}{\mathbb{E}}[|\mathbb{P}(\hat{Y}=Y \mid \hat{P}=p)-p|]$$.
+- $$\underset{\hat{P}}{\mathbb{E}}[ \mid \mathbb{P}(\hat{Y}=Y \mid \hat{P}=p)-p \mid ]$$.
 
 <br>
 
@@ -159,7 +159,7 @@ KEY : **E [ confidence & accuracy사이의 차이 ]**
 
 **weighted average of bins' accuracy / confidence difference**
 
-$$\mathrm{ECE}=\sum_{m=1}^{M} \frac{\left|B_{m}\right|}{n}\left|\operatorname{acc}\left(B_{m}\right)-\operatorname{conf}\left(B_{m}\right)\right|$$.
+$$\mathrm{ECE}=\sum_{m=1}^{M} \frac{ \mid B_{m} \mid }{n} \mid \operatorname{acc}\left(B_{m}\right)-\operatorname{conf}\left(B_{m}\right) \mid $$.
 
 <br>
 
@@ -175,11 +175,11 @@ key idea : HIGH RISK에 더 높은 가중치 부여!
 
 즉, 최악의 상황을 피하는데에 focus 
 
-- $$\max _{p \in[0,1]}|\mathbb{P}(\hat{Y}=Y \mid \hat{P}=p)-p|$$.
+- $$\max _{p \in[0,1]} \mid \mathbb{P}(\hat{Y}=Y \mid \hat{P}=p)-p \mid $$.
 
 <br>
 
-$$\mathrm{MCE}=\max _{m \in\{1, \ldots, M\}}\left|\operatorname{acc}\left(B_{m}\right)-\operatorname{conf}\left(B_{m}\right)\right| .$$.
+$$\mathrm{MCE}=\max _{m \in\{1, \ldots, M\}} \mid \operatorname{acc}\left(B_{m}\right)-\operatorname{conf}\left(B_{m}\right) \mid  .$$.
 
 <br>
 ECE와 마찬가지로, MCE도 reliability diagram에 그릴 수 있다.
