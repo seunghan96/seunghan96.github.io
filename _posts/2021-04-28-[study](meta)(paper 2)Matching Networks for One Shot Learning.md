@@ -1,8 +1,8 @@
 ---
 title: \[meta\] (paper 2) Matching Networks for One Shot Learning
-categories: [CONT,STUDY]
-tags: [Continual Learning]
-excerpt: Catastrophic Forgetting, EWC
+categories: [META,STUDY]
+tags: [Meta Learning]
+excerpt: Matching Networks, One shot learning
 ---
 
 # Matching Networks for One Shot Learning
@@ -16,8 +16,6 @@ excerpt: Catastrophic Forgetting, EWC
 2. Elastic Weight Consolidation
 
 <br>
-
-![figure2](/assets/img/CONT/img2.png)
 
 # 0. Abstract
 
@@ -84,6 +82,8 @@ small "labeled" **SUPPORT set**을 통해 network를 학습
 
 ## 2-1. Model Architecture
 
+![figure2](/assets/img/META/img9.png)
+
 - Neural Attention mechanism : memory matrix 사용
 
 - 처음 보는 class가 등장해도, "기존의 network의 변화 없이도" 예측 가능!
@@ -112,6 +112,8 @@ $$a\left(\hat{x}, x_{i}\right)=\frac{e^{c\left(f(\hat{x}), g\left(x_{i}\right)\r
 
 - 새로운 embedding 구조도 가능!
 
+  ( Support set 내에서의 연관성도 반영하고자 )
+
   - 기존 )  $$g\left(x_{i}\right), f(\hat{x})$$
 
     $$\rightarrow$$ $$f, g$$ 을 사용해 임베딩을 생성하는 당시에는 $$\mathcal{S}$$ 가 고려되지 않음
@@ -128,7 +130,51 @@ $$a\left(\hat{x}, x_{i}\right)=\frac{e^{c\left(f(\hat{x}), g\left(x_{i}\right)\r
 
 <br>
 
-## 2-2. Traning Strategy
+### g function ( biLSTM ) 
+
+- support set 임베딩
+
+$\begin{aligned}
+&\vec{h}_{i}, \vec{c}_{i}=\operatorname{LSTM}\left(g^{\prime}\left(x_{i}\right), \vec{h}_{i-1}, \vec{c}_{i-1}\right) \\
+&\stackrel{r}{h}_{i}, \bar{c}_{i}=\operatorname{LSTM}\left(g^{\prime}\left(x_{i}\right), \stackrel{h}{h}_{i+1}, \bar{c}_{i+1}\right) \\
+&g\left(x_{i}, S\right)=\vec{h}_{i}+\stackrel{\leftarrow}{h}_{i}+g^{\prime}\left(x_{i}\right)
+\end{aligned}$
+
+![figure2](/assets/img/META/img10.png)
+
+<br>
+
+### f function ( Attention)
+
+- batch set 임베딩
+
+$\begin{aligned}
+\hat{h}_{k}, c_{k} &=\operatorname{LSTM}\left(f^{\prime}(\hat{x}),\left[h_{k-1}, r_{k-1}\right], c_{k-1}\right) \\
+h_{k} &=\hat{h}_{k}+f^{\prime}(\hat{x}) \\
+r_{k-1} &=\sum_{i=1}^{|S|} a\left(h_{k-1}, g\left(x_{i}\right)\right) g\left(x_{i}\right)
+\end{aligned}$
+
+$a\left(h_{k-1}, g\left(x_{i}\right)\right)=\operatorname{softmax}\left(h_{k-1}^{T} g\left(x_{i}\right)\right)$
+
+$\begin{aligned}
+f(\hat{x}, S) &=\operatorname{attLSTM}\left(f^{\prime}(\hat{x}), g(S), K\right) =h_{K}
+\end{aligned}$
+
+![figure2](/assets/img/META/img11.png)
+
+<br>
+
+### Full Context Embedding 최종
+
+![figure2](/assets/img/META/img12.png)
+
+- $P\left(\hat{y}_{k}=1 \mid \hat{x}, \delta\right)=\sum_{i=1}^{k} a\left(\hat{x}, x_{i}\right) y_{i}$
+
+- $a(\hat{x}, x)=\frac{\exp (c(f(\hat{x}), g(x)))}{\sum_{i=1}^{K} \exp \left(c\left(f(\hat{x}), g\left(x_{i}\right)\right)\right)}$
+
+<br>
+
+## 2-2. Training Strategy
 
 **"set-to-set 패러다임 augmented with attention"**
 
@@ -174,3 +220,10 @@ Episode ( training 알고리즘 )
 - **NCA (Neighborhood Component Analysis)**의 패러다임을 차용 + non-linear version
 - 핵심 )  주변 구성 요소 분석을 통한 차원 축소 ( embedding )
 
+<br>
+
+### Reference
+
+- [Matching Networks for One Shot Learning](https://arxiv.org/abs/1606.04080)
+
+- https://www.youtube.com/watch?v=SW0cgNZ9eZ4
