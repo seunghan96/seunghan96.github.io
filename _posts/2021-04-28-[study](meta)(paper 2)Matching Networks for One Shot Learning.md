@@ -13,7 +13,12 @@ excerpt: Matching Networks, One shot learning
 
 0. Abstract
 2. Introduction
-2. Elastic Weight Consolidation
+2. Model
+   1. Model Architecture
+   2. Training Strategy
+3. Related Work
+   1. MANN
+   2. Metric Learning
 
 <br>
 
