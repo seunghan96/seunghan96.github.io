@@ -134,13 +134,14 @@ $$a\left(\hat{x}, x_{i}\right)=\frac{e^{c\left(f(\hat{x}), g\left(x_{i}\right)\r
 
 - support set 임베딩
 
-$\begin{aligned}
+![figure2](/assets/img/META/img10.png)
+<br>
+
+$$\begin{aligned}
 &\vec{h}_{i}, \vec{c}_{i}=\operatorname{LSTM}\left(g^{\prime}\left(x_{i}\right), \vec{h}_{i-1}, \vec{c}_{i-1}\right) \\
 &\stackrel{r}{h}_{i}, \bar{c}_{i}=\operatorname{LSTM}\left(g^{\prime}\left(x_{i}\right), \stackrel{h}{h}_{i+1}, \bar{c}_{i+1}\right) \\
 &g\left(x_{i}, S\right)=\vec{h}_{i}+\stackrel{\leftarrow}{h}_{i}+g^{\prime}\left(x_{i}\right)
-\end{aligned}$
-
-![figure2](/assets/img/META/img10.png)
+\end{aligned}$$.
 
 <br>
 
@@ -148,19 +149,21 @@ $\begin{aligned}
 
 - batch set 임베딩
 
-$\begin{aligned}
+![figure2](/assets/img/META/img11.png)
+
+<br>
+
+$$\begin{aligned}
 \hat{h}_{k}, c_{k} &=\operatorname{LSTM}\left(f^{\prime}(\hat{x}),\left[h_{k-1}, r_{k-1}\right], c_{k-1}\right) \\
 h_{k} &=\hat{h}_{k}+f^{\prime}(\hat{x}) \\
 r_{k-1} &=\sum_{i=1}^{|S|} a\left(h_{k-1}, g\left(x_{i}\right)\right) g\left(x_{i}\right)
-\end{aligned}$
+\end{aligned}$$.
 
-$a\left(h_{k-1}, g\left(x_{i}\right)\right)=\operatorname{softmax}\left(h_{k-1}^{T} g\left(x_{i}\right)\right)$
+$$a\left(h_{k-1}, g\left(x_{i}\right)\right)=\operatorname{softmax}\left(h_{k-1}^{T} g\left(x_{i}\right)\right)$$.
 
-$\begin{aligned}
+$$\begin{aligned}
 f(\hat{x}, S) &=\operatorname{attLSTM}\left(f^{\prime}(\hat{x}), g(S), K\right) =h_{K}
-\end{aligned}$
-
-![figure2](/assets/img/META/img11.png)
+\end{aligned}$$.
 
 <br>
 
@@ -168,9 +171,9 @@ f(\hat{x}, S) &=\operatorname{attLSTM}\left(f^{\prime}(\hat{x}), g(S), K\right) 
 
 ![figure2](/assets/img/META/img12.png)
 
-- $P\left(\hat{y}_{k}=1 \mid \hat{x}, \delta\right)=\sum_{i=1}^{k} a\left(\hat{x}, x_{i}\right) y_{i}$
+- $$P\left(\hat{y}_{k}=1 \mid \hat{x}, \delta\right)=\sum_{i=1}^{k} a\left(\hat{x}, x_{i}\right) y_{i}$$.
 
-- $a(\hat{x}, x)=\frac{\exp (c(f(\hat{x}), g(x)))}{\sum_{i=1}^{K} \exp \left(c\left(f(\hat{x}), g\left(x_{i}\right)\right)\right)}$
+- $$a(\hat{x}, x)=\frac{\exp (c(f(\hat{x}), g(x)))}{\sum_{i=1}^{K} \exp \left(c\left(f(\hat{x}), g\left(x_{i}\right)\right)\right)}$$.
 
 <br>
 
