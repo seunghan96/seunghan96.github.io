@@ -2,7 +2,7 @@
 title: \[meta\] (paper 7) Learning to Propagate Labels ; Transductive Propagation Network for Few shot Learning
 categories: [META,STUDY]
 tags: [Meta Learning]
-excerpt: MAML, FOMAML, Reptile
+excerpt: TPN, Label Propagation
 ---
 
 # Learning to Propagate Labels : Transductive Propagation Network for Few shot Learning
@@ -13,6 +13,17 @@ excerpt: MAML, FOMAML, Reptile
 
 0. Abstract
 1. Introduction
+2. Related Works
+   1. Meta Learning
+   2. Embedding & Metric Learning approaches
+   3. Transduction
+3. Main Approach
+   1. Problem Definition
+   2. Transductive Propagation Network (TPN)
+      1. Feature Embedding
+      2. Graph Construction
+      3. Label Propagation
+      4. Classification Loss Generation
 
 <br>
 
