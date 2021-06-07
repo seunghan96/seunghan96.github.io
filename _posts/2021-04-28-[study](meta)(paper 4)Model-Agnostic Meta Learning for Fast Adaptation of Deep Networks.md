@@ -17,11 +17,9 @@ excerpt: MAML
    1. Meta-Learning Problem Set-up
    2. MAML algorithm
 
-3. 
 4. 기타
    1. Multi-task vs Meta Learning
    2. Meta-Learning Approaches
-5. 
 
 <br>
 
