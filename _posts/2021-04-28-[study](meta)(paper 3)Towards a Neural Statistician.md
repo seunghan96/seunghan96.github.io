@@ -137,6 +137,7 @@ notation
   - Gaussian with diagonal covariance
   - mean and variance parameters depend on $$c$$ through NN
 - observation model : $$p(x \mid z ; \theta)$$
+  
   - 마찬가지로 NN으로 구성
 - Approximate inference network : $$q(z \mid x, c ; \phi) $$와 $$q(c \mid D ; \phi)$$
 
@@ -193,8 +194,7 @@ $$\begin{aligned}
 &\mathcal{L}_{D}=R_{D}+C_{D}+L_{D} \text { with } \\
 &R_{D}=\mathbb{E}_{q(c \mid D ; \phi)} \sum_{x \in D} \mathbb{E}_{q\left(z_{1: L} \mid c, x ; \phi\right)} \log p\left(x \mid z_{1: L}, c ; \theta\right) \\
 &C_{D}=D_{K L}(q(c \mid D ; \phi) \| p(c)) \\
-&L_{D}=\mathbb{E}_{q\left(c, z_{1: L} \mid D ; \phi\right)}\left[\sum_{x \in D} D_{K L}\left(q\left(z_{L} \mid c, x ; \phi\right) \| p\left(z_{L} \mid c ; \theta\right)\right)\right. \\
-&\left.\quad+\sum_{i=1}^{L-1} D_{K L}\left(q\left(z_{i} \mid z_{i+1}, c, x ; \phi\right) \| p\left(z_{i} \mid z_{i+1}, c ; \theta\right)\right)\right]
+&L_{D}=\mathbb{E}_{q\left(c, z_{1: L} \mid D ; \phi\right)}\left[\sum_{x \in D} D_{K L}\left(q\left(z_{L} \mid c, x ; \phi\right) \| p\left(z_{L} \mid c ; \theta\right)\right)\right. \left. +\sum_{i=1}^{L-1} D_{K L}\left(q\left(z_{i} \mid z_{i+1}, c, x ; \phi\right) \| p\left(z_{i} \mid z_{i+1}, c ; \theta\right)\right)\right]
 \end{aligned}$$
 
 <br>
@@ -213,8 +213,3 @@ FFNN에는 3가지 main element
 - 2) exchangeable instance pooling layer that collapses matrix $$(e_1,...,e_k)$$ to single pre-static vector $$v$$
 - 3) final post-pooling network , that takes $$v$$ to parameterization of diagonal Gaussian
 
-### Reference
-
-- [Matching Networks for One Shot Learning](https://arxiv.org/abs/1606.04080)
-
-- https://www.youtube.com/watch?v=SW0cgNZ9eZ4
