@@ -11,7 +11,7 @@ excerpt: Object Detection,1-stage Detector,2-stage Detector
 
 # 1. Object Detection
 
-- ***"여러" 물체의 "class" & 물체의 "위치"를 둘 다 파악하기!***
+- **"여러"** 물체의 **"(1) class"** & 물체의 **"(2) 위치"**를 둘 다 파악하기!
 
 ![figure2](/assets/img/cv/cv51.png)
 
@@ -26,15 +26,15 @@ excerpt: Object Detection,1-stage Detector,2-stage Detector
 
 <br>
 
-# 2. 두 가지 Object Detection
+# 2. 두 종류의 Object Detection
 
-### a) 1-stage Detector
+## a) 1-stage Detector
 
-- Regional Proposal & Classification이 **한번에** 이루어짐
+- Regional Proposal & Classification이 **"한번에"** 이루어짐
 
-  ( end-to-end처럼, bounding box regression & classification을 한번에 )
+  ( end-to-end처럼, **bounding box regression & classification을 한번에** )
 
-- ex) YOLO, SSD
+- ex) **YOLO, SSD**
 
 ![figure2](/assets/img/cv/cv53.png)
 
@@ -42,10 +42,10 @@ excerpt: Object Detection,1-stage Detector,2-stage Detector
 
 ### b) 2-stage Detector
 
-- Regional Proposal & Classification이 **순차적으로** 이루어짐
-  - **step 1)** proposal region이라고 하는 bounding box를 만들어낸 다음
-  - **step 2)** classifcation으로 분류함
-- ex) R-CNN
+- Regional Proposal & Classification이 **"순차적으로"** 이루어짐
+  - **step 1)** proposal region이라고 하는 **bounding box**를 만들어낸 다음
+  - **step 2)** **classifcation**을 수행함
+- ex) **R-CNN 계열**
 
 ![figure2](/assets/img/cv/cv54.png)
 
