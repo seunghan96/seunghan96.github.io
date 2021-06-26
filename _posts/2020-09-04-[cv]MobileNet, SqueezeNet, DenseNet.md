@@ -7,7 +7,11 @@ excerpt: MobileNet, SqueezeNet, DenseNet
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+( 참고 : Fastcampus 강의 )
+
 # [ MobileNet, SqueezeNet, DenseNet  ]
+
+<br>
 
 # 1. Introduction
 
@@ -17,13 +21,11 @@ Key Point : 성능이 전부가 아니다! **"속도/효율성"도 중요하다!
 
 어떻게 하면 보다 **효율적인 Convolution**을 할 수 있을까?
 
-<br>
-
 Three purposes : 높은 정확도 / 작은 연산량 / 작은 용량
 
 <br>
 
-# 2. MobileNet
+# 2. MobileNet (2017)
 
 ***경량화 모델의 대표적인 알고리즘***
 
@@ -72,19 +74,15 @@ Mobile Net은 (1) + (2)를 함께 사용한다.
 
 <br>
 
-# 3. Squeeze Net
+# 3. Squeeze Net (2016)
 
 ## (1) Fire Module
 
 ![figure2](/assets/img/cv/cv42.png)
 
-<br>
-
 ### a) Squeeze Layer
 
-- **1x1 conv** layer를 사용하여 channel reduction (원하는 채널 수로 줄이기)
-
-<br>
+- **1x1 conv** layer를 사용하여 channel reduction (원하는 채널 수로 줄이기)<br>
 
 ### b) Expansion Layer
 
@@ -115,13 +113,13 @@ Mobile Net은 (1) + (2)를 함께 사용한다.
 
 ## (3) Summary
 
-AlexNet에 여러 compression 방법론을 사용한 것들과, Squeeze Net을 비교하여 실험한 결과이다.
+AlexNet에 여러 compression 방법론을 사용한 것들과 Squeeze Net을 비교한 결과이다.
 
 ![figure2](/assets/img/cv/cv44.png)
 
 <br>
 
-# 4. DenseNet
+# 4. DenseNet (2016)
 
 ## (1) ResNet vs DenseNet
 
@@ -148,8 +146,6 @@ AlexNet에 여러 compression 방법론을 사용한 것들과, Squeeze Net을 �
 ## (3) Pre-activation
 
 - Weight/Activation/Batch Normalization의 순서 관련한 문제
-
-- 아래 그림 참고
 
   - 일반적) weight가 먼저
 

@@ -7,11 +7,15 @@ excerpt: Image Segmentation, Deep Lab v3
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-# [ Deep Lab v3 + ]
+( 참고 : Fastcampus 강의 )
+
+# [ Deep Lab v3 + (2017) ]
 
 ### Encoder-Decoder with Atrous Separable Convolution for Semantic Image Segmentation
 
-# 1. Astrous Convolution
+<br>
+
+# 1. Atrous Convolution
 
 - wavelet 신호 분석에서 주로 사용된다
 
@@ -29,7 +33,7 @@ excerpt: Image Segmentation, Deep Lab v3
 
 <br>
 
-# 2. Astrous Spatial Pyramid Pooling
+# 2. Atrous Spatial Pyramid Pooling
 
 ### Deep Lab v2
 

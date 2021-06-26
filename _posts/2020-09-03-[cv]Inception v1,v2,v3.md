@@ -7,7 +7,26 @@ excerpt: Inception, 1x1 Conv, GoogleNet
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+( 참고 : Fastcampus 강의)
+
 # [ Inception v1,v2,v3  ]
+
+Inception v1
+
+- Paper: Going deeper with convolutions
+- Paper address:https://arxiv.org/pdf/1409.4842.pdf
+
+Inception v2
+
+- Paper: Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift
+- Paper address:https://arxiv.org/pdf/1502.03167.pdf 
+
+Inception v2
+
+- Thesis: Rethinking the Inception Architecture for Computer Vision
+- Paper address:https://arxiv.org/pdf/1512.00567.pdf 
+
+<br>
 
 # 1. Inception 등장배경
 
@@ -15,9 +34,9 @@ excerpt: Inception, 1x1 Conv, GoogleNet
 
 <br>
 
-[ Deep Network의 문제점/해결책 ]
+# [ Deep Network의 문제점/해결책 ]
 
-## (1) 문제점 1. 학습이 오래 걸린다
+## 문제점 1. 학습이 오래 걸린다
 
 *"많은 파라미터 수  & 연산량"*
 
@@ -29,13 +48,13 @@ excerpt: Inception, 1x1 Conv, GoogleNet
 
 <br>
 
-## (2) 문제점 2. 학습이 어렵다
+## 문제점 2. 학습이 어렵다
 
 *Gradient Vanishing & Overfitting*
 
-- 문제점 2-1) **Gradient Vanishing** ( 깊은 layer까지 전달되면서 정보 손실 )
+- 문제점 2-1) Gradient Vanishing ( 깊은 layer까지 전달되면서 정보 손실 )
 
-  - 해결책 2-1) **auxiliary layer 사용 **
+  - 해결책 2-1) **auxiliary layer 사용**
 
 - 문제점 2-2) Overfitting
   
@@ -91,7 +110,7 @@ $$\rightarrow$$ **1x1 conv 사용**
 
 <br>
 
-# 3. BN-Inception
+# 3. Inception V2 ( = BN-Inception )
 
 **Batch Normalization**을 사용한 Inception
 
@@ -116,7 +135,7 @@ $$\rightarrow$$ **1x1 conv 사용**
 
 <br>
 
-# 5. Inception V2
+# 5. Inception v2의 module
 
 ## (1) Inception Module A
 
@@ -149,7 +168,7 @@ $$\rightarrow$$ 이 둘을 **섞어 쓰기** 위한 **Grid Reduction**
 
 <br>
 
-# 7. Inception V3
+# 7. Inception v3의 module
 
 ## (1) Inception Module B
 
@@ -171,9 +190,7 @@ Representation Bottleneck 문제를 줄이기 위해, 아래 그림과 같이 �
 
 ## Summary
 
-Inception V3 = 
-
-​	**"Inception Module A+B+C** & **Grid Reduction module"**
+Inception V3 = **"Inception Module A+B+C** & **Grid Reduction module"**
 
 ( + Auxiliary Layer가 줄어듬. 그닥 효과가 X을 확인함 )
 

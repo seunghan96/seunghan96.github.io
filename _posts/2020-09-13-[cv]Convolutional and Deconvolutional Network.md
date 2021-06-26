@@ -1,17 +1,21 @@
 ---
-title: Convolutional and Deconvolutional Network
+title: ConDeconvolutional Network 
 categories: [DL,CV]
 tags: [Deep Learning, CV]
-excerpt: Image Segmentation, Convolutional and Deconvolutional Network
+excerpt: Image Segmentation, Deconvolutional Network
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-# [ Convolutional and Deconvolutional Network ]
+( 참고 : Fastcampus 강의 )
+
+# [ Deconvolutional Network (2010) ]
+
+<br>
 
 # 1. FCN의 문제점
 
-사전에 정해놓은 receptive field를 사용하기 때문에, 너무 작은 물체는 인식됮 ㅣ 않을 수 있고, 너무 큰 물체는 여러 개의 작은 물체로 인식될 수도 있다.
+사전에 정해놓은 receptive field를 사용하기 때문에, 너무 작은 물체는 인식되지 않을 수 있고, 너무 큰 물체는 여러 개의 작은 물체로 인식될 수도 있다.
 
 즉, 여러 번의 "convolutional layer + pooling" 과정을 통해 해상도가 줄어들고, 이를 다시 upsampling하는 방식을 사용함으로 인해, detail이 사라질 수 있다.
 
@@ -28,6 +32,8 @@ excerpt: Image Segmentation, Convolutional and Deconvolutional Network
 - Max pooling 시, 최대값의 위치를 저장한다 (switch variable)
 
   ( ZF Net에서 살펴본 적이 있다 )
+
+<br>
 
 # 3. Switch Variable
 

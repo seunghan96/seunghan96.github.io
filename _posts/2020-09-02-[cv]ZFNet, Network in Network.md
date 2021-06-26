@@ -7,9 +7,13 @@ excerpt: LeNet, AlexNet
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+( 참고 : Fastcampus 강의 )
+
 # [ ZFNet & Network in Network ]
 
-# 1. ZFNet
+<br>
+
+# 1. ZFNet (2013)
 
 **AlexNet**의 변형 ( for 보다 효율적인 구조)
 
@@ -23,13 +27,15 @@ excerpt: LeNet, AlexNet
 
 **Convolution** 연산은, 아래 그림과 같이 **Matrix Multiplication으로 변형**해서 표현할 수 있다.
 
-( 출처 : https://analysisbugs.tistory.com/104 )
-
 ![figure2](/assets/img/cv/cv11.png)
+
+( 출처 : https://analysisbugs.tistory.com/104 )
 
 <br>
 
-위의 **Sparse Matrix $$C$$의 transpose**를 $$Y$$에 곱하면, $$X$$를 복원할 수 있는데, 이를 **Deconvolution**이라고 한다
+위의 **Sparse Matrix $$C$$의 transpose**를 $$Y$$에 곱하면, $$X$$를 복원할 수 있는데, 
+
+이를 **Deconvolution**이라고 한다
 
 ![figure2](/assets/img/cv/cv12.png)
 
@@ -37,7 +43,7 @@ excerpt: LeNet, AlexNet
 
 ## (2) UnPooling
 
-- **Maxpooling된 지점을 저장** 한 뒤, Unpooling할 때 해당 지점에서 **재생성**
+**Maxpooling된 지점을 저장** 한 뒤, Unpooling할 때 해당 지점에서 **재생성**
 
 ![figure2](/assets/img/cv/cv10.png)
 
@@ -78,11 +84,12 @@ excerpt: LeNet, AlexNet
 
 <br>
 
-# 2. Network in Network
+# 2. Network in Network (2013)
 
 *GoogLeNet에 아이디어를 제공한 알고리즘이다*
 
-complex structure를 포착하기 위해, **네트워크 내에 네트워크를 추가** ( convolution을 MLP로 대체 )
+complex structure를 포착하기 위해, **네트워크 내에 네트워크를 추가** 
+( = convolution을 MLP로 대체 )
 
 ![figure2](/assets/img/cv/cv15.png)
 
@@ -99,7 +106,7 @@ CNN vs NIN
 
 - (출력층 직전의) **FCNN은 parameter 수를 증가시키는** 요인!
 
-  $$\rightarrow$$ 이 대신에 **그냥 CNN을 사용**한 뒤, **global average pooling**을 사용하여 바로 softmax로 넘김 
+  $$\rightarrow$$ FCNN 대신에 **CNN을 사용**한 뒤, **global average pooling**을 적용
 
   ( overfitting 방지 효과 )
 

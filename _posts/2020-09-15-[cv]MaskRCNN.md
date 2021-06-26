@@ -7,7 +7,11 @@ excerpt: Image Segmentation, Mask R-CNN
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-# [ Mask R-CNN ]
+( 참고 : Fastcampus 강의 )
+
+# [ Mask R-CNN (2017) ]
+
+<br>
 
 # 1. R-CNN 계열
 
@@ -15,7 +19,9 @@ excerpt: Image Segmentation, Mask R-CNN
 
 - Segmentation을 위한 : Mask R-CNN
 
-*어떻게 하면 detection을 위한 R-CNN 모델들을 개선해서 Segmentation에 활용할 수 있을까?*
+***어떻게 하면 detection을 위한 R-CNN 모델들을 개선해서 "Segmentation"에 활용할 수 있을까?***
+
+<br>
 
 # 2. R-CNN 계열 복습
 
@@ -23,29 +29,29 @@ excerpt: Image Segmentation, Mask R-CNN
 
 ![figure2](/assets/img/cv/cv121.png)
 
-(1) Region Proposal
+**(1) Region Proposal**
 
 - selective search를 사용하여 2000개의 bounding box 생성
 - 엄청 오래 걸림
 
-(2) Warping
+**(2) Warping**
 
 - CNN의 input 크기에 맞게 이미지를 조정
 - 왜곡이 발생할 수 밖에 없음
 
-(3) SVM classifier 사용
+**(3) SVM classifier 사용**
 
 <br>
 
 ## (2) Fast R-CNN
 
-R-CNN의 문제점 : Multi-stage (총 3단계)
+R-CNN의 문제점 : Multi-stage (총 3단계)로 나눠져 있다.
 
 - 1) Feature Extractor
 - 2) Classifier
 - 3) Regressor
 
-이를 unified framework로 만든 것이 Fast R-CNN
+이를 **unified framework**로 만든 것이 Fast R-CNN!
 
 ![figure2](/assets/img/cv/cv122.png)
 
@@ -55,8 +61,6 @@ R-CNN의 문제점 : Multi-stage (총 3단계)
 
 - 2000개의 CNN이 아닌, 하나의 통합된 CNN을 위해 사용
 - input image 사이즈를 맞춰주는 pooling ( 더 이상 warping X )
-
-ㅊ
 
 <br>
 
@@ -88,8 +92,6 @@ Binary Mask
 - Masking Layer ( 0과 1로 이루어진 행렬 )
 - 픽셀 단위로, 해당 픽셀에 object가 있으면 1, 없으면 0
 - class는 구분하지 않음
-
-<bR>
 
 ![figure2](/assets/img/cv/cv125.png)
 

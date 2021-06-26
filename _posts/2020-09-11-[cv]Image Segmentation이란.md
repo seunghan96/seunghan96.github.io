@@ -7,7 +7,11 @@ excerpt: Image Segmentation
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+( 참고 : Fastcampus 강의 )
+
 # [ Image Segmentation이란 ]
+
+<br>
 
 # 1. Introdunction to Image Segmentation
 

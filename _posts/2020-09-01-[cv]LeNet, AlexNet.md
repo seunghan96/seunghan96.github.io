@@ -7,6 +7,8 @@ excerpt: LeNet, AlexNet
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+( 참고 : Fastcampus 강의 )
+
 # [ LeNet & AlexNet ]
 
 <br>
@@ -38,7 +40,7 @@ excerpt: LeNet, AlexNet
 
 <br>
 
-# 2. LeNet
+# 2. LeNet (1989)
 
 - Yann LeCun et al. in 1989
 - CNN의 시초
@@ -67,7 +69,7 @@ excerpt: LeNet, AlexNet
 
 <br>
 
-# 3. AlexNet
+# 3. AlexNet (2012)
 
 ## 1) ILSVRC
 
@@ -94,13 +96,10 @@ excerpt: LeNet, AlexNet
 ### 핵심 특징
 
 1. **병렬 구조** : 2개의 group일 때 가장 좋은 결과
-
 2. **ReLU 사용**
-- (LeNet5) Tanh vs (AlexNet) ReLU
-   
-- DEEPER network 가능
-   - **Tanh보다 6배정도 빠름**
-   
+   - (LeNet5) Tanh vs (AlexNet) ReLU
+   - DEEPER network 가능
+   - Tanh보다 6배정도 빠름
 3. **Dropout** : overfitting 방지
 
 4. **Max Pooling**
@@ -109,7 +108,7 @@ excerpt: LeNet, AlexNet
    
 5. **Data Augmentation** : 대량의 데이터 확보를 위해
 - ex) *scale, cropping, mirroring...*
-   
+  
 6. **Local Response Normalization (LRN)**
 - "강한 자극은 잘 보이도록, 약한 자극은 잘 안보이도록"
    - $$b_{x, y}^{i}=a_{x, y}^{i} /\left(k+\alpha \sum_{j=\max (0, i-n / 2)}^{\min (N-1, i+n / 2)}\left(a_{x, y}^{j}\right)^{2}\right)^{\beta}$$.

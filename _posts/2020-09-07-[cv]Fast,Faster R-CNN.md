@@ -7,7 +7,11 @@ excerpt: Object Detection, Faster R-CNN
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+( 참고 : Fastcampus 강의 )
+
 # [ Fast,Faster R-CNN ]
+
+<br>
 
 # 1. R-CNN의 문제점
 
@@ -19,7 +23,7 @@ $$\rightarrow$$ **너무 많은 시간 소요! & 복잡하다**
 
 <br>
 
-# 2. Fast R-CNN
+# 2. Fast R-CNN (2015)
 
 (기존) Feature Extractor & Classifier & Regressor를 모두 따로 진행
 
@@ -94,7 +98,7 @@ Fast R-CNN
 
 <br>
 
-# 3. Faster R-CNN
+# 3. Faster R-CNN (2015)
 
 ## (1) Fast R-CNN의 Region Proposal 문제점
 

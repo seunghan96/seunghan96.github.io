@@ -7,7 +7,11 @@ excerpt: Object Detection,1-stage Detector,2-stage Detector
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+( 참고 : Fastcampus 강의 )
+
 # [ Object Detection이란?  ]
+
+<br>
 
 # 1. Object Detection
 
