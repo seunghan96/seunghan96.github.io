@@ -152,7 +152,7 @@ GEM의 핵심 특징 : **"EPISODIC memory"** ( $$\mathcal{M}_t$$ )
 
 Loss at memories from the $$k$$-th task :
 
-- $$\ell\left(f_{\theta}, \mathcal{M}_{k}\right)=\frac{1}{\left|\mathcal{M}_{k}\right|} \sum_{\left(x_{i}, k, y_{i}\right) \in \mathcal{M}_{k}} \ell\left(f_{\theta}\left(x_{i}, k\right), y_{i}\right)$$.
+- $$\ell\left(f_{\theta}, \mathcal{M}_{k}\right)=\frac{1}{ \mid \mathcal{M}_{k} \mid } \sum_{\left(x_{i}, k, y_{i}\right) \in \mathcal{M}_{k}} \ell\left(f_{\theta}\left(x_{i}, k\right), y_{i}\right)$$.
 
 <br>
 
