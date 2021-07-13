@@ -1,8 +1,8 @@
 ---
-title: \[interpretable\] (paper 2) Grad-CAM \: Visual Explanations from Deep Networks via Gradient-based Localization
+title: \[interpretable\] (paper 2) Grad-CAM ; Visual Explanations from Deep Networks via Gradient-based Localization
 categories: [INTE,STUDY]
 tags: [Interpretable Learning]
-excerpt: Grad-Cam
+excerpt: Grad-CAM
 ---
 
 # Grad-CAM : Visual Explanations from Deep Networks via Gradient-based Localization
