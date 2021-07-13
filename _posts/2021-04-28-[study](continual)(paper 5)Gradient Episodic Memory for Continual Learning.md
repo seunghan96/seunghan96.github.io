@@ -189,14 +189,14 @@ $$\begin{aligned}
 \text { subject to } & G z \geq 0,
 \end{aligned}$$.
 
-where $G=-\left(g_{1}, \ldots, g_{t-1}\right)$
+where $$G=-\left(g_{1}, \ldots, g_{t-1}\right)$$
 
 <br>
 
-$\begin{aligned}
+$$\begin{aligned}
 \operatorname{minimize}_{v} & \frac{1}{2} v^{\top} G G^{\top} v+g^{\top} G^{\top} v \\
 \text { subject to } & v \geq 0,
-\end{aligned}$
+\end{aligned}$$
 
 
 
@@ -210,7 +210,7 @@ $\begin{aligned}
 
 사용한 데이터셋
 
-( 모든 데이터셋에 대해 $T = 20$ tasks )
+( 모든 데이터셋에 대해 $$T = 20$$ tasks )
 
 - 1) MNIST Permutations 
 - 2) MNIST Rotations,
