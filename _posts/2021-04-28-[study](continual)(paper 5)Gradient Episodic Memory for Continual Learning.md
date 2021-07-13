@@ -189,9 +189,35 @@ $$\begin{aligned}
 \text { subject to } & G z \geq 0,
 \end{aligned}$$.
 
+where $G=-\left(g_{1}, \ldots, g_{t-1}\right)$
+
 <br>
+
+$\begin{aligned}
+\operatorname{minimize}_{v} & \frac{1}{2} v^{\top} G G^{\top} v+g^{\top} G^{\top} v \\
+\text { subject to } & v \geq 0,
+\end{aligned}$
+
+
 
 # 4. Algorithm 
 
 ![figure2](/assets/img/CONT/img5.png)
 
+<br>
+
+# 5. Experiments
+
+사용한 데이터셋
+
+( 모든 데이터셋에 대해 $T = 20$ tasks )
+
+- 1) MNIST Permutations 
+- 2) MNIST Rotations,
+- 3) Incremental CIFAR100
+  - each task introduces a new set of classes
+  - For a total number of T tasks, each new task concerns examples from a disjoint subset of 100/T classes
+
+![figure2](/assets/img/CONT/img13.png)
+
+![figure2](/assets/img/CONT/img12.png)

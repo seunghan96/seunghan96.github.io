@@ -1,5 +1,5 @@
 ---
-title: \[interpretable\] (paper 2) Uncertainty-Aware Attention for Reliable Interpretation and Prediction
+title: \[interpretable\] (paper 5) Uncertainty-Aware Attention for Reliable Interpretation and Prediction
 categories: [INTE,STUDY]
 tags: [Interpretable Learning]
 excerpt: Attention mechanism
@@ -80,6 +80,7 @@ allow attention to **output uncertainty on each input**
 **STOCHASTIC attention** ( 최초 제안은 X )
 
 - $$\mathbf{v}(\mathbf{x}) \in \mathbb{R}^{r \times i}$$ : concatenation of $$i$$ intermediate features
+  
   - 이 $$\mathbf{v}(\mathbf{x})$$ 로부터 $$\mathbf{a}$$ 가 계산됨
 - $$\mathbf{c}(\mathbf{x})=\sum_{j=1}^{i} \mathbf{a}_{j} \odot \mathbf{v}_{j}(\mathbf{x})$$ : context vector
 
