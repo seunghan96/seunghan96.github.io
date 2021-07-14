@@ -1,5 +1,5 @@
 ---
-title: \[interpretable\] (paper 5) Uncertainty-Aware Attention for Reliable Interpretation and Prediction
+title: \[interpretable\] (paper 4) Uncertainty-Aware Attention for Reliable Interpretation and Prediction
 categories: [INTE,STUDY]
 tags: [Interpretable Learning]
 excerpt: Attention mechanism
