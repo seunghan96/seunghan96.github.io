@@ -28,6 +28,10 @@ main:
     url: /categories/inte/   
   - title: "MULT"
     url: /categories/mult/   
+  - title: "ABSA"
+    url: /categories/absa/   
+  - title: "HBERT"
+    url: /categories/hbert/   
   - title: "NE"
     url: /categories/ne/     
   - title: "STAT"
