@@ -120,6 +120,22 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+  - image_path: /assets/img/HBERT.png
+    alt: "placeholder image 2"
+    title: "Hierarchical Bert"
+    excerpt: #'Meta, Continual, Interptetable, Reliable DL'
+    url: "categories/hbert/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+  
+  - image_path: /assets/img/ABSA.png
+    alt: "placeholder image 2"
+    title: "Abstract based Sentiment Analysis"
+    excerpt: #'Meta, Continual, Interptetable, Reliable DL'
+    url: "categories/absa/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/NE.jpg
     alt: "placeholder image 2"
     title: "Network Embedding"
