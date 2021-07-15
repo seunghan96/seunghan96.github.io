@@ -122,7 +122,7 @@ feature_row2:
     
   - image_path: /assets/img/HBERT.png
     alt: "placeholder image 2"
-    title: "Hierarchical Bert"
+    title: "Hierarchical BERT"
     excerpt: #'Meta, Continual, Interptetable, Reliable DL'
     url: "categories/hbert/"
     btn_label: "Read More"
