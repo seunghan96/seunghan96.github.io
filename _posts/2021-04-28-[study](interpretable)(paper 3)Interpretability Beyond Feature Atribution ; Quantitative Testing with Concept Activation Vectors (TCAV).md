@@ -5,7 +5,7 @@ tags: [Interpretable Learning]
 excerpt: TCAV
 ---
 
-# Interpretability Beyond Feature Atribution : Quantitative Testing with Concept Activation Vectors (TCAV)
+# Interpretability Beyond Feature Atribution : Quantitative Testing with Concept Activation Vectors (TCAV) (2017)
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -162,14 +162,26 @@ TCAV의 목표 : interpret high-dim $$E_m$$
 
 - produce a **map showing how important each pixel** is!
 
-- limitations
-
-  - 1) conditioned on only ONE picture
-  - 2) users have NO CONTROL over what concepts of interest these maps pick up on
-
-  - 3) vulnerable to adversarial attacks
 
 <br>
+
+### Saliency Map :
+
+![figure2](/assets/img/INTE/img12.png)
+
+( 출처 : https://www.youtube.com/watch?v=-y0oghbEHMM&t=1127s )
+
+<br>
+
+### limitations of Saliency Map
+
+- 1) conditioned on only ONE picture
+- 2) users have NO CONTROL over what concepts of interest these maps pick up on
+- 3) vulnerable to adversarial attacks
+
+![figure2](/assets/img/INTE/img13.png)
+
+
 
 ## 2-3) Linearity in NN and latent dimensions
 
@@ -189,12 +201,19 @@ TCAV의 목표 : interpret high-dim $$E_m$$
 
 <br>
 
-# 3. Methods
+# 4. Methods
 
 ideas & methods
 
 - (a) how to use **directional derivatives** to quantify **sensitivity** of predictions for different conepts
+
 - (b) how to compute the **final quantitative explanation** ( without retraining )
+
+  *quantitative explanation : 해당 concept이 해당 예측결과를 내는데에 있어서 얼마나 중요한 역할을 했는지 정량화!*
+
+  ( 주의 : 여기서 concept은 training 과정이나, label과는 전혀 무관! 아예 모델 train 완료된 이후, 사용하는 개념! )
+
+<br>
 
 Notation
 
@@ -204,13 +223,28 @@ Notation
 
 <br>
 
+### Goal of TCAV
+
+( 출처 : https://www.youtube.com/watch?v=-y0oghbEHMM&t=1127s )
+
+![figure2](/assets/img/INTE/img14.png)
+
+![figure2](/assets/img/INTE/img15.png)
+
+<br>
+
 ## 3-1) User-defined Concepts as Sets of Examples
 
 [1단계] concept 정의하기!
 
 - find an independent dataset with concept labeled
+- 두 종류의 dataset을 구한다
+  - 1) concept set과 관련된 dataset ( ex. "줄무늬" 관련 사진 )
+  - 2) random dataset ( ex. 아무 사진 )
 
+![figure2](/assets/img/INTE/img16.png)
 
+<br>
 
 ## 3-2) CAVs ( Concept Activation Vectors )
 
@@ -220,13 +254,15 @@ Notation
 
   in the **concept set** vs **random examples**
 
+<br>
+
 [3단계] CAV (concept activation vector) 정의하기
 
 - 정의) normal to a hyperplane, separating WITH/WITHOUT CONCEPT
 - concept : $$C$$
   - positive set of example inputs : $$P_C$$
   - negative set : $$N$$
-- **binary linear classifier ** 학습 ( distinguish between the **layer activations of two sets** )
+- **binary linear classifier** 학습 ( distinguish between the **layer activations of two sets** )
   - $$\left\{f_{l}(\boldsymbol{x}): \boldsymbol{x} \in P_{C}\right\}$$.
   - $$\left\{f_{l}(\boldsymbol{x}): \boldsymbol{x} \in N\right\}$$.
 
@@ -234,9 +270,9 @@ Notation
 
 ## 3-3) Directional Derivatives and Conceptual Sensitivity
 
-Saliency map 복습
+Saliency map 복습 ( 위의 **2-2) 참조**하기 )
 
-- use gradients of logit values w.r.t individual input features ( ex. pixel )
+- use **gradients** of logit values w.r.t **individual input features ( ex. pixel )**
 - 즉, 다음을 계산 : $$\frac{\partial h_{k}(\boldsymbol{x})}{\partial \boldsymbol{x}_{a, b}}$$
   - $$h_{k}(\boldsymbol{x})$$ :  logit for a data point $$\boldsymbol{x}$$ for class $$k$$ 
   -  $$\boldsymbol{x}_{a, b}$$ : pixel at position $$(a, b)$$ in $$\boldsymbol{x}$$. 
@@ -260,7 +296,7 @@ CAV와 directional derivatives를 이용함으로써...
 
 ## 3-4) TCAV ( Testing with CAVs )
 
-- 위에서 CAV & directional derivatives를 통해 구한 **"Conceptual Sensitivity" **( = $$S_{C, k, l}(\boldsymbol{x})$$ ) 사용
+- 위에서 CAV & directional derivatives를 통해 구한 **"Conceptual Sensitivity"**( = $$S_{C, k, l}(\boldsymbol{x})$$ ) 사용
 
 - notation
 
@@ -269,10 +305,24 @@ CAV와 directional derivatives를 이용함으로써...
 
 - **TCAV score** : $$\operatorname{TCAV}_{\mathrm{Q} C, k, l}=\frac{ \mid \left\{\boldsymbol{x} \in X_{k}: S_{C, k, l}(\boldsymbol{x})>0\right\} \mid }{ \mid X_{k} \mid }$$.
 
-  - the fraction of $$k$$ -class inputs whose $$l$$ -layer activation vector was positively influenced by concept $$C$$
+  - the **fraction of $$k$$ -class inputs** whose $$l$$ -layer activation vector was **POSITIVELY** influenced by concept $$C$$
 
-  - only depends on "sign of $$\operatorname{TCAV}_{Q, k, l}$$"
-  - easily interpreted & globally
+  - only depends on "**sign** of $$\operatorname{TCAV}_{Q, k, l}$$"
+  - easily interpreted & **globally**
+
+<br>
+
+![figure2](/assets/img/INTE/img17.png)
+
+( 출처 : https://www.youtube.com/watch?v=-y0oghbEHMM&t=1127s )
+
+<br>
+
+## 3-5) Sensitivity of TCAV scores
+
+![figure2](/assets/img/INTE/img18.png)
+
+( 출처 : https://www.youtube.com/watch?v=-y0oghbEHMM&t=1127s )
 
 <br>
 
