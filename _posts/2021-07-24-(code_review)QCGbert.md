@@ -236,10 +236,10 @@ class ContextBERTLayer(nn.Module):
 
     def forward(self, hidden_states, attention_mask,
                 device=None, C_embed=None):
-        attention_output, A_probs, attention_probs, quasi_attention_prob, lambda_context = self.attention(hidden_states, attention_mask,device, C_embed)
+        attention_output, A_probs, A1_probs, A2_probs, lambda_context = self.attention(hidden_states, attention_mask,device, C_embed)
         intermediate_output = self.intermediate(attention_output)
         layer_output = self.output(intermediate_output, attention_output)
-        return layer_output
+        return layer_output, A_probs, A1_probs, A2_probs, lambda_context
 ```
 
 <br>
@@ -642,6 +642,7 @@ class BertConfig(object):
 
 - ex) BIO Tagging, TO Tagging
 - for **AE (Aspect Extraction)**
+- lambda context : $\lambda_{A}^{h}=1-\left(\beta \cdot \lambda_{Q}^{h}+\gamma \cdot \lambda_{K}^{h}\right)$
 
 ```python
 class QACGBertForSequenceClassification(nn.Module):
@@ -660,19 +661,16 @@ class QACGBertForSequenceClassification(nn.Module):
         if init_weight:
             print("init_weight = True")
             def init_weights(module):
-                # [weight 1] NN의 기본 parameter
-                # ( N(0,sigma^2) )
+                # [weight 1] NN의 기본 parameter ....( N(0,sigma^2) )
                 if isinstance(module, (nn.Linear, nn.Embedding)):
                     module.weight.data.normal_(mean=0.0, std=config.initializer_range)
 
-                # [weight 2] Layer Normalization의 parameter ( gamma & beta )
-                # ( N(0,sigma^2) )
+                # [weight 2] Layer Normalization의 parameter ( gamma & beta ) ... ( N(0,sigma^2) )
                 elif isinstance(module, BERTLayerNorm):
                     module.beta.data.normal_(mean=0.0, std=config.initializer_range)
                     module.gamma.data.normal_(mean=0.0, std=config.initializer_range)
                     
-                # [weight 3] bias
-                # ( zero )
+                # [weight 3] bias ...... ( zero )
                 if isinstance(module, nn.Linear):
                     if module.bias is not None:
                         module.bias.data.zero_()
@@ -693,18 +691,21 @@ class QACGBertForSequenceClassification(nn.Module):
     def forward(self, input_ids, token_type_ids, attention_mask, seq_lens,
                 device=None, labels=None,context_ids=None):
 
+        # (1) BERT의 output
+        ### pooled 결과, Attention (1+2, 1, 2), lambda context
         pooled_output, all_A_probs, all_A1_probs, all_A2_probs, all_lambda_context = \
-            self.bert(input_ids, token_type_ids, attention_mask,
-                      device, context_ids)
+            self.bert(input_ids, token_type_ids, attention_mask,device, context_ids)
         
+        # (2) Classification Result
         pooled_output = self.dropout(pooled_output)
-
-        logits = \
-            self.classifier(pooled_output)
+        logits = self.classifier(pooled_output)
+        
+        ### (2-1) label 존재 O 시 : 예측값 + Loss & Attention 반환
         if labels is not None:
             loss_fct = CrossEntropyLoss()
             loss = loss_fct(logits, labels)
             return loss, logits, all_A_probs, all_A1_probs, all_A2_probs, all_lambda_context
+        ### (2-1) label 존재 X 시 : 예측값 반환
         else:
             return logits
 
