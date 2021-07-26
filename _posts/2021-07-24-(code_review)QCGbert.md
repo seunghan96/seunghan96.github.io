@@ -115,14 +115,16 @@ class ContextBertModel(nn.Module):
         C_embed = self.context_embeddings(context_ids).squeeze(dim=1)
         embedded_c = torch.stack(seq_len*[C_embed], dim=1)
 
+        #---------------------------------------------------#
         # Step 4) L개의 (Transformer) Encoder layer 를 거침
-        ## 기존과의 차이점) 단어 embedding & context embedding 둘 다 encoding됨
-        all_encoder_layers = self.encoder(embedded, mask3d,device,embedded_c)
+        ## 기존과의 차이점1) 단어 embedding & context embedding 둘 다 encoding됨
+        ## 기존과의 차이점2) 여러 Attention (1,2,1+2)
+        all_encoder_layers, all_A_probs, all_A1_probs, all_A2_probs, all_lambda_context = self.encoder(embedded, mask3d,device,embedded_c)
         
 	    # Step 5) (맨 마지막 L번째 layer output 제외하고) Pooling
         layers_wo_last = all_encoder_layers[-1]
         pooled_output = self.pooler(layers_wo_last, attention_mask)
-        return pooled_output
+        return pooled_output, all_A_probs, all_A1_probs, all_A2_probs, all_lambda_context
 ```
 
 <br>
@@ -137,9 +139,11 @@ class ContextBertModel(nn.Module):
 class BERTEmbeddings(nn.Module):
     def __init__(self, config):
         super(BERTEmbeddings, self).__init__()
+        #-----------Embeddings--------------#
         self.word_embeddings = nn.Embedding(config.vocab_size, config.hidden_size)
         self.position_embeddings = nn.Embedding(config.max_position_embeddings, config.hidden_size)
         self.token_type_embeddings = nn.Embedding(config.type_vocab_size, config.hidden_size)
+        #----------- ETC --------------#
         self.LayerNorm = BERTLayerNorm(config)
         self.dropout = nn.Dropout(config.hidden_dropout_prob)
 
@@ -173,6 +177,8 @@ class BERTEmbeddings(nn.Module):
 
 - `deep_context_transform_layer` 가 추가됨
 
+( 여러 종류의 Attention )
+
 ```python
 class ContextBERTEncoder(nn.Module):
     def __init__(self, config):
@@ -188,6 +194,10 @@ class ContextBERTEncoder(nn.Module):
     def forward(self, hidden_states, attention_mask,
                 device=None, context_embeddings=None):
         all_encoder_layers = []
+        all_A_probs = []
+        all_A1_probs = []
+        all_A2_probs = []
+        all_lambda_context = []
         layer_index = 0
         for layer_module in self.layer:
             
@@ -198,10 +208,14 @@ class ContextBERTEncoder(nn.Module):
             deep_context_hidden += context_embeddings
             
             # BERT encoding
-            hidden_states = layer_module(hidden_states, attention_mask,device, deep_context_hidden)
+            hidden_states, A_probs, attention_probs, quasi_attention_prob, lambda_context = layer_module(hidden_states, attention_mask,device, deep_context_hidden)
             all_encoder_layers.append(hidden_states)
+            all_A_probs.append(A_probs.clone())
+            all_A1_probs.append(attention_probs.clone())
+            all_A2_probs.append(quasi_attention_prob.clone())
+            all_lambda_context.append(lambda_context.clone())
             layer_index += 1
-        return all_encoder_layers
+        return all_encoder_layers,all_A_probs, all_A1_probs, all_A2_probs, all_lambda_context
 ```
 
 <br>
@@ -222,7 +236,7 @@ class ContextBERTLayer(nn.Module):
 
     def forward(self, hidden_states, attention_mask,
                 device=None, C_embed=None):
-        attention_output = self.attention(hidden_states, attention_mask,device, C_embed)
+        attention_output, A_probs, attention_probs, quasi_attention_prob, lambda_context = self.attention(hidden_states, attention_mask,device, C_embed)
         intermediate_output = self.intermediate(attention_output)
         layer_output = self.output(intermediate_output, attention_output)
         return layer_output
@@ -242,9 +256,9 @@ class ContextBERTAttention(nn.Module):
         self.output = BERTSelfOutput(config) # (Step 2)
 
     def forward(self, input_tensor, attention_mask,device=None, C_embed=None):
-        self_output = self.self.forward(input_tensor, attention_mask,device, C_embed)
+         self_output, A_probs, A1_probs, A2_probs, lambda_context = self.self.forward(input_tensor, attention_mask,device, C_embed)
         attention_output = self.output(self_output, input_tensor)
-        return attention_output
+        return attention_output, A_probs, A1_probs, A2_probs, lambda_context
 ```
 
 <br>
@@ -618,6 +632,88 @@ class BertConfig(object):
 
     def to_json_string(self):
         return json.dumps(self.to_dict(), indent=2, sort_keys=True) + "\n"
+```
+
+<br>
+
+
+
+# 4. Sequence Classification
+
+- ex) BIO Tagging, TO Tagging
+- for **AE (Aspect Extraction)**
+
+```python
+class QACGBertForSequenceClassification(nn.Module):
+    """Proposed Context-Aware Bert Model for Sequence Classification
+    """
+    def __init__(self, config, num_labels, init_weight=False, init_lrp=False):
+        super(QACGBertForSequenceClassification, self).__init__()
+        self.bert = ContextBertModel(config)
+        self.dropout = nn.Dropout(config.hidden_dropout_prob)
+        self.classifier = nn.Linear(config.hidden_size, num_labels)
+        self.num_head = config.num_attention_heads
+        self.config = config
+        
+        ####################################################
+        # -------------- Weight Initialiation ------------ # 
+        if init_weight:
+            print("init_weight = True")
+            def init_weights(module):
+                # [weight 1] NN의 기본 parameter
+                # ( N(0,sigma^2) )
+                if isinstance(module, (nn.Linear, nn.Embedding)):
+                    module.weight.data.normal_(mean=0.0, std=config.initializer_range)
+
+                # [weight 2] Layer Normalization의 parameter ( gamma & beta )
+                # ( N(0,sigma^2) )
+                elif isinstance(module, BERTLayerNorm):
+                    module.beta.data.normal_(mean=0.0, std=config.initializer_range)
+                    module.gamma.data.normal_(mean=0.0, std=config.initializer_range)
+                    
+                # [weight 3] bias
+                # ( zero )
+                if isinstance(module, nn.Linear):
+                    if module.bias is not None:
+                        module.bias.data.zero_()
+            self.apply(init_weights)
+
+        perturb = 1e-2
+        for layer in self.bert.encoder.layer:
+            layer.attention.self.lambda_Qc.weight.data.normal_(mean=0.0, std=perturb)
+            layer.attention.self.lambda_Kc.weight.data.normal_(mean=0.0, std=perturb)
+            layer.attention.self.lambda_Q.weight.data.normal_(mean=0.0, std=perturb)
+            layer.attention.self.lambda_K.weight.data.normal_(mean=0.0, std=perturb)
+        ####################################################
+        
+        if init_lrp:
+            print("init_lrp = True")
+            init_hooks_lrp(self)
+
+    def forward(self, input_ids, token_type_ids, attention_mask, seq_lens,
+                device=None, labels=None,context_ids=None):
+
+        pooled_output, all_A_probs, all_A1_probs, all_A2_probs, all_lambda_context = \
+            self.bert(input_ids, token_type_ids, attention_mask,
+                      device, context_ids)
+        
+        pooled_output = self.dropout(pooled_output)
+
+        logits = \
+            self.classifier(pooled_output)
+        if labels is not None:
+            loss_fct = CrossEntropyLoss()
+            loss = loss_fct(logits, labels)
+            return loss, logits, all_A_probs, all_A1_probs, all_A2_probs, all_lambda_context
+        else:
+            return logits
+
+    def backward_gradient(self, sensitivity_grads):
+        classifier_out = func_activations['model.classifier']
+        embedding_output = func_activations['model.bert.embeddings']
+        sensitivity_grads = torch.autograd.grad(classifier_out, embedding_output, 
+                                                grad_outputs=sensitivity_grads)[0]
+        return sensitivity_grads
 ```
 
 
