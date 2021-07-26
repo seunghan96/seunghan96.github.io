@@ -193,35 +193,36 @@ few-shot learning을 푸는 또 다른 방법 : metric learning approaches
 Dataset
 
 - $$\mathcal{C}_{\text {train }}$$ : Large + Labeled
-- $$\mathcal{C}_{\text {test }}$$ : Few + Labeled
+- $$\mathcal{C}_{\text {test }}$$ : 오직 일부만이 Labeled ( 대부분 Unlabeled )
 
 <br>
 
 ### Episode
 
-- step 1) sample small subset of $$N$$ classes from $$\mathcal{C}_{\text {train }}$$
+- step 1) **sample small subset** of $$N$$ classes from $$\mathcal{C}_{\text {train }}$$
 
-- step 2) 여기서 뽑힌 데이터를 support & query set으로 나눔
+- step 2) 여기서 뽑힌 데이터를 **support & query set**으로 나눔
 
-  - support set : $$K$$ examples from $$N$$ classes **( = N-way K-shot learning )**
+  - (1) **support** set : $$K$$ examples from $$N$$ classes **( = N-way K-shot learning )**
 
     $$\mathcal{S}=\left\{\left(\mathbf{x}_{1}, y_{1}\right),\left(\mathbf{x}_{2}, y_{2}\right), \ldots,\left(\mathbf{x}_{N \times K}, y_{N \times K}\right)\right\}.$$
 
-  - query set : support set과는 다른 데이터 ( class는 똑같아 )
+    - episode 내에서 training set의 역할을 함
+
+  - (2) **query** set : support set과는 다른 데이터 ( class는 똑같아 )
 
     $$\mathcal{Q}=\left\{\left(\mathrm{x}_{1}^{*}, y_{1}^{*}\right),\left(\mathrm{x}_{2}^{*}, y_{2}^{*}\right), \ldots,\left(\mathrm{x}_{T}^{*}, y_{T}^{*}\right)\right\}$$.
-
-  episode 내에서, $$\mathcal{S}$$ 는 labeled training set으로 역할 &
-
-  minimize loss of its prediction for $$\mathcal{Q}$$
+  
+    - episode 내에서 query set에 대한 loss를 minimize하도록 학습
+  
 
 <br>
 
-episodic training을 사용한 Meta-learning 방법들은 few-shot classification 문제에서 잘 작동한다.
+episodic training을 사용한 Meta-learning 방법들은 **few-shot** classification 문제에서 잘 작동한다.
 
 하지만, 여전히 **lack of labeled instances**! ($$K$$로는 부족해....)
 
-$$\rightarrow$$ transductive setting을 사용하게끔 하는 배경!
+$$\rightarrow$$ **Transductive setting**을 사용하게끔 하는 배경!
 
 <br>
 
@@ -229,11 +230,11 @@ $$\rightarrow$$ transductive setting을 사용하게끔 하는 배경!
 
 4개의 구성 요소
 
-1. feature embedding ( with CNN )
-2. graph construction
+1. **Feature embedding** ( with CNN )
+2. **Graph construction**
    - example-wise parameters to exploit manifold structure
-3. label propagation : $$\mathcal{S} \rightarrow \mathcal{Q}$$
-4. loss generation
+3. **Label propagation** : $$\mathcal{S} \rightarrow \mathcal{Q}$$
+4. **Loss generation**
    - $$\mathcal{Q}$$에 대해, propagated label & ground 사이의 Cross Entropy loss 계산
 
 <br>
@@ -244,19 +245,19 @@ $$\rightarrow$$ transductive setting을 사용하게끔 하는 배경!
 
 ### (a) Feature Embedding
 
-- feature extraction 위해 CNN $$f_{\varphi}$$ 사용
+- feature extraction 위해 **CNN** $$f_{\varphi}$$ 사용
 - $$f_{\varphi}\left(\mathrm{x}_{i} ; \varphi\right)$$ : feature map
-- same embedding function $$f_{\varphi}$$ for both $$\mathcal{S}$$ &  $$\mathcal{Q}$$.
+- **SAME** embedding function $$f_{\varphi}$$ for both $$\mathcal{S}$$ &  $$\mathcal{Q}$$.
 
 <br>
 
 ### (b) Graph Construction
 
-(1) Manifold learning ?
+(1) **Manifold learning**이란?
 
-- discovers the embedded low-dimensional subspace in the data
+- discovers the embedded **LOW**-dimensional subspace in the data
 
-- critical to choose an appropriate neighborhood graph. 
+- critical to choose an appropriate **neighborhood** graph. 
 
 - 자주 사용하는 function :
 
@@ -264,20 +265,22 @@ $$\rightarrow$$ transductive setting을 사용하게끔 하는 배경!
 
 <br>
 
-(2) **Example-wise length-scale parameter**
+(2) **Example-wise length-scale parameter**, $\sigma_i$.
 
-- proper neighborhood graph를 얻기 위해, **UNION set of $$\mathcal{S} \& \mathcal{Q}$$를 사용한다**
+- proper neighborhood graph를 얻기 위해, **UNION set of $$\mathcal{S} \& \mathcal{Q}$$**를 사용한다
 
 - $$\sigma_{i}=g_{\phi}\left(f_{\varphi}\left(\mathrm{x}_{i}\right)\right)$$.
 
   - $$g_{\phi}$$ : CNN
   - $$f_{\varphi}\left(\mathrm{x}_{i}\right)$$ : input으로 들어가는 feature map
 
-- 이렇게 생성된 example-wise length-scale parameter인 $$\sigma_i$$는, 아래 similarity function에 input!
+- 이렇게 생성된 example-wise length-scale parameter인 $$\sigma_i$$는, 
 
-  $$W_{i j}=\exp \left(-\frac{1}{2} d\left(\frac{f_{\varphi}\left(\mathrm{x}_{\mathrm{i}}\right)}{\sigma_{i}}, \frac{f_{\varphi}\left(\mathrm{x}_{\mathrm{j}}\right)}{\sigma_{j}}\right)\right)$$
+  아래 similarity function에 input!
 
-  - $$W \in R^{(N \times K+T) \times(N \times K+T)}$$. 
+  $$W_{i j}=\exp \left(-\frac{1}{2} d\left(\frac{f_{\varphi}\left(\mathrm{x}_{\mathrm{i}}\right)}{\sigma_{i}}, \frac{f_{\varphi}\left(\mathrm{x}_{\mathrm{j}}\right)}{\sigma_{j}}\right)\right) $$..... $$W \in R^{(N \times K+T) \times(N \times K+T)}$$. 
+  
+- 이렇게 해서 나온 $$W$$에 normalized graph Laplacians을 적용 ( $$S=D^{-1/2}WD^{-1/2}$$ )
 
 <br>
 
@@ -289,7 +292,7 @@ $$\rightarrow$$ transductive setting을 사용하게끔 하는 배경!
 
 (4) **Graph Construction in each episode**
 
-- graph is INDIVIDUALLY constructed for EACH TASK in EACH EPISODE
+- graph is **INDIVIDUALLY** constructed for **EACH TASK** in **EACH EPISODE**
 
   ( 위의 figure 1 참조 )
 
@@ -306,29 +309,32 @@ How to get predictions for $$\mathcal{Q}$$ using **label propagation**?
 Notation
 
 - $$\mathcal{F}$$ : $$(N \times K+T) \times N$$ matrix with non-neg entries
+  - $$N \times K$$ 개의 Support Set & $$T$$개의 Query Set
 - label matrix $$Y \in \mathcal{F}$$ 
   - $$Y_{i j}=1$$ ......... if $$\mathbf{x}_{i}$$ is from the support set & labeled as $$y_{i}=j$$, 
-  - $$Y_{i j}=0 $$ ......... otherwise 
+  - $$Y_{i j}=0 $$ ......... otherwise  ( = label이 없거나, 틀리거나 )
 
 <br>
 
 $$Y$$에서 시작해서, iterative하게 determine
 
-- $$F_{t+1}=\alpha S F_{t}+(1-\alpha) Y$$.
-- closed form solution : $$F^{*}=(I-\alpha S)^{-1} Y$$
+- $$F_{t+1}=\alpha S F_{t}+(1-\alpha) Y$$
+  - $$S$$는 normalized weight
+  - $$\alpha$$는 얼마나 propagate 조절할지 결정
+- **[최종] closed form solution** : $$F^{*}=(I-\alpha S)^{-1} Y$$
 
 <br>
 
 Time complexity : 
 
 - matrix inversion : $$O(n^3)$$
-- 하지만, 여기서 $$n = N \times K + T$$ ... 매우 작다! efficient
+- 하지만, 여기서 $$n = N \times K + T$$ ... **매우 작다! efficient**
 
 <br>
 
 ### (d) Classification Loss Generation
 
-다음 둘의 차이를 loss로 계산
+다음 둘 ( $$F^{*}$$ & ground truth )의 차이를 loss로 계산
 
 - 1) $$F^{*}$$ : predictions of the $$\mathcal{S} \cup \mathcal{Q}$$   ( via label propagation )
 - 2) ground truth
@@ -343,6 +349,6 @@ $$F^{*}$$는 softmax를 통해 probabilistic score로 변환된다.
 
 Loss Function :
 
-- $$J(\varphi, \phi)=\sum_{i=1}^{N \times K+T} \sum_{j=1}^{N}-\mathbb{I}\left(y_{i}==j\right) \log \left(P\left(\tilde{y}_{i}=j \mid \mathbf{x}_{i}\right)\right)$$>
+- $$J(\varphi, \phi)=\sum_{i=1}^{N \times K+T} \sum_{j=1}^{N}-\mathbb{I}\left(y_{i}==j\right) \log \left(P\left(\tilde{y}_{i}=j \mid \mathbf{x}_{i}\right)\right)$$.
 
 <br>

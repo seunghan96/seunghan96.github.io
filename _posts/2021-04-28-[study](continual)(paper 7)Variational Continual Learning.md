@@ -57,17 +57,19 @@ Discriminative model : $$p(y \mid \boldsymbol{\theta}, \boldsymbol{x})$$
 
 - prior : $$p(\boldsymbol{\theta})$$
 
-- posterior :
+- posterior = prior x likelihood :
 
-  $$p\left(\boldsymbol{\theta} \mid \mathcal{D}_{1: T}\right) \propto p(\boldsymbol{\theta}) \prod_{t=1}^{T} \prod_{n_{t}=1}^{N_{t}} p\left(y_{t}^{\left(n_{t}\right)} \mid \boldsymbol{\theta}, \boldsymbol{x}_{t}^{\left(n_{t}\right)}\right)=p(\boldsymbol{\theta}) \prod_{t=1}^{T} p\left(\mathcal{D}_{t} \mid \boldsymbol{\theta}\right) \propto p\left(\boldsymbol{\theta} \mid \mathcal{D}_{1: T-1}\right) p\left(\mathcal{D}_{T} \mid \boldsymbol{\theta}\right)$$>
+  $$p\left(\boldsymbol{\theta} \mid \mathcal{D}_{1: T}\right) \propto p(\boldsymbol{\theta}) \prod_{t=1}^{T} \prod_{n_{t}=1}^{N_{t}} p\left(y_{t}^{\left(n_{t}\right)} \mid \boldsymbol{\theta}, \boldsymbol{x}_{t}^{\left(n_{t}\right)}\right)=p(\boldsymbol{\theta}) \prod_{t=1}^{T} p\left(\mathcal{D}_{t} \mid \boldsymbol{\theta}\right) \propto p\left(\boldsymbol{\theta} \mid \mathcal{D}_{1: T-1}\right) p\left(\mathcal{D}_{T} \mid \boldsymbol{\theta}\right)$$.
 
-- 위 식에서 recursion 구조 반복함.
+- 위 식에서 **Recursive 구조** 가 발견됨!
 
-  ( 즉, Bayes Rule 사용하여 online updating을 할 수 있음 )
+  ( 즉, Bayes Rule 사용하여 **online updating**을 할 수 있음 )
 
 <br>
 
-하지만, posterior는 intractable! 따라서 approximate inference 필요
+하지만, posterior는 **intractable**! 
+
+$$\rightarrow$$ 따라서 approximate inference 필요
 
 $$p\left(\boldsymbol{\theta} \mid \mathcal{D}_{1: T}\right) \approx q_{T}(\boldsymbol{\theta})=\operatorname{proj}\left(q_{T-1}(\boldsymbol{\theta}) p\left(\mathcal{D}_{T} \mid \boldsymbol{\theta}\right)\right)$$.
 
@@ -87,24 +89,27 @@ $$p\left(\boldsymbol{\theta} \mid \mathcal{D}_{1: T}\right) \approx q_{T}(\bolds
 
 <br>
 
-## 2-1. VCL & Epsiodic Memory Enhancement
+## 2-1. VCL & Episodic Memory Enhancement
 
 minimize해야하는 대상 :
 
 - $$q_{t}(\boldsymbol{\theta})=\arg \min _{q \in \mathcal{Q}} \mathrm{KL}\left(q(\boldsymbol{\theta}) \| \frac{1}{Z_{t}} q_{t-1}(\boldsymbol{\theta}) p\left(\mathcal{D}_{t} \mid \boldsymbol{\theta}\right)\right), \text { for } t=1,2, \ldots, T$$.
 
 <br>
-하지만, 위 방법론들은 어디까지나 "근사(approximation)"이므로... additional information이 손실 될 수 있다.
+하지만, 위 방법론들은 어디까지나 "근사(approximation)"이므로... 
+
+additional information이 손실 될 수 있다.
 
 따라서, 이를 보완하기 위해 **coreset** 도입
 
-( = key information을 담고 있는 epsidocie memory와 유사한 개념이라고 생각하면 됨. 원할 때 언제든지 참조할 수 있음 )
+( = **key information을 담고 있는 episodic memory**와 유사한 개념이라고 생각하면 됨. 
+원할 때 **언제든지 참조**할 수 있음 )
 
 <br>
 
-### [ Algorithm ]
+## [ Algorithm ]
 
-coreset $$C_t$$ : 현재의 data $$D_t$$와, 이전의 coreset $$C_{t-1}$$의 조합으로 생성
+coreset $$C_t$$ : (1) 현재의 data $$D_t$$와, (2) 이전의 coreset $$C_{t-1}$$의 조합으로 생성
 
 - ex) $$K$$개의 data가 $$D_t$$에서 샘플된 뒤, $$C_{t-1}$$와 합쳐져서 $$C_t$$ 생성
 
@@ -116,22 +121,20 @@ coreset $$C_t$$ : 현재의 data $$D_t$$와, 이전의 coreset $$C_{t-1}$$의 �
 
 general solution to CL : **automatic continual model building**
 
-( = 새로운 task 들어오면, add NEW STRUCTURE to 기존 모델 )
+( = 새로운 task 들어오면, add "NEW STRUCTURE" to 기존 모델 )
 
 <br>
 
-Variational continual learing
+**Variational Continual Learning**
 
 - $$q(\theta)$$에 대한 specification이 필요
 
-- Gaussian MVFI 가정
+- **"Gaussian"** MVFI 가정 ( $$q_{t}(\boldsymbol{\theta})=\prod_{d=1}^{D} \mathcal{N}\left(\theta_{t, d} ; \mu_{t, d}, \sigma_{t, d}^{2}\right)$$  )
 
-  ( $$q_{t}(\boldsymbol{\theta})=\prod_{d=1}^{D} \mathcal{N}\left(\theta_{t, d} ; \mu_{t, d}, \sigma_{t, d}^{2}\right)$$  )
+- task 데이터 $$D_t$$들어올 때마다...
 
-- task 데이터 $$D_t$$들어올 때마다
-
-  - task specific parameter는, 해당 task 때만 update
-  - common parameter는 항상 update
+  - **TASK SPECIFIC** parameter는, **"해당 task 때만"** update
+  - **COMMON** parameter는 **"항상"** update
 
 <br>
 
@@ -147,15 +150,15 @@ Goal : 아래의 ELBO를 maximize
 
 Introduction
 
-- pass simple noise ( $$z$$ )!
+- pass simple **noise** ( $$z$$ )!
 - generate image/sound/video...
 
 <br>
 
 Goal
 
-- VCL framework를 VAE로 확장한다
-- ( 나중에 GAN으로 확장도 가능 )
+- VCL framework를 **"VAE로 확장"**한다
+- ( 나중에 **GAN**으로 확장도 가능 )
 
 <br>
 
@@ -163,7 +166,7 @@ Model 소개 : $$p(\mathbf{x} \mid \mathbf{z}, \boldsymbol{\theta}) p(\mathbf{z}
 
 - prior $$p(\mathbf{z})$$ : Gaussian
 - likelihood $$p(\mathbf{x} \mid \mathbf{z}, \boldsymbol{\theta})$$ 
-  - parameters는 DNN의 output으로 나옴
+  - **parameters는 DNN의 output**으로 나옴
   - ex) Bernoulli likelihood : $$p(\mathbf{x} \mid \mathbf{z}, \boldsymbol{\theta})=\operatorname{Bern}\left(\mathbf{x} ; \boldsymbol{f}_{\boldsymbol{\theta}}(\mathbf{z})\right)$$
 
 <br>
