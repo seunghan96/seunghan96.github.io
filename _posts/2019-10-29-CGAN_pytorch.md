@@ -1,5 +1,5 @@
 ---
-title: [code review] CGAN with pytorch
+title: \[code review\] CGAN with pytorch
 categories: [DL,GAN]
 tags: [Deep Learning, GAN]
 excerpt: Conditional GAN, Pytorch
