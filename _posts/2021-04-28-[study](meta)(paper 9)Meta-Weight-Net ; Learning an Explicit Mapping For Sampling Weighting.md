@@ -9,14 +9,14 @@ excerpt: Meta-Weight-Net
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-
-
 ### Contents
 
 0. Abstract
 1. Introduction
-
-
+2. The Proposed Meta-Weight-Net Learning Method
+   1. Meta Learning Objective
+   2. MW-Net learning method
+   3. Algorithm
 
 <br>
 
@@ -148,15 +148,15 @@ optimal $$\Theta^{*}$$ 와 $$\mathbf{w}^{*}$$는 2개의 nested loops of optimiz
 
 (1) Classifier Learning function ( eq 3)
 
-- $$\hat{\mathbf{w}}^{(t)}(\Theta)=\mathbf{w}^{(t)}-\alpha \frac{1}{n} \times\left.\sum_{i=1}^{n} \mathcal{V}\left(L_{i}^{t r a i n}\left(\mathbf{w}^{(t)}\right) ; \Theta\right) \nabla_{\mathbf{w}} L_{i}^{t r a i n}(\mathbf{w}) \mid _{\mathbf{w}^{(t)}}$$.
+- $$\hat{\mathbf{w}}^{(t)}(\Theta)=\mathbf{w}^{(t)}-\alpha \frac{1}{n} \times \sum_{i=1}^{n} \mathcal{V}\left(L_{i}^{t r a i n}\left(\mathbf{w}^{(t)}\right) ; \Theta\right) \nabla_{\mathbf{w}} L_{i}^{t r a i n}(\mathbf{w}) \mid _{\mathbf{w}^{(t)}}$$.
 
 (2) Update parameters of MW-Net ( w.r.t $$\Theta^{*}$$ ) ( eq 4)
 
-- $$\Theta^{(t+1)}=\Theta^{(t)}-\left.\beta \frac{1}{m} \sum_{i=1}^{m} \nabla_{\Theta} L_{i}^{m e t a}\left(\hat{\mathbf{w}}^{(t)}(\Theta)\right) \mid _{\Theta^{(t)}}$$.
+- $$\Theta^{(t+1)}=\Theta^{(t)}- \beta \frac{1}{m} \sum_{i=1}^{m} \nabla_{\Theta} L_{i}^{m e t a}\left(\hat{\mathbf{w}}^{(t)}(\Theta)\right) \mid _{\Theta^{(t)}}$$.
 
 (3) Update parameters of classifier ( w.r.t $$\mathbf{w}^{*}$$ ) ( eq 5)
 
-- $$\mathbf{w}^{(t+1)}=\mathbf{w}^{(t)}-\alpha \frac{1}{n} \times\left.\sum_{i=1}^{n} \mathcal{V}\left(L_{i}^{t r a i n}\left(\mathbf{w}^{(t)}\right) ; \Theta^{(t+1)}\right) \nabla_{\mathbf{w}} L_{i}^{t r a i n}(\mathbf{w}) \mid _{\mathbf{w}^{(t)}}$$.
+- $$\mathbf{w}^{(t+1)}=\mathbf{w}^{(t)}-\alpha \frac{1}{n} \times \sum_{i=1}^{n} \mathcal{V}\left(L_{i}^{t r a i n}\left(\mathbf{w}^{(t)}\right) ; \Theta^{(t+1)}\right) \nabla_{\mathbf{w}} L_{i}^{t r a i n}(\mathbf{w}) \mid _{\mathbf{w}^{(t)}}$$.
 
 <br>
 
