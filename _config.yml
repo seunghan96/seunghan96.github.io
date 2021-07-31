@@ -225,7 +225,7 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
+paginate: 10 # amount of posts to show
 paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
@@ -237,6 +237,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-paginate
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -297,7 +298,7 @@ defaults:
       author_profile: true
       read_time: true
       use_math: true
-      comments: true
+      comments: # true
       share: true
       related: true
       header:
@@ -309,5 +310,5 @@ defaults:
       path: "_pages"
       type: pages
     values:
-      layout: sidebar
+      layout: single
       author_profile: true
