@@ -225,6 +225,7 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
+
 paginate: 10 # amount of posts to show
 paginate_path: "/page:num/" 
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -237,7 +238,15 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
- 
+  - jekyll-paginate-v2
+
+pagination:
+    enabled: true
+    per_page: 5     # 5개씩 보여주기
+    limit: 0
+    sort_field: "date"
+    sort_reverse: true
+    title: ':title'
 
 # mimic GitHub Pages with --safe
 whitelist:
