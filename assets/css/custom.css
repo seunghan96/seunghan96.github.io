@@ -1,0 +1,667 @@
+ul.mylist li, ol.mylist li {
+    padding: 5px 0px 5px 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #efefef;
+    font-size: 12px;
+}
+
+ul.mylist li:last-child,
+ol.mylist li:last-child {
+    border-bottom: 0px;
+}
+
+ul.mylist li,
+ol.mylist li {
+    -webkit-transition: background-color 0.3s linear;
+    -moz-transition: background-color 0.3s linear;
+    -ms-transition: background-color 0.3s linear;
+    -o-transition: background-color 0.3s linear;
+    transition: background-color 0.3s linear;
+}
+
+ul.mylist li:hover,
+ol.mylist li:hover {
+    background-color: #f6f0b6;
+}
+/* Search 결과화면을 위한 CSS 설정 끝 */
+
+/* 링크뒤쪽에 FontAwesome표현을 위한 custom CSS */
+.post-full-content a[target="_blank"]::after {
+    content: '\f08e';
+    display: inline-block;
+    margin: 0 2px 0 4px;
+    line-height: 1;
+    font-family: "FontAwesome";
+    font-size: 2rem;
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* 강좌 table of contents(목차)를 위한 custom css*/
+span.table-of-contents-list {
+    margin: 0px;
+    padding: 0px;
+    max-width: 250px;
+    width: 100%;
+    border-bottom: 1px solid #efefef;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ce180b;
+    font-family: Georgia, 'Nanum Gothic', serif !important;
+}
+
+ul.table-of-contents-list, ol.table-of-contents-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    max-width: 250px;
+    width: 100%;
+    font-family: Georgia, 'Nanum Gothic', serif !important;
+}
+
+ul.table-of-contents-list li, ol.table-of-contents-list li {
+    padding: 0px 0px 5px 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+ul.table-of-contents-list li a, ol.table-of-contents-list li a {
+    text-decoration: none;
+    color: color(var(--midgrey) l(-25%));
+    font-weight: bold;
+}
+
+ul.table-of-contents-list li a:hover, ol.table-of-contents-list li a:hover {
+    color: #c2255c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+ul.table-of-contents-list li:last-child,
+ol.table-of-contents-list li:last-child {
+    border-bottom: 0px;
+}
+
+ul.table-of-contents-list li:before,
+ol.table-of-contents-list li:before {
+    content: '\f14d';
+    display: inline-block;
+    margin: 0 2px 0 4px;
+    line-height: 1;
+    font-family: "FontAwesome";
+    font-size: 2rem;
+    font-weight: normal;
+    font-style: normal;
+    vertical-align: middle;
+    padding: 5px 5px 6px 0px;
+}
+
+
+/* 가로방향의 리스트를 위한 custom css*/
+ul.font-awesome-list, ol.font-awesome-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    max-width: 250px;
+    width: 100%;
+}
+
+ul.font-awesome-list li, ol.font-awesome-list li {
+    padding: 5px 0px 5px 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #efefef;
+    font-size: 18px;
+}
+
+ul.font-awesome-list li span.icon-name,
+ol.font-awesome-list li span.icon-name {
+    padding: 0px 10px;
+}
+
+ul.font-awesome-list li span.icon-value,
+ol.font-awesome-list li span.icon-value {
+    padding: 0px 10px;
+    color: #c2255c;
+    font-size: 15px;
+}
+
+
+ul.font-awesome-list li,
+ol.font-awesome-list li {
+    -webkit-transition: background-color 0.3s linear;
+    -moz-transition: background-color 0.3s linear;
+    -ms-transition: background-color 0.3s linear;
+    -o-transition: background-color 0.3s linear;
+    transition: background-color 0.3s linear;
+}
+
+ul.font-awesome-list li:hover,
+ol.font-awesome-list li:hover {
+    background-color: #f6f6f6;
+}
+
+/* tl; dr 이미지를 위한 custom style. 각 글의 첫 이미지로 등장 - 사용하지 않음 */
+.myTLDRStyle {
+    display: inline !important;
+    margin-bottom: -0.5em !important;
+    width: 100px;
+}
+
+/* 각 포스트의 시작 Introduction을 위한 fontAwesome */
+strong.post_introduction:before {
+    content: '\f086';
+    display: inline-block;
+    margin: 0 2px 0 4px;
+    line-height: 1;
+    font-family: "FontAwesome";
+    font-size: 3rem;
+    font-weight: normal;
+    font-style: normal;
+    vertical-align: middle;
+    padding: 0px 5px 6px 0px;
+    color: teal;
+}
+
+/* 포스트의  subtitle을 위한 fontAwesome */
+strong.subtitle_fontAwesome:before {
+    content: '\f0a4';
+    display: inline-block;
+    margin: 0 2px 0 4px;
+    line-height: 1;
+    font-family: "FontAwesome";
+    font-size: 5rem;
+    font-weight: normal;
+    font-style: normal;
+    vertical-align: middle;
+    padding: 0px 5px 6px 0px;
+    color: teal;
+}
+
+/* 포스트의  subtitle안에 단락제목을 위한 fontAwesome */
+strong.subtitle2_fontAwesome:before {
+    content: '\f13a';
+    display: inline-block;
+    margin: 0 2px 0 4px;
+    line-height: 1;
+    font-family: "FontAwesome";
+    font-size: 3rem;
+    font-weight: normal;
+    font-style: normal;
+    vertical-align: middle;
+    padding: 0px 5px 6px 0px;
+    color: #f92672;
+}
+
+
+/* 강좌 최 하단 Reference를 위한 custom css*/
+span.lecture-reference {
+    margin: 0px;
+    padding: 0px;
+    max-width: 250px;
+    width: 100%;
+    border-bottom: 0px solid #efefef;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0e16ce
+}
+
+/* All Tags 화면을 위한 폰트 크기 설정 custom css */
+.alltags {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ce112a
+}
+
+
+ul.lecture-reference {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    max-width: 250px;
+    width: 100%;
+}
+
+ul.lecture-reference li {
+    padding: 0px 0px 5px 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+ul.lecture-reference li a {
+    text-decoration: none;
+    color: color(var(--midgrey) l(-25%));
+}
+
+ul.lecture-reference li a:hover {
+    color: #c2255c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+ul.lecture-reference li:last-child {
+    border-bottom: 0px;
+}
+
+ul.lecture-reference li:before {
+    content: '\f02b';
+    display: inline-block;
+    margin: 0 2px 0 4px;
+    line-height: 1;
+    font-family: "FontAwesome";
+    font-size: 2rem;
+    font-weight: normal;
+    font-style: normal;
+    vertical-align: middle;
+    padding: 5px 5px 6px 0px;
+}
+
+/* 이미지 출처를 표현하기 위한 custom class */
+.img-reference {
+    font-size: 1.5rem !important;
+    text-align: center;
+    font-weight: bold;
+    margin-top: -40px;
+    margin-bottom: 30px;
+}
+
+/* 메뉴 표현을 위한 CSS */
+
+/*
+   DL Menu In/Out
+   ========================================================================== */
+@-webkit-keyframes MenuAnimOut {
+    100% {
+        -webkit-transform: translateZ(300px);
+        opacity: 0; } }
+@-moz-keyframes MenuAnimOut {
+    100% {
+        -moz-transform: translateZ(300px);
+        opacity: 0; } }
+@keyframes MenuAnimOut {
+    100% {
+        transform: translateZ(300px);
+        opacity: 0; } }
+@-webkit-keyframes MenuAnimIn {
+    0% {
+        -webkit-transform: translateZ(300px);
+        opacity: 0; }
+    100% {
+        -webkit-transform: translateZ(0px);
+        opacity: 1; } }
+@-moz-keyframes MenuAnimIn {
+    0% {
+        -moz-transform: translateZ(300px);
+        opacity: 0; }
+    100% {
+        -moz-transform: translateZ(0px);
+        opacity: 1; } }
+@keyframes MenuAnimIn {
+    0% {
+        transform: translateZ(300px);
+        opacity: 0; }
+    100% {
+        transform: translateZ(0px);
+        opacity: 1; } }
+@-webkit-keyframes SubMenuAnimIn {
+    0% {
+        -webkit-transform: translateZ(-300px);
+        opacity: 0; }
+    100% {
+        -webkit-transform: translateZ(0px);
+        opacity: 1; } }
+@-moz-keyframes SubMenuAnimIn {
+    0% {
+        -moz-transform: translateZ(-300px);
+        opacity: 0; }
+    100% {
+        -moz-transform: translateZ(0px);
+        opacity: 1; } }
+@keyframes SubMenuAnimIn {
+    0% {
+        transform: translateZ(-300px);
+        opacity: 0; }
+    100% {
+        transform: translateZ(0px);
+        opacity: 1; } }
+@-webkit-keyframes SubMenuAnimOut {
+    0% {
+        -webkit-transform: translateZ(0px);
+        opacity: 1; }
+    100% {
+        -webkit-transform: translateZ(-300px);
+        opacity: 0; } }
+@-moz-keyframes SubMenuAnimOut {
+    0% {
+        -moz-transform: translateZ(0px);
+        opacity: 1; }
+    100% {
+        -moz-transform: translateZ(-300px);
+        opacity: 0; } }
+@keyframes SubMenuAnimOut {
+    0% {
+        transform: translateZ(0px);
+        opacity: 1; }
+    100% {
+        transform: translateZ(-300px);
+        opacity: 0; } }
+
+
+.dl-menuwrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-perspective-origin: 50% 200%;
+    -moz-perspective-origin: 50% 200%;
+    perspective-origin: 50% 200%;
+    /* Hide the inner submenus */ }
+@media only screen and (min-width: 48em) {
+    .dl-menuwrapper {
+        position: fixed;
+        max-width: 175px;
+        top: 25px;
+        left: 25px; } }
+.dl-menuwrapper.dl-menuopen {
+    width: 100%;
+    height: 100%; }
+.dl-menuwrapper button {
+    top: 0;
+    left: 0;
+    background: #222222;
+    border: none;
+    width: 48px;
+    height: 45px;
+    text-indent: -900em;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    border-radius: 0 0 3px 0;
+    opacity: 0.6;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    transition: 0.4s ease-in-out; }
+.dl-menuwrapper button:hover {
+    opacity: 1; }
+@media only screen and (min-width: 48em) {
+    .dl-menuwrapper button {
+        border-radius: 3px; } }
+.dl-menuwrapper button:hover,
+.dl-menuwrapper button.dl-active,
+.dl-menuwrapper ul {
+    background: #aaa; }
+.dl-menuwrapper button:after {
+    content: '';
+    position: absolute;
+    width: 68%;
+    height: 5px;
+    background: #fff;
+    top: 10px;
+    left: 16%;
+    box-shadow: 0 10px 0 #fff,  0 20px 0 #fff; }
+.dl-menuwrapper ul {
+    padding: 0;
+    list-style: none;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d; }
+.dl-menuwrapper li {
+    position: relative; }
+.dl-menuwrapper li h4 {
+    margin: 0;
+    padding: 15px 20px 0;
+    color: rgba(255, 255, 255, 0.9); }
+.dl-menuwrapper li p {
+    margin: 0;
+    padding: 15px 20px;
+    font-size: 14px;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300; }
+.dl-menuwrapper li p a {
+    display: inline;
+    padding: 0;
+    font-size: 14px;
+    /*font-size: 0.875rem;*/
+}
+.dl-menuwrapper li a {
+    display: block;
+    position: relative;
+    padding: 15px 20px;
+    font-size: 14px;
+    /*font-size: 0.875rem;*/
+    line-height: 20px;
+    font-weight: 400;
+    color: #fff;
+    outline: none; }
+.dl-menuwrapper li.dl-back > a {
+    padding-left: 30px;
+    background: rgba(0, 0, 0, 0.0); }
+.dl-menuwrapper li.dl-back:after,
+.dl-menuwrapper li > a:not(:only-child):after {
+    position: absolute;
+    top: 0;
+    line-height: 50px;
+    font-family: "fontawesome";
+    color: #fff;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    content: "\f105"; }
+.dl-menuwrapper li.dl-back:after {
+    left: 10px;
+    color: rgba(212, 204, 198, 0.5);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg); }
+.dl-menuwrapper li > a:after {
+    right: 10px;
+    color: rgba(0, 0, 0, 0.15); }
+.dl-menuwrapper .dl-menu {
+    margin: 5px 0 0 0;
+    position: relative;
+    width: 100%;
+    max-height: 90%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    transform: translateY(10px);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: inherit; }
+@media only screen and (min-width: 48em) {
+    .dl-menuwrapper .dl-menu {
+        border-radius: 3px; } }
+.dl-menuwrapper .dl-menu.dl-menu-toggle {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+.dl-menuwrapper .dl-menu.dl-menuopen {
+    opacity: 1;
+    pointer-events: auto;
+    background-color: #062c33;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px); }
+.dl-menuwrapper .dl-submenu {
+    border-radius: 3px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.0); }
+.dl-menuwrapper .dl-submenu .btn, .dl-menuwrapper .dl-submenu .read-more-header a, .read-more-header .dl-menuwrapper .dl-submenu a, .dl-menuwrapper .dl-submenu #goog-wm-sb {
+    margin-bottom: 0; }
+.dl-menuwrapper li .dl-submenu {
+    display: none; }
+
+/*
+When a submenu is opened, we will hide all li siblings.
+For that we give a class to the parent menu called "dl-subview".
+We also hide the submenu link.
+The opened submenu will get the class "dl-subviewopen".
+All this is done for any sub-level being entered.
+*/
+.dl-menu.dl-subview li,
+.dl-menu.dl-subview li.dl-subviewopen > a,
+.dl-menu.dl-subview li.dl-subview > a {
+    display: none;
+    background-color: #062c33;}
+
+.dl-menu.dl-subview li.dl-subview,
+.dl-menu.dl-subview li.dl-subview .dl-submenu,
+.dl-menu.dl-subview li.dl-subviewopen,
+.dl-menu.dl-subview li.dl-subviewopen > .dl-submenu,
+.dl-menu.dl-subview li.dl-subviewopen > .dl-submenu > li {
+    display: block;
+    background-color: #062c33;}
+
+/* Animation classes for moving out and in */
+.dl-menu.dl-animate-out {
+    -webkit-animation: MenuAnimOut 0.4s ease;
+    -moz-animation: MenuAnimOut 0.4s ease;
+    animation: MenuAnimOut 0.4s ease; }
+
+.dl-menu.dl-animate-in {
+    -webkit-animation: MenuAnimIn 0.4s ease;
+    -moz-animation: MenuAnimIn 0.4s ease;
+    animation: MenuAnimIn 0.4s ease; }
+
+.dl-menuwrapper > .dl-submenu.dl-animate-in {
+    -webkit-animation: SubMenuAnimIn 0.4s ease;
+    -moz-animation: SubMenuAnimIn 0.4s ease;
+    animation: SubMenuAnimIn 0.4s ease; }
+
+.dl-menuwrapper > .dl-submenu.dl-animate-out {
+    -webkit-animation: SubMenuAnimOut 0.4s ease;
+    -moz-animation: SubMenuAnimOut 0.4s ease;
+    animation: SubMenuAnimOut 0.4s ease; }
+
+/* No Touch Fallback */
+.no-touch .dl-menuwrapper li a:hover {
+    background: rgba(255, 248, 213, 0.1); }
+
+/* No JS Fallback */
+.no-js .dl-trigger {
+    display: none; }
+.no-js .dl-menuwrapper {
+    position: initial; }
+@media only screen and (min-width: 48em) {
+    .no-js .dl-menuwrapper {
+        position: absolute; } }
+.no-js .dl-menuwrapper .dl-menu {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+    -webkit-transform: none;
+    -moz-transform: none;
+    transform: none; }
+.no-js .dl-menuwrapper li .dl-submenu {
+    display: block; }
+.no-js .dl-menuwrapper li.dl-back {
+    display: none; }
+.no-js .dl-menuwrapper li > a:not(:only-child) {
+    background: rgba(0, 0, 0, 0.1); }
+.no-js .dl-menuwrapper li > a:not(:only-child):after {
+    content: ''; }
+.no-js .dl-menu {
+    max-height: 100%; }
+.no-js .dl-menu li {
+    display: block; }
+
+.dl-menuwrapper button:hover,
+.dl-menuwrapper button.dl-active,
+.dl-menuwrapper ul {
+    background: #222222; }
+
+.dl-menu li {
+    display: none; }
+
+.dl-menuopen li {
+    display: block; }
+
+
+/* Tags Archive 화면을 위한 CSS 처리 */
+
+.entry-meta {
+    font-size: 12px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: rgba(187, 187, 187, 0.8); }
+.entry-meta a {
+    color: rgba(187, 187, 187, 0.8); }
+.entry-meta .vcard:before {
+    content: " by "; }
+.entry-meta .tag {
+    display: inline-block;
+    margin: 4px;
+    color: #fff;
+    border-radius: 3px;
+    background-color: rgba(162, 162, 162, 0.8); }
+.entry-meta .tag span {
+    float: left;
+    padding: 2px 6px;
+    color: black;
+    font-family: inherit;
+    background-color: aliceblue;
+}
+.entry-meta .tag .count {
+    background-color: rgba(136, 136, 136, 0.8);
+    border-radius: 0 3px 3px 0; }
+.entry-meta .tag:hover {
+    background-color: rgba(136, 136, 136, 0.8); }
+.entry-meta .entry-reading-time {
+    float: right; }
+
+.inline-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0; }
+.inline-list li {
+    list-style-type: none;
+    display: inline; }
+
+#post-index.feature .header-title {
+    height: 400px; }
+#post-index .entry-image {
+    min-height: 400px; }
+#post-index .entry-image img {
+    min-height: 400px; }
+
+#post-index #main {
+    margin: 40px 2px 20px 2px; }
+@media only screen and (min-width: 48em) {
+    #post-index #main {
+        margin-left: 20px;
+        margin-right: 20px; } }
+@media only screen and (min-width: 62.5em) {
+    #post-index #main {
+        max-width: 800px;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto; } }
+#post-index article {
+    background-color: #fff;
+    box-shadow: 0 0 0 0, 0 6px 12px rgba(34, 34, 34, 0.1);
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding: 25px 15px; }
+@media only screen and (min-width: 48em) {
+    #post-index article {
+        padding: 30px; } }
+@media only screen and (min-width: 62.5em) {
+    #post-index article {
+        margin-bottom: 30px;
+        padding: 50px 80px; } }
+
+.entry-title {
+    font-size: large;
+}
