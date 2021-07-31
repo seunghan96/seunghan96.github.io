@@ -1,7 +1,7 @@
 ---
 title: "Aspect Based Sentiment Analysis"
 author_profile: true
-layout: category
+layout: archive # category
 permalink: /categories/absa/
 taxonomy: ABSA
 sidebar_main: true
