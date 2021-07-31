@@ -1,6 +1,9 @@
 ---
 layout: splash
 permalink: /
+pagination:
+    enabled: true
+    per_page: 5
 
 header:
   overlay_filter: "0.2"
