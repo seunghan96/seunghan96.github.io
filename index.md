@@ -1,6 +1,7 @@
 ---
-layout: splash
+layout: home #splash
 permalink: /
+sidebar_main: true
 pagination:
     enabled: true
     per_page: 5
