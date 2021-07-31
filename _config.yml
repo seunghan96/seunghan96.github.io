@@ -303,10 +303,11 @@ defaults:
       header:
           overlay_image: /assets/img/main.jpg
           overlay_filter: "0.5"
-# _pages
+          
+# _pages                      : 해당 하단 영역이 새로 추가되었습니다.
   - scope:
-      path: ""
+      path: "_pages"
       type: pages
     values:
-      layout: category
+      layout: single
       author_profile: true
