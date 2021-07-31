@@ -147,7 +147,7 @@ ol.font-awesome-list li:hover {
 .myTLDRStyle {
     display: inline !important;
     margin-bottom: -0.5em !important;
-    width: 100px;
+    width: 500px;
 }
 
 /* 각 포스트의 시작 Introduction을 위한 fontAwesome */
