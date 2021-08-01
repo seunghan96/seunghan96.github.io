@@ -203,7 +203,6 @@ lsi: false
 excerpt_separator: "\n\n"
 incremental: false
 mathjax: true
-sidebar_main: true
 
 
 # Markdown Processing
@@ -239,7 +238,6 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
-  - jekyll-paginate-v2
 
 pagination:
     enabled: true
