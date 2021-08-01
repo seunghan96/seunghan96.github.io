@@ -248,7 +248,7 @@
   @include breakpoint($small) {
     float: left;
     margin-bottom: 0;
-    width: span(3 of 15);
+    width: span(4 of 20);
 
     &:nth-child(5n + 1) {
       clear: both;
@@ -256,22 +256,22 @@
 
     &:nth-child(5n + 2) {
       clear: none;
-      margin-left: gutter(1 of 15);
+      margin-left: gutter(1 of 20);
     }
 
     &:nth-child(5n + 3) {
       clear: none;
-      margin-left: gutter(1 of 15);
+      margin-left: gutter(1 of 20);
     }
     
     &:nth-child(5n + 4) {
       clear: none;
-      margin-left: gutter(1 of 15);
+      margin-left: gutter(1 of 20);
     }
 
     &:nth-child(5n + 5) {
       clear: none;
-      margin-left: gutter(1 of 15);
+      margin-left: gutter(1 of 20);
     }
 
     .feature__item-teaser {
