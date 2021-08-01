@@ -4,7 +4,7 @@
 
 .archive {
   margin-top: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 1em; #2em
 
   @include breakpoint($large) {
     float: right;
@@ -232,7 +232,7 @@
 
 .feature__wrapper {
   @include clearfix();
-  margin-bottom: 2em;
+  margin-bottom: 2em; 
   border-bottom: 1px solid $border-color;
 
   .archive__item-title {
@@ -250,19 +250,18 @@
     margin-bottom: 0;
     width: span(3 of 12);
 
-    #############################
     &:nth-child(2n+1){
       clear;none;
     }
-    #############################
+
     &:nth-child(4n + 1) {
       clear: both;
-      #margin-left: 0;
+      margin-left: 0;
     }
 
     &:nth-child(4n + 2) {
       clear: none;
-      margin-left: gutter(1 of 12); # 
+      margin-left: gutter(1 of 12); 
     }
 
     &:nth-child(4n + 3) {
