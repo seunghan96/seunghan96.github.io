@@ -1,10 +1,6 @@
 ---
 layout: splash
 permalink: /
-sidebar_main: true
-pagination:
-    enabled: true
-    per_page: 5
 
 header:
   overlay_filter: "0.2"
