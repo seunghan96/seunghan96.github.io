@@ -1,5 +1,5 @@
 ---
-layout: home #splash
+layout: splash
 permalink: /
 sidebar_main: true
 pagination:
