@@ -67,7 +67,7 @@
 /* remove border*/
 .page__content {
   .archive__item-title {
-    margin-top: 1em;
+    margin-top: 0.5em;
     border-bottom: none;
   }
 }
@@ -232,8 +232,8 @@
 
 .feature__wrapper {
   @include clearfix();
-  margin-bottom: 2em;
-  border-bottom: 1px solid $border-color;
+  margin-bottom: 1em;
+  border-bottom: 0.5px solid $border-color;
 
   .archive__item-title {
     margin-bottom: 0;
@@ -242,8 +242,8 @@
 
 .feature__item {
   position: relative;
-  margin-bottom: 2em;
-  font-size: 1.125em;
+  margin-bottom: 1em;
+  font-size: 0.8em;
 
   @include breakpoint($small) {
     float: left;
@@ -274,7 +274,7 @@
     }
 
     .feature__item-teaser {
-      max-height: 100px;
+      max-height: 80px;
       overflow: hidden;
     }
   }
@@ -298,16 +298,16 @@
     float: left;
     margin-left: 0;
     margin-right: 0;
-    width: 100%;
+    width: 80%;
     clear: both;
-    font-size: 1.125em;
+    font-size: 0.87em;
 
     .archive__item {
       float: left;
     }
 
     .archive__item-teaser {
-      margin-bottom: 2em;
+      margin-bottom: 1em;
     }
 
     a.btn::before {
