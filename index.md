@@ -35,6 +35,7 @@ feature_row2:
     title: "Machine Learning"
     excerpt: # 'About Various ML Algorithms...'
     url: "categories/ml/"
+    width : "10%"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
