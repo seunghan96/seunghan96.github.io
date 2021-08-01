@@ -17,14 +17,12 @@ feature_row2:
     title: "Bayesian NN & Variational Inference"
     excerpt: 'Paper review about BNN / VI / Probabilistic DL'
     url: "categories/bnn/"
-    width : "100"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
   - image_path: /assets/img/prml.jpg
     alt: "placeholder image 2"
     title: "PRML"
-    width : "300"
     excerpt: 'Pattern Recognition & Machine Learning'
     url: "categories/prml/"
     btn_label: "Read More"
@@ -35,7 +33,6 @@ feature_row2:
     title: "Machine Learning"
     excerpt: # 'About Various ML Algorithms...'
     url: "categories/ml/"
-    width : "10%"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
@@ -198,7 +195,7 @@ feature_row:
 
 {% include feature_row id="intro" type="center"%}
 
-{% include feature_row id="feature_row2" style="max-width: 10px;"}
+{% include feature_row id="feature_row2"}
 
 {% include feature_row id="feature_row" type="left" %}
 
