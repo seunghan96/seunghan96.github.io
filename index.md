@@ -10,8 +10,8 @@ excerpt: "Statistical Approach to ML/DL <br> ( Field of interest : Continual Lea
 feature_row2:
   - image_path: /assets/img/BNN.png
     alt: "placeholder image 2"
-    title: "Bayesian NN & Variational Inference"
-    excerpt: 'Paper review about BNN / VI / Probabilistic DL'
+    title: "Bayesian NN & VI"
+    excerpt: 'Paper reviews & Tensorflow2'
     url: "categories/bnn/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -19,7 +19,7 @@ feature_row2:
   - image_path: /assets/img/prml.jpg
     alt: "placeholder image 2"
     title: "PRML"
-    excerpt: 'Pattern Recognition & Machine Learning'
+    excerpt: 'Summary of Chapter 01~12'
     url: "categories/prml/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -27,7 +27,7 @@ feature_row2:
   - image_path: /assets/img/ML.jpg  
     alt: "placeholder image 2"
     title: "Machine Learning"
-    excerpt: # 'About Various ML Algorithms...'
+    excerpt: 'About Various ML Algorithms'
     url: "categories/ml/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -35,7 +35,7 @@ feature_row2:
   - image_path: /assets/img/STUDY.jpg  
     alt: "placeholder image 2"
     title: "Paper Reading Study"
-    excerpt: 'Meta, Continual, Interptetable, Reliable DL'
+    excerpt: '2021.05 ~ ing'
     url: "categories/study/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -43,39 +43,39 @@ feature_row2:
   - image_path: /assets/img/CV2.jpg
     alt: "placeholder image 2"
     title: "Computer Vision"
-    excerpt: # 'Computer Vision'
+    excerpt: 'About Various CV Algorithms'
     url: "categories/cv/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
   - image_path: /assets/img/NLP.jpg
     alt: "placeholder image 2"
-    title: "Natural Language Processing"
-    excerpt: # 'Natural Language Processing'
+    title: "NLP"
+    excerpt: 'Natural Language Processing'
     url: "categories/nlp/"
     btn_label: "Read More"
     btn_class: "btn--primary"
   
   - image_path: /assets/img/GAN.jpg
     alt: "placeholder image 2"
-    title: "Generative Adversarial Network"
-    excerpt: # 'Generative Adversarial Network'
+    title: "GAN"
+    excerpt: 'Generative Adversarial Network'
     url: "categories/gan/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
   - image_path: /assets/img/RL.jpg
     alt: "placeholder image 2"
-    title: "Reinforcement Learning"
-    excerpt: # 'Q-Learning, DQN...'
+    title: "RL"
+    excerpt: "Reinforcement Learning"
     url: "categories/rl/"
     btn_label: "Read More"
     btn_class: "btn--primary"
   
   - image_path: /assets/img/RS.jpg
     alt: "placeholder image 2"
-    title: "Recommender System"
-    excerpt: # 'RecSys using ML/DL'
+    title: "Rec Sys"
+    excerpt: "Recommender System"
     url: "categories/rs/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -83,7 +83,7 @@ feature_row2:
   - image_path: /assets/img/META.png
     alt: "placeholder image 2"
     title: "Meta Learning"
-    excerpt: #''
+    excerpt: "Paper Reviews & CS330"
     url: "categories/meta/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -91,31 +91,31 @@ feature_row2:
   - image_path: /assets/img/CONT.png
     alt: "placeholder image 2"
     title: "Continual Learning"
-    excerpt: #'Meta, Continual, Interptetable, Reliable DL'
+    excerpt: "Paper Reviews"
     url: "categories/cont/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
   - image_path: /assets/img/RELI.png
     alt: "placeholder image 2"
-    title: "Reliable Deep Learning"
-    excerpt: #'Meta, Continual, Interptetable, Reliable DL'
+    title: "Reliable DL"
+    excerpt: "Reliable Deep Learning"
     url: "categories/reli/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
   - image_path: /assets/img/INTE.png
     alt: "placeholder image 2"
-    title: "Interpretable Deep Learning"
-    excerpt: #'Meta, Continual, Interptetable, Reliable DL'
+    title: "Interpretable DL"
+    excerpt: "Interpretable Deep Learning"
     url: "categories/inte/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
   - image_path: /assets/img/MULT.png
     alt: "placeholder image 2"
-    title: "Multimodal Deep Learning"
-    excerpt: #'Meta, Continual, Interptetable, Reliable DL'
+    title: "Multimodal DL"
+    excerpt: "Multimodal Deep Learning"
     url: "categories/mult/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -123,15 +123,15 @@ feature_row2:
   - image_path: /assets/img/HBERT.png
     alt: "placeholder image 2"
     title: "Hierarchical BERT"
-    excerpt: #'Meta, Continual, Interptetable, Reliable DL'
+    excerpt: "Hierarchical BERT & ABSA"
     url: "categories/hbert/"
     btn_label: "Read More"
     btn_class: "btn--primary"
   
   - image_path: /assets/img/ABSA.png
     alt: "placeholder image 2"
-    title: "Abstract based Sentiment Analysis"
-    excerpt: #'Meta, Continual, Interptetable, Reliable DL'
+    title: "ABSA"
+    excerpt: "Abstract based Sentiment Analysis"
     url: "categories/absa/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -147,7 +147,7 @@ feature_row2:
   - image_path: /assets/img/ST2.jpg
     alt: "placeholder image 2"
     title: "Bayesian Statistics"
-    excerpt: # 'Bayesian Statistics...'
+    excerpt: 'Gibbs & VI'
     url: "/categories/st/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -155,7 +155,7 @@ feature_row2:
   - image_path: /assets/img/de.jpg
     alt: "placeholder image 2"
     title: "Data Engineering"
-    excerpt: # 'Data Engineering Projects'
+    excerpt: 'Basics of Data Engineering'
     url: "/categories/de/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -163,15 +163,15 @@ feature_row2:
   - image_path: /assets/img/PPT.png
     alt: "placeholder image 2"
     title: "Presentation"
-    excerpt: '각종 발표자료들'
+    excerpt: "Presentations & Lecture Notes"
     url: "/categories/ppt/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
   - image_path: /assets/img/etc.jpg
     alt: "placeholder image 2"
-    title: "Project & Competition"
-    excerpt: #'Projects, Competition...'
+    title: "Projects"
+    excerpt: "Projects & Competition"
     url: "/categories/etc/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -181,7 +181,7 @@ feature_row:
   - image_path: /assets/img/SeunghanLee2.jpg
     alt: "placeholder image 2"
     title: "Seunghan Lee"
-    excerpt: 'DataScience Lab 1기 회장 <br> (학부) 연세대 경영/응용통계 <br> (석박통합) 연세대 통계데이터사이언스 대학원 <br> <br> T. 010-8768-8472 <br> E. seunghan96@naver.com'
+    excerpt: 'DataScience Lab 1기 회장 <br> (학부) 연세대 경영/응용통계 <br> (석박통합) 연세대 통계데이터사이언스 대학원 <br> <br> T. 010-8768-8472 <br> E. seunghan96@naver.com' <br> 관심 분야 : Meta & Continual Learning
     url: "https://github.com/seunghan96"
     btn_label: "Read More"
     btn_class: "btn--primary"
