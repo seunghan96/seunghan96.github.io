@@ -143,7 +143,7 @@ feature_row2:
   - image_path: /assets/img/NE.jpg
     alt: "placeholder image 2"
     title: "Network Embedding"
-    excerpt: # 'Deep Walk, LINE, node2vec...'
+    excerpt: 'Deep Walk, LINE, node2vec...'
     url: "/categories/ne/"
     btn_label: "Read More"
     btn_class: "btn--primary"    
@@ -195,7 +195,7 @@ feature_row:
 
 {% include feature_row id="intro" type="center"%}
 
-{% include feature_row id="feature_row2" %}
+{% include feature_row id="feature_row2" width=0.01%}
 
 {% include feature_row id="feature_row" type="left" %}
 
