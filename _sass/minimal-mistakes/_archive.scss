@@ -248,29 +248,30 @@
   @include breakpoint($small) {
     float: left;
     margin-bottom: 0;
-    width: span(3 of 12);
+    width: span(3 of 15);
 
-    &:nth-child(2n + 1) {
-      clear: none;
-    }
-
-    &:nth-child(4n + 1) {
+    &:nth-child(5n + 1) {
       clear: both;
     }
 
-    &:nth-child(4n + 2) {
+    &:nth-child(5n + 2) {
       clear: none;
-      margin-left: gutter(1 of 12);
+      margin-left: gutter(1 of 15);
     }
 
-    &:nth-child(4n + 3) {
+    &:nth-child(5n + 3) {
       clear: none;
-      margin-left: gutter(1 of 12);
+      margin-left: gutter(1 of 15);
+    }
+    
+    &:nth-child(5n + 4) {
+      clear: none;
+      margin-left: gutter(1 of 15);
     }
 
-    &:nth-child(4n + 4) {
+    &:nth-child(5n + 5) {
       clear: none;
-      margin-left: gutter(1 of 12);
+      margin-left: gutter(1 of 15);
     }
 
     .feature__item-teaser {
