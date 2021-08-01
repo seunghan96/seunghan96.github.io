@@ -195,7 +195,7 @@ feature_row:
 
 {% include feature_row id="intro" type="center"%}
 
-{% include feature_row id="feature_row2" width=0.01%}
+{% include feature_row id="feature_row2" style="max-width: 10px;"}
 
 {% include feature_row id="feature_row" type="left" %}
 
