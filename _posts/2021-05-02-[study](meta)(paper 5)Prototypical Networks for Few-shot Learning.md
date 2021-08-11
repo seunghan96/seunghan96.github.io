@@ -2,7 +2,7 @@
 title: \[meta\] (paper 5) Prototypical Networks for Few shot Learning
 categories: [META,STUDY]
 tags: [Meta Learning]
-excerpt: Prototypical Networks
+excerpt: 2017, Prototypical Networks
 ---
 
 # Prototypical Networks for Few-shot Learning
