@@ -2,7 +2,7 @@
 title: \[meta\] (paper 2) Matching Networks for One Shot Learning
 categories: [META,STUDY]
 tags: [Meta Learning]
-excerpt: Matching Networks, One shot learning
+excerpt: 2016, Matching Networks
 ---
 
 # Matching Networks for One Shot Learning
@@ -32,8 +32,8 @@ standard DL 방법론으로 풀기 쉽지 않다!
 
 이 논문에서 제안한 **Matching Network**는 아래의 1) + 2)
 
-- 1) **metric learning** based on **deep neural features**
-- 2) augment NN with **external memories**
+- 1) **"METRIC learning"** based on **deep neural features**
+- 2) augment NN with **"EXTERNAL" memories**
 
 <br>
 
@@ -213,11 +213,11 @@ Episode ( training 알고리즘 )
 
 ## 3-1. MANN
 
-( 이전 포스트 https://seunghan96.github.io/meta/study/study-(meta)(paper-1)-Meta-learning-with-Memory-Augmented-Neural-Networks/ 참고하기 )
+( 논문 리뷰 : https://seunghan96.github.io/meta/study/study-(meta)(paper-1)-Meta-learning-with-Memory-Augmented-Neural-Networks/ 참고하기 )
 
 - **Memory Augmented Neural Network (MANN)**의 패러다임을 차용
 
-  ( LSTM learnt to learn quicly from data presented sequentially )
+  ( LSTM learnt to learn quickly from data presented sequentially )
 
 - 차이점은, data를 하나의 "set"으로 바라봤다는 점
 

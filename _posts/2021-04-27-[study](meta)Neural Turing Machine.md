@@ -2,7 +2,7 @@
 title: \[meta\] Neural Turing Machine (NMT)
 categories: [META,STUDY]
 tags: [Meta Learning]
-excerpt: Neural Turing Machine
+excerpt: 2014
 ---
 
 # Neural Turing Machine (NMT)
@@ -14,11 +14,13 @@ excerpt: Neural Turing Machine
 목차
 
 1. Introduction
-2. Meta Learning Problem
-3. Approaches
-   1. Metric-Based
-   2. Model-Based
-   3. Optimization-Based
+   1. 일반적인 NN
+   2. RNN
+   3. Neural Turing Machine (NTM)
+2. Neural Turing Machine (NTM)
+   1. Read head
+   2. Write head
+   3. Memory 주소 계산 (=Addressing) 
 
 <br>
 
@@ -47,9 +49,10 @@ excerpt: Neural Turing Machine
 ### (2) RNN
 
 - input : external input + previous state
-  - 여기서 previous state는, 일종의 internal memory다 
-  - 내부의 unit 출력 자체를 다시 input으로 사용
-
+  - 여기서 previous state는, **일종의 internal memory다** 
+  
+  ( = **내부의 unit 출력 자체를** 다시 input으로 사용 ) 
+  
 - output : external output
 
 ![figure2](/assets/img/META/img2.png)
@@ -68,7 +71,7 @@ excerpt: Neural Turing Machine
 
 <br>
 
-# 2. Neural Turing Machine
+# 2. Neural Turing Machine (NTM)
 
 ![figure2](/assets/img/META/img4.png)
 
@@ -93,7 +96,7 @@ excerpt: Neural Turing Machine
 
   **여러 row의 linear combination을 뽑아냄 ( = blurry )**
 
-- $$\mathbf{r}_{t} \leftarrow \sum_{i}^{R} w_{t}(i) \mathbf{M}_{t}(i)$$
+- $$\mathbf{r}_{t} \leftarrow \sum_{i}^{R} w_{t}(i) \mathbf{M}_{t}(i)$$.
 
 <br>
 
@@ -105,15 +108,10 @@ excerpt: Neural Turing Machine
 
 - 과정
 
-  -  erase : Memory에서 특정 정보를 지우고
+  -  erase : Memory에서 특정 정보를 지우고 .... $$\tilde{\mathbf{M}}_{t}(i) \leftarrow \mathbf{M}_{t-1}(i)\left[\mathbf{1}-w_{t}(i) \mathbf{e}_{t}\right]$$.
 
-    $$\tilde{\mathbf{M}}_{t}(i) \leftarrow \mathbf{M}_{t-1}(i)\left[\mathbf{1}-w_{t}(i) \mathbf{e}_{t}\right]$$.
+  - add : Memory에 특정 정보 추가 .... $$\mathbf{M}_{t}(i) \leftarrow \tilde{\mathbf{M}}_{t}(i)+w_{t}(i) \mathbf{a}_{t}$$.
 
-  - add : Memory에 특정 정보 추가
-
-    $$\mathbf{M}_{t}(i) \leftarrow \tilde{\mathbf{M}}_{t}(i)+w_{t}(i) \mathbf{a}_{t}$$.
-
-<br>
 
 위의 (1), (2) 모두 **matrix 연산으로써**, **미분 가능**하다!
 
@@ -135,7 +133,7 @@ excerpt: Neural Turing Machine
 
 아래의 4가지 step으로 이루어짐
 
-- 1) Content-addressing : key vector k_t와의 cosine similarity를 통해 content-based weight w_t^c 계산
+- 1) Content-addressing : key vector $$k_t$$와의 cosine similarity를 통해 content-based weight $$w_t^c$$ 계산
 
 - 2) Interpolation
   - $$w_t^g$$를 구함.... by $$w_t^c$$ & $$w_{t-1}$$의 weighted average

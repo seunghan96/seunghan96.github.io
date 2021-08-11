@@ -2,7 +2,7 @@
 title: \[meta\] (paper 3) Towards a Neural Statistician
 categories: [META,STUDY]
 tags: [Meta Learning]
-excerpt: VAE, statistics, Statistic Network
+excerpt: 2016, VAE, Statistic Network
 ---
 
 # Towards a Neural Statistician
@@ -32,8 +32,6 @@ excerpt: VAE, statistics, Statistic Network
   - work with **data points (X)**
   - work with **datasets (O)**
 
-<br>
-
 여기서 제안한 network는, **statistics**를 produce하도록 학습됨! 
 
 <br>
@@ -49,14 +47,14 @@ summarizing datasets = **Statistics** (통계량)
   - ex) Normal의 mean & variance
 
 - 이 모델의 장점
-  - 1) Unsupervised 
+  - 1) **Unsupervised**
     - VAE의 output을 summary statistic로 사용
-  - 2) Data Efficient
+  - 2) **Data Efficient**
     - 적은 양의 dataset 여러 개 있을 경우?
     - model the datasets **JOINTLY**
-  - 3) Parameter Efficient
+  - 3) **Parameter Efficient**
     - summary statistic 사용하여 param 수 줄여!
-  - 4) Capable of few-shot learning
+  - 4) **Capable of few-shot learning**
     - 데이터셋들이 서로 다른 class일 경우, **class embedding** 사용
 
 <br>
@@ -151,7 +149,7 @@ notation
 
 ## 3-3. Full Model
 
-위의 basic모델은 simple dataset에는 잘 working하나, data가 complex internel structure가질 경우는...?
+위의 basic모델은 simple dataset에는 잘 working하나, data가 complex internal structure가질 경우는...?
 
 모델의 복잡도를 높이기 위해 ...
 
@@ -184,9 +182,9 @@ Full Approximate posterior를 factorize하면...
 
 ELBO를 세 가지 term으로 나눌 수 있음
 
-- 1) Reconstruction term $$R_E$$
-- 2) Context Divergence $$C_D$$
-- 3) Latent Divergence $$L_D$$
+- **1) Reconstruction term $$R_E$$**
+- **2) Context Divergence $$C_D$$**
+- **3) Latent Divergence $$L_D$$**
 
 <br>
 

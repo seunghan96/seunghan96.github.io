@@ -2,7 +2,7 @@
 title: \[meta\] (paper 1) Meta learning with Memory Augmented Neural Networks
 categories: [META,STUDY]
 tags: [Meta Learning]
-excerpt: MANN (Memory Augmented Neural Networks)
+excerpt: 2016, MANN
 ---
 
 # Meta learning with Memory Augmented Neural Networks
@@ -57,17 +57,17 @@ $$\rightarrow$$ NTM + One-shot Learning :
 
 ### Abstract
 
-- 1) NTM을 기반으로 한 MANN 제안
+- 1) NTM을 기반으로 한 **MANN 제안**
 
-- 2) One-Shot Learning 수행
+- 2) **One-Shot Learning** 수행
 
 - 3) High Performance ( Omniglot dataset )
 
 <br>
 
- ### Omniglot  Dataset 소개
+### Omniglot  Dataset 소개
 
-- 많은 class (1623 종류), 적은 sample 수(20개/종류)
+- **많은** class (1623 종류), **적은** sample 수(20개/종류)
 
 - Train(1200) : Test(423)로 split
 
@@ -75,13 +75,11 @@ $$\rightarrow$$ NTM + One-shot Learning :
 
 # 2. Meta-Learning Methodology
 
-아래의 loss를 최소화하도록 학습
-
-( cost **"across a distribution of datasets** $$p(D)$$" )
+아래의 loss ( = cost **"across a distribution of datasets** $$p(D)$$" ) 를 최소화하도록 학습 
 
 $$\theta^{*}=\operatorname{argmin}_{\theta} E_{D \sim p(D)}[\mathcal{L}(D ; \theta)]$$.
 
-- $$D=\left\{d_{t}\right\}_{t=1}^{T}=\left\{\left(\mathbf{x}_{t}, y_{t}\right)\right\}_{t=1}^{T}$$
+- where $$D=\left\{d_{t}\right\}_{t=1}^{T}=\left\{\left(\mathbf{x}_{t}, y_{t}\right)\right\}_{t=1}^{T}$$,
 
 <br>
 
@@ -89,9 +87,7 @@ $$\theta^{*}=\operatorname{argmin}_{\theta} E_{D \sim p(D)}[\mathcal{L}(D ; \the
 
 - $$y_t$$는 target임과 동시에, $$\mathbf{x_t}$$와 함께 **input으로도 들어간다**
 
-- time $$t$$ 시점에,
-
-  이전 step의 정답 ($$y_{t-1}$$)와, 현재 시점의 input ($$\mathbf{x_t}$$)가 같이들어간다.
+- time $$t$$ 시점에, **이전 step의 정답 ($$y_{t-1}$$)와, 현재 시점의 input ($$\mathbf{x_t}$$)가** 같이들어간다.
 
 - shuffle은 필수! ( slow learning 방지 )
 
@@ -108,8 +104,6 @@ $$\theta^{*}=\operatorname{argmin}_{\theta} E_{D \sim p(D)}[\mathcal{L}(D ; \the
 - “NTM을 사용하여, 적게 본 것도 잘 맞추자!”
 
 <br>
-
-### Episode
 
 **Episode : “정답 맞추기 과정”**
 
@@ -133,8 +127,6 @@ $$\theta^{*}=\operatorname{argmin}_{\theta} E_{D \sim p(D)}[\mathcal{L}(D ; \the
 
    Test Time ) 423개의 class를 대상으로 예측
 
-<br>
-
 ![figure2](/assets/img/META/img8.png)
 
 <br>
@@ -149,15 +141,14 @@ $$\theta^{*}=\operatorname{argmin}_{\theta} E_{D \sim p(D)}[\mathcal{L}(D ; \the
 
 ### (1) READ head
 
-수식 1) 유사도 계산
+수식 1) **유사도 계산**
 
-- $$w_{t}^{r}(i) \leftarrow \frac{\exp \left(K\left(\mathbf{k}_{t}, \mathbf{M}_{t}(i)\right)\right)}{\sum_{j} \exp \left(K\left(\mathbf{k}_{t}, \mathbf{M}_{t}(j)\right)\right)}$$, where
+- $$w_{t}^{r}(i) \leftarrow \frac{\exp \left(K\left(\mathbf{k}_{t}, \mathbf{M}_{t}(i)\right)\right)}{\sum_{j} \exp \left(K\left(\mathbf{k}_{t}, \mathbf{M}_{t}(j)\right)\right)}$$, where $$K\left(\mathbf{k}_{t}, \mathbf{M}_{t}(i)\right)=\frac{\mathbf{k}_{t} \cdot \mathbf{M}_{t}(i)}{\left\|\mathbf{k}_{t}\right\|\left\|\mathbf{M}_{t}(i)\right\|}$$ ( cosine similarity )
 
-  $$K\left(\mathbf{k}_{t}, \mathbf{M}_{t}(i)\right)=\frac{\mathbf{k}_{t} \cdot \mathbf{M}_{t}(i)}{\left\|\mathbf{k}_{t}\right\|\left\|\mathbf{M}_{t}(i)\right\|}$$ ( cosine similarity )
 
 <br>
 
-수식 2) memory의 특정 row가 아닌, linear combination
+수식 2) memory의 특정 row가 아닌, **linear combination**
 
 - $$\mathbf{r}_{t} \leftarrow \sum_{i} w_{t}^{r}(i) \mathbf{M}_{t}(i)$$.
 
@@ -176,7 +167,7 @@ $$\theta^{*}=\operatorname{argmin}_{\theta} E_{D \sim p(D)}[\mathcal{L}(D ; \the
 
 $$\rightarrow$$ $$w^{lu}$$를 사용한다!  
 
- ( $$w^{lu}$$ = least used weight. 최근에 사용되지 않은 Memory 영역에 write하기! )
+ ( $$w^{lu}$$ = least used weight. **최근에 사용되지 않은** Memory 영역에 write하기! )
 
 <br>
 
@@ -203,7 +194,7 @@ $$w^{lu}$$는 다음과 같이 설정
 
 <br>
 
-**직관적 이해) **
+**직관적 이해)**
 
 - 기존에 있던 메모리 사용 중인 공간이 크면, 0 ( ***여기에 적지 마!*** )
 

@@ -2,7 +2,7 @@
 title: \[meta\] (paper 4) Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks
 categories: [META,STUDY]
 tags: [Meta Learning]
-excerpt: MAML
+excerpt: 2017, MAML
 ---
 
 # Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks
