@@ -80,7 +80,7 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/TIME.jpg
+  - image_path: /assets/img/TIME.png
     alt: "placeholder image 2"
     title: "Time Series"
     excerpt: "Prediction & Imputation"
