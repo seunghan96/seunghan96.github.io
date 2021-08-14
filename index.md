@@ -80,6 +80,14 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+  - image_path: /assets/img/TIME.jpg
+    alt: "placeholder image 2"
+    title: "Time Series"
+    excerpt: "Prediction & Imputation"
+    url: "categories/ts/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/META.png
     alt: "placeholder image 2"
     title: "Meta Learning"
