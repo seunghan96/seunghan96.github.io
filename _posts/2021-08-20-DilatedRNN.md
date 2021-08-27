@@ -56,7 +56,7 @@ attempts to overcome problems of RNNs
 
   whereas an **RNN's autoregressive modeling** can **capture potentially infinitely long dependencies**
 
-$\rightarrow$ introduce **DilatedRNN**
+$$\rightarrow$$ introduce **DilatedRNN**
 
 <br>
 
@@ -80,9 +80,9 @@ main ingredients of Dilated RNN
 - stack dilated recurrent layers
 
 - (similar to WaveNet) dilation increases exponentially across layers
-- $s^{(l)}$ : dilation of the $l$-th layer
-  - $s^{(l)}=M^{l-1}, l=1, \cdots, L$.
-- ex)  figure 2 depicts an example with $L=3$ and $M=2$. 
+- $$s^{(l)}$$ : dilation of the $$l$$-th layer
+  - $$s^{(l)}=M^{l-1}, l=1, \cdots, L$$.
+- ex)  figure 2 depicts an example with $$L=3$$ and $$M=2$$. 
 
 <br>
 
@@ -95,5 +95,5 @@ Benefits
 
 Generalized Dilated RNN
 
-- does not start at one, but $M^{l_{0}}$
-- $s^{(l)}=M^{\left(l-1+l_{0}\right)}, l=1, \cdots, L \text { and } l_{0} \geq 0$.
+- does not start at one, but $$M^{l_{0}}$$
+- $$s^{(l)}=M^{\left(l-1+l_{0}\right)}, l=1, \cdots, L \text { and } l_{0} \geq 0$$.
