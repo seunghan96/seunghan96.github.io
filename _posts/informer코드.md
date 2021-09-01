@@ -38,77 +38,99 @@ import torch.nn.functional as F
 
 ```python
 class InformerStack(nn.Module):
+    
     def __init__(self, enc_in, dec_in, c_out, label_len, out_len, 
                 factor=5, d_model=512, n_heads=8, e_layers=[3,2,1], d_layers=2, d_ff=512, 
                 dropout=0.0, attn='prob', embed='fixed', freq='h', activation='gelu',
                 output_attention = False, distil=True, mix=True,
                 device=torch.device('cuda:0')):
         super(InformerStack, self).__init__()
+        #------------------------------------------------------#
         self.pred_len = out_len
         self.attn = attn
         self.output_attention = output_attention
-
-        # Encoding
+        
+		#------------------------------------------------------#
+        # (1) "Data Embedding" layer
         self.enc_embedding = DataEmbedding(enc_in, d_model, embed, freq, dropout)
         self.dec_embedding = DataEmbedding(dec_in, d_model, embed, freq, dropout)
         
-        # Attention
+        #------------------------------------------------------#
+        # (2) Attention
         Attn = ProbAttention if attn=='prob' else FullAttention
-        # Encoder
-
+        
+        #------------------------------------------------------#
+        # (3) Encoder
+        ## 구성 1) + 2) + 3)이 총 e_layer 길이 만큼
+        ###### 구성 1) Encoder Layer x el개
+        ###### 구성 2) Convolutional Layer (distill 경우 선택)
+        ###### 구성 3) Layer Normalization
         inp_lens = list(range(len(e_layers))) # [0,1,2,...] you can customize here
         encoders = [
             Encoder(
-                [
-                    EncoderLayer(
-                        AttentionLayer(Attn(False, factor, attention_dropout=dropout, output_attention=output_attention), 
+                ## a) Encoder Layer
+                [EncoderLayer(
+                    AttentionLayer(Attn(False, factor, attention_dropout=dropout, 
+                                        output_attention=output_attention), 
                                     d_model, n_heads, mix=False),
-                        d_model,
-                        d_ff,
-                        dropout=dropout,
-                        activation=activation
-                    ) for l in range(el)
-                ],
-                [
-                    ConvLayer(
-                        d_model
-                    ) for l in range(el-1)
-                ] if distil else None,
+                        d_model,d_ff,dropout=dropout,
+                        activation=activation) for l in range(el)],
+                ## b) Convolutional Layer
+                [ ConvLayer(d_model) for l in range(el-1) ] if distil else None,
+                ## c) Layer Normalization
                 norm_layer=torch.nn.LayerNorm(d_model)
-            ) for el in e_layers]
+            	) for el in e_layers]
         self.encoder = EncoderStack(encoders, inp_lens)
-        # Decoder
+        
+        #------------------------------------------------------#
+        # (4) Decoder
+        ## 구성 1) + 2) 
+        ###### 구성 1) Decoder Layer x d_layer개
+        ###### 구성 2) Layer Normalization
         self.decoder = Decoder(
-            [
-                DecoderLayer(
-                    AttentionLayer(Attn(True, factor, attention_dropout=dropout, output_attention=False), 
-                                d_model, n_heads, mix=mix),
-                    AttentionLayer(FullAttention(False, factor, attention_dropout=dropout, output_attention=False), 
-                                d_model, n_heads, mix=False),
-                    d_model,
-                    d_ff,
-                    dropout=dropout,
-                    activation=activation,
-                )
-                for l in range(d_layers)
-            ],
-            norm_layer=torch.nn.LayerNorm(d_model)
-        )
+            ## a) Decoder Layer
+            [DecoderLayer(
+                    AttentionLayer(Attn(True, factor, attention_dropout=dropout,
+                                        output_attention=False),d_model, n_heads, mix=mix),
+                    AttentionLayer(FullAttention(False, factor,attention_dropout=dropout, 
+                                                 output_attention=False),d_model, n_heads, mix=False),
+                    d_model,d_ff,dropout=dropout,activation=activation,
+                ) for l in range(d_layers)],
+            ## b) Layer Normalization
+            norm_layer=torch.nn.LayerNorm(d_model))
+        
+        #------------------------------------------------------#
         # self.end_conv1 = nn.Conv1d(in_channels=label_len+out_len, out_channels=out_len, kernel_size=1, bias=True)
         # self.end_conv2 = nn.Conv1d(in_channels=d_model, out_channels=c_out, kernel_size=1, bias=True)
+        
+        #------------------------------------------------------# 
+        # (5) Projection Layer
         self.projection = nn.Linear(d_model, c_out, bias=True)
+        
+        
+        
         
     def forward(self, x_enc, x_mark_enc, x_dec, x_mark_dec, 
                 enc_self_mask=None, dec_self_mask=None, dec_enc_mask=None):
+        
+        # Step 1) Embedding (encoder)
         enc_out = self.enc_embedding(x_enc, x_mark_enc)
+        
+        # Step 2) Encoding
         enc_out, attns = self.encoder(enc_out, attn_mask=enc_self_mask)
 
+        # Step 3) Embedding (decoder)
         dec_out = self.dec_embedding(x_dec, x_mark_dec)
+        
+        # Step 4) Decoding
         dec_out = self.decoder(dec_out, enc_out, x_mask=dec_self_mask, cross_mask=dec_enc_mask)
+        
+        # Step 5) Linear Pojection
         dec_out = self.projection(dec_out)
         
         # dec_out = self.end_conv1(dec_out)
         # dec_out = self.end_conv2(dec_out.transpose(2,1)).transpose(1,2)
+        
         if self.output_attention:
             return dec_out[:,-self.pred_len:,:], attns
         else:
@@ -121,72 +143,99 @@ class InformerStack(nn.Module):
 
 ```python
 class Informer(nn.Module):
+    
     def __init__(self, enc_in, dec_in, c_out, label_len, out_len, 
                 factor=5, d_model=512, n_heads=8, e_layers=3, d_layers=2, d_ff=512, 
-                dropout=0.0, attn='prob', embed='fixed', freq='h', activation='gelu', 
+                dropout=0.0, attn='prob', embed='fixed', freq='h', activation='gelu',
                 output_attention = False, distil=True, mix=True,
                 device=torch.device('cuda:0')):
         super(Informer, self).__init__()
+        #------------------------------------------------------#
         self.pred_len = out_len
         self.attn = attn
         self.output_attention = output_attention
-
-        # Encoding
+        
+		#------------------------------------------------------#
+        # (1) "Data Embedding" layer
         self.enc_embedding = DataEmbedding(enc_in, d_model, embed, freq, dropout)
         self.dec_embedding = DataEmbedding(dec_in, d_model, embed, freq, dropout)
-        # Attention
+        
+        #------------------------------------------------------#
+        # (2) Attention
         Attn = ProbAttention if attn=='prob' else FullAttention
-        # Encoder
-        self.encoder = Encoder(
-            [
-                EncoderLayer(
-                    AttentionLayer(Attn(False, factor, attention_dropout=dropout, output_attention=output_attention), 
-                                d_model, n_heads, mix=False),
-                    d_model,
-                    d_ff,
-                    dropout=dropout,
-                    activation=activation
-                ) for l in range(e_layers)
-            ],
-            [
-                ConvLayer(
-                    d_model
-                ) for l in range(e_layers-1)
-            ] if distil else None,
-            norm_layer=torch.nn.LayerNorm(d_model)
-        )
-        # Decoder
+        
+        #------------------------------------------------------#
+        # (3) Encoder
+        ## 구성 1) + 2) + 3)이 총 e_layer 길이 만큼
+        ###### 구성 1) Encoder Layer x el개
+        ###### 구성 2) Convolutional Layer (distill 경우 선택)
+        ###### 구성 3) Layer Normalization
+        inp_lens = list(range(len(e_layers))) # [0,1,2,...] you can customize here
+        encoders = [
+            Encoder(
+                ## a) Encoder Layer
+                [EncoderLayer(
+                    AttentionLayer(Attn(False, factor, attention_dropout=dropout, 
+                                        output_attention=output_attention), 
+                                    d_model, n_heads, mix=False),
+                        d_model,d_ff,dropout=dropout,
+                        activation=activation) for l in range(el)],
+                ## b) Convolutional Layer
+                [ ConvLayer(d_model) for l in range(el-1) ] if distil else None,
+                ## c) Layer Normalization
+                norm_layer=torch.nn.LayerNorm(d_model)
+            	) for el in e_layers]
+        self.encoder = EncoderStack(encoders, inp_lens)
+        
+        #------------------------------------------------------#
+        # (4) Decoder
+        ## 구성 1) + 2) 
+        ###### 구성 1) Decoder Layer x d_layer개
+        ###### 구성 2) Layer Normalization
         self.decoder = Decoder(
-            [
-                DecoderLayer(
-                    AttentionLayer(Attn(True, factor, attention_dropout=dropout, output_attention=False), 
-                                d_model, n_heads, mix=mix),
-                    AttentionLayer(FullAttention(False, factor, attention_dropout=dropout, output_attention=False), 
-                                d_model, n_heads, mix=False),
-                    d_model,
-                    d_ff,
-                    dropout=dropout,
-                    activation=activation,
-                )
-                for l in range(d_layers)
-            ],
-            norm_layer=torch.nn.LayerNorm(d_model)
-        )
+            ## a) Decoder Layer
+            [DecoderLayer(
+                    AttentionLayer(Attn(True, factor, attention_dropout=dropout,
+                                        output_attention=False),d_model, n_heads, mix=mix),
+                    AttentionLayer(FullAttention(False, factor,attention_dropout=dropout, 
+                                                 output_attention=False),d_model, n_heads, mix=False),
+                    d_model,d_ff,dropout=dropout,activation=activation,
+                ) for l in range(d_layers)],
+            ## b) Layer Normalization
+            norm_layer=torch.nn.LayerNorm(d_model))
+        
+        #------------------------------------------------------#
         # self.end_conv1 = nn.Conv1d(in_channels=label_len+out_len, out_channels=out_len, kernel_size=1, bias=True)
         # self.end_conv2 = nn.Conv1d(in_channels=d_model, out_channels=c_out, kernel_size=1, bias=True)
+        
+        #------------------------------------------------------# 
+        # (5) Projection Layer
         self.projection = nn.Linear(d_model, c_out, bias=True)
+        
+        
+        
         
     def forward(self, x_enc, x_mark_enc, x_dec, x_mark_dec, 
                 enc_self_mask=None, dec_self_mask=None, dec_enc_mask=None):
+        
+        # Step 1) Embedding (encoder)
         enc_out = self.enc_embedding(x_enc, x_mark_enc)
+        
+        # Step 2) Encoding
         enc_out, attns = self.encoder(enc_out, attn_mask=enc_self_mask)
 
+        # Step 3) Embedding (decoder)
         dec_out = self.dec_embedding(x_dec, x_mark_dec)
+        
+        # Step 4) Decoding
         dec_out = self.decoder(dec_out, enc_out, x_mask=dec_self_mask, cross_mask=dec_enc_mask)
+        
+        # Step 5) Linear Pojection
         dec_out = self.projection(dec_out)
         
         # dec_out = self.end_conv1(dec_out)
         # dec_out = self.end_conv2(dec_out.transpose(2,1)).transpose(1,2)
+        
         if self.output_attention:
             return dec_out[:,-self.pred_len:,:], attns
         else:
@@ -893,5 +942,828 @@ class AttentionLayer(nn.Module):
         out = out.view(B, L, -1)
 
         return self.Wo(out), attn
+```
+
+<br>
+
+# 6. Time Features
+
+```python
+def time_features(dates, timeenc=1, freq='h'):
+    """
+    > `time_features` takes in a `dates` dataframe with a 'dates' column and extracts the date down to `freq` where freq can be any of the following if `timeenc` is 0: 
+    > * m - [month]
+    > * w - [month]
+    > * d - [month, day, weekday]
+    > * b - [month, day, weekday]
+    > * h - [month, day, weekday, hour]
+    > * t - [month, day, weekday, hour, *minute]
+    > 
+    > If `timeenc` is 1, a similar, but different list of `freq` values are supported (all encoded between [-0.5 and 0.5]): 
+    > * Q - [month]
+    > * M - [month]
+    > * W - [Day of month, week of year]
+    > * D - [Day of week, day of month, day of year]
+    > * B - [Day of week, day of month, day of year]
+    > * H - [Hour of day, day of week, day of month, day of year]
+    > * T - [Minute of hour*, hour of day, day of week, day of month, day of year]
+    > * S - [Second of minute, minute of hour, hour of day, day of week, day of month, day of year]
+    *minute returns a number from 0-3 corresponding to the 15 minute period it falls into.
+    """
+    if timeenc==0:
+        dates['month'] = dates.date.apply(lambda row:row.month,1)
+        dates['day'] = dates.date.apply(lambda row:row.day,1)
+        dates['weekday'] = dates.date.apply(lambda row:row.weekday(),1)
+        dates['hour'] = dates.date.apply(lambda row:row.hour,1)
+        dates['minute'] = dates.date.apply(lambda row:row.minute,1)
+        dates['minute'] = dates.minute.map(lambda x:x//15)
+        freq_map = {
+            'y':[],'m':['month'],'w':['month'],'d':['month','day','weekday'],
+            'b':['month','day','weekday'],'h':['month','day','weekday','hour'],
+            't':['month','day','weekday','hour','minute'],
+        }
+        return dates[freq_map[freq.lower()]].values
+    if timeenc==1:
+        dates = pd.to_datetime(dates.date.values)
+        return np.vstack([feat(dates) for feat in time_features_from_frequency_str(freq)]).transpose(1,0)
+```
+
+
+
+# 6. Data Loader
+
+```python
+import os
+import numpy as np
+import pandas as pd
+
+import torch
+from torch.utils.data import Dataset, DataLoader
+# from sklearn.preprocessing import StandardScaler
+
+from utils.tools import StandardScaler
+from utils.timefeatures import time_features
+
+import warnings
+warnings.filterwarnings('ignore')
+```
+
+<br>
+
+ETT : **Electricity Transformer Temperature** (**ETT**) 
+
+(1) `etth1.csv` & `etth2.csv`
+
+![figure2](/assets/img/ts/img80.png)
+
+- 크기 : (17421,7)
+
+- start : 2016-07-01 0:00
+- end : 2018-06-26 19:00
+
+<br>
+
+(2) `ettm1.csv` & `ettm2.csv`
+
+![figure2](/assets/img/ts/img81.png)
+
+- 크기 : (69681,7)
+- start : 2016-07-01 0:00
+- end : 2018-06-26 19:45
+
+<br>
+
+### (1) Dataset_ETT_hour
+
+features :  `M`,`S`,`MS` 
+
+- M : **M**ultivariate predict **M**ultivariate
+- S : **U**nivariate predict **U**nivariate
+- MS : **M**ultivariate predict **U**nivariate
+
+<br>
+
+Length
+
+- **seq_len** : "Input sequence length" of Informer encoder (defaults to 96)
+
+- **label_len** : "Start token length" of Informer decoder (defaults to 48)
+
+- **pred_len** : "Prediction sequence length" (defaults to 24)
+
+```python
+class Dataset_ETT_hour(Dataset):
+    def __init__(self, root_path, flag='train', size=None, 
+                 features='S', data_path='ETTh1.csv', 
+                 target='OT', scale=True, inverse=False, timeenc=0, freq='h', cols=None):
+        # size [seq_len, label_len, pred_len]
+        # info
+        if size == None:
+            self.seq_len = 24*4*4
+            self.label_len = 24*4
+            self.pred_len = 24*4
+        else:
+            self.seq_len = size[0]
+            self.label_len = size[1]
+            self.pred_len = size[2]
+        # init
+        assert flag in ['train', 'test', 'val']
+        type_map = {'train':0, 'val':1, 'test':2}
+        self.set_type = type_map[flag]
+        
+        self.features = features
+        self.target = target
+        self.scale = scale
+        self.inverse = inverse
+        self.timeenc = timeenc
+        self.freq = freq
+        
+        self.root_path = root_path
+        self.data_path = data_path
+        self.__read_data__()
+
+        
+        
+    def __read_data__(self):
+        self.scaler = StandardScaler()
+        #---------------------------------------------------------------#
+        # (1) Data 불러오기
+        df_raw = pd.read_csv(os.path.join(self.root_path,self.data_path))
+        
+        #---------------------------------------------------------------#
+        # (2) Train/Valid/Test
+		## index = 0 : train의 시작 index
+		## index = 1 : valid의 시작 index
+		## index = 2 : test의 시작 index
+        border1s = [0, 12*30*24 - self.seq_len, 12*30*24+4*30*24 - self.seq_len]
+        border2s = [12*30*24, 12*30*24+4*30*24, 12*30*24+8*30*24]
+        border1 = border1s[self.set_type]
+        border2 = border2s[self.set_type]
+        
+        #---------------------------------------------------------------#
+        # (3) Task 설정
+        ### M, MS : X가 multivariate
+        ### S     : X가 univariate
+        if self.features=='M' or self.features=='MS':
+            cols_data = df_raw.columns[1:]
+            df_data = df_raw[cols_data]
+        elif self.features=='S':
+            df_data = df_raw[[self.target]]
+
+		#---------------------------------------------------------------#
+        # (4) Standard Scaling
+        if self.scale:
+            train_data = df_data[border1s[0]:border2s[0]]
+            self.scaler.fit(train_data.values)
+            data = self.scaler.transform(df_data.values)
+        else:
+            data = df_data.values
+            
+        #---------------------------------------------------------------#
+        # (5) 날짜 stamp
+        ## df_stamp : date 정보
+        ## data_stamp : date 정보 칼럼 담고 있는 것을 input으로 받아, "extracts the date down to `freq`"
+        df_stamp = df_raw[['date']][border1:border2]
+        df_stamp['date'] = pd.to_datetime(df_stamp.date)
+        data_stamp = time_features(df_stamp, timeenc=self.timeenc, freq=self.freq)
+		self.data_stamp = data_stamp
+        
+        #---------------------------------------------------------------#
+        # (6) X & Y 데이터 설정하기
+        self.data_x = data[border1:border2]
+        if self.inverse:
+            self.data_y = df_data.values[border1:border2]
+        else:
+            self.data_y = data[border1:border2]
+        
+    
+    
+    def __getitem__(self, index):
+        s_begin = index
+        s_end = s_begin + self.seq_len
+        r_begin = s_end - self.label_len 
+        r_end = r_begin + self.label_len + self.pred_len
+
+        seq_x = self.data_x[s_begin:s_end]
+        if self.inverse:
+            seq_y = np.concatenate([self.data_x[r_begin:r_begin+self.label_len], self.data_y[r_begin+self.label_len:r_end]], 0)
+        else:
+            seq_y = self.data_y[r_begin:r_end]
+        seq_x_mark = self.data_stamp[s_begin:s_end]
+        seq_y_mark = self.data_stamp[r_begin:r_end]
+
+        return seq_x, seq_y, seq_x_mark, seq_y_mark
+    
+    def __len__(self):
+        return len(self.data_x) - self.seq_len- self.pred_len + 1
+
+    def inverse_transform(self, data):
+        return self.scaler.inverse_transform(data)
+```
+
+<br>
+
+### (2) Dataset_ETT_minute
+
+```python
+class Dataset_ETT_minute(Dataset):
+    def __init__(self, root_path, flag='train', size=None, 
+                 features='S', data_path='ETTm1.csv', 
+                 target='OT', scale=True, inverse=False, timeenc=0, freq='t', cols=None):
+        # size [seq_len, label_len, pred_len]
+        # info
+        if size == None:
+            self.seq_len = 24*4*4
+            self.label_len = 24*4
+            self.pred_len = 24*4
+        else:
+            self.seq_len = size[0]
+            self.label_len = size[1]
+            self.pred_len = size[2]
+        # init
+        assert flag in ['train', 'test', 'val']
+        type_map = {'train':0, 'val':1, 'test':2}
+        self.set_type = type_map[flag]
+        
+        self.features = features
+        self.target = target
+        self.scale = scale
+        self.inverse = inverse
+        self.timeenc = timeenc
+        self.freq = freq
+        
+        self.root_path = root_path
+        self.data_path = data_path
+        self.__read_data__()
+
+    def __read_data__(self):
+        self.scaler = StandardScaler()
+        df_raw = pd.read_csv(os.path.join(self.root_path,
+                                          self.data_path))
+
+        border1s = [0, 12*30*24*4 - self.seq_len, 12*30*24*4+4*30*24*4 - self.seq_len]
+        border2s = [12*30*24*4, 12*30*24*4+4*30*24*4, 12*30*24*4+8*30*24*4]
+        border1 = border1s[self.set_type]
+        border2 = border2s[self.set_type]
+        
+        if self.features=='M' or self.features=='MS':
+            cols_data = df_raw.columns[1:]
+            df_data = df_raw[cols_data]
+        elif self.features=='S':
+            df_data = df_raw[[self.target]]
+
+        if self.scale:
+            train_data = df_data[border1s[0]:border2s[0]]
+            self.scaler.fit(train_data.values)
+            data = self.scaler.transform(df_data.values)
+        else:
+            data = df_data.values
+            
+        df_stamp = df_raw[['date']][border1:border2]
+        df_stamp['date'] = pd.to_datetime(df_stamp.date)
+        data_stamp = time_features(df_stamp, timeenc=self.timeenc, freq=self.freq)
+        
+        self.data_x = data[border1:border2]
+        if self.inverse:
+            self.data_y = df_data.values[border1:border2]
+        else:
+            self.data_y = data[border1:border2]
+        self.data_stamp = data_stamp
+    
+    def __getitem__(self, index):
+        s_begin = index
+        s_end = s_begin + self.seq_len
+        r_begin = s_end - self.label_len
+        r_end = r_begin + self.label_len + self.pred_len
+
+        seq_x = self.data_x[s_begin:s_end]
+        if self.inverse:
+            seq_y = np.concatenate([self.data_x[r_begin:r_begin+self.label_len], self.data_y[r_begin+self.label_len:r_end]], 0)
+        else:
+            seq_y = self.data_y[r_begin:r_end]
+        seq_x_mark = self.data_stamp[s_begin:s_end]
+        seq_y_mark = self.data_stamp[r_begin:r_end]
+
+        return seq_x, seq_y, seq_x_mark, seq_y_mark
+    
+    def __len__(self):
+        return len(self.data_x) - self.seq_len - self.pred_len + 1
+
+    def inverse_transform(self, data):
+        return self.scaler.inverse_transform(data)
+```
+
+
+
+### (3) Dataset_Custom
+
+```python
+class Dataset_Custom(Dataset):
+    def __init__(self, root_path, flag='train', size=None, 
+                 features='S', data_path='ETTh1.csv', 
+                 target='OT', scale=True, inverse=False, timeenc=0, freq='h', cols=None):
+        # size [seq_len, label_len, pred_len]
+        # info
+        if size == None:
+            self.seq_len = 24*4*4
+            self.label_len = 24*4
+            self.pred_len = 24*4
+        else:
+            self.seq_len = size[0]
+            self.label_len = size[1]
+            self.pred_len = size[2]
+        # init
+        assert flag in ['train', 'test', 'val']
+        type_map = {'train':0, 'val':1, 'test':2}
+        self.set_type = type_map[flag]
+        
+        self.features = features
+        self.target = target
+        self.scale = scale
+        self.inverse = inverse
+        self.timeenc = timeenc
+        self.freq = freq
+        self.cols=cols
+        self.root_path = root_path
+        self.data_path = data_path
+        self.__read_data__()
+
+    def __read_data__(self):
+        self.scaler = StandardScaler()
+        df_raw = pd.read_csv(os.path.join(self.root_path,
+                                          self.data_path))
+        '''
+        df_raw.columns: ['date', ...(other features), target feature]
+        '''
+        # cols = list(df_raw.columns); 
+        if self.cols:
+            cols=self.cols.copy()
+            cols.remove(self.target)
+        else:
+            cols = list(df_raw.columns); cols.remove(self.target); cols.remove('date')
+        df_raw = df_raw[['date']+cols+[self.target]]
+
+        num_train = int(len(df_raw)*0.7)
+        num_test = int(len(df_raw)*0.2)
+        num_vali = len(df_raw) - num_train - num_test
+        border1s = [0, num_train-self.seq_len, len(df_raw)-num_test-self.seq_len]
+        border2s = [num_train, num_train+num_vali, len(df_raw)]
+        border1 = border1s[self.set_type]
+        border2 = border2s[self.set_type]
+        
+        if self.features=='M' or self.features=='MS':
+            cols_data = df_raw.columns[1:]
+            df_data = df_raw[cols_data]
+        elif self.features=='S':
+            df_data = df_raw[[self.target]]
+
+        if self.scale:
+            train_data = df_data[border1s[0]:border2s[0]]
+            self.scaler.fit(train_data.values)
+            data = self.scaler.transform(df_data.values)
+        else:
+            data = df_data.values
+            
+        df_stamp = df_raw[['date']][border1:border2]
+        df_stamp['date'] = pd.to_datetime(df_stamp.date)
+        data_stamp = time_features(df_stamp, timeenc=self.timeenc, freq=self.freq)
+
+        self.data_x = data[border1:border2]
+        if self.inverse:
+            self.data_y = df_data.values[border1:border2]
+        else:
+            self.data_y = data[border1:border2]
+        self.data_stamp = data_stamp
+    
+    def __getitem__(self, index):
+        s_begin = index
+        s_end = s_begin + self.seq_len
+        r_begin = s_end - self.label_len 
+        r_end = r_begin + self.label_len + self.pred_len
+
+        seq_x = self.data_x[s_begin:s_end]
+        if self.inverse:
+            seq_y = np.concatenate([self.data_x[r_begin:r_begin+self.label_len], self.data_y[r_begin+self.label_len:r_end]], 0)
+        else:
+            seq_y = self.data_y[r_begin:r_end]
+        seq_x_mark = self.data_stamp[s_begin:s_end]
+        seq_y_mark = self.data_stamp[r_begin:r_end]
+
+        return seq_x, seq_y, seq_x_mark, seq_y_mark
+    
+    def __len__(self):
+        return len(self.data_x) - self.seq_len- self.pred_len + 1
+
+    def inverse_transform(self, data):
+        return self.scaler.inverse_transform(data)
+```
+
+<br>
+
+### (4) Dataset_Pred
+
+```python
+class Dataset_Pred(Dataset):
+    def __init__(self, root_path, flag='pred', size=None, 
+                 features='S', data_path='ETTh1.csv', 
+                 target='OT', scale=True, inverse=False, timeenc=0, freq='15min', cols=None):
+        # size [seq_len, label_len, pred_len]
+        # info
+        if size == None:
+            self.seq_len = 24*4*4
+            self.label_len = 24*4
+            self.pred_len = 24*4
+        else:
+            self.seq_len = size[0]
+            self.label_len = size[1]
+            self.pred_len = size[2]
+        # init
+        assert flag in ['pred']
+        
+        self.features = features
+        self.target = target
+        self.scale = scale
+        self.inverse = inverse
+        self.timeenc = timeenc
+        self.freq = freq
+        self.cols=cols
+        self.root_path = root_path
+        self.data_path = data_path
+        self.__read_data__()
+
+    def __read_data__(self):
+        self.scaler = StandardScaler()
+        df_raw = pd.read_csv(os.path.join(self.root_path,
+                                          self.data_path))
+        '''
+        df_raw.columns: ['date', ...(other features), target feature]
+        '''
+        if self.cols:
+            cols=self.cols.copy()
+            cols.remove(self.target)
+        else:
+            cols = list(df_raw.columns); cols.remove(self.target); cols.remove('date')
+        df_raw = df_raw[['date']+cols+[self.target]]
+        
+        border1 = len(df_raw)-self.seq_len
+        border2 = len(df_raw)
+        
+        if self.features=='M' or self.features=='MS':
+            cols_data = df_raw.columns[1:]
+            df_data = df_raw[cols_data]
+        elif self.features=='S':
+            df_data = df_raw[[self.target]]
+
+        if self.scale:
+            self.scaler.fit(df_data.values)
+            data = self.scaler.transform(df_data.values)
+        else:
+            data = df_data.values
+            
+        tmp_stamp = df_raw[['date']][border1:border2]
+        tmp_stamp['date'] = pd.to_datetime(tmp_stamp.date)
+        pred_dates = pd.date_range(tmp_stamp.date.values[-1], periods=self.pred_len+1, freq=self.freq)
+        
+        df_stamp = pd.DataFrame(columns = ['date'])
+        df_stamp.date = list(tmp_stamp.date.values) + list(pred_dates[1:])
+        data_stamp = time_features(df_stamp, timeenc=self.timeenc, freq=self.freq[-1:])
+
+        self.data_x = data[border1:border2]
+        if self.inverse:
+            self.data_y = df_data.values[border1:border2]
+        else:
+            self.data_y = data[border1:border2]
+        self.data_stamp = data_stamp
+    
+    def __getitem__(self, index):
+        s_begin = index
+        s_end = s_begin + self.seq_len
+        r_begin = s_end - self.label_len
+        r_end = r_begin + self.label_len + self.pred_len
+
+        seq_x = self.data_x[s_begin:s_end]
+        if self.inverse:
+            seq_y = self.data_x[r_begin:r_begin+self.label_len]
+        else:
+            seq_y = self.data_y[r_begin:r_begin+self.label_len]
+        seq_x_mark = self.data_stamp[s_begin:s_end]
+        seq_y_mark = self.data_stamp[r_begin:r_end]
+
+        return seq_x, seq_y, seq_x_mark, seq_y_mark
+    
+    def __len__(self):
+        return len(self.data_x) - self.seq_len + 1
+
+    def inverse_transform(self, data):
+        return self.scaler.inverse_transform(data)
+```
+
+
+
+# 7. Exp_Informer ( Experiment )
+
+```python
+from data.data_loader import Dataset_ETT_hour, Dataset_ETT_minute, Dataset_Custom, Dataset_Pred
+from exp.exp_basic import Exp_Basic
+from models.model import Informer, InformerStack
+
+from utils.tools import EarlyStopping, adjust_learning_rate
+from utils.metrics import metric
+
+import numpy as np
+```
+
+
+
+```
+from data.data_loader import Dataset_ETT_hour, Dataset_ETT_minute, Dataset_Custom, Dataset_Pred
+from exp.exp_basic import Exp_Basic
+from models.model import Informer, InformerStack
+
+from utils.tools import EarlyStopping, adjust_learning_rate
+from utils.metrics import metric
+
+import numpy as np
+
+import torch
+import torch.nn as nn
+from torch import optim
+from torch.utils.data import DataLoader
+
+import os
+import time
+
+import warnings
+warnings.filterwarnings('ignore')
+
+class Exp_Informer(Exp_Basic):
+    def __init__(self, args):
+        super(Exp_Informer, self).__init__(args)
+    
+    def _build_model(self):
+        model_dict = {
+            'informer':Informer,
+            'informerstack':InformerStack,
+        }
+        if self.args.model=='informer' or self.args.model=='informerstack':
+            e_layers = self.args.e_layers if self.args.model=='informer' else self.args.s_layers
+            model = model_dict[self.args.model](
+                self.args.enc_in,
+                self.args.dec_in, 
+                self.args.c_out, 
+                self.args.seq_len, 
+                self.args.label_len,
+                self.args.pred_len, 
+                self.args.factor,
+                self.args.d_model, 
+                self.args.n_heads, 
+                e_layers, # self.args.e_layers,
+                self.args.d_layers, 
+                self.args.d_ff,
+                self.args.dropout, 
+                self.args.attn,
+                self.args.embed,
+                self.args.freq,
+                self.args.activation,
+                self.args.output_attention,
+                self.args.distil,
+                self.args.mix,
+                self.device
+            ).float()
+        
+        if self.args.use_multi_gpu and self.args.use_gpu:
+            model = nn.DataParallel(model, device_ids=self.args.device_ids)
+        return model
+
+    def _get_data(self, flag):
+        args = self.args
+
+        data_dict = {
+            'ETTh1':Dataset_ETT_hour,
+            'ETTh2':Dataset_ETT_hour,
+            'ETTm1':Dataset_ETT_minute,
+            'ETTm2':Dataset_ETT_minute,
+            'WTH':Dataset_Custom,
+            'ECL':Dataset_Custom,
+            'Solar':Dataset_Custom,
+            'custom':Dataset_Custom,
+        }
+        Data = data_dict[self.args.data]
+        timeenc = 0 if args.embed!='timeF' else 1
+
+        if flag == 'test':
+            shuffle_flag = False; drop_last = True; batch_size = args.batch_size; freq=args.freq
+        elif flag=='pred':
+            shuffle_flag = False; drop_last = False; batch_size = 1; freq=args.detail_freq
+            Data = Dataset_Pred
+        else:
+            shuffle_flag = True; drop_last = True; batch_size = args.batch_size; freq=args.freq
+        data_set = Data(
+            root_path=args.root_path,
+            data_path=args.data_path,
+            flag=flag,
+            size=[args.seq_len, args.label_len, args.pred_len],
+            features=args.features,
+            target=args.target,
+            inverse=args.inverse,
+            timeenc=timeenc,
+            freq=freq,
+            cols=args.cols
+        )
+        print(flag, len(data_set))
+        data_loader = DataLoader(
+            data_set,
+            batch_size=batch_size,
+            shuffle=shuffle_flag,
+            num_workers=args.num_workers,
+            drop_last=drop_last)
+
+        return data_set, data_loader
+
+    def _select_optimizer(self):
+        model_optim = optim.Adam(self.model.parameters(), lr=self.args.learning_rate)
+        return model_optim
+    
+    def _select_criterion(self):
+        criterion =  nn.MSELoss()
+        return criterion
+
+    def vali(self, vali_data, vali_loader, criterion):
+        self.model.eval()
+        total_loss = []
+        for i, (batch_x,batch_y,batch_x_mark,batch_y_mark) in enumerate(vali_loader):
+            pred, true = self._process_one_batch(
+                vali_data, batch_x, batch_y, batch_x_mark, batch_y_mark)
+            loss = criterion(pred.detach().cpu(), true.detach().cpu())
+            total_loss.append(loss)
+        total_loss = np.average(total_loss)
+        self.model.train()
+        return total_loss
+
+    def train(self, setting):
+        train_data, train_loader = self._get_data(flag = 'train')
+        vali_data, vali_loader = self._get_data(flag = 'val')
+        test_data, test_loader = self._get_data(flag = 'test')
+
+        path = os.path.join(self.args.checkpoints, setting)
+        if not os.path.exists(path):
+            os.makedirs(path)
+
+        time_now = time.time()
+        
+        train_steps = len(train_loader)
+        early_stopping = EarlyStopping(patience=self.args.patience, verbose=True)
+        
+        model_optim = self._select_optimizer()
+        criterion =  self._select_criterion()
+
+        if self.args.use_amp:
+            scaler = torch.cuda.amp.GradScaler()
+
+        for epoch in range(self.args.train_epochs):
+            iter_count = 0
+            train_loss = []
+            
+            self.model.train()
+            epoch_time = time.time()
+            for i, (batch_x,batch_y,batch_x_mark,batch_y_mark) in enumerate(train_loader):
+                iter_count += 1
+                
+                model_optim.zero_grad()
+                pred, true = self._process_one_batch(
+                    train_data, batch_x, batch_y, batch_x_mark, batch_y_mark)
+                loss = criterion(pred, true)
+                train_loss.append(loss.item())
+                
+                if (i+1) % 100==0:
+                    print("\titers: {0}, epoch: {1} | loss: {2:.7f}".format(i + 1, epoch + 1, loss.item()))
+                    speed = (time.time()-time_now)/iter_count
+                    left_time = speed*((self.args.train_epochs - epoch)*train_steps - i)
+                    print('\tspeed: {:.4f}s/iter; left time: {:.4f}s'.format(speed, left_time))
+                    iter_count = 0
+                    time_now = time.time()
+                
+                if self.args.use_amp:
+                    scaler.scale(loss).backward()
+                    scaler.step(model_optim)
+                    scaler.update()
+                else:
+                    loss.backward()
+                    model_optim.step()
+
+            print("Epoch: {} cost time: {}".format(epoch+1, time.time()-epoch_time))
+            train_loss = np.average(train_loss)
+            vali_loss = self.vali(vali_data, vali_loader, criterion)
+            test_loss = self.vali(test_data, test_loader, criterion)
+
+            print("Epoch: {0}, Steps: {1} | Train Loss: {2:.7f} Vali Loss: {3:.7f} Test Loss: {4:.7f}".format(
+                epoch + 1, train_steps, train_loss, vali_loss, test_loss))
+            early_stopping(vali_loss, self.model, path)
+            if early_stopping.early_stop:
+                print("Early stopping")
+                break
+
+            adjust_learning_rate(model_optim, epoch+1, self.args)
+            
+        best_model_path = path+'/'+'checkpoint.pth'
+        self.model.load_state_dict(torch.load(best_model_path))
+        
+        return self.model
+
+    def test(self, setting):
+        test_data, test_loader = self._get_data(flag='test')
+        
+        self.model.eval()
+        
+        preds = []
+        trues = []
+        
+        for i, (batch_x,batch_y,batch_x_mark,batch_y_mark) in enumerate(test_loader):
+            pred, true = self._process_one_batch(
+                test_data, batch_x, batch_y, batch_x_mark, batch_y_mark)
+            preds.append(pred.detach().cpu().numpy())
+            trues.append(true.detach().cpu().numpy())
+
+        preds = np.array(preds)
+        trues = np.array(trues)
+        print('test shape:', preds.shape, trues.shape)
+        preds = preds.reshape(-1, preds.shape[-2], preds.shape[-1])
+        trues = trues.reshape(-1, trues.shape[-2], trues.shape[-1])
+        print('test shape:', preds.shape, trues.shape)
+
+        # result save
+        folder_path = './results/' + setting +'/'
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
+
+        mae, mse, rmse, mape, mspe = metric(preds, trues)
+        print('mse:{}, mae:{}'.format(mse, mae))
+
+        np.save(folder_path+'metrics.npy', np.array([mae, mse, rmse, mape, mspe]))
+        np.save(folder_path+'pred.npy', preds)
+        np.save(folder_path+'true.npy', trues)
+
+        return
+
+    def predict(self, setting, load=False):
+        pred_data, pred_loader = self._get_data(flag='pred')
+        
+        if load:
+            path = os.path.join(self.args.checkpoints, setting)
+            best_model_path = path+'/'+'checkpoint.pth'
+            self.model.load_state_dict(torch.load(best_model_path))
+
+        self.model.eval()
+        
+        preds = []
+        
+        for i, (batch_x,batch_y,batch_x_mark,batch_y_mark) in enumerate(pred_loader):
+            pred, true = self._process_one_batch(
+                pred_data, batch_x, batch_y, batch_x_mark, batch_y_mark)
+            preds.append(pred.detach().cpu().numpy())
+
+        preds = np.array(preds)
+        preds = preds.reshape(-1, preds.shape[-2], preds.shape[-1])
+        
+        # result save
+        folder_path = './results/' + setting +'/'
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
+        
+        np.save(folder_path+'real_prediction.npy', preds)
+        
+        return
+
+    def _process_one_batch(self, dataset_object, batch_x, batch_y, batch_x_mark, batch_y_mark):
+        batch_x = batch_x.float().to(self.device)
+        batch_y = batch_y.float()
+
+        batch_x_mark = batch_x_mark.float().to(self.device)
+        batch_y_mark = batch_y_mark.float().to(self.device)
+
+        # decoder input
+        if self.args.padding==0:
+            dec_inp = torch.zeros([batch_y.shape[0], self.args.pred_len, batch_y.shape[-1]]).float()
+        elif self.args.padding==1:
+            dec_inp = torch.ones([batch_y.shape[0], self.args.pred_len, batch_y.shape[-1]]).float()
+        dec_inp = torch.cat([batch_y[:,:self.args.label_len,:], dec_inp], dim=1).float().to(self.device)
+        # encoder - decoder
+        if self.args.use_amp:
+            with torch.cuda.amp.autocast():
+                if self.args.output_attention:
+                    outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)[0]
+                else:
+                    outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
+        else:
+            if self.args.output_attention:
+                outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)[0]
+            else:
+                outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
+        if self.args.inverse:
+            outputs = dataset_object.inverse_transform(outputs)
+        f_dim = -1 if self.args.features=='MS' else 0
+        batch_y = batch_y[:,-self.args.pred_len:,f_dim:].to(self.device)
+
+        return outputs, batch_y
 ```
 

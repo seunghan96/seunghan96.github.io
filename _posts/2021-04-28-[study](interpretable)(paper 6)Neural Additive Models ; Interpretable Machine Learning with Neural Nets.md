@@ -1,5 +1,5 @@
 ---
-title: \[interpretable\] (paper 6) Neural Additive Models \: Interpretable Machine Learning with Neural Nets
+title: \[interpretable\] (paper 6) Neural Additive Models ; Interpretable Machine Learning with Neural Nets
 categories: [INTE,STUDY]
 tags: [Interpretable Learning]
 excerpt: NAMs
