@@ -7,8 +7,6 @@ excerpt: Week 3, RNN for Time Series
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-![figure2](/assets/img/ts/img87.png)
-
 ## Sequences, Time Series and Prediction
 
 ( 참고 : coursera의 Sequences, Time Series and Prediction 강의 )
