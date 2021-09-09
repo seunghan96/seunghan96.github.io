@@ -14,10 +14,11 @@ excerpt: 2020, Density, Coverage
 ### Contents
 
 0. Abstract
-1. Background
+1. Introduction
+2. Background
    1. Evaluation pipeline
    2. Fidelity and Diversity
-2. Density and Coverage
+3. Density and Coverage
    1. Problems with improved precision & recall
    2. Density & Coverage
 
@@ -34,7 +35,39 @@ $$\rightarrow$$ propose **DENSITY** and **COVERAGE** metrics!
 
 <br>
 
-# 1. Background
+# 1. Introduction
+
+necessary conditions for useful evaluation metrics : 
+
+- (1) ability to detect identical real and fake distributions
+- (2) robustness to outlier samples
+- (3) responsiveness to mode dropping
+- (4) the ease of hyperparameter selection in the evaluation algorithms
+
+<br>
+
+propose **density and coverage** metrics
+
+- not only make the fidelity-diversity metrics empirically reliable 
+- but also theoretically analysable
+
+<br>
+
+study the **embedding algorithms** for evaluating image generation algorithms
+
+- (  embedding pipeline has been relatively less studied )
+
+- ( mostly rely on the features from an ImageNet pretrained model )
+
+  $\rightarrow$ inevitably include the dataset bias
+
+- SOLUTION : To exclude the dataset bias, use ***randomly initialised CNN feature extractors*** 
+
+- \+ random embeddings : more sensible evaluation results, especially when **the target data distribution is significantly different from ImageNet statistics** 
+
+<br>
+
+# 2. Background
 
 - real distribution : $$P(X)$$
 - generative model : $$Q(Y)$$
@@ -77,9 +110,9 @@ difficult to define a sensible metric
 
 for embedding... adopt **ImageNet pre-trained CNNs**
 
-- when using data distn  distinct from Image Net distribution...
+- when using data distn **DISTINCT** from Image Net distribution...
 
-  suggest using randomly-initialised CNN feature extractors 
+  ***suggest using randomly-initialised CNN feature extractors***
 
 <br>
 
@@ -117,6 +150,8 @@ Trade-off between Fidelity and Diversity
 Introduce variants of two-value metrics, Density & Coverage
 
 ## (1) Problems with improved precision & recall
+
+( 참고 : https://seunghan96.github.io/gan/(gan4)Improved-Precision-and-Recall-Metric-for-Assessing-Generative-Models/ )
 
 - use KNN
 
