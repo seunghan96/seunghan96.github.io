@@ -13,6 +13,14 @@ excerpt: 2019, Time Series Clustering
 
 0. Abstract
 1. Introduction
+2. Related Works
+   1. raw-data-based methods
+   2. feature-based methods
+3. DTCR (Deep Temporal Clustering Representation)
+   1. Deep Temporal Representation Clustering
+   2. Encoder Classification task
+   3. Overall Loss Function
+   4. Pseudo-code
 
 <br>
 
