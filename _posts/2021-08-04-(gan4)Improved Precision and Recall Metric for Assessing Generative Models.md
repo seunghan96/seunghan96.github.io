@@ -1,5 +1,5 @@
 ---
-Ftitle: \[Paper Review\] 03.(evaluation)Improved Precision and Recall Metric for Assessing Generative Models
+title: \[Paper Review\] 03.(evaluation)Improved Precision and Recall Metric for Assessing Generative Models
 categories: [GAN]
 tags: [GAN]
 excerpt: 2019, Improved Precision and Recall, KNN
