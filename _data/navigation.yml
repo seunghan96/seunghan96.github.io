@@ -8,6 +8,8 @@ main:
     url: /categories/ml/   
   - title: "STUDY"
     url: /categories/study/
+  - title: "DOCKER"
+    url: /categories/docker/
   - title: "CV"
     url: /categories/cv/    
   - title: "NLP"
@@ -18,6 +20,8 @@ main:
     url: /categories/rl/   
   - title: "RS"
     url: /categories/rs/   
+  - title: "TS"
+    url: /categories/ts/   
   - title: "META"
     url: /categories/meta/   
   - title: "CONT"
