@@ -5,7 +5,7 @@ permalink: /
 header:
   overlay_filter: "0.2"
   overlay_image: /assets/img/main.jpg
-excerpt: "Statistical Approach to ML/DL <br> ( Field of interest : Continual Learning & Meta Learning )"
+excerpt: "Machine Learning, Deep Learning, Data Science, Data Engineering, Statistics.."
 
 feature_row2:
   - image_path: /assets/img/BNN.png
