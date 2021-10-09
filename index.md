@@ -40,6 +40,14 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+  - image_path: /assets/img/DOCKER.jpg  
+    alt: "placeholder image 2"
+    title: "Paper Reading Study"
+    excerpt: 'Docker, linux (ubuntu, centos)'
+    url: "categories/docker/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/CV2.jpg
     alt: "placeholder image 2"
     title: "Computer Vision"
