@@ -42,7 +42,7 @@ feature_row2:
     
   - image_path: /assets/img/DOCKER.jpg  
     alt: "placeholder image 2"
-    title: "Paper Reading Study"
+    title: "Docker"
     excerpt: 'Docker, linux (ubuntu, centos)'
     url: "categories/docker/"
     btn_label: "Read More"
