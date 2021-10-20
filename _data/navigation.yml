@@ -10,6 +10,10 @@ main:
     url: /categories/study/
   - title: "DOCKER"
     url: /categories/docker/
+  - title: "KUBER"
+    url: /categories/kuber/
+  - title: "LINUX"
+    url: /categories/linux/
   - title: "CV"
     url: /categories/cv/    
   - title: "NLP"
