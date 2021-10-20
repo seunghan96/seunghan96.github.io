@@ -47,6 +47,22 @@ feature_row2:
     url: "categories/docker/"
     btn_label: "Read More"
     btn_class: "btn--primary"
+  
+  - image_path: /assets/img/KUBER.jpg  
+    alt: "placeholder image 2"
+    title: "Kubernetes"
+    excerpt: 'Kubernetes'
+    url: "categories/kuber/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+ 
+  - image_path: /assets/img/LINUX.jpg  
+    alt: "placeholder image 2"
+    title: "Linux"
+    excerpt: 'Linux'
+    url: "categories/linux/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
     
   - image_path: /assets/img/CV2.jpg
     alt: "placeholder image 2"
