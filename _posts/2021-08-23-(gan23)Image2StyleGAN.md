@@ -25,7 +25,7 @@ excerpt: 2019, Image2StyleGAN
 4. How Meaningful is the Embedding?
    1. Morphing
    2. Style Transfer
-   3. Expression Transfer & Face Reemact,emt
+   3. Expression Transfer
 
 <br>
 
@@ -200,7 +200,7 @@ if an embedding is semantically meaningful
 
 <br>
 
-## 3) Expression Transfer & Face Reemact,emt
+## 3) Expression Transfer
 
 - given 3 embedded images with respective latent vectors $$w_1,w_2$$,$$w_3$$
 - $$w = w_1+ \lambda (w_3 - w_2)$$.

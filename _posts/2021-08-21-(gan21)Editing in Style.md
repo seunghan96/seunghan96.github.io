@@ -14,10 +14,11 @@ excerpt: 2020, local, semantically aware edits to output image
 ### Contents
 
 0. Abstract
-1. Introduction
-2. Method
-   1. Characterizing units by Dissection
-   2. Measuring Causal Relationships using Intervention
+1. Related Works
+   1. GAN-based Image Editing
+2. Local Semantics in Generative Models
+   1. Feature Factorization
+   2. Local Editing
 
 <br>
 
@@ -37,7 +38,7 @@ BUT to offer **local editing method** for its output
 
 ( by changing the style of specific objects )
 
-<br.
+<br>
 
 ## (1) GAN-based Image Editing
 
