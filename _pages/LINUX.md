@@ -1,7 +1,7 @@
 ---
-title: "Linux"
+title: "Computer Science"
 author_profile: true
 layout: category
-permalink: /categories/linux/
-taxonomy: LINUX
+permalink: /categories/cs/
+taxonomy: CS
 ---
