@@ -12,8 +12,8 @@ main:
     url: /categories/docker/
   - title: "KUBER"
     url: /categories/kuber/
-  - title: "LINUX"
-    url: /categories/linux/
+  - title: "CS"
+    url: /categories/cs/
   - title: "CV"
     url: /categories/cv/    
   - title: "NLP"
