@@ -56,11 +56,11 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
  
-  - image_path: /assets/img/LINUX.jpg  
+  - image_path: /assets/img/CS.jpg  
     alt: "placeholder image 2"
-    title: "Linux"
-    excerpt: 'Linux'
-    url: "categories/linux/"
+    title: "Computer Science"
+    excerpt: 'Javascript,Linux,HTML,CSS..'
+    url: "categories/cs/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
