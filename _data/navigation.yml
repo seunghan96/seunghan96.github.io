@@ -14,6 +14,8 @@ main:
     url: /categories/kuber/
   - title: "CS"
     url: /categories/cs/
+  - title: "JAVA"
+    url: /categories/java/
   - title: "CV"
     url: /categories/cv/    
   - title: "NLP"

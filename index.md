@@ -64,6 +64,14 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+  - image_path: /assets/img/JAVA.png 
+    alt: "placeholder image 2"
+    title: "Java"
+    excerpt: 'Java'
+    url: "categories/java/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/CV2.jpg
     alt: "placeholder image 2"
     title: "Computer Vision"
