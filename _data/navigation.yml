@@ -8,6 +8,8 @@ main:
     url: /categories/ml/   
   - title: "STUDY"
     url: /categories/study/
+  - title: "PYTHON"
+    url: /categories/python/
   - title: "DOCKER"
     url: /categories/docker/
   - title: "KUBER"
