@@ -40,6 +40,14 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+  - image_path: /assets/img/PYTHON.png
+    alt: "placeholder image 2"
+    title: "Advanced Python"
+    excerpt: 'Advanced Python Coding Skills'
+    url: "categories/python/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/DOCKER.jpg  
     alt: "placeholder image 2"
     title: "Docker"
