@@ -1,11 +1,11 @@
 ---
-title: Basics of Python
-categories: [ML]
+title: Useful Python Libraries
+categories: [PYTHON]
 tags: [Python]
 excerpt: Import, Argparse, Logging, os, tqdm, csv & pickle
 ---
 
-# Basics of Python
+# Useful Python Libraries
 
 1. Import
 2. Argparse
