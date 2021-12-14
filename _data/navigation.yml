@@ -18,6 +18,8 @@ main:
     url: /categories/cs/
   - title: "JAVA"
     url: /categories/java/
+  - title: "OS"
+    url: /categories/os/    
   - title: "CV"
     url: /categories/cv/    
   - title: "NLP"
