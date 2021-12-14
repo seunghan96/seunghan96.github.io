@@ -80,6 +80,14 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+  - image_path: /assets/img/OS.jpg
+    alt: "placeholder image 2"
+    title: "Operating Systems"
+    excerpt: 'OS'
+    url: "categories/os/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/CV2.jpg
     alt: "placeholder image 2"
     title: "Computer Vision"
