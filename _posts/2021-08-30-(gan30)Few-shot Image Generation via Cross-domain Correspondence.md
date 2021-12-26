@@ -25,7 +25,7 @@ excerpt: 2021
 
 # 0. Abstract
 
-**limited #** of target domain samples $\rightarrow$ ***overfitting***
+**limited #** of target domain samples $$\rightarrow$$ ***overfitting***
 
 how to solve?
 
@@ -132,27 +132,27 @@ This paper :
 
 Notation
 
-- $G_{s}$ : source generator
-  - mapping : $z \rightarrow x$
-- $\mathcal{D}_{s}$ : source dataset ( LARGE )
-- $D_t$ : target dataset ( SMALL )
+- $$G_{s}$$ : source generator
+  - mapping : $$z \rightarrow x$$
+- $$\mathcal{D}_{s}$$ : source dataset ( LARGE )
+- $$D_t$$ : target dataset ( SMALL )
 
 <br>
 
 Goal
 
-- learn an **adapted generator** $G_{s \rightarrow t}$
+- learn an **adapted generator** $$G_{s \rightarrow t}$$
 - how?
-  - 1) initialize $\theta$ to the source generator
-  - 2) fitting it to $D_t$
+  - 1) initialize $$\theta$$ to the source generator
+  - 2) fitting it to $$D_t$$
 
 <br>
 
 Objective function
 
-- $\mathcal{L}_{\text {adv }}(G, D)=D(G(z))-D(x)$.
+- $$\mathcal{L}_{\text {adv }}(G, D)=D(G(z))-D(x)$$.
 
-- $G_{s \rightarrow t}^{*}=\mathbb{E}_{z \sim p_{z}(z), x \sim \mathcal{D}_{t}} \arg \min _{G} \max _{D} \mathcal{L}_{\text {adv }}(G, D)$.
+- $$G_{s \rightarrow t}^{*}=\mathbb{E}_{z \sim p_{z}(z), x \sim \mathcal{D}_{t}} \arg \min _{G} \max _{D} \mathcal{L}_{\text {adv }}(G, D)$$.
 
 BUT overfits in few-dataset..... then HOW?
 
@@ -168,19 +168,19 @@ consequence of overfitting
 
 - **relative distances in the source domain is NOT PRESERVED**
 
-Thus, by **enforcing preservation of distances**   $\rightarrow$ help prevent collapse!
+Thus, by **enforcing preservation of distances**   $$\rightarrow$$ help prevent collapse!
 
 <br>
 
-pdf of $i$th noise vector for...
+pdf of $$i$$th noise vector for...
 
 - source generator
 
-  - $y_{i}^{s, l} =\operatorname{Softmax}\left(\left\{\sin \left(G_{s}^{l}\left(z_{i}\right), G_{s}^{l}\left(z_{j}\right)\right)\right\}_{\forall i \neq j}\right)$
+  - $$y_{i}^{s, l} =\operatorname{Softmax}\left(\left\{\sin \left(G_{s}^{l}\left(z_{i}\right), G_{s}^{l}\left(z_{j}\right)\right)\right\}_{\forall i \neq j}\right)$$
 
 - adapted generator
 
-  - $y_{i}^{s \rightarrow t, l} =\operatorname{Softmax}\left(\left\{\operatorname{sim}\left(G_{s \rightarrow t}^{l}\left(z_{i}\right), G_{s \rightarrow t}^{l}\left(z_{j}\right)\right)\right\}_{\forall i \neq j}\right)$.
+  - $$y_{i}^{s \rightarrow t, l} =\operatorname{Softmax}\left(\left\{\operatorname{sim}\left(G_{s \rightarrow t}^{l}\left(z_{i}\right), G_{s \rightarrow t}^{l}\left(z_{j}\right)\right)\right\}_{\forall i \neq j}\right)$$.
 
   ( sim = cosine similarity )
 
@@ -189,26 +189,26 @@ pdf of $i$th noise vector for...
 inspired by **contrastive learning...**
 
 - encourage **adapted model** to be similar to that of **source**
-- $\mathcal{L}_{\text {dist }}\left(G_{s \rightarrow t}, G_{s}\right)=\mathbb{E}_{\left\{z_{i} \sim p_{z}(z)\right\}} \sum_{l, i} D_{K L}\left(y_{i}^{s \rightarrow t, l} \| y_{i}^{s, l}\right) .$.
+- $$\mathcal{L}_{\text {dist }}\left(G_{s \rightarrow t}, G_{s}\right)=\mathbb{E}_{\left\{z_{i} \sim p_{z}(z)\right\}} \sum_{l, i} D_{K L}\left(y_{i}^{s \rightarrow t, l} \| y_{i}^{s, l}\right) .$$.
 
 <br>
 
 ## 3-2) Relaxed realism with few examples
 
-Enforce adversarial loss, using a **path-level discriminator ($D_{\text {patch }}$)**
+Enforce adversarial loss, using a **path-level discriminator ($$D_{\text {patch }}$$)**
 
-- $\mathcal{L}_{\text {adv }}^{\prime}\left(G, D_{\text {img }}, D_{\text {patch }}\right)=\mathbb{E}_{x \sim \mathcal{D}_{t}} \left[\mathbb{E}_{z \sim Z_{\text {anch }}} \mathcal{L}_{\text {adv }}\left(G, D_{\text {img }}\right)\right. \left.+\mathbb{E}_{z \sim p_{z}(z)} \mathcal{L}_{\text {adv }}\left(G, D_{\text {patch }}\right)\right]$.
+- $$\mathcal{L}_{\text {adv }}^{\prime}\left(G, D_{\text {img }}, D_{\text {patch }}\right)=\mathbb{E}_{x \sim \mathcal{D}_{t}} \left[\mathbb{E}_{z \sim Z_{\text {anch }}} \mathcal{L}_{\text {adv }}\left(G, D_{\text {img }}\right)\right. \left.+\mathbb{E}_{z \sim p_{z}(z)} \mathcal{L}_{\text {adv }}\left(G, D_{\text {patch }}\right)\right]$$.
 
 <br>
 
 ## 3-3) Final Objective
 
-$G_{s \rightarrow t}^{*}=\arg \min _{G} \max _{D_{\text {img }}, D_{\text {pach }}}  \mathcal{L}_{\text {adv }}^{\prime}\left(G, D_{\text {img }}, D_{\text {patch }}\right) +\lambda \mathcal{L}_{\text {dist }}\left(G, G_{s}\right)$.
+$$G_{s \rightarrow t}^{*}=\arg \min _{G} \max _{D_{\text {img }}, D_{\text {pach }}}  \mathcal{L}_{\text {adv }}^{\prime}\left(G, D_{\text {img }}, D_{\text {patch }}\right) +\lambda \mathcal{L}_{\text {dist }}\left(G, G_{s}\right)$$.
 
 2 terms :
 
-- 1) $\mathcal{L}^{\prime}$ : deals with **appearance of target**
-- 2) $\mathcal{L}_{\text {dist }}$  : to preserve **structural diversity**
+- 1) $$\mathcal{L}^{\prime}$$ : deals with **appearance of target**
+- 2) $$\mathcal{L}_{\text {dist }}$$  : to preserve **structural diversity**
 
 <br>
 
