@@ -10,6 +10,8 @@ main:
     url: /categories/study/
   - title: "PYTHON"
     url: /categories/python/
+  - title: "FP"
+    url: /categories/fp/
   - title: "DOCKER"
     url: /categories/docker/
   - title: "KUBER"
