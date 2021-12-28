@@ -48,6 +48,14 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+  - image_path: /assets/img/FP.png
+    alt: "placeholder image 2"
+    title: "Fluent Python"
+    excerpt: 'Fluent Python by O'Reilly'
+    url: "categories/fp/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"    
+    
   - image_path: /assets/img/DOCKER.jpg  
     alt: "placeholder image 2"
     title: "Docker"
