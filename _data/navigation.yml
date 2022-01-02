@@ -8,6 +8,8 @@ main:
     url: /categories/ml/   
   - title: "STUDY"
     url: /categories/study/
+  - title: "GIT"
+    url: /categories/git/  
   - title: "PYTHON"
     url: /categories/python/
   - title: "FP"
@@ -20,6 +22,8 @@ main:
     url: /categories/cs/
   - title: "JAVA"
     url: /categories/java/
+  - title: "R"
+    url: /categories/r/
   - title: "OS"
     url: /categories/os/    
   - title: "CV"
