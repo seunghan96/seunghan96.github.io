@@ -40,6 +40,14 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+  - image_path: /assets/img/GIT.png  
+    alt: "placeholder image 2"
+    title: "Git"
+    excerpt: 'Git, Github'
+    url: "categories/git/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/PYTHON.png
     alt: "placeholder image 2"
     title: "Advanced Python"
@@ -85,6 +93,14 @@ feature_row2:
     title: "Java"
     excerpt: 'Java'
     url: "categories/java/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/R.png  
+    alt: "placeholder image 2"
+    title: "R programming"
+    excerpt: 'R programming'
+    url: "categories/r/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
