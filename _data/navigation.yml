@@ -38,6 +38,8 @@ main:
     url: /categories/rs/   
   - title: "TS"
     url: /categories/ts/   
+  - title: "GNN"
+    url: /categories/gnn/     
   - title: "META"
     url: /categories/meta/   
   - title: "CONT"
@@ -52,8 +54,6 @@ main:
     url: /categories/absa/   
   - title: "HBERT"
     url: /categories/hbert/   
-  - title: "NE"
-    url: /categories/ne/     
   - title: "STAT"
     url: /categories/st/
   - title: "DE"
