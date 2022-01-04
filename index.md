@@ -162,7 +162,7 @@ feature_row2:
     
   - image_path: /assets/img/NE.jpg
     alt: "placeholder image 2"
-    title: "Graph Neural Network"
+    title: "Graph NN"
     excerpt: 'CS224W, Deep Walk, LINE, node2vec...'
     url: "/categories/gnn/"
     btn_label: "Read More"
