@@ -160,6 +160,14 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+  - image_path: /assets/img/NE.jpg
+    alt: "placeholder image 2"
+    title: "Graph Neural Network"
+    excerpt: 'CS224W, Deep Walk, LINE, node2vec...'
+    url: "/categories/gnn/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"    
+    
   - image_path: /assets/img/META.png
     alt: "placeholder image 2"
     title: "Meta Learning"
@@ -215,14 +223,6 @@ feature_row2:
     url: "categories/absa/"
     btn_label: "Read More"
     btn_class: "btn--primary"
-    
-  - image_path: /assets/img/NE.jpg
-    alt: "placeholder image 2"
-    title: "Network Embedding"
-    excerpt: 'Deep Walk, LINE, node2vec...'
-    url: "/categories/ne/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"    
 
   - image_path: /assets/img/ST2.jpg
     alt: "placeholder image 2"
