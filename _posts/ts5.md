@@ -1,0 +1,243 @@
+Change Point Detection in Time Series Data by Relative Density Ratio Estimation
+
+(2012, 440)
+
+![figure2](/assets/img/ts/img164.png)
+
+
+
+# 0. Abstract
+
+Change Point = abrupt property changes
+
+propose statistical change-point detection
+
+- based on "non-parametric" divergence estimation
+- use "relative Pearson divergence"
+
+<br>
+
+# 1. Introduction
+
+2 categories of CPD
+
+- 1) Real-time detection
+- 2) Retrospective detection
+
+<br>
+
+**1) Real-time detection**
+
+- require "immediate" responses
+
+**2) Retrospective detection**
+
+- require "longer reaction periods"
+- more robust & accurate detection
+- allow certain delays
+
+<br>
+
+This paper focuses on **"2) Retrospective detection"**
+
+& propose a novel **"non-parametric" method**
+
+<br>
+
+**[ method 1 ]  **
+
+- Compare probability distributions of time-series samples over 2 intervals
+- alarm, when 2 distn becomes significantly different!
+
+<br>
+
+**[ method 2 ]**
+
+- Subspace method
+- dissimilarity measured by distance between the subspaces
+
+<br>
+
+Both [method 1] & [method 2] rely on pre-designed **parametric models**
+
+<br>
+
+### Non-parametric
+
+- ex) KDE (Kernel Density Estimation)
+  - but, becomes less accurate in high-dim problems
+- solution : use "RATIO of probability densities"
+
+<br>
+
+Contribution
+
+- 1) apply **uLSIF (unconstrained least-squares importance fitting)** to CPD
+- 2) further improve **uLSIF** , by **RuLSIF (Relative uLSIF)**
+  - problem of density-ratio based approach : "ratio can be unbounded"
+  - solution : **RuLSIF**
+
+<br>
+
+# 2. Problem Formulation
+
+$$\boldsymbol{y}(t) \in \mathbb{R}^{d}$$.
+
+- $$d$$-dim TS at time $$t$$
+
+<br>
+
+$$\boldsymbol{Y}(t):=\left[\boldsymbol{y}(t)^{\top}, \boldsymbol{y}(t+1)^{\top}, \ldots, \boldsymbol{y}(t+k-1)^{\top}\right]^{\top} \in \mathbb{R}^{d k}$$.
+
+- subsequence of time series
+- at time $$t$$, with length $$k$$
+- $$\boldsymbol{Y}(t)$$ is one sample
+
+<br>
+
+$$\mathcal{Y}(t):=\{\boldsymbol{Y}(t), \boldsymbol{Y}(t+1), \ldots, \boldsymbol{Y}(t+n-1)\}$$.
+
+- $$n$$ retrospective subsequence samples
+- $$[\boldsymbol{Y}(t), \boldsymbol{Y}(t+1), \ldots, \boldsymbol{Y}(t+n-1)] \in \mathbb{R}^{d k \times n}$$ : Hankel matrix
+  - key role in CPD based on subspace learning
+
+<br>
+
+For CPD, consider **two consecutive segments**
+
+- $$\mathcal{Y}(t) \text { and } \mathcal{Y}(t+n)$$
+
+- compute certain **dissimilarity measure** between $$\mathcal{Y}(t) \text { and } \mathcal{Y}(t+n)$$
+
+<br>
+
+# 3. CPD via Density-Ratio Estimation
+
+define dissimilarity measure
+
+<br>
+
+## (1) Divergence-based dissimilarity measure & Density Ratio estimation
+
+basic form : $$D\left(P_{t} \| P_{t+n}\right)+D\left(P_{t+n} \| P_{t}\right)$$
+
+<br>
+
+### $$f$$-divergence ( $$D\left(P \| P^{\prime}\right)$$ )
+
+$$D\left(P \| P^{\prime}\right):=\int p^{\prime}(\boldsymbol{Y}) f\left(\frac{p(\boldsymbol{Y})}{p^{\prime}(\boldsymbol{Y})}\right) \mathrm{d} \boldsymbol{Y}$$.
+
+- $$f$$ : convex function & $$f(1)=0$$
+- $$p(\boldsymbol{Y})$$ and $$p^{\prime}(\boldsymbol{Y})$$ are strictly positive
+- asymmetric!
+  - thus, symmetrize as above
+- example)
+  - KL-divergence : $$f(t)=t \log t$$.
+    - $$\operatorname{KL}\left(P \| P^{\prime}\right) :=\int p(\boldsymbol{Y}) \log \left(\frac{p(\boldsymbol{Y})}{p^{\prime}(\boldsymbol{Y})}\right) \mathrm{d} \boldsymbol{Y}$$.
+  - Pearson (PE) divergence : $$f(t)=\frac{1}{2}(t-1)^{2}$$
+    - $$\operatorname{PE}\left(P \| P^{\prime}\right) :=\frac{1}{2} \int p^{\prime}(\boldsymbol{Y})\left(\frac{p(\boldsymbol{Y})}{p^{\prime}(\boldsymbol{Y})}-1\right)^{2} \mathrm{~d} \boldsymbol{Y}$$.
+
+<br>
+
+problem : $$p(\boldsymbol{Y})$$ and $$p^{\prime}(\boldsymbol{Y})$$ are unknown in practice!
+
+- naive way? 
+
+  - plug in estimated densities $$\widehat{p}(\boldsymbol{Y})$$ and $$\widehat{p}^{\prime}(\boldsymbol{Y})$$ 
+
+  - but not reliable in practice
+
+<br>
+
+### Direct density-ratio estimation
+
+- learn the density-ratio function $$\frac{p(\boldsymbol{Y})}{p^{\prime}(\boldsymbol{Y})}$$
+- much easier to solve
+- use samples from...
+  - $$\left\{\boldsymbol{Y}_{i}\right\}_{i=1}^{n}$$ $$\sim p(\boldsymbol{Y})$$
+  - $$\left\{\boldsymbol{Y}_{j}^{\prime}\right\}_{j=1}^{n} $$ $$\sim p^{\prime}(\boldsymbol{Y})$$
+
+<br>
+
+## (2) KLIEP ( KL Importance estimation procedure )
+
+estimate KL divergece
+
+<br>
+
+kernel model : $$g(\boldsymbol{Y} ; \boldsymbol{\theta}):=\sum_{\ell=1}^{n} \theta_{\ell} K\left(\boldsymbol{Y}, \boldsymbol{Y}_{\ell}\right)$$.
+
+- $$\boldsymbol{\theta}:=\left(\theta_{1}, \ldots, \theta_{n}\right)^{\top}$$ : parameters to be learend
+- $$K\left(\boldsymbol{Y}, \boldsymbol{Y}^{\prime}\right)$$ : kernel basis function
+  - ex) Gaussian kernel : $$K\left(\boldsymbol{Y}, \boldsymbol{Y}^{\prime}\right)=\exp \left(-\frac{\left\|\boldsymbol{Y}-\boldsymbol{Y}^{\prime}\right\|^{2}}{2 \sigma^{2}}\right)$$
+- goal : minimize KL divergence from 1) to 2) 
+  - 1) $$p(\boldsymbol{Y})$$
+  - 2) $$g(\boldsymbol{Y} ; \boldsymbol{\theta}) p^{\prime}(\boldsymbol{Y})$$
+- unique global optimal solution can be obtained
+
+<br>
+
+density-ratio estimator
+
+- $$\widehat{g}(\boldsymbol{Y})=\sum_{\ell=1}^{n} \widehat{\theta}_{\ell} K\left(\boldsymbol{Y}, \boldsymbol{Y}_{\ell}\right)$$.
+
+<br>
+
+approximator of KL divergence
+
+- $$\widehat{\mathrm{KL}}:=\frac{1}{n} \sum_{i=1}^{n} \log \widehat{g}\left(\boldsymbol{Y}_{i}\right)$$.
+- minimizing above = more accurate $$g$$ = more accurate density ratio
+
+<br>
+
+## (3) uLSIF ( Unconstrained least-squares importance fitting )
+
+estimate PE divergence
+
+<br>
+
+same model as KLIEP...
+
+but **training criterion is different** : squared loss
+
+$$\begin{aligned}
+J(\boldsymbol{Y}) &=\frac{1}{2} \int\left(\frac{p(\boldsymbol{Y})}{p^{\prime}(\boldsymbol{Y})}-g(\boldsymbol{Y} ; \boldsymbol{\theta})\right)^{2} p^{\prime}(\boldsymbol{Y}) \mathrm{d} \boldsymbol{Y} \\
+&=\frac{1}{2} \int\left(\frac{p(\boldsymbol{Y})}{p^{\prime}(\boldsymbol{Y})}\right)^{2} p^{\prime}(\boldsymbol{Y}) \mathrm{d} \boldsymbol{Y}-\int p(\boldsymbol{Y}) g(\boldsymbol{Y} ; \boldsymbol{\theta}) \mathrm{d} \boldsymbol{Y}+\frac{1}{2} \int g(\boldsymbol{Y} ; \boldsymbol{\theta})^{2} p^{\prime}(\boldsymbol{Y}) \mathrm{d} \boldsymbol{Y}
+\end{aligned}$$.
+
+<br>
+
+solution can be obtained analytically
+
+- $$\widehat{\boldsymbol{\theta}}=\left(\widehat{\boldsymbol{H}}+\lambda \boldsymbol{I}_{n}\right)^{-1} \widehat{\boldsymbol{h}}$$.
+
+<br>
+
+density-ratio estimator
+
+- $$\widehat{g}(\boldsymbol{Y})=\sum_{\ell=1}^{n} \widehat{\theta}_{\ell} K\left(\boldsymbol{Y}, \boldsymbol{Y}_{\ell}\right)$$.
+
+<br>
+
+approximator of PE divergence
+
+- $$\widehat{\mathrm{PE}}:=-\frac{1}{2 n} \sum_{j=1}^{n} \widehat{g}\left(\boldsymbol{Y}_{j}^{\prime}\right)^{2}+\frac{1}{n} \sum_{i=1}^{n} \widehat{g}\left(\boldsymbol{Y}_{i}\right)-\frac{1}{2}$$.
+
+<br>
+
+## (4) RuLSIF ( Relative uLSIF )
+
+problem : density-ratio value can be unbounded!
+
+consider $$\alpha$$-relative PE-divergence!
+
+<br>
+
+$$\begin{aligned}
+\operatorname{PE}_{\alpha}\left(P \| P^{\prime}\right) &:=\operatorname{PE}\left(P \| \alpha P+(1-\alpha) P^{\prime}\right) \\
+&=\int p_{\alpha}^{\prime}(\boldsymbol{Y})\left(\frac{p(\boldsymbol{Y})}{p_{\alpha}^{\prime}(\boldsymbol{Y})}-1\right)^{2} \mathrm{~d} \boldsymbol{Y},
+\end{aligned}$$.
+
+- where $$p_{\alpha}^{\prime}(\boldsymbol{Y})=\alpha p(\boldsymbol{Y})+(1-\alpha) p^{\prime}(\boldsymbol{Y})$$ is the $$\alpha$$-mixture density
+
+- $$r_{\alpha}(\boldsymbol{Y})=\frac{p(\boldsymbol{Y})}{\alpha p(\boldsymbol{Y})+(1-\alpha) p^{\prime}(\boldsymbol{Y})}$$ : $$\alpha$$-relative density-ratio

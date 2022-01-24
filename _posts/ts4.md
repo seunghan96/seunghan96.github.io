@@ -1,0 +1,107 @@
+Adjusting for Autocorrelated Errors in Neural Networks for Time Series 
+
+(2021)
+
+
+
+# 0. Abstract
+
+common assumption in TS
+
+- ***errors across time steps are UNCORRELATED***
+
+<br>
+
+to adjust autocorrelated errors...
+
+$\rightarrow$ propose to learn "autocorrelation coefficients" jointly with "model params"
+
+<br>
+
+# 1. Introduction
+
+why are errors **autocorrelated**?
+
+- 1) omission of influential variables
+- 2) measurement errors
+- 3) model misspecification
+
+<br>
+
+OLS (Ordinary Least Squares)
+
+- variance of coefficient estimates increases...
+- but the estimated standard error is underestimated
+
+<br>
+
+# 2. Autocorrelated Erros
+
+$\begin{gathered}
+\operatorname{Cov}\left(e_{t-\Delta_{t}}, e_{t}\right)=0, \forall \Delta_{t} \neq 0, \\
+e_{t} \sim \mathcal{N}\left(0, \sigma^{2}\right) .
+\end{gathered}$.
+
+- usually, errors $e_t$ are assumed to be i.i.d
+
+- minimizing MSE = maximizing Likelihood
+
+<br>
+
+$p$-th order autocorrelated error :
+
+- $e_{t}=\rho_{1} e_{t-1}+\cdots+\rho_{p} e_{t-p}+\epsilon_{t},\left|\rho_{i}\right|<1, \forall i$.
+  - $\rho_{1}, \ldots, \rho_{p}$: autocorrelation coefficients 
+  - $\epsilon_{t} \sim \mathcal{N}\left(0, \sigma^{2}\right)$ : uncorrelated error
+
+<br>
+
+This work focus on "linear & 1st order" autocorrelation
+
+- $e_{t}=\rho e_{t-1}+\epsilon_{t}$.
+
+- $\operatorname{Cov}\left(e_{t}, e_{t-\Delta_{t}}\right)=\frac{\rho^{\Delta_{t}}}{1-\rho^{2}} \sigma^{2}, \forall \Delta_{t}=0,1,2, \ldots,$.
+- since errors are no longer correlated.... use
+  - $\mathbf{X}_{t}-\rho \mathbf{X}_{t-1}=f\left(\mathbf{X}_{t-1}, \ldots, \mathbf{X}_{t-W} ; \theta\right)-\rho f\left(\mathbf{X}_{t-2}, \ldots, \mathbf{X}_{t-W-1} ; \theta\right)+\epsilon_{t}$.
+
+<br>
+
+# 3. Our Method
+
+step 1) initialize $\theta$ & $\hat{\rho}$ (at 0)
+
+<br>
+
+step 2) fix $\hat{\rho}$ & minimize MSE on training data :
+
+- [Eq 1] $\mathbf{X}_{t}-\hat{\rho} \mathbf{X}_{t-1}=f\left(\mathbf{X}_{t-1}, \ldots, \mathbf{X}_{t-W} ; \theta\right)-\hat{\rho} f\left(\mathbf{X}_{t-2}, \ldots, \mathbf{X}_{t-W-1} ; \theta\right)+e_{t}$.
+
+and obtain updated $\theta$, $\theta^{\prime}$
+
+<br>
+
+step 3) compute errors
+
+- $e_{t}=\mathbf{X}_{t}-f\left(\mathbf{X}_{t-1}, \ldots, \mathbf{X}_{t-W} ; \theta^{\prime}\right)$.
+
+<br>
+
+step 4) update $\hat{\rho}$ with errors
+
+- by linearly regressing $e_t$ on $e_{t-1}$
+- $\hat{\rho}=\frac{\sum_{t=2}^{T} e_{t} e_{t-1}}{\sum_{t=1}^{T-1} e_{t}^{2}}$.
+
+<br>
+
+step 5) Go back to step 2 or stop if sufficiently converged.
+
+<br>
+
+Proposition
+
+- treat $\hat{\rho}$ as "trainable parameter"
+- update it with $\theta$ jointly
+- approximate the RHS of [Eq 1]
+  - $f\left(\mathbf{X}_{t-1}, \ldots, \mathbf{X}_{t-W} ; \theta\right)-\hat{\rho} f\left(\mathbf{X}_{t-2}, \ldots, \mathbf{X}_{t-W-1} ; \theta\right) \simeq f\left(\mathbf{X}_{t-1}, \ldots, \mathbf{X}_{t-W-1} ; \theta, \hat{\rho}\right)$.
+- minimization of MSE :
+  - $\mathbf{X}_{t}-\hat{\rho} \mathbf{X}_{t-1}=f\left(\mathbf{X}_{t-1}, \ldots, \mathbf{X}_{t-W-1} ; \theta, \hat{\rho}\right)$.
