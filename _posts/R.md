@@ -1,3 +1,16 @@
+---
+title: All about R
+categories: [R]
+tags: [R]
+excerpt: Must Learning with R (위키독스) 정리
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+참고 : https://wikidocs.net/book/4315
+
+<br>
+
 # 1. R 기본문법 1단계
 
 ```R
