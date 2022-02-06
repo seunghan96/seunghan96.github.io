@@ -36,6 +36,8 @@ main:
     url: /categories/rl/   
   - title: "RS"
     url: /categories/rs/   
+  - title: "TS0"
+    url: /categories/ts0/   
   - title: "TS"
     url: /categories/ts/   
   - title: "GNN"
