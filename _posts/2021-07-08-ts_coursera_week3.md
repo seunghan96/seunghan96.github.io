@@ -1,8 +1,8 @@
 ---
-title: \[coursera\] Sequences, Time Series and Prediction
+title: \[coursera\] Week 3, RNN for Time Series
 categories: [TS0]
 tags: [TS]
-excerpt: Week 3, RNN for Time Series
+excerpt: Sequences, Time Series and Prediction 
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>

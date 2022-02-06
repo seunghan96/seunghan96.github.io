@@ -1,8 +1,8 @@
 ---
-title: \[coursera\] Sequences, Time Series and Prediction
+title: \[coursera\] Week 4, Real world Time Series Data
 categories: [TS0]
 tags: [TS]
-excerpt: Week 4, Real world Time Series Data
+excerpt: Sequences, Time Series and Prediction
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>

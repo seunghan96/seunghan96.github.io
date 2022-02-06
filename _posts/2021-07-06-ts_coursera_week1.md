@@ -1,8 +1,8 @@
 ---
-title: \[coursera\] Sequences, Time Series and Prediction
+title: \[coursera\] Week 1, Sequence and Predictions 
 categories: [TS0]
 tags: [TS]
-excerpt: week 1, Sequence and Predictions 
+excerpt: Sequences, Time Series and Prediction
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
