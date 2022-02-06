@@ -151,11 +151,19 @@ feature_row2:
     url: "categories/rs/"
     btn_label: "Read More"
     btn_class: "btn--primary"
+  
+  - image_path: /assets/img/TIME.png
+    alt: "placeholder image 2"
+    title: "Time Series 1"
+    excerpt: "TS basic"
+    url: "categories/ts0/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
     
   - image_path: /assets/img/TIME.png
     alt: "placeholder image 2"
-    title: "Time Series"
-    excerpt: "Prediction & Imputation"
+    title: "Time Series 2"
+    excerpt: "TS paper reviews"
     url: "categories/ts/"
     btn_label: "Read More"
     btn_class: "btn--primary"
