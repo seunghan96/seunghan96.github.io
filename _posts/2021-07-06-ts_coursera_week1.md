@@ -1,6 +1,6 @@
 ---
 title: \[coursera\] Sequences, Time Series and Prediction
-categories: [TS]
+categories: [TS0]
 tags: [TS]
 excerpt: week 1, Sequence and Predictions 
 ---

@@ -1,6 +1,6 @@
 ---
 title: \[coursera\] Sequences, Time Series and Prediction
-categories: [TS]
+categories: [TS0]
 tags: [TS]
 excerpt: Week 2, DNN for Time Series
 ---
