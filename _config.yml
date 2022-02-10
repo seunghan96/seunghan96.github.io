@@ -109,7 +109,7 @@ analytics:
 author:
   name             : "Seunghan Lee"
   avatar           : "/assets/img/SeunghanLee2.jpg"
-  bio              : "Studying Bayesian ML/DL at Yonsei Univ"
+  bio              : "Deep Learning, Data Science, Statistics"
   location         : "Seoul, S.Korea"
   email            : "seunghan96@naver.com"
   links:
@@ -127,7 +127,7 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/seunghan96/datascience/"
+      url: "https://github.com/seunghan96"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
@@ -146,7 +146,7 @@ footer:
       url: "https://github.com/seunghan96/datascience/"
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: mailto:seunghan9612@gmail.com
+      url: mailto:seunghan96@naver.com
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
