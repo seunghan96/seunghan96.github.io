@@ -168,6 +168,14 @@ feature_row2:
     url: "/categories/gnn/"
     btn_label: "Read More"
     btn_class: "btn--primary"    
+  
+  - image_path: /assets/img/DA.png
+    alt: "placeholder image 2"
+    title: "Domain Adaptation"
+    excerpt: 'Tranfer Learning, Domain Adaptation '
+    url: "/categories/da/"
+    btn_label: "Read More"
+    btn_class: "btn--primary" 
     
   - image_path: /assets/img/BNN.png
     alt: "placeholder image 2"
