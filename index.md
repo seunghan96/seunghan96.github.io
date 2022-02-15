@@ -7,15 +7,7 @@ header:
   overlay_image: /assets/img/main.jpg
 excerpt: "Machine Learning, Deep Learning, Data Science, Data Engineering, Statistics.."
 
-feature_row2:
-  - image_path: /assets/img/BNN.png
-    alt: "placeholder image 2"
-    title: "Bayesian NN & VI"
-    excerpt: 'Paper reviews & Tensorflow2'
-    url: "categories/bnn/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
+feature_row2:    
   - image_path: /assets/img/prml.jpg
     alt: "placeholder image 2"
     title: "PRML"
@@ -168,6 +160,7 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+    
   - image_path: /assets/img/NE.jpg
     alt: "placeholder image 2"
     title: "Graph NN"
@@ -175,6 +168,14 @@ feature_row2:
     url: "/categories/gnn/"
     btn_label: "Read More"
     btn_class: "btn--primary"    
+    
+  - image_path: /assets/img/BNN.png
+    alt: "placeholder image 2"
+    title: "Bayesian NN & VI"
+    excerpt: 'Paper reviews & Tensorflow2'
+    url: "categories/bnn/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
     
   - image_path: /assets/img/META.png
     alt: "placeholder image 2"
