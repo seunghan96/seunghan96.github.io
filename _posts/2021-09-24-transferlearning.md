@@ -1,8 +1,8 @@
 ---
 title: (paper) A Survey on Transfer Learning
-categories: [TS]
-tags: [TS,transfer learning]
-excerpt: Time Series Forecasting (2009, 15715)
+categories: [DA]
+tags: [transfer learning]
+excerpt: 
 ---
 
 # A Survey on Transfer Learning
