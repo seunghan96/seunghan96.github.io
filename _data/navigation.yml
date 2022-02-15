@@ -1,7 +1,5 @@
 # main links
 main:
-  - title: "BNN"
-    url: /categories/bnn/    
   - title: "PRML"
     url: /categories/prml/    
   - title: "ML"
@@ -42,6 +40,10 @@ main:
     url: /categories/ts/   
   - title: "GNN"
     url: /categories/gnn/     
+  - title: "DA"
+    url: /categories/da/     
+  - title: "BNN"
+    url: /categories/bnn/    
   - title: "META"
     url: /categories/meta/   
   - title: "CONT"
