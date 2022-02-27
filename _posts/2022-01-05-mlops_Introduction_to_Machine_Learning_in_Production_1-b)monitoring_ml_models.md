@@ -1,3 +1,12 @@
+---
+title: \[Week 1-b\] # Monitoring Machine Learning Models in Production
+categories: [MLOPS]
+tags: []
+excerpt: (coursera) Introduction to ML in production - 1.Overview of the ML Lifecycle and Deployment
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # Monitoring Machine Learning Models in Production
 
 ( reference : https://christophergs.com/machine%20learning/2020/03/14/how-to-monitor-machine-learning-models/ )
@@ -75,13 +84,13 @@ Phase 6. **Monitoring and Observability**:
 
 Phase 1 & 2 ( model building & evaluation )
 
-$\rightarrow$ ***research environment*** ( by data scientists )
+$$\rightarrow$$ ***research environment*** ( by data scientists )
 
 <br>
 
 Phase 3 & 4 & 5 & 6
 
-$\rightarrow$ ***engineering, DevOps***
+$$\rightarrow$$ ***engineering, DevOps***
 
 <br>
 
@@ -127,7 +136,7 @@ ML system’s is governed "not just by code", but also by **"model behavior lear
 Complexity of Code & Data ( + config )
 
 - Entaglement
-  - Data changed $\rightarrow$ Model weights changes
+  - Data changed $$\rightarrow$$ Model weights changes
   - ***changing anything changes everything***
 - Configuration
   - slight change in hyperparmeter/version/feature can cause big change!
@@ -149,7 +158,7 @@ Data Scientists & Engineers/Devops
 - Engineers/Devops
   - monitoring, production, deployment...
 
-$\rightarrow$ need BOTH perspectives!
+$$\rightarrow$$ need BOTH perspectives!
 
 <br>
 

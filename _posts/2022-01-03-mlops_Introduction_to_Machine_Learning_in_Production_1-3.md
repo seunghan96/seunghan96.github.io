@@ -1,4 +1,15 @@
-# 1-3. Deployment
+---
+title: \[Week 1-3\] Deployment
+categories: [MLOPS]
+tags: []
+excerpt: (coursera) Introduction to ML in production - 1.Overview of the ML Lifecycle and Deployment
+
+
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+# Deployment
 
 ## [1] Key Challenges
 
@@ -21,15 +32,15 @@ Test
 
 - data from a few month
 
-$\rightarrow$ the data have might changed!
+$$\rightarrow$$ the data have might changed!
 
 <br>
 
 2 kinds of drift
 
-- Concept drift = relation of $X$ & $Y$ have changed
+- Concept drift = relation of $$X$$ & $$Y$$ have changed
 
-- Data drift = $X$ have changed
+- Data drift = $$X$$ have changed
 
 <br>
 
@@ -52,13 +63,13 @@ checklist of questions
 
 Challenge 1) software engine issues
 
-$\rightarrow$ in "deploying in production"
+$$\rightarrow$$ in "deploying in production"
 
 <br>
 
 Challenge 2) concept & data drift
 
-$\rightarrow$ in "monitoring & maintaining system"
+$$\rightarrow$$ in "monitoring & maintaining system"
 
 <br>
 
@@ -86,7 +97,7 @@ Example : visual inspection )
 - shadows humans' judgement & run parallel
 - ML's output is NOT used
 
-$\rightarrow$ purpose : **gather data of how the model is performing, by comparing with the human judgement**
+$$\rightarrow$$ purpose : **gather data of how the model is performing, by comparing with the human judgement**
 
 ![figure2](/assets/img/mlops/img12.png)
 
@@ -110,7 +121,7 @@ Version
 
 <br>
 
-Router switches from BLUE $\rightarrow$ GREEN
+Router switches from BLUE $$\rightarrow$$ GREEN
 
 - easy way to "roll back"
 - do not have to be "at once"! ( gradually OK )
@@ -141,14 +152,15 @@ Router switches from BLUE $\rightarrow$ GREEN
 
    - memory, compute, latency, throughput, server load..
 
-2. Input ($X$) metrics
+2. Input ($$X$$) metrics
 
    ( ex. speech recognition, defect image classification )
 
    - ex) avg input length, avg input volume
    - ex) \# of missing values, avg image brightness
 
-3. Output ($Y$) metrics
+3. Output ($$Y$$) metrics
+   
    - ex) \# of null values, CTR ...
 
 <br>
@@ -205,9 +217,9 @@ Thus, **change in step 1) may affect the final result!**
 
 ![figure2](/assets/img/mlops/img18.png)
 
-$\rightarrow$  when working on ML pipelines, these effects can be **complex to keep track on**!
+$$\rightarrow$$  when working on ML pipelines, these effects can be **complex to keep track on**!
 
-$\therefore$ **brainstorm metrics to monitor that can detect changes ( concept / data drift )**
+$$\therefore$$ **brainstorm metrics to monitor that can detect changes ( concept / data drift )**
 
 - software metric / input metric / output metrics
 

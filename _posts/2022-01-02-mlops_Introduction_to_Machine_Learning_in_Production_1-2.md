@@ -1,16 +1,12 @@
 ---
-title: \[Week 1-1\] Introduction
+title: \[Week 1-2\] ML Project Life Cycle
 categories: [MLOPS]
 tags: []
-excerpt: (coursera) Introduction to ML in production \n - Overview of the ML Lifecycle and Deployment
+excerpt: (coursera) Introduction to ML in production - 1.Overview of the ML Lifecycle and Deployment
 
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-
-# ML engineering production, 
-
-
 
 # ML Project Life Cycle
 
@@ -18,7 +14,7 @@ excerpt: (coursera) Introduction to ML in production \n - Overview of the ML Lif
 
 After training ML model... now what?
 
-$\rightarrow$ useless, unless **how to put them into production**!
+$$\rightarrow$$ useless, unless **how to put them into production**!
 
 <br>
 
@@ -27,7 +23,7 @@ Goal
 - not just build a ML model,
 - but also **put them into production**
 
-$\rightarrow$ learn **entire life cycle** of ML project
+$$\rightarrow$$ learn **entire life cycle** of ML project
 
 <br>
 
@@ -68,7 +64,7 @@ Then...*what's the problem??*
 
 Much more problem in real world !!
 
-$\rightarrow$ will learn **lot of important practical  things for building ML systems that work not just in the lab, "but in a production deployment environment"**
+$$\rightarrow$$ will learn **lot of important practical  things for building ML systems that work not just in the lab, "but in a production deployment environment"**
 
  <br>
 
@@ -151,4 +147,4 @@ review : **ML project life cycle. **
 preview : will learn...
 
 - starting from the end goal "deployment", and then move toward "scoping" 
-- ( deployment $\rightarrow$ modeling $\rightarrow$ data $\rightarrow$ scoping )
+- ( deployment $$\rightarrow$$ modeling $$\rightarrow$$ data $$\rightarrow$$ scoping )

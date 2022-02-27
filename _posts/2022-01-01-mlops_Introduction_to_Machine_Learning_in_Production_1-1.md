@@ -1,17 +1,17 @@
 ---
-title: \[Week 1-1\] Introduction
+title: \[Week 1-1\] Introduction to MLOps
 categories: [MLOPS]
 tags: []
-excerpt: (coursera) Introduction to ML in production \\ - Overview of the ML Lifecycle and Deployment
+excerpt: (coursera) Introduction to ML in production - 1.Overview of the ML Lifecycle and Deployment
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-# ML engineering production, MLOps 
+# Introduction to MLOps 
 
 accurate ML model in Jupyter Notebook
 
-$\rightarrow$ have to put the model into production, 
+$$\rightarrow$$ have to put the model into production, 
 
 
 
@@ -32,7 +32,7 @@ Full ML project life-cycle
 
 Discipline of building & maintaining production systems, 
 
-$\rightarrow$ "MLOps" ( = Machine Learning Operations )
+$$\rightarrow$$ "MLOps" ( = Machine Learning Operations )
 
 <br>
 
@@ -44,7 +44,7 @@ $\rightarrow$ "MLOps" ( = Machine Learning Operations )
 
 Data drift
 
-- distribution of the data you trained $\neq$ distribution of the data that you're running inference
+- distribution of the data you trained $$\neq$$ distribution of the data that you're running inference
 
 <br>
 
@@ -56,7 +56,7 @@ key point is "CHANGE"
 
 Will deal with...
 
-- building "data pipelines" by gathering, cleaning, validating data sets using TFX + $\alpha$
+- building "data pipelines" by gathering, cleaning, validating data sets using TFX + $$\alpha$$
 - analytics to address model fairness & explainability issues
 - "deployment" : serve the users' requests
 

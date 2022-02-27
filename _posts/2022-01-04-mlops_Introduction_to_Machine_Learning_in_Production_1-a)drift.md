@@ -1,3 +1,12 @@
+---
+title: \[Week 1-a\] Concept & Data Drift
+categories: [MLOPS]
+tags: []
+excerpt: (coursera) Introduction to ML in production - 1.Overview of the ML Lifecycle and Deployment
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # Concept & Data Drift
 
 (reference : https://towardsdatascience.com/machine-learning-in-production-why-you-should-care-about-data-and-concept-drift-d96d0bc907fb)
@@ -6,7 +15,7 @@
 
 Problem : corrupted, late, or incomplete data
 
-$\rightarrow$ solved...then is it OK? that's not all !!
+$$\rightarrow$$ solved...then is it OK? that's not all !!
 
 <br>
 
@@ -116,7 +125,7 @@ example) COVID-19
 
 - shopping patterns changed suddenly!
 
-  $\rightarrow$ change in "demand forecast"
+  $$\rightarrow$$ change in "demand forecast"
 
 <br>
 
