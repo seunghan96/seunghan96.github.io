@@ -18,6 +18,8 @@ main:
     url: /categories/kuber/
   - title: "CS"
     url: /categories/cs/
+  - title: "MLOPS"
+    url: /categories/mlops/
   - title: "JAVA"
     url: /categories/java/
   - title: "R"
