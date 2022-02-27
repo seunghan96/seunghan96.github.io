@@ -7,9 +7,9 @@ excerpt: (coursera) Introduction to ML in production - 2.Select and Train a Mode
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+( reference : [Introduction to Machine Learning in Production](https://www.coursera.org/learn/introduction-to-machine-learning-in-production/home/welcome) )
+
 # Error analysis and performance auditing
-
-
 
 ## [1] Error Analysis example
 

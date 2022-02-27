@@ -3,11 +3,11 @@ title: \[Week 1-3\] Deployment
 categories: [MLOPS]
 tags: []
 excerpt: (coursera) Introduction to ML in production - 1.Overview of the ML Lifecycle and Deployment
-
-
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+( reference : [Introduction to Machine Learning in Production](https://www.coursera.org/learn/introduction-to-machine-learning-in-production/home/welcome) )
 
 # Deployment
 

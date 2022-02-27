@@ -1,5 +1,5 @@
 ---
-title: \[Week 1-b\] # Monitoring Machine Learning Models in Production
+title: \[Week 1-b\] Monitoring Machine Learning Models in Production
 categories: [MLOPS]
 tags: []
 excerpt: (coursera) Introduction to ML in production - 1.Overview of the ML Lifecycle and Deployment
