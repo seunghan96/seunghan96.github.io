@@ -244,7 +244,7 @@ feature_row2:
   - image_path: /assets/img/ABSA.png
     alt: "placeholder image 2"
     title: "ABSA"
-    excerpt: "Abstract based Sentiment Analysis"
+    excerpt: "Aspect based Sentiment Analysis"
     url: "categories/absa/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -252,7 +252,7 @@ feature_row2:
   - image_path: /assets/img/ST2.jpg
     alt: "placeholder image 2"
     title: "Bayesian Statistics"
-    excerpt: 'Gibbs & VI'
+    excerpt: 'Gibbs Sampling & VI'
     url: "/categories/st/"
     btn_label: "Read More"
     btn_class: "btn--primary"
