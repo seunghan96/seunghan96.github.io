@@ -39,7 +39,9 @@ main:
   - title: "TS0"
     url: /categories/ts0/   
   - title: "TS"
-    url: /categories/ts/   
+    url: /categories/ts/  
+  - title: "CO"
+    url: /categories/co/  
   - title: "GNN"
     url: /categories/gnn/     
   - title: "DA"
