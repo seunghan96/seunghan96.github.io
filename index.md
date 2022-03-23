@@ -167,7 +167,14 @@ feature_row2:
     url: "categories/ts/"
     btn_label: "Read More"
     btn_class: "btn--primary"
-    
+
+  - image_path: /assets/img/CO.png
+    alt: "placeholder image 2"
+    title: "Convex Optimization"
+    excerpt: "convex optimization"
+    url: "categories/co/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
     
   - image_path: /assets/img/NE.jpg
     alt: "placeholder image 2"
