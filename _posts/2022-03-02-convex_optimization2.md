@@ -1,10 +1,8 @@
 ---
-title: 2. Convex Sets
+title: (2) Convex Sets
 categories: [CO]
 tags: [Convex Optimization]
 excerpt: (참고) 모두를 위한 convex optimization
-
-
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
@@ -20,6 +18,10 @@ $y=\theta x_{1}+(1-\theta) x_{2}$
 - Line (직선) : with $\theta \in R$
 - Line Segment (선분) : with $0 \leq \theta \leq 1$
 - Ray (반직선) : with $\theta \geq 0$
+
+<br>
+
+![figure2](/assets/img/co/img4.png)
 
 <br>
 
@@ -66,7 +68,9 @@ Convex Set
 - $\theta x_{1}+(1-\theta) x_{2} \in C$ with $0 \leq \theta \leq 1$.
 - 특징 : **계수의 합을 1로 제한 + 양수 제한**
 
+![figure2](/assets/img/co/img1.png)
 
+<br>
 
 Convex Combination
 
@@ -79,6 +83,8 @@ Convex Hull
 
 - Cons $C=\left\{\theta_{1} x_{1}+\cdots+\theta_{k} x_{k} \mid x_{1}, \ldots, x_{k} \in C, \theta_{1}+\cdots+\theta_{k}=1, \theta_i >0 \right\}$
 - convex combination들의 집합 ( 집함 $C$를 포함하는 가장 작은 affine set )
+
+![figure2](/assets/img/co/img5.png)
 
 <br>
 
@@ -101,6 +107,8 @@ Convex Cone
 - $\theta_{1} x_{1}+\theta_{2} x_{2} \in C$ with $x_{1}, x_{2} \in C, \theta_{1}, \theta_{2} \geq 0$
 - 집합 $C$가 cone & convex 둘다 만족할 경우!
 
+![figure2](/assets/img/co/img6.png)
+
 <br>
 
 Conic Combination
@@ -116,6 +124,8 @@ Conic Hull
 
 - $\left\{\theta_{1} x_{1}+\cdots+\theta_{k} x_{k} \mid x_{i} \in C, \theta_{i} \geq 0, i=1, \ldots, k\right\}$.
 - conic combination들의 집합 ( 집함 $C$를 포함하는 가장 작은 affine set )
+
+![figure2](/assets/img/co/img7.png)
 
 <br>
 
@@ -137,6 +147,8 @@ Conic Hull
 
 $\left\{x: a^{T} x=b\right\}$ with $a \in R^{n}, a \neq 0, b \in R$
 
+![figure2](/assets/img/co/img8img1.png)
+
 <br>
 
 ### b) Halfspaces
@@ -144,6 +156,8 @@ $\left\{x: a^{T} x=b\right\}$ with $a \in R^{n}, a \neq 0, b \in R$
 $\left\{x: a^{T} x \leq b\right\}$ or $\left\{x: a^{T} x \geq b\right\}$ with $a \in R^{n}, a \neq 0, b \in R$
 
 - open halfspace : $\left\{x: a^{T} x < b\right\}$ or $\left\{x: a^{T} x > b\right\}$
+
+![figure2](/assets/img/co/img9.png)
 
 <br>
 
@@ -168,6 +182,8 @@ $\mathcal{E}=\left\{x \mid\left(x-x_{c}\right)^{T} P^{-1}\left(x-x_{c}\right) \l
   - $\lambda_{i}$ :  $P$ 의 eigenvalue 
 - ball :  $P=r^{2} I$ 인 ellipsoid
 
+![figure2](/assets/img/co/img10.png)
+
 <br>
 
 다른 표현
@@ -186,6 +202,10 @@ $\left\{x \mid\left\|x-x_{c}\right\| \leq r\right\}$.
 
 - $p$-norm : $\|x\|_{p}=\left(\sum_{i=0}^{n}\left|x_{i}\right|^{p}\right)^{1 / p}$ for $p \geq 1$
 
+![figure2](/assets/img/co/img11.png)
+
+![figure2](/assets/img/co/img12.png)
+
 <br>
 
 ### f) Polyhedra
@@ -194,6 +214,8 @@ $\mathcal{P}=\left\{x \mid a_{i}^{T} x \leq b_{i}, i=1, \ldots, m, c_{j}^{T} x=d
 
 - solution set of “finitely many linear inequalities & equalities”
 - intersection of finite number of halfspaces & hyperplanes
+
+![figure2](/assets/img/co/img13.png)
 
 <br>
 
@@ -220,6 +242,8 @@ $C=\{(x, t):\|x\| \leq t\} \subseteq R^{n+1} \text {, for a norm }\|\cdot\|$.
 
 - 반경 $t$ 이내의 점들로 이뤄진 cone
 - second-order cone / ice-cream cone
+
+![figure2](/assets/img/co/img14.png)
 
 <br>
 
@@ -277,5 +301,10 @@ proper cone을 이용해서 정의하기
 
 ## 2-5. Separating & Supporting hyperplanes
 
+- 생략
+
+
+
 ## 2-6. Dual cones & Generalized inequalities
 
+- 생략

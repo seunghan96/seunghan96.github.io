@@ -1,5 +1,5 @@
 ---
-title: 1. Introduction
+title: (1) Introductionㅑㅡㅎㅎㅎ
 categories: [CO]
 tags: [Convex Optimization]
 excerpt: (참고) 모두를 위한 convex optimization
@@ -103,6 +103,8 @@ $\min _{x \in D} f(x)$
 
 (3) 그림
 
+![figure2](/assets/img/co/img1.png)
+
 <br>
 
 ### Convex Functions
@@ -115,6 +117,8 @@ $f(\theta x+(1-\theta) y) \leq \theta f(x)+(1-\theta) f(y)$ for all $x, y \in$ d
 <br>
 
 (2) 그림
+
+![figure2](/assets/img/co/img2.png)
 
 <br>
 
@@ -132,6 +136,10 @@ $f(\theta x+(1-\theta) y) \leq \theta f(x)+(1-\theta) f(y)$ for all $x, y \in$ d
   - epigraph of f: $R^{n} \rightarrow R$ :
 
     epi $f=\left\{(x, t) \in R^{n+1} \mid x \in\right.$ dom $\left.\mathrm{f}, \mathrm{f}(x) \leq t\right\}$
+
+<br>
+
+![figure2](/assets/img/co/img3.png)
 
 <br>
 
