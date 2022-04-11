@@ -1,6 +1,6 @@
 ---
 title: Pytorch Geometric 2
-categories: [GNN, ML]
+categories: [GNN, DLF]
 tags: [GNN]
 excerpt: 
 
