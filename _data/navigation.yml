@@ -4,6 +4,8 @@ main:
     url: /categories/prml/    
   - title: "ML"
     url: /categories/ml/   
+  - title: "DLF"
+    url: /categories/dfl/     
   - title: "STUDY"
     url: /categories/study/
   - title: "GIT"
