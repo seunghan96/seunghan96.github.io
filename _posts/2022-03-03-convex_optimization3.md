@@ -198,7 +198,70 @@ Quasiconcave
 
 ## 3-5. Log-concave & Log-convex Function
 
+### Log Concave
+
+- (1) 모든 $$x \in \operatorname{dom} f$$ 에 대해서 $$f(x)>0$$ 이고,
+- (2) $$\log f$$ 가 concave라면
+- $$f: R^{n} \rightarrow R$$ 는 **LOG CONCAVE**하다
+
+<br>
+
+Alternative
+
+- (1) $$f$$ 는 log concave하다
+- (2) $$f(\theta x+(1-\theta) y) \geq f(x)^{\theta} f(y)^{1-\theta}$$ for $$0 \leq \theta \leq 1 .$$
+
+<br>
+
+### Log Convex
+
+- (1) 모든 $$x \in \operatorname{dom} f$$ 에 대해서 $$f(x)>0$$ 이고,
+- (2) $$\log f$$ 가 convex라면
+- $$f: R^{n} \rightarrow R$$ 는 **LOG CONVEX**하다
+
+<br>
+
+Alternative
+
+- (1) $$f$$ 는 log concave하다
+- (2) $$\frac{1}{f}$$ 는 log convex하다
+
+<br>
+
+### Quasi convex/convcave
+
+log함수는 “단조” 증가함수이기 때문에,
+
+- log-concvex는 **quasi convex**하고,
+- log-concave는 **quasi concave**하다
+
+<br>
+
+### Examples
+
+**Log Concave**
+
+- [Affine Function]
+  - $$f(x)=a^{T} x+b$$ on $$\left\{x \mid a^{T} x+b>0\right\}$$
+- [Powers]
+  - $$f(x)=x^{a}$$ 는 $$R_{++}$$에서, $$a \geq 0$$ 일 때
+- [Exponentials]
+  - $$f(x)=e^{a x}$$.
+- [CDF of Normal distn]
+  - $$\Phi(x)=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{x} e^{-u^{2} / 2} d u$$.
+
+<br>
+
+**Log Convex**
+
+- [Gamma function]
+  - $$\Gamma(x)=\int_{0}^{\infty} u^{x-1} e^{-u} d u$$ , where $$x \geq 1$$ 
+- [Determinant]
+  - $$\operatorname{det} X$$ , in $$S_{++}^{n}$$ 
+- [Exponentials]
+  - $$f(x)=e^{a x}$$.
+
+<br>
 
 
-## 3-6. Convexity w.r.t generalization
 
