@@ -24,6 +24,14 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+  - image_path: /assets/img/DLF.png
+    alt: "placeholder image 2"
+    title: "DL Framework"
+    excerpt: 'Pytorch, Tensorflow2'
+    url: "categories/dlf/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/STUDY.jpg  
     alt: "placeholder image 2"
     title: "Paper Reading Study"
