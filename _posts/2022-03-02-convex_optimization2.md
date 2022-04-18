@@ -13,7 +13,7 @@ excerpt: (참고) 모두를 위한 convex optimization
 
 ### a) Line, Line Segment, Ray
 
-$$y=\theta x_{1}+(1-\theta) x_{2}$$ 
+$$y=\theta x_{1}+(1-\theta) x_{2}$$ .
 
 - Line (직선) : with $$\theta \in R$$
 - Line Segment (선분) : with $$0 \leq \theta \leq 1$$
@@ -29,34 +29,34 @@ $$y=\theta x_{1}+(1-\theta) x_{2}$$
 
 Affine Set
 
-- $$\theta x_{1}+(1-\theta) x_{2} \in C$$ with $$\theta \in R$$.
+- $$\theta x_{1}+(1-\theta) x_{2} \in C$$ with $$\theta \in R$$  with $$\theta_{1}+\theta_{2}+\ldots+\theta_{k}=1$$
 - 특징 : **계수의 합을 1로 제한. 양/음의 제한은 없음**
 
-
+<br>
 
 Affine Combination
 
 - $$\theta_{1} x_{1}+\theta_{2} x_{2}+\ldots+\theta_{k} x_{k} \in C$$ with $$\theta_{1}+\theta_{2}+\ldots+\theta_{k}=1$$
 - 특징 : **계수의 합을 1로 제한. 양/음의 제한은 없음**
 
-
+<br>
 
 Affine Hull
 
 - aff $$C=\left\{\theta_{1} x_{1}+\cdots+\theta_{k} x_{k} \mid x_{1}, \ldots, x_{k} \in C, \theta_{1}+\cdots+\theta_{k}=1\right\}$$
 - affine combination들의 집합 ( 집함 $$C$$를 포함하는 가장 작은 affine set )
 
-
+<br>
 
 Affine Set & subspace와의 관계
 
 - notation	
   - $$C$$ : affine set
-  - $$x_0 \in C$$
+  - $$x_0 \in C$$.
   - $$V=C-x_0 =\{x-x_0 \mid x \in C\}$$ : subspace
 
 - **Affine set $$C$$는, linear subspace $$V$$를 $$x_0$$만큼 translation 한 것**
-  - $$C=V+x_{0}=\left\{v+x_{0} \mid v \in V\right\}$$
+  - $$C=V+x_{0}=\left\{v+x_{0} \mid v \in V\right\}$$.
   - $$C$$ 의 차원 = $$V$$ 의 차원 $$\left(C, V \subseteq \mathbb{R}^{n}\right)$$
 
 <br>
@@ -65,7 +65,7 @@ Affine Set & subspace와의 관계
 
 Convex Set
 
-- $$\theta x_{1}+(1-\theta) x_{2} \in C$$ with $$0 \leq \theta \leq 1$$.
+- $$\theta x_{1}+(1-\theta) x_{2} \in C$$ with $$0 \leq \theta \leq 1$$ & $$\theta_{1}+\theta_{2}+\ldots+\theta_{k}=1$$
 - 특징 : **계수의 합을 1로 제한 + 양수 제한**
 
 ![figure2](/assets/img/co/img1.png)
@@ -77,7 +77,7 @@ Convex Combination
 - $$\theta_{1} x_{1}+\theta_{2} x_{2}+\ldots+\theta_{k} x_{k} \in C$$ with $$\theta_{1}+\theta_{2}+\ldots+\theta_{k}=1$$
 - 특징 : **계수의 합을 1로 제한 + 양수 제한**
 
-
+<br>
 
 Convex Hull
 
@@ -147,7 +147,7 @@ Conic Hull
 
 $$\left\{x: a^{T} x=b\right\}$$ with $$a \in R^{n}, a \neq 0, b \in R$$
 
-![figure2](/assets/img/co/img8img1.png)
+![figure2](/assets/img/co/img8.png)
 
 <br>
 
@@ -163,7 +163,7 @@ $$\left\{x: a^{T} x \leq b\right\}$$ or $$\left\{x: a^{T} x \geq b\right\}$$ wit
 
 ### c) Euclidean balls
 
-$$B\left(x_{c}, r\right)=\left\{x \mid\left \mid \mid x-x_{c}\right \mid \mid _{2} \leq r\right\}=\left\{x \mid\left(x-x_{c}\right)^{T}\left(x-x_{c}\right) \leq r^{2}\right\}$$ with $$r \geq 0$$
+$$B\left(x_{c}, r\right)=\left\{x \mid \mid \mid x-x_{c} \mid \mid _{2} \leq r\right\}=\left\{x \mid\left(x-x_{c}\right)^{T}\left(x-x_{c}\right) \leq r^{2}\right\} \text { with } r \geq 0$$ with $$r \geq 0$$
 
 ( 혹은 $$B\left(x_{c}, r\right)=\left\{x_{c}+r u \mid \mid \mid u \mid \mid _{2} \leq 1\right\}$$ )
 
@@ -198,7 +198,7 @@ $$\mathcal{E}=\left\{x_{c}+A u \mid \mid \mid u \mid \mid _{2} \leq 1\right\}$$.
 
 ( euclidean norm의 general version )
 
-$$\left\{x \mid\left \mid \mid x-x_{c}\right \mid \mid  \leq r\right\}$$.
+$$\left\{x \mid \mid \mid x-x_{c} \mid \mid  \leq r\right\}$$.
 
 - $$p$$-norm : $$ \mid \mid x \mid \mid _{p}=\left(\sum_{i=0}^{n} \mid x_{i} \mid ^{p}\right)^{1 / p}$$ for $$p \geq 1$$
 

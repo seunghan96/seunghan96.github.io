@@ -9,10 +9,6 @@ excerpt: (참고) 모두를 위한 convex optimization
 
 # 06. Gradient Descent
 
-![figure2](/assets/img/co/img22.png)
-
-<br>
-
 ## 6-1. Gradient Descent 란
 
 $$\min _{x} f(x), f:$$ differentiable with $$\operatorname{dom}(f)=R^{n}$$
@@ -176,7 +172,7 @@ notation : $$\Delta x=-\nabla f(x)$$
   - $$0<\beta<1$$ , $$0< \alpha \leq 1/2$$
 
 - step 2) initialize $$t$$ 
-  - $$t = t_{init} = 1$$
+  - $$t = t_{init} = 1$$.
 - step 3) 아래를 반복
   - $$f(x-t \nabla f(x))>f(x)-\alpha t\|\nabla f(x)\|_{2}^{2}$$ 일 경우, $$t=\beta t$$ 로 줄이기
   - 위 조건이 만족되지 않을때 까지 반복
@@ -287,7 +283,44 @@ Gradient Boosting :
 
 ### d) Algorithm
 
+- pass
+
 <br>
 
-## 6-5. Stochastic Gradient Descent
+## 6-5. Stochastic Gradient Descent (SGD)
 
+모든 데이터가 아닌, **하나의 (혹은 소수의) 데이터의 함수값에 대한 gradient**만을 구한다.
+
+$$k$$ 번째 iteration 에서의 update :
+
+- $$x^{(k)}=x^{(k-1)}-t_{k} \cdot \nabla f_{i_{k}}\left(x^{(k-1)}\right), i_{k} \in\{1,2, \ldots, m\}$$.
+
+<br>
+
+## 6-6. Convergence of SGD
+
+GD vs SGD
+
+- GD : batch 방식으로 한번 업데이트 ( = **모든** 데이터 사용 )
+- SGD : m번의 업데이트 ( = **소수의** 데이터만을 사용 )
+
+<br>
+
+Updating Equation
+
+- SGD ) $$k$$ ~ $$k+m$$ step의 업데이트 : 
+  - $$x^{(k+1)}=x^{(k)}-t_{k} \cdot \sum_{i=1}^{m} \nabla f_{i}\left(x^{(k+i-1)}\right)$$.
+- GD )  $$k$$ ~ $$k+1$$ step의 업데이트  : 
+  - $$x^{(k+m)}=x^{(k)}-t_{k} \cdot \sum_{i=1}^{m} \nabla f_{i}\left(x^{(k)}\right)$$.
+
+<br>
+
+두 방법 간의 차이 :
+
+- $$\sum_{i=1}^{m}\left[\nabla f_{i}\left(x^{(k+i-1)}\right)-\nabla f_{i}\left(x^{(k)}\right)\right]$$.
+
+<br>
+
+$$\rightarrow$$ 각 $$\nabla f_{i}(x)$$ 가 $$x$$ 에 대해서 크게 안변한다면 ( = Lipschitz continuous ), SGD도 수렴하게 됨
+
+( if not, 수렴 보장 X )

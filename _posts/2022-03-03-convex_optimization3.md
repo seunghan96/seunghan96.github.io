@@ -49,7 +49,7 @@ $$-f$$ 가 convex function이면, $$f$$ 는 **CONCAVE** function
 
 - Univariate Function
   - Exponential Function : $$e^{ax}$$
-  - Power Function : $$x^a$$ , where $$ a \geq 1$$ or $$a \neq 0$$
+  - Power Function : $$x^a$$ in $$\mathbb{R}_{+}$$ , where $$ a \geq 1$$ or $$a \neq 0$$
 - Affine Function : $$a^Tx +b$$
 - Quadratic Function :
   - $$f(x) = \frac{1}{2}x^tPx + q^T x +r$$.

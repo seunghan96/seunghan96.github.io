@@ -22,7 +22,7 @@ excerpt: (참고) 모두를 위한 convex optimization
 
 (1) 문제 정리
 
-$$\min _{x \in D} f(x)$$
+$$\min _{x \in D} f(x)$$.
 
 - subject to $$g_{i}(x) \leq 0, i=1, \ldots m$$
 - subject to $$h_{j}(x)=0, j=1, \ldots r$$
@@ -68,7 +68,7 @@ example)
 
 1) 문제 정리
 
-$$\min _{x \in D} f(x)$$
+$$\min _{x \in D} f(x)$$.
 
 - subject to $$g_{i}(x) \leq 0, i=1, \ldots m$$
 - subject to $$h_{j}(x)=0, j=1, \ldots r$$
@@ -87,7 +87,7 @@ $$\min _{x \in D} f(x)$$
 
 (1) 선분 (line segment)
 
-- $$x=\theta_{x_1} + (1-\theta)x_2$$, where $$0 \neq \theta \neq 1$$
+- $$x=\theta{x_1} + (1-\theta)x_2$$, where $$0 \leq \theta \leq 1$$
 
 <br>
 
@@ -97,7 +97,7 @@ $$\min _{x \in D} f(x)$$
 
   이 집합을 convex set이라고 한다
 
-- $$x_{1}, x_{2} \in C, 0 \leq \theta \leq 1 \Rightarrow \theta x_{1}+(1-\theta) x_{2} \in C$$
+- $$x_{1}, x_{2} \in C, 0 \leq \theta \leq 1 \Rightarrow \theta x_{1}+(1-\theta) x_{2} \in C$$.
 
 <br>
 

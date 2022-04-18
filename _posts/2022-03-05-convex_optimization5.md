@@ -48,9 +48,9 @@ Linear Programming :
 $$\operatorname{minimize}_{x}$$$$ c^{T} x+d$$
 subject to ..
 
-- $$G x \preceq h$$
+- $$G x \preceq h$$.
 
-- $$A x=b$$
+- $$A x=b$$.
 
 where $$G \in \mathbb{R}^{\mathrm{mxn}}$$ and $$A \in \mathbb{R}^{\mathrm{pxn}}$$.
 
@@ -200,10 +200,10 @@ $$\begin{array}{ll}
 $$\operatorname{minimize}_{x^{+}, x^{-}, s} \quad(1 / 2)\left(x^{+}-x^{-}\right)^{T} P\left(x^{+}-x^{-}\right)+q^{T} x^{+}-q^{T} x^{-}+r$$
 subject to..
 
-- $$G x^{+}-G x^{-}+s=h$$
+- $$G x^{+}-G x^{-}+s=h$$,
 - $$A x^{+}-A x^{-}=b$$,
-- $$s \succeq 0$$
-- $$x^{+} \succeq 0, x^{-} \succeq 0 .$$
+- $$s \succeq 0$$,
+- $$x^{+} \succeq 0, x^{-} \succeq 0$$,
 
 <br>
 
