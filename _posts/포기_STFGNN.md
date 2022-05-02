@@ -1,4 +1,15 @@
-포기
+---
+title: (paper) GCN ; a comprehensive review
+categories: [GNN]
+tags: []
+excerpt: Graph Neural Network 
+
+
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+# 
 
 # STFGNN ( Spatial-Temporal Fusion GNN ) for Traffic Flow Forecasting
 

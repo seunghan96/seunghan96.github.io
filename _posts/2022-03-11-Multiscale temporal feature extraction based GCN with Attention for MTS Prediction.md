@@ -1,4 +1,42 @@
-# Multi-scale temporal feature extraction based GCN with Attention for MTS Prediction
+---
+title: (paper) Multi-scale temporal feature extraction based GCN with Attention for MTS Prediction
+categories: [GNN, TS]
+tags: []
+excerpt: Graph Neural Network (2022)
+
+
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+# Multi-scale temporal feature extraction based GCN with Attention for MTS Prediction (2022)
+
+## Contents
+
+0. Abstract
+
+1. Introduction
+
+   1. EMD
+   2. GCN
+
+2. Related Works
+
+3. Preliminaries
+
+   1. EMD
+   2. TCN
+
+4. Proposed Approach
+
+   1. Feature Extraction of TS by EMD
+   2. Graph Generation
+   3. Node Feature updating
+   4. Establishment of Temporal relationships
+
+   5. Loss Function
+
+<br>
 
 # 0. Abstract
 
