@@ -1,0 +1,224 @@
+# Adaptive GCRN for Traffic Forecasting
+
+# 0. Abstract
+
+learning **node-specific patterns** is essential in Traffic Forecasting!
+
+<br>
+
+propose 2 adaptive modules for enhancing GCN
+
+- (1) NAPL ( = Node Adaptive Parameter Learning )
+
+  $$\rightarrow$$ to capture **node-specific** patterns
+
+- (2) DAGG ( = Data Adaptive Graph Generation )
+
+  $$\rightarrow$$ To infer the **inter-dependencies** among different TS
+
+<br>
+
+propose **AGCRN** to capture spatial & temporal correlations
+
+( = Adaptive Graph Convolutional Recurrent Network )
+
+<br>
+
+# 1. Introduction
+
+**2 concise & effective mechanisms,**
+
+by revising the basic building block of GCN
+
+<br>
+
+## (1) NAPL
+
+Node Adaptive Parameter Learning
+
+- learn **node specific patterns** for each TS
+
+- **factorizes** the parameters in traditional GCN
+
+  & generates **node-specific parameters** from weight pool & bias pool ( = shared by all nodes )
+
+<br>
+
+## (2) DAGG
+
+Data Adaptive Graph Generation
+
+- infer the node embedding from data
+- generate the graph during training
+
+<br>
+
+(1) & (2) are **independent** & can be adapted to existing GCN-based models
+
+<br>
+
+# 2. Previous Works
+
+## (1) GCN-based Traffic Forecasting
+
+DCRNN
+
+- re-formulates the spatial dependency of traffic as a **diffusion process**
+- extends the previous GCN to a **directed graph**
+
+<br>
+
+Graph Wavenet
+
+- combines **GCN** with **dilated causal convolution networks** 
+- for saving computation cost in handling long sequence 
+- propose a **self-adaptive adaptive adjacency matrix**,
+  as a complement for the **pre-defined adjacent matrix**
+
+<br>
+
+ASTGCN, STSGCN, GMAN
+
+- add more **complicated spatial & temporal attention**
+- CONS
+  - (1) only capture **shared patterns among all traffic TS**
+  - (2) still rely on **pre-defined spatial connection graph**
+
+<br>
+
+# 3. Methodology
+
+## (1) Problem Definition
+
+Notation
+
+- problem : **MULTI-step** forecast
+- number of TS : $$N$$
+  - $$\mathcal{X}=\left\{\boldsymbol{X}_{:, 0}, \boldsymbol{X}_{:, 1}, \ldots, \boldsymbol{X}_{:, t}, \ldots\right\}$$
+    - $$\boldsymbol{X}_{:, t}=\left\{x_{1, t}, x_{2, t}, \ldots, x_{i, t}, \ldots x_{N, t}\right\}^{T} \in R^{N \times 1}$$.
+- predict next $$\tau$$ steps data , based on $$T$$ steps
+  - $$\left\{X_{:, t+1}, X_{:, t+2}, \ldots, X_{:, t+\tau}\right\}=\mathcal{F}_{\boldsymbol{\theta}}\left(\boldsymbol{X}_{:, t}, \boldsymbol{X}_{:, t-1}, \ldots, \boldsymbol{X}_{:, t-T+1}\right)$$.
+
+- graph structure : $$\mathcal{G}=(\mathcal{V}, \mathcal{E}, \boldsymbol{A})$$
+
+<br>
+
+## (2) NAPL ( Node Adaptive Parameter Learning )
+
+- use GCN to capture spatial correlations
+- follows the calculations proposed in the **spectral domain**
+  - can be approximated by **1st order Chebyshev polynomial**
+  - $$Z=\left(I_{N}+D^{-\frac{1}{2}} \boldsymbol{A} D^{-\frac{1}{2}}\right) \boldsymbol{X} \Theta+\mathbf{b}$$.
+    - $$\boldsymbol{A} \in R^{N \times N}$$ ,
+    - $$\Theta \in R^{C \times F}$$ &  $$\mathrm{b} \in R^{F}$$ ........shared among all nodes
+    - $$\boldsymbol{X} \in R^{N \times C}$$  ( input )
+    - $$Z \in R^{N \times F}$$ ( outpu )
+
+<br>
+
+Sharing all nodes....? optimal...?
+
+- may reduce \# of parameters...
+
+- but ***sub-optimal for traffic forecasting!***
+
+  - exist diverse patterns among different traffic series,
+
+    due to dynamic propriety of time series data and various factors of the node!
+
+<br>
+
+ex)
+
+- traffic streams from 2 **adjacent** nodes may also present **DISSIMILAR** patterns at some particular period
+-  traffic streams from 2 **disjoint** nodes may even show **REVERSE** patterns.
+
+$$\rightarrow$$ only capturing shared patterns among all nodes is not enough!!!
+
+<br>
+
+thus, propose NAPL!
+
+- ***enhance traditional GCN with a Node Adaptive Parameter Learning module***
+
+- insight from **MATRIX FACTORIZATION**
+
+  - instead of directly learning $$\Theta \in R^{N \times C \times F}$$, 
+
+  - earns **two smaller parameter matrix**
+
+    - (1) node-embedding matrix : $$E_{\mathcal{G}} \in R^{N \times d}$$  ( $$d << N$$ )
+    - (2) weight pool : $$W_{\mathcal{G}} \in R^{d \times C \times F}$$
+
+    Generate parameter with (1) & (2)
+
+    $$\rightarrow$$ $$\Theta=E_{\mathcal{G}} \cdot W_{\mathcal{G}}$$.
+
+<br>
+
+Summary : 
+
+- ***learn node specific patterns, from a set of candidate patterns!***
+
+- $$\boldsymbol{Z}=\left(\boldsymbol{I}_{\boldsymbol{N}}+\boldsymbol{D}^{-\frac{1}{2}} \boldsymbol{A} \boldsymbol{D}^{-\frac{1}{2}}\right) \boldsymbol{X} \boldsymbol{E}_{\mathcal{G}} \boldsymbol{W}_{\mathcal{G}}+\boldsymbol{E}_{\mathcal{G}} \mathrm{b}_{\mathcal{G}}$$.
+
+<br>
+
+## (3) DAGG ( Data Adaptive Graph Generation )
+
+to infer the **hidden inter-dependencies** from data automatically
+
+randomly initialize **learnable node embedding DICTIONARIES** (= $$\boldsymbol{E}_{\boldsymbol{A}} \in R^{N \times d_{e}}$$ ) 
+
+<br>
+
+**SPATIAL dependencies** between node pairs :
+
+- by multiplying $$\boldsymbol{E}_{\boldsymbol{A}}$$ and $$\boldsymbol{E}_{\boldsymbol{A}}^{\boldsymbol{T}}$$ 
+- $$\boldsymbol{D}^{-\frac{1}{2}} \boldsymbol{A} \boldsymbol{D}^{-\frac{1}{2}}=\operatorname{softmax}\left(\operatorname{ReLU}\left(\boldsymbol{E}_{\boldsymbol{A}} \cdot \boldsymbol{E}_{\boldsymbol{A}}^{\boldsymbol{T}}\right)\right)$$.
+
+<brr>
+
+during training, $$\boldsymbol{E}_{\boldsymbol{A}}$$ will be updated!
+
+$$\rightarrow$$ learn **hidden dependencies** & will get **adaptive matrix** for graph convolution
+
+- much simpler than **self-adaptive adjacent matrix**
+
+<br>
+
+Summary : 
+
+- $$\boldsymbol{Z}=\left(\boldsymbol{I}_{\boldsymbol{N}}+\operatorname{softmax}\left(\operatorname{ReLU}\left(\boldsymbol{E}_{\boldsymbol{A}} \cdot \boldsymbol{E}_{\boldsymbol{A}}^{\boldsymbol{T}}\right)\right)\right) \boldsymbol{X} \boldsymbol{\Theta}$$.
+
+- problem : **heavy computation**
+
+  $$\rightarrow$$ use **graph partition / sub-graph training** method
+
+<br>
+
+## (4) Adaptive GCRN
+
+[ DAGG ]
+
+- $$\tilde{\boldsymbol{A}} = \operatorname{softmax}\left(\operatorname{ReLU}\left(\boldsymbol{E} \boldsymbol{E}^{\boldsymbol{T}}\right)\right)$$
+
+<br>
+
+[ NAPL ]
+
+$$\begin{aligned}
+\boldsymbol{z}_{\boldsymbol{t}} &=\sigma\left(\widetilde{\boldsymbol{A}}\left[\boldsymbol{X}_{:, t}, \boldsymbol{h}_{\boldsymbol{t}-1}\right] \boldsymbol{E} \boldsymbol{W}_{\boldsymbol{z}}+\boldsymbol{E} \boldsymbol{b}_{\boldsymbol{z}}\right.\\
+\boldsymbol{r}_{\boldsymbol{t}} &=\sigma\left(\widetilde{\boldsymbol{A}}\left[\boldsymbol{X}_{:, t}, \boldsymbol{h}_{\boldsymbol{t}-1}\right] \boldsymbol{E} \boldsymbol{W}_{\boldsymbol{r}}+\boldsymbol{\boldsymbol { E }} \boldsymbol{b}_{\boldsymbol{r}}\right.\\
+\hat{\boldsymbol{h}}_{\boldsymbol{t}} &=\tanh \left(\widetilde{\boldsymbol{A}}\left[\boldsymbol{X}_{:, t}, \boldsymbol{r} \odot \boldsymbol{h}_{\boldsymbol{t - 1}}\right] \boldsymbol{E} \boldsymbol{W}_{\hat{\boldsymbol{h}}}+\boldsymbol{E}\boldsymbol{b}_{\hat{\boldsymbol{h}}}\right.\\
+\boldsymbol{h}_{\boldsymbol{t}} &=\boldsymbol{z} \odot \boldsymbol{h}_{\boldsymbol{t}-1}+(1-\boldsymbol{z}) \odot \hat{\boldsymbol{h}}_{\boldsymbol{t}}
+\end{aligned}$$.
+
+<br>
+
+## (5) Loss Function
+
+Stack several AGCRRN layers ( as encoders )
+
+Loss function : $$\mathcal{L}\left(\boldsymbol{W}_{\boldsymbol{\theta}}\right)=\sum_{i=t+1}^{i=t+\tau} \mid \boldsymbol{X}_{:, i}-\boldsymbol{X}_{:, i}^{\prime} \mid $$.
+

@@ -1,0 +1,62 @@
+# Temporal GNN
+
+![figure2](/assets/img/gnn/gnn409.png) 
+
+
+
+### ex) Traffic Forecasting
+
+![figure2](/assets/img/gnn/gnn410.png) 
+
+2개의 dimension
+
+- (1) temporal 축
+- (2) spatial 축
+
+
+
+[ Temporal GNN은 크게 2 step으로 이루어진다. ] 
+
+step 1) GNN model
+
+- 매 time stamp마다의 정보를 GNN으로 보낸다.**
+
+step 2) Temporal model
+
+- GNN을 통해 임베딩된 벡터들이, temporal model를 거치게 된다
+
+<br>
+
+![figure2](/assets/img/gnn/gnn411.png) 
+
+<br>
+
+### Packages : pytorch geometric temporal
+
+<br>
+
+### ex) T-GCN
+
+![figure2](/assets/img/gnn/gnn412.png) 
+
+<br>
+
+### ex) graph multi-attention network
+
+![figure2](/assets/img/gnn/gnn413.png) 
+
+<br>
+
+### ex) temporal graph network for dynamic graph
+
+node / edge가 dynamic하게 변화 ( 추가/삭제 가능 )
+
+![figure2](/assets/img/gnn/gnn414.png) 
+
+<br>
+
+# Code
+
+https://www.youtube.com/watch?v=Rws9mf1aWUs&list=PLV8yxwGOxvvoNkzPfCx2i8an--Tkt7O8Z&index=19
+
+https://colab.research.google.com/drive/132hNQ0voOtTVk3I4scbD3lgmPTQub0KR?usp=sharing
