@@ -135,7 +135,7 @@ Goal :
 
 # 4. STFGNN
 
-![figure2](/assets/img/gnn/gnn432.png)
+![figure2](/assets/img/gnn/img432.png)
 
 <br>
 
@@ -179,11 +179,11 @@ Generating temporal graph with DTW?
 
   - $\omega_{k}=(i, j), \quad|i-j| \leq T$.
 
-![figure2](/assets/img/gnn/gnn431.png)
+![figure2](/assets/img/gnn/img431.png)
 
 <br>
 
-![figure2](/assets/img/gnn/gnn433.png)
+![figure2](/assets/img/gnn/img433.png)
 
 - Consists of 3 kinds of $N \times N$ matrix
 
@@ -211,9 +211,9 @@ X=\left[X_{\mathcal{G}}^{(t)}, \cdots, X_{\mathcal{G}}^{(t+T)}\right] \in \mathb
 $$
 $X_{\mathcal{G}}^{(t)}$ is high-dimension feature of original data $\mathbf{X}_{\mathcal{G}}^{(t)} \cdot C$
 
-![figure2](/assets/img/gnn/gnn429.png) 
+![figure2](/assets/img/gnn/img429.png) 
 
-![figure2](/assets/img/gnn/gnn430.png) 
+![figure2](/assets/img/gnn/img430.png) 
 
 
 

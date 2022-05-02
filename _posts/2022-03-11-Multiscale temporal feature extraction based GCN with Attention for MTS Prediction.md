@@ -102,13 +102,13 @@ $$\boldsymbol{x}=\sum_{i=1}^{N}  \boldsymbol{i m} \boldsymbol{f}_{i}+\boldsymbol
 
 <br>
 
-![figure2](/assets/img/gnn/gnn427.png) 
+![figure2](/assets/img/gnn/img427.png) 
 
 <br>
 
 ## (2) TCN
 
-![figure2](/assets/img/gnn/gnn426.png) 
+![figure2](/assets/img/gnn/img426.png) 
 
 - able to capture **long-term dependencies**
 - use **residual blocks**
@@ -126,7 +126,7 @@ consists of 4 parts
 
 <br>
 
-![figure2](/assets/img/gnn/gnn428.png) 
+![figure2](/assets/img/gnn/img428.png) 
 
 <br>
 

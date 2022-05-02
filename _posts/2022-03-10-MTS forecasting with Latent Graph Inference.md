@@ -91,7 +91,7 @@ but ***only in the AGG module*** $$\rightarrow$$ CHEAPER!!!
 
 <br>
 
-![figure2](/assets/img/gnn/gnn421.png)
+![figure2](/assets/img/gnn/img421.png)
 
 <br>
 
@@ -142,7 +142,7 @@ but ***only in the AGG module*** $$\rightarrow$$ CHEAPER!!!
 
 <br>
 
-![figure2](/assets/img/gnn/gnn422.png)
+![figure2](/assets/img/gnn/img422.png)
 
 <br>
 
