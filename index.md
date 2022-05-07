@@ -32,6 +32,22 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+  - image_path: /assets/img/TIME.png
+    alt: "placeholder image 2"
+    title: "Time Series 1"
+    excerpt: "TS basic"
+    url: "categories/ts0/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/TIME.png
+    alt: "placeholder image 2"
+    title: "Time Series 2"
+    excerpt: "TS paper reviews"
+    url: "categories/ts/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/STUDY.jpg  
     alt: "placeholder image 2"
     title: "Paper Reading Study"
@@ -160,21 +176,6 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
   
-  - image_path: /assets/img/TIME.png
-    alt: "placeholder image 2"
-    title: "Time Series 1"
-    excerpt: "TS basic"
-    url: "categories/ts0/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
-  - image_path: /assets/img/TIME.png
-    alt: "placeholder image 2"
-    title: "Time Series 2"
-    excerpt: "TS paper reviews"
-    url: "categories/ts/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
 
   - image_path: /assets/img/CO.png
     alt: "placeholder image 2"
