@@ -6,6 +6,10 @@ main:
     url: /categories/ml/   
   - title: "DLF"
     url: /categories/dfl/     
+  - title: "TS0"
+    url: /categories/ts0/   
+  - title: "TS"
+    url: /categories/ts/  
   - title: "STUDY"
     url: /categories/study/
   - title: "GIT"
@@ -38,10 +42,6 @@ main:
     url: /categories/rl/   
   - title: "RS"
     url: /categories/rs/   
-  - title: "TS0"
-    url: /categories/ts0/   
-  - title: "TS"
-    url: /categories/ts/  
   - title: "CO"
     url: /categories/co/  
   - title: "GNN"
