@@ -1,0 +1,132 @@
+# ML Flow 1. 기본 코드 실행
+
+
+
+1. mlflow 설치하기
+
+```
+$ pip install mlflow
+```
+
+
+
+2. 예시 코드 다운받기 + 경로 이동
+
+```
+$ git clone https://github.com/mlflow/mlflow
+$ cd mlflow/examples/quickstart
+```
+
+해당 경로에는, 하나의 python 파일이 존재한다 ( `mlflow_tracking.py` )
+
+<br>
+
+3. `mlflow_tracking.py ` 실행
+
+```
+# mlflow_tracking.py
+
+import os
+from random import random, randint
+
+from mlflow import log_metric, log_param, log_artifacts
+
+if __name__ == "__main__":
+    print("Running mlflow_tracking.py")
+
+    log_param("param1", randint(0, 100))
+
+    log_metric("foo", random())
+    log_metric("foo", random() + 1)
+    log_metric("foo", random() + 2)
+
+    if not os.path.exists("outputs"):
+        os.makedirs("outputs")
+    with open("outputs/test.txt", "w") as f:
+        f.write("hello world!")
+
+    log_artifacts("outputs")
+```
+
+<br>
+
+`log_metric` : metric을 기록 ( ex) accuracy, RMSE, NLL 등 )
+
+`log_param` : 모델의 인풋 파라미터 (argument) 값을 기록
+
+`log_artifacts` : 실험 결과 나온 아티팩트들을 기록
+
+<br>
+
+위 코드를 실행해보자.
+
+```
+$ python mlflow_tracking.py
+Running mlflow_tracking.py
+```
+
+<br>
+
+실험을 하면, 해당 디렉토리 하에 2개의 디렉토리가 생성된다.
+
+- (1) `mlruns`
+- (2) `outputs`
+
+<br>
+
+위 디렉토리들을 보기 쉽게 `tree`  구조로 확인해보면, 아래와 같다.
+
+![figure2](/assets/img/mlops/img142.png)
+
+<br>
+
+위의 tree 구조 해석 :
+
+- `mlruns`
+  - `0` : Experiment (실험) ID
+    - `67baa9b0348f47258205f705d334c681 `: Run (실행) ID
+      - `artifacts` : `log_artifacts`의 결과들이 여기에 담긴다
+      - `metrics `  : `log_metric`의 결과들이 여기에 담긴다
+      - `params`  : `log_param`의 결과들이 여기에 담긴다
+      - `tags`
+  - `meta.yaml`
+- `outputs`
+
+<br>
+
+예시로, 위의 metrics에 들어가서, 우리가 로깅한 결과값을 확인해보자.
+
+![figure2](/assets/img/mlops/img143.png)
+
+<br>
+
+
+
+4. 웹 대시보드
+
+```
+$ mlflow ui
+```
+
+```
+[2022-05-06 20:21:34 +0900] [25165] [INFO] Starting gunicorn 20.1.0
+[2022-05-06 20:21:34 +0900] [25165] [INFO] Listening at: http://127.0.0.1:5000 (25165)
+[2022-05-06 20:21:34 +0900] [25165] [INFO] Using worker: sync
+[2022-05-06 20:21:34 +0900] [25166] [INFO] Booting worker with pid: 25166
+```
+
+<br>
+
+위의 `http://127.0.0.1:5000` 로 접속해보자.
+
+방금 전에 실행한 run에 대한 결과가 웹 ui상으로 보기 쉽게 관리되는 것을 알 수 있다.
+
+![figure2](/assets/img/mlops/img144.png)
+
+<br>
+
+종료하고 싶다면, 위의 pid (process id)인 25166을 kill하면 된다
+
+```
+$ kill 25165
+```
