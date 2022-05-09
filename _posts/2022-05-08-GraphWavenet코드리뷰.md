@@ -99,7 +99,7 @@ class gcn(nn.Module):
 
 `gwnet` : Graph WaveNet
 
-![image-20220327140852813](/Users/LSH/Library/Application Support/typora-user-images/image-20220327140852813.png)
+![figure2](/assets/img/gnn/img253.png) 
 
 ```python
 class gwnet(nn.Module):
@@ -297,7 +297,7 @@ class gwnet(nn.Module):
 
 # 2. `engine.py`
 
-![image-20220327142821564](/Users/LSH/Library/Application Support/typora-user-images/image-20220327142821564.png)
+![figure2](/assets/img/gnn/img469.png) 
 
 ```python
 import torch.optim as optim
