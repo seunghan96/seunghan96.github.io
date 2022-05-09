@@ -289,10 +289,6 @@ medical : Chickenpox Cases in Hungary (CCH) dataset
   - 주요 모델 : 본인, GConvLSTM , GConvGRU, DyGrAE, STGCN, DCRNN, Evolve GCN-O, Evolve GCN-H
   - 기본 모델 : 
 
-
-
-
-
 <br>
 
 **Data Preprocess**
