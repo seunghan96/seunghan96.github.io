@@ -459,8 +459,6 @@ Traffic 11 : PeMSD7을 둘로 변형
     - 제안 2: STGCN (1st)
   - 기본 모델 : HA, LSVR, ARIMA, FNN, FC-LSTM
 
-
-
 <br>
 
 **Data Preprocessing**
