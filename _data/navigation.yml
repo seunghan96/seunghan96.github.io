@@ -42,6 +42,8 @@ main:
     url: /categories/rl/   
   - title: "RS"
     url: /categories/rs/   
+  - title: "CL"
+    url: /categories/cl/   
   - title: "CO"
     url: /categories/co/  
   - title: "GNN"
