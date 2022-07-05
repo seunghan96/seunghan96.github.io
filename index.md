@@ -175,7 +175,14 @@ feature_row2:
     url: "categories/rs/"
     btn_label: "Read More"
     btn_class: "btn--primary"
-  
+    
+  - image_path: /assets/img/CL.jpg
+    alt: "placeholder image 2"
+    title: "Contrastive Learning"
+    excerpt: "contrastive learning"
+    url: "categories/cl/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
 
   - image_path: /assets/img/CO.png
     alt: "placeholder image 2"
