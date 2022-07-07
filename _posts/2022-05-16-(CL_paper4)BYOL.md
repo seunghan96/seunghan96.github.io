@@ -11,6 +11,14 @@ excerpt: 2020
 
 <br>
 
+## Contents
+
+0. Abstract
+1. Method
+   1. Description of BYOL
+
+<br>
+
 # 0. Abstract
 
 BYOL ( = Bootstrap Your Own Latent )

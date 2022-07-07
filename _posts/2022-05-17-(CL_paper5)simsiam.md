@@ -9,7 +9,14 @@ excerpt: 2020
 
 # Exploring Simple Siamese Representation Learning
 
-![figure2](/assets/img/cl/img8.png)
+<br>
+
+## Contents
+
+0. Abstract
+1. Introduction
+2. Method
+3. Pseudocode
 
 <br>
 
