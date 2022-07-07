@@ -1,6 +1,6 @@
 ---
 title: Contrastive Learning 소개
-categories: [ML]
+categories: [CL]
 tags: []
 excerpt: Contrastive Learning
 ---
