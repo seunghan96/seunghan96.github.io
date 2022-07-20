@@ -1,0 +1,54 @@
+# Vision Transformer (ViT)
+
+<br>
+
+# 1. Introduction
+
+- transformer encoder, which consists of **alternating layers of Multi-head Self-attention**
+
+- **linear embeddings** of image patches
+
+  ( + 1d positional embeddings )
+
+- works well on **very large-scale** datasets
+
+- first token
+
+  - aggregate local information
+  - used as an input to **image classifier**
+
+
+![figure2](/assets/img/cv/cv181.png)
+
+<br>
+
+# 2. Variants
+
+![figure2](/assets/img/cv/cv181.png)
+
+<br>
+
+# 3. Code
+
+## (1) Transformer
+
+```python
+transformer_model = nn.Transformer(nhead=16, num_encoder_layers=12)
+src = torch.rand((10, 32, 512))
+tgt = torch.rand((20, 32, 512))
+out = transformer_model(src, tgt)
+```
+
+<br>
+
+## (2) ViT
+
+```python
+import torchvision.models as models
+
+vit_b_16 = models.vit_b_16(pretrained=True)
+vit_b_32 = models.vit_b_32(pretrained=True)
+vit_l_16 = models.vit_l_16(pretrained=True)
+vit_l_32 = models.vit_l_32(pretrained=True)
+```
+
