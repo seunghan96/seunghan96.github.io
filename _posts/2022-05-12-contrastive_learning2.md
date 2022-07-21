@@ -1,6 +1,17 @@
-# 1. Similarity Learning (SL)
+---
+title: Contrastive Learning 소개 (2)
+categories: [CL]
+tags: []
+excerpt: Contrastive Learning
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 ( 참고 : https://velog.io/@sjinu/Similarity-Learning-Contrastive-Learning#:~:text=%EB%8C%80%EC%A1%B0%EC%A0%81%20%ED%95%99%EC%8A%B5(Contrastive%20Learning)%EC%9D%98,representation)%EC%9D%84%20%ED%95%99%EC%8A%B5%ED%95%98%EB%8A%94%20%EA%B2%83%EC%9D%B4%EB%8B%A4. )
+
+
+
+# 1. Similarity Learning (SL)
 
 output : 유사도
 
@@ -9,7 +20,7 @@ model의 핵심
 - 비슷한건 **높은 유사도**
 - 상이한건 **낮은 유사도**
 
-
+<br>
 
 ## (1) Regression SL
 
