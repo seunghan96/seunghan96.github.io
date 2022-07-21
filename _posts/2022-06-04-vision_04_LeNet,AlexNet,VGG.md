@@ -1,4 +1,16 @@
-# LeNet, AlexNet, VGG
+---
+title: 04. LeNet & AlexNet & VGG
+categories: [CV]
+tags: []
+excerpt: LeNet, AlexNet, VGG
+
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+( 참고 : 패스트 캠퍼스 , 한번에 끝내는 컴퓨터비전 초격차 패키지 )
+
+# LeNet & AlexNet & VGG
 
 기본적인 CNN구조는 여러 task에 대한 backbone 역할을 한다.
 

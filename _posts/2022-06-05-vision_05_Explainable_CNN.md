@@ -1,3 +1,14 @@
+---
+title: 05. Explainable CNN
+categories: [CV]
+tags: []
+excerpt: Explainable CNN
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+( 참고 : 패스트 캠퍼스 , 한번에 끝내는 컴퓨터비전 초격차 패키지 )
+
 # Explainable CNN
 
 
