@@ -1,3 +1,14 @@
+---
+title: 11. Representation Learning (2)
+categories: [CV]
+tags: []
+excerpt: faceNet (2015), Image Retrieval, Beyond Binary Supervision (2019), Proxy Anchor Loss (2020)
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+( 참고 : 패스트 캠퍼스 , 한번에 끝내는 컴퓨터비전 초격차 패키지 )
+
 # Representation Learning (2)
 
 <br>

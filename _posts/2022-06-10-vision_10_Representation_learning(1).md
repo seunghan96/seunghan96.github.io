@@ -1,3 +1,14 @@
+---
+title: 10. Representation Learning (1)
+categories: [CV]
+tags: []
+excerpt: Metric Learning, Deep Metric Learning, Siamese Network, Quadruplet Network
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+( 참고 : 패스트 캠퍼스 , 한번에 끝내는 컴퓨터비전 초격차 패키지 )
+
 # Representation Learning (1)
 
 <br>

@@ -16,7 +16,7 @@ Review 논문 3편 :
   - MoCo v1 :https://arxiv.org/abs/1911.05722
   - MoCo v2 : http://arxiv.org/abs/2003.04297
 
-<br>
+
 
 <embed src="/assets/pdf/01.SimCLR_MoCo_2020324009_SeunghanLee.pdf" type="application/pdf" />
 

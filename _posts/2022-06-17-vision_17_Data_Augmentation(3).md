@@ -1,3 +1,14 @@
+---
+title: 17. Data Augmentation (3) - AutoML based
+categories: [CV]
+tags: []
+excerpt: AutoML based Data Augmentation
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+( 참고 : 패스트 캠퍼스 , 한번에 끝내는 컴퓨터비전 초격차 패키지 )
+
 # Data Augmentation (3)
 
 Categories of Data Augmentation
@@ -38,7 +49,7 @@ Categories of Data Augmentation
 
 Cons : **TOO MUCH COMPUTATION TIME**
 
-( $\because$ policy gradient based on **validation error** )
+( $$\because$$ policy gradient based on **validation error** )
 
 <br>
 
@@ -48,7 +59,7 @@ Cons : **TOO MUCH COMPUTATION TIME**
 
 Problem of **AutoAugment** : **computationally infeasible**
 
-$\rightarrow$ solution : ***Population Based AutoAugment***
+$$\rightarrow$$ solution : ***Population Based AutoAugment***
 
 ![figure2](/assets/img/cv/cv253.png)
 
@@ -62,7 +73,7 @@ Characteristics
 
 - Exploration & exploitation
 
-$\rightarrow$ **outputs an augmentation policy!**
+$$\rightarrow$$ **outputs an augmentation policy!**
 
 ![figure2](/assets/img/cv/cv254.png)
 
@@ -118,12 +129,12 @@ Candidates of operations :
 
 Why need **AutoML**? Too **LARGE search space!**
 
-$\rightarrow$ Instead of searching, **random sample**
+$$\rightarrow$$ Instead of searching, **random sample**
 
 hyperparameter :
 
-- $N$ : number of operations
-- $M$ : range of operations
+- $$N$$ : number of operations
+- $$M$$ : range of operations
 
 ![figure2](/assets/img/cv/cv262.png)
 
