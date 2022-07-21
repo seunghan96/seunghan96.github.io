@@ -1,5 +1,5 @@
 ---
-title: 12. Representation Learning (3)
+title: (CV summary) 12. Representation Learning (3)
 categories: [CV]
 tags: []
 excerpt: NetVLAD (2016), DELF (Deep Local Features) (2017)

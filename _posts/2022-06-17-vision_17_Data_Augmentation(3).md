@@ -1,5 +1,5 @@
 ---
-title: 17. Data Augmentation (3) - AutoML based
+title: (CV summary) 17. Data Augmentation (3) - AutoML based
 categories: [CV]
 tags: []
 excerpt: AutoML based Data Augmentation

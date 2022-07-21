@@ -1,5 +1,5 @@
 ---
-title: 01. OpenCV
+title: (CV summary) 01. OpenCV
 categories: [CV]
 tags: []
 excerpt: OpenCV in python

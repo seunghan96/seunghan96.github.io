@@ -1,5 +1,5 @@
 ---
-title: 07. EfficientNet & SqueezeNet & Shift
+title: (CV summary) 07. EfficientNet & SqueezeNet & Shift
 categories: [CV]
 tags: []
 excerpt: EfficientNet, SqueezeNet, Shift

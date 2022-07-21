@@ -1,5 +1,5 @@
 ---
-title: 16. Data Augmentation (2) - GAN based
+title: (CV summary) 16. Data Augmentation (2) - GAN based
 categories: [CV]
 tags: []
 excerpt: GAN based Data Augmentation

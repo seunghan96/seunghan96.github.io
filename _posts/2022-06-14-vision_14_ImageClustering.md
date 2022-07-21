@@ -1,5 +1,5 @@
 ---
-title: 14. Image Clustering
+title: (CV summary) 14. Image Clustering
 categories: [CV]
 tags: []
 excerpt: Image Clustering

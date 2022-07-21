@@ -1,5 +1,5 @@
 ---
-title: 11. Representation Learning (2)
+title: (CV summary) 11. Representation Learning (2)
 categories: [CV]
 tags: []
 excerpt: faceNet (2015), Image Retrieval, Beyond Binary Supervision (2019), Proxy Anchor Loss (2020)

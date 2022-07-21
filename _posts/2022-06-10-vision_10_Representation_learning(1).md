@@ -1,5 +1,5 @@
 ---
-title: 10. Representation Learning (1)
+title: (CV summary) 10. Representation Learning (1)
 categories: [CV]
 tags: []
 excerpt: Metric Learning, Deep Metric Learning, Siamese Network, Quadruplet Network

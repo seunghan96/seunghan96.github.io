@@ -1,5 +1,5 @@
 ---
-title: 08. MobileNet & ShuffleNet
+title: (CV summary) 08. MobileNet & ShuffleNet
 categories: [CV]
 tags: []
 excerpt: MobileNet, ShuffleNet

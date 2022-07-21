@@ -1,5 +1,5 @@
 ---
-title: 15. Data Augmentation (1) - Rule based
+title: (CV summary) 15. Data Augmentation (1) - Rule based
 categories: [CV]
 tags: []
 excerpt: Rule based Data Augmentation

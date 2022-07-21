@@ -1,5 +1,5 @@
 ---
-title: 05. Explainable CNN
+title: (CV summary) 05. Explainable CNN
 categories: [CV]
 tags: []
 excerpt: Explainable CNN

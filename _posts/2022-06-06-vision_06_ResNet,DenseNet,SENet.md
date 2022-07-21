@@ -1,5 +1,5 @@
 ---
-title: 06. ResNet & DenseNet & SENet
+title: (CV summary) 06. ResNet & DenseNet & SENet
 categories: [CV]
 tags: []
 excerpt: ResNet, DenseNet, SENet

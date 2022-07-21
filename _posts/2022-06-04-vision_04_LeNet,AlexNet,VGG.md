@@ -1,5 +1,5 @@
 ---
-title: 04. LeNet & AlexNet & VGG
+title: (CV summary) 04. LeNet & AlexNet & VGG
 categories: [CV]
 tags: []
 excerpt: LeNet, AlexNet, VGG

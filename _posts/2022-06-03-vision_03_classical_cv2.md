@@ -1,5 +1,5 @@
 ---
-title: 03. Classical Computer Vision (2)
+title: (CV summary) 03. Classical Computer Vision (2)
 categories: [CV]
 tags: []
 excerpt: 
