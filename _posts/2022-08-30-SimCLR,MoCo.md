@@ -1,14 +1,22 @@
 ---
-title: (발표 자료) Hierarchical Clustering
-categories: [ML,PPT]
-tags: [Machine Learning, Hierarchical Clustering]
-excerpt: 연세대학교 대기과학과 데이터 분석
+title: (발표 자료) SimCLR, MoCo v1&v2
+categories: [CL,CV,PPT]
+tags: [Contrastive Learning, Computer Vision, SimCLR, MoCo]
+excerpt: 연세대학교 기초연구실 발표자료
 ---
 
-# Hierarchical Clustering
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-2021/01/20에 연세대학교 대기과학과 데이터 분석 보조하면서 진행했던 강의 발표 자료
+# (발표 자료) SimCLR, MoCo v1&v2
 
-<embed src="/assets/pdf/210120_HC.pdf" type="application/pdf" />
+Review 논문 3편 :
 
-d
+- SimCLR : https://arxiv.org/abs/2002.05709
+- MoCo
+  - MoCo v1 :https://arxiv.org/abs/1911.05722
+  - MoCo v2 : http://arxiv.org/abs/2003.04297
+
+<br>
+
+<embed src="/assets/pdf/01.SimCLR_MoCo_2020324009_SeunghanLee.pdf" type="application/pdf" />
+
