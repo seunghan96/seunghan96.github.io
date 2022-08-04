@@ -1,5 +1,5 @@
 ---
-I'm not title: (CV summary) 24. Semantic Segmentation - FCN, DeepLab, DeconvNet, UNet
+title: (CV summary) 24. Semantic Segmentation - FCN, DeepLab, DeconvNet, UNet
 categories: [CV]
 tags: []
 excerpt: FCN, DeepLab, DeconvNet, UNet
