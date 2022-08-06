@@ -15,7 +15,7 @@ excerpt: VGG16, U-Net, Covid chest-xray
 
 Much less dataset!! how to solve?
 
-$\rightarrow$ ***Transfer Learning!***
+$$\rightarrow$$ ***Transfer Learning!***
 
 <br>
 

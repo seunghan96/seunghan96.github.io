@@ -42,7 +42,7 @@ from albumentations.pytorch import ToTensorV2
 
 - why not **pytorch transform**??
 
-$\rightarrow$ **albumentations** can also convert boxes!
+$$\rightarrow$$ **albumentations** can also convert boxes!
 
 <br>
 
@@ -212,7 +212,7 @@ Shape of **"target"** & **prediction**
   - num_anchors = 2
   - num_classes =2
 
-$\rightarrow$ need to convert **target** into the form of **prediction** ( = Build Target Grid )
+$$\rightarrow$$ need to convert **target** into the form of **prediction** ( = Build Target Grid )
 
 <br>
 
@@ -492,7 +492,7 @@ torch.Size([2, 2, 7, 7])
 
 among the two boxes of every data in batch...
 
-$\rightarrow$ get the max value ( = filtering = choosing the box with highest IoU )
+$$\rightarrow$$ get the max value ( = filtering = choosing the box with highest IoU )
 
 ```
 max_iou, best_box = ious.max(dim=1, keepdim=True) # (B x (1x7x7))

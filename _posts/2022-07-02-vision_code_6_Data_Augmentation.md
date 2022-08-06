@@ -73,7 +73,7 @@ Do it for both
 - (1) training data
 - (2) validation data
 
-$\rightarrow$ ***no augmentation in validationd dataset***
+$$\rightarrow$$ ***no augmentation in validationd dataset***
 
 ```python
 def build_dataloader(data_dir, batch_size=4, image_size=448):
