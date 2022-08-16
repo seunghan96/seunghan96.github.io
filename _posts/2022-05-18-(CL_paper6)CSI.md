@@ -32,7 +32,7 @@ Novelty Detection
 
 This paper proposes a **simple & effective** method, called **CSI ( Contrasting Shifted Instances )**
 
-( inspired by **contrastive learning** of **visual representations **)
+( inspired by **contrastive learning** of **visual representations**)
 
 - key : ***contrasts the sample with "distributionally-shifted augmentations" of itself***
 
@@ -142,7 +142,7 @@ Notation
 
 Contrastive Loss :
 
-- $$\mathcal{L}_{\text {con }}\left(x,\left\{x_{+}\right\},\left\{x_{-}\right\}\right):=-\frac{1}{\left|\left\{x_{+}\right\}\right|} \log \frac{\sum_{x^{\prime} \in\left\{x_{+}\right\}} \exp \left(\operatorname{sim}\left(z(x), z\left(x^{\prime}\right)\right) / \tau\right)}{\sum_{x^{\prime} \in\left\{x_{+}\right\} \cup\left\{x_{-}\right\}} \exp \left(\operatorname{sim}\left(z(x), z\left(x^{\prime}\right)\right) / \tau\right)}$$.
+- $$\mathcal{L}_{\text {con }}\left(x,\left\{x_{+}\right\},\left\{x_{-}\right\}\right):=-\frac{1}{ \mid \left\{x_{+}\right\} \mid } \log \frac{\sum_{x^{\prime} \in\left\{x_{+}\right\}} \exp \left(\operatorname{sim}\left(z(x), z\left(x^{\prime}\right)\right) / \tau\right)}{\sum_{x^{\prime} \in\left\{x_{+}\right\} \cup\left\{x_{-}\right\}} \exp \left(\operatorname{sim}\left(z(x), z\left(x^{\prime}\right)\right) / \tau\right)}$$.
   - $$\left\{x_{+}\right\}, z(x)$$ : the output feature of the contrastive layer
 
 <br>
