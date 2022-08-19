@@ -120,4 +120,4 @@ implement support set as **queue**
 
 - dimension : $$[m, d]$$
   - $$m$$ : size of queue
-  - $$d$$ : size of embeddings
+  - $$d$$ : size of embeddingsRandAugment
