@@ -1,6 +1,6 @@
 ---
 title: (paper 6) CSI
-categories: [CL]
+categories: [CL, CV]
 tags: []
 excerpt: 2020
 ---

@@ -1,6 +1,6 @@
 ---
-title: (paper 8) SwAV
-categories: [CL]
+title: (paper 9) SwAV
+categories: [CL, CV]
 tags: []
 excerpt: 2021
 ---
@@ -266,9 +266,9 @@ $$\rightarrow$$ preventing the trivial solution where every image has the same c
 
 Notation
 
-- input : $$\mathbf{Z}=\left[\mathbf{z}_{1}, \ldots, \mathbf{z}_{B}\right]$$ 
-- mapping : $$\mathbf{Q}=\left[\mathbf{q}_{1}, \ldots, \mathbf{q}_{B}\right]$$
-- output : $$\mathbf{C}=\left[\mathbf{c}_{1}, \ldots, \mathbf{c}_{K}\right]$$
+- Feature vectors : $$\mathbf{Z}=\left[\mathbf{z}_{1}, \ldots, \mathbf{z}_{B}\right]$$ 
+- Codes : $$\mathbf{Q}=\left[\mathbf{q}_{1}, \ldots, \mathbf{q}_{B}\right]$$
+- Prototype vectors : $$\mathbf{C}=\left[\mathbf{c}_{1}, \ldots, \mathbf{c}_{K}\right]$$
 
 $$\rightarrow$$ optimize $$\mathbf{Q}$$ to maximize **similarity between features & prototypes**
 

@@ -1,6 +1,6 @@
 ---
-title: (paper 7) DeepDPM
-categories: [CL]
+title: (paper 8) DeepDPM
+categories: [CL, CV]
 tags: []
 excerpt: 2022
 ---

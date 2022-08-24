@@ -1,6 +1,6 @@
 ---
-title: (paper 9) Your Contrastive Learning is Secretly Doing Stochastic Neighbor Embedding 
-categories: [CL]
+title: (paper 10) Your Contrastive Learning is Secretly Doing Stochastic Neighbor Embedding 
+categories: [CL, CV]
 tags: []
 excerpt: 2022
 ---

@@ -1,6 +1,6 @@
 ---
-title: (paper 11) SelfAugment
-categories: [CL]
+title: (paper 12) SelfAugment
+categories: [CL, CV]
 tags: []
 excerpt: 2021
 ---

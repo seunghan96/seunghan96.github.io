@@ -1,6 +1,6 @@
 ---
 title: (paper 2) MoCo v1
-categories: [CL]
+categories: [CL, CV]
 tags: []
 excerpt: 2020
 ---

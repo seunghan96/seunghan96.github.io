@@ -1,6 +1,6 @@
 ---
 title: (paper 4) BYOL
-categories: [CL]
+categories: [CL, CV]
 tags: []
 excerpt: 2020
 ---

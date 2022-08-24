@@ -1,6 +1,6 @@
 ---
 title: (paper 1) SimCLR
-categories: [CL]
+categories: [CL, CV]
 tags: []
 excerpt: 2020
 ---

@@ -1,6 +1,6 @@
 ---
-title: (paper 10) With a Little Help from My Friends; Nearest-Neighbor Contrastive Learning of Visual Representations
-categories: [CL]
+title: (paper 11) With a Little Help from My Friends; Nearest-Neighbor Contrastive Learning of Visual Representations
+categories: [CL, CV]
 tags: []
 excerpt: 2021
 ---

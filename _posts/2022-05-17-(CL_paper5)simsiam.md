@@ -1,6 +1,6 @@
 ---
 title: (paper 5) SimSiam
-categories: [CL]
+categories: [CL, CV]
 tags: []
 excerpt: 2020
 ---

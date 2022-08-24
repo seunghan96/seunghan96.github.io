@@ -1,6 +1,6 @@
 ---
 title: (paper 7) Prototypical Contrastive Learning (PCL)
-categories: [CL]
+categories: [CL, CV]
 tags: []
 excerpt: 2021
 ---
