@@ -248,8 +248,8 @@ encourage $$f_{\text {cl }}$$ to generate similar soft assignments using the fol
 
   where the weights are…
 
-  	-  $$r_{i, k}^{\mathrm{E}}$$ (X)
-  	-  $$r_{i, k}$$ (O) $$\rightarrow$$ output of $$f_{cl}$$
+  -  $$r_{i, k}^{\mathrm{E}}$$ (X)
+  -  $$r_{i, k}$$ (O) $$\rightarrow$$ output of $$f_{cl}$$
 
 <br>
 
