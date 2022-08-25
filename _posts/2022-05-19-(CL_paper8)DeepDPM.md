@@ -159,7 +159,7 @@ MH-framework
     - $$N_{k}= \mid \mathcal{X}_{k} \mid $$ : number of points in cluster $$k$$
     - $$f_{\boldsymbol{x}}(\cdot ; \lambda)$$ : marginal likelihood
 
-  - interpretation : **comparing the marginal likelihood of the data, under 2 subclsters with its marginal likelihood under the cluster**
+  - interpretation : **comparing the marginal likelihood of the data, under 2 subclusters with its marginal likelihood under the cluster**
 
 <br>
 
@@ -220,7 +220,7 @@ Each of the $$K+1$$ nets $$\left(f_{\text {cl }}\right.$$ and $$\left(f_{\text {
 
 - Neurons of last layer :
   - $$f_{\mathrm{cl}}$$ : $$K$$ neurons
-  - each $$f_{\text {sub }}^{k}$$  $$2$$ neurons
+  - each $$f_{\text {sub }}^{k}$$ : $$2$$ neurons
 
 <br>
 
@@ -293,6 +293,16 @@ IF ACCEPTED ( = SPLIT ) for cluster $$k$$…
 
 <br>
 
+$\widetilde{\boldsymbol{\mu}}_{k, 1}, \widetilde{\boldsymbol{\Sigma}}_{k, 1}, \widetilde{\boldsymbol{\pi}}_{k, 1} $
+
+$\widetilde{\boldsymbol{\mu}}_{k, 2}, \widetilde{\boldsymbol{\Sigma}}_{k, 2}, \widetilde{\boldsymbol{\pi}}_{k, 2} $
+
+$\widetilde{\boldsymbol{\mu}}_{k, 2}, \widetilde{\boldsymbol{\Sigma}}_{k, 2}, \pi_{k} \times \widetilde{\boldsymbol{\pi}}_{k, 2} $
+
+$\widetilde{\boldsymbol{\mu}}_{k, 1}, \widetilde{\boldsymbol{\Sigma}}_{k, 1}, \pi_{k} \times \widetilde{\boldsymbol{\pi}}_{k, 1} $
+
+
+
 ### b) Merges
 
 Splits vs Merge
@@ -302,7 +312,7 @@ Splits vs Merge
 
 <br>
 
-To avoid sequentially consdiring all possible merges…
+To avoid sequentially considering all possible merges…
 
 $$\rightarrow$$ merges of each cluster **with only its 3 nearest neighbors**
 
@@ -399,3 +409,4 @@ initialized with $$K = 200$$, and converged into $$707$$ clusters ( GT = $$1000$
 ## (5) Ablation Study
 
 ![figure2](/assets/img/cl/img22.png)
+

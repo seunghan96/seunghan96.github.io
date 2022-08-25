@@ -266,9 +266,15 @@ $$\rightarrow$$ preventing the trivial solution where every image has the same c
 
 Notation
 
+<<<<<<< HEAD:_posts/2022-05-20-(CL_paper9)SwAV.md
 - Feature vectors : $$\mathbf{Z}=\left[\mathbf{z}_{1}, \ldots, \mathbf{z}_{B}\right]$$ 
 - Codes : $$\mathbf{Q}=\left[\mathbf{q}_{1}, \ldots, \mathbf{q}_{B}\right]$$
 - Prototype vectors : $$\mathbf{C}=\left[\mathbf{c}_{1}, \ldots, \mathbf{c}_{K}\right]$$
+=======
+- feature vectors : $$\mathbf{Z}=\left[\mathbf{z}_{1}, \ldots, \mathbf{z}_{B}\right]$$ 
+- prototypes : $$\mathbf{C}=\left[\mathbf{c}_{1}, \ldots, \mathbf{c}_{K}\right]$$
+- codes : $$\mathbf{Q}=\left[\mathbf{q}_{1}, \ldots, \mathbf{q}_{B}\right]$$
+>>>>>>> 9b5515f0 (swav):_posts/2022-05-20-(CL_paper8)SwAV.md
 
 $$\rightarrow$$ optimize $$\mathbf{Q}$$ to maximize **similarity between features & prototypes**
 
