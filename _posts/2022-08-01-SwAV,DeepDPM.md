@@ -15,6 +15,4 @@ Review 논문 2편 :
 - SwAV : https://arxiv.org/pdf/2006.09882.pdf
 - DeepDPM : https://arxiv.org/pdf/2203.14309.pdf
 
-
-
-<html><embed src="/assets/pdf/06.SwAV_DeepDPM_220830_SeunghanLee.pdf" type="application/pdf" /></html>
+<embed src="/assets/pdf/06.SwAV_DeepDPM_220830_SeunghanLee.pdf" type="application/pdf" />
