@@ -180,7 +180,7 @@ Improvement : **t-SNE**
 - modifications
   - (1) conditional dist $$\rightarrow$$ joint distn
   - (2) Gaussian $$\rightarrow$$ $$t$$-distn
-- $$Q_{i j}=\frac{\left(1+\left \mid \mid \boldsymbol{z}_{i}-\boldsymbol{z}_{j}\right \mid \mid _{2}^{2}\right)^{-1}}{\sum_{k \neq l}\left(1+\left \mid \mid \boldsymbol{z}_{k}-\boldsymbol{z}_{l}\right \mid \mid _{2}^{2}\right)^{-1}}$$.
+- $$Q_{i j}=\frac{\left(1+ \mid \mid \boldsymbol{z}_{i}-\boldsymbol{z}_{j} \mid \mid _{2}^{2}\right)^{-1}}{\sum_{k \neq l}\left(1+ \mid \mid \boldsymbol{z}_{k}-\boldsymbol{z}_{l} \mid \mid _{2}^{2}\right)^{-1}}$$.
 - ( for more about t-SNE … https://seunghan96.github.io/ml/stat/t-SNE/ )
 
 <br>
@@ -199,7 +199,7 @@ Augmented Datasets : $$\mathcal{D}_{n}^{\prime}=\left\{\boldsymbol{x}_{1}^{\prim
 
 Loss Function : $$l\left(\boldsymbol{x}_{i}, \boldsymbol{x}_{i}^{\prime}\right)=-\log \frac{\exp \left(\operatorname{sim}\left(f\left(\boldsymbol{x}_{i}\right), f\left(\boldsymbol{x}_{i}^{\prime}\right)\right) / \tau\right)}{\sum_{x \in \mathcal{D}_{n} \cup \mathcal{D}_{n}^{\prime} \backslash\left\{\boldsymbol{x}_{i}\right\}} \exp \left(\operatorname{sim}\left(f\left(\boldsymbol{x}_{i}\right), f(\boldsymbol{x})\right) / \tau\right)}$$.
 
-- $$\operatorname{sim}\left(z_{1}, z_{2}\right)=\left\langle\frac{z_{1}}{\left \mid \mid z_{1}\right \mid \mid _{2}}, \frac{z_{2}}{\left \mid \mid z_{2}\right \mid \mid _{2}}\right\rangle$$ .
+- $$\operatorname{sim}\left(\boldsymbol{z}_{1}, \boldsymbol{z}_{2}\right)=\left\langle\frac{\boldsymbol{z}_{1}}{ \mid \mid \boldsymbol{z}_{1} \mid \mid _{2}}, \frac{\boldsymbol{z}_{2}}{ \mid \mid \boldsymbol{z}_{2} \mid \mid _{2}}\right\rangle$$ .
 
 **InfoNCE** : $$L_{\text {InfoNCE }}:= \frac{1}{2 n} \sum_{i=1}^{n}\left(l\left(\boldsymbol{x}_{i}, \boldsymbol{x}_{i}^{\prime}\right)+l\left(\boldsymbol{x}_{i}^{\prime}, \boldsymbol{x}_{i}\right)\right)$$
 
