@@ -1,5 +1,5 @@
 ---
-title: "Semi-supervised Learning"
+title: "Self-supervised Learning"
 author_profile: true
 layout: category
 permalink: /categories/cl/
