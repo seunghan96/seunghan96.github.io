@@ -176,10 +176,10 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/CL.png
+  - image_path: /assets/img/SSL.png
     alt: "placeholder image 2"
-    title: "Contrastive Learning"
-    excerpt: "contrastive learning"
+    title: "Semi-supervised Learning"
+    excerpt: "SSL, contrastive learning"
     url: "categories/cl/"
     btn_label: "Read More"
     btn_class: "btn--primary"
