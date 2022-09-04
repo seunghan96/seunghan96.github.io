@@ -178,7 +178,7 @@ feature_row2:
     
   - image_path: /assets/img/SSL.png
     alt: "placeholder image 2"
-    title: "Semi-supervised Learning"
+    title: "Self-supervised Learning"
     excerpt: "SSL, contrastive learning"
     url: "categories/cl/"
     btn_label: "Read More"
