@@ -39,7 +39,7 @@ Self-supervised Learning
 $$L=\sum_{i \in I} L_{i}^{\text {self }}=-\sum_{i \in I} \log \frac{\exp \left(\mathbf{z}_{\boldsymbol{i}} \cdot \mathbf{z}_{\boldsymbol{j}(i)} / \tau\right)}{\sum_{a \in A(i)} \exp \left(\mathbf{z}_{\boldsymbol{i}} \cdot \mathbf{z}_{\boldsymbol{a}} / \tau\right)}$$.
 
 - $$i$$ : 학습 대상 데이터( Anchor )의 index 
-  - $$i \in \{1, \cdots 2N\}$$ 
+  - $$i \in \{1, \cdots 2N\}$$ .
     - $$N$$ 개 : 학습 데이터
     - $$N$$개 : 증강 데이터 
 
