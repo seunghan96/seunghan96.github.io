@@ -89,7 +89,7 @@ Existing contrastive learning scheme is already reasonably effective for detecti
 
     able to both...
 
-    - (1) disdcriminate **between in & out distn**
+    - (1) discriminate **between in & out distn**
     - (2) (original task) discriminate **within in-distn**
 
 <br>

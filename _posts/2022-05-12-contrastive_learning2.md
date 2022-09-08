@@ -110,8 +110,6 @@ $$\rightarrow$$ 거리 비교가 쉽지/직관적이지 않음!
 
 $$\rightarrow$$ NN을 사용해서!
 
-![figure2](/assets/img/gan/img100.png)
-
 <br>
 
 ### ex) Siamese CNN (샴 CNN)
@@ -134,8 +132,6 @@ Input : 3개의 이미지
 <br>
 
 # 3. Loss Function : Contrastive Loss
-
-![figure2](/assets/img/gan/img101.png)
 
 - Loss : $$\sum$$ (loss of POSITIVE pairs) + $$\sum$$ (loss of NEGATIVE pairs)
 
