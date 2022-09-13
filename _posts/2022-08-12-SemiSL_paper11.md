@@ -1,6 +1,6 @@
 ---
 title: (paper) SSL11 - Label Propagation
-categories: [ML]
+categories: [SSL]
 tags: []
 excerpt: 2019
 ---

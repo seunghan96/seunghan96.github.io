@@ -1,6 +1,6 @@
 ---
 title: (paper) SSL07 - Unsupervised Data Augmentation (UDA)
-categories: [ML]
+categories: [SSL]
 tags: []
 excerpt: 2020
 ---

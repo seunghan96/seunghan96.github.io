@@ -1,6 +1,6 @@
 ---
 title: (paper) SSL01 - Entropy Minimization
-categories: [ML]
+categories: [SSL]
 tags: []
 excerpt: 2004
 ---

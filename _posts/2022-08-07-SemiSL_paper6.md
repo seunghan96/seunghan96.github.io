@@ -1,6 +1,6 @@
 ---
 title: (paper) SSL06 - Virtual Adversarial Training (VAT)
-categories: [ML]
+categories: [SSL]
 tags: []
 excerpt: 2017
 ---

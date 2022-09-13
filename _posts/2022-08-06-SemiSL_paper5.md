@@ -1,6 +1,6 @@
 ---
 title: (paper) SSL05 - Temporal Ensembling
-categories: [ML]
+categories: [SSL]
 tags: []
 excerpt: 2017
 ---

@@ -1,6 +1,6 @@
 ---
 title: (paper) SSL10 - FixMatch
-categories: [ML]
+categories: [SSL]
 tags: []
 excerpt: 2020
 ---

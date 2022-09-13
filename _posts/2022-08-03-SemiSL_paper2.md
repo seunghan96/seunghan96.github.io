@@ -1,6 +1,6 @@
 ---
 title: (paper) SSL02 - Pseudo Label
-categories: [ML]
+categories: [SSL]
 tags: []
 excerpt: 2013
 ---

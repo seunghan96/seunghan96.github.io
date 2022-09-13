@@ -1,6 +1,6 @@
 ---
 title: Semi-supervised Learning 소개
-categories: [ML]
+categories: [SSL]
 tags: []
 excerpt: 
 ---

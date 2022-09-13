@@ -1,6 +1,6 @@
 ---
 title: (paper) SSL08 - MixMatch
-categories: [ML]
+categories: [SSL]
 tags: []
 excerpt: 2019
 ---

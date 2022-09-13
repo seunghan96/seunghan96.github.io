@@ -1,6 +1,6 @@
 ---
 title: (paper) Deep Semi-supervised Learning for Time Series Classification
-categories: [TS]
+categories: [SSL]
 tags: []
 excerpt: 2022
 ---

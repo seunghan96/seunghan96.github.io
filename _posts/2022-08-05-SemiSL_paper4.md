@@ -1,7 +1,7 @@
 ---
 title: (paper) SSL04 - Semi-supervised Learning with
 Deep Generative Models
-categories: [ML]
+categories: [SSL]
 tags: []
 excerpt: 2014
 ---

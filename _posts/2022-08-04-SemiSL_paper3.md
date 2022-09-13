@@ -1,6 +1,6 @@
 ---
 title: (paper) SSL03 - Noisy Sutdent
-categories: [ML]
+categories: [SSL]
 tags: []
 excerpt: 2020
 ---
