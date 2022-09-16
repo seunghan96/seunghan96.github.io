@@ -14,7 +14,7 @@ excerpt: 2020
 ## Contents
 
 0. Abstract
-0. BigBiGAN
+0. Intro
    0. Encoder $$\mathcal{E}$$
    0. Joint Discriminator $$\mathcal{D}$$ 
 
