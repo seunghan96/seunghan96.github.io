@@ -14,7 +14,13 @@ excerpt: 2022
 ## Contents
 
 0. Abstract
-1. 
+1. Introduction
+2. Approach
+   1. MIM Framework
+   2. Masking Strategy
+   3. Prediction Head
+   4. Prediction Targets
+
 
 
 <br>
