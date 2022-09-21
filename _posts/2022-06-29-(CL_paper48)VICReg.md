@@ -14,7 +14,9 @@ excerpt: 2022
 ## Contents
 
 0. Abstract
-1. 
+1. VICReg : Intuition
+2. VICReg : Detailed Description
+   1. Method
 
 <br>
 
