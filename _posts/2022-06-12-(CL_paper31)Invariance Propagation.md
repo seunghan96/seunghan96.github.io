@@ -41,9 +41,3 @@ combining (1) clustering + (2) representation learning
 $$\rightarrow$$ doing it naively...leads to **degenerate solutions**
 
 <br>
-
-solution : propose a method, that **maximizes the information between labels & input data indicies**
-
-<br>
-
-# 1. Introduction

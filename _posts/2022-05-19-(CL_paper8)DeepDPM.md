@@ -293,13 +293,13 @@ IF ACCEPTED ( = SPLIT ) for cluster $$k$$…
 
 <br>
 
-$\widetilde{\boldsymbol{\mu}}_{k, 1}, \widetilde{\boldsymbol{\Sigma}}_{k, 1}, \widetilde{\boldsymbol{\pi}}_{k, 1} $
+$$\widetilde{\boldsymbol{\mu}}_{k, 1}, \widetilde{\boldsymbol{\Sigma}}_{k, 1}, \widetilde{\boldsymbol{\pi}}_{k, 1} $$
 
-$\widetilde{\boldsymbol{\mu}}_{k, 2}, \widetilde{\boldsymbol{\Sigma}}_{k, 2}, \widetilde{\boldsymbol{\pi}}_{k, 2} $
+$$\widetilde{\boldsymbol{\mu}}_{k, 2}, \widetilde{\boldsymbol{\Sigma}}_{k, 2}, \widetilde{\boldsymbol{\pi}}_{k, 2} $$
 
-$\widetilde{\boldsymbol{\mu}}_{k, 2}, \widetilde{\boldsymbol{\Sigma}}_{k, 2}, \pi_{k} \times \widetilde{\boldsymbol{\pi}}_{k, 2} $
+$$\widetilde{\boldsymbol{\mu}}_{k, 2}, \widetilde{\boldsymbol{\Sigma}}_{k, 2}, \pi_{k} \times \widetilde{\boldsymbol{\pi}}_{k, 2} $$
 
-$\widetilde{\boldsymbol{\mu}}_{k, 1}, \widetilde{\boldsymbol{\Sigma}}_{k, 1}, \pi_{k} \times \widetilde{\boldsymbol{\pi}}_{k, 1} $
+$$\widetilde{\boldsymbol{\mu}}_{k, 1}, \widetilde{\boldsymbol{\Sigma}}_{k, 1}, \pi_{k} \times \widetilde{\boldsymbol{\pi}}_{k, 1} $$
 
 
 
