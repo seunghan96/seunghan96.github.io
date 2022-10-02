@@ -1,6 +1,6 @@
 ---
 title: (paper) Unsupervised Scalable Representation Learning for Multivariate Time Series
-categories: [TS]
+categories: [TS, CL]
 tags: [TS]
 excerpt: 2019, Triplet Loss
 ---
