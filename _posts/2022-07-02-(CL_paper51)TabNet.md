@@ -14,7 +14,10 @@ excerpt: 2021
 ## Contents
 
 0. Abstract
-1. 
+1. Introduction
+1. TabNet for Tabular Learning
+   1. Feature Selection
+   2. Feature Processing
    
 
 
@@ -28,7 +31,7 @@ TabNet
 
 - uses **sequential attention** to choose which features to reason
 
-  $\rightarrow$ enable interpretability
+  $$\rightarrow$$ enable interpretability
 
 - **efficient learning**
 
@@ -91,13 +94,13 @@ Details :
   - raw numerical features
   - mapping of categorical features ( with trainable embeddings )
 
-- pass the $D$ dim features $\mathbf{f} \in \Re^{B \times D}$ to each decision step
+- pass the $$D$$ dim features $$\mathbf{f} \in \Re^{B \times D}$$ to each decision step
 
-- encoding : based on sequential multi-step processing with $N_{\text {steps }}$ decision steps
+- encoding : based on sequential multi-step processing with $$N_{\text {steps }}$$ decision steps
 
-- $i^{t h}$ step : 
+- $$i^{t h}$$ step : 
 
-  - input : processed information from the $(i-1)^{t h}$ step 
+  - input : processed information from the $$(i-1)^{t h}$$ step 
 
   - process : decide which features to use
 
@@ -109,24 +112,24 @@ Details :
 
 ## (1) Feature Selection
 
- learnable mask $\mathbf{M}[\mathbf{i}] \in$ $\Re^{B \times D}$ ( for soft selection of the salient features ) 
+ learnable mask $$\mathbf{M}[\mathbf{i}] \in$$ $$\Re^{B \times D}$$ ( for soft selection of the salient features ) 
 
-- multiplicative mask : $\mathbf{M}[\mathbf{i}] \cdot \mathbf{f}$
+- multiplicative mask : $$\mathbf{M}[\mathbf{i}] \cdot \mathbf{f}$$
 - use **attentive transformer** to obatin the masks
-- $\mathbf{M}[\mathbf{i}]=\operatorname{sparsemax}\left(\mathbf{P}[\mathbf{i}-\mathbf{1}] \cdot \mathrm{h}_i(\mathbf{a}[\mathbf{i}-\mathbf{1}])\right)$.
+- $$\mathbf{M}[\mathbf{i}]=\operatorname{sparsemax}\left(\mathbf{P}[\mathbf{i}-\mathbf{1}] \cdot \mathrm{h}_i(\mathbf{a}[\mathbf{i}-\mathbf{1}])\right)$$.
   - Sparsemax normalization : encourages sparsity by mapping the Euclidean projection onto the probabilistic simplex
-  - $\sum_{j=1}^D \mathbf{M}[\mathbf{i}]_{\mathbf{b}, \mathbf{j}}=1$.
-  - $\mathrm{h}_i$ is a trainable function ( using FC layer )
-  - $\mathbf{P}[\mathbf{i}]=\prod_{j=1}^i(\gamma-\mathbf{M}[\mathbf{j}])$, where $\gamma$ is relaxation parameter 
-    - $\mathbf{P}[\mathbf{0}]$ : initialized as 1
+  - $$\sum_{j=1}^D \mathbf{M}[\mathbf{i}]_{\mathbf{b}, \mathbf{j}}=1$$.
+  - $$\mathrm{h}_i$$ is a trainable function ( using FC layer )
+  - $$\mathbf{P}[\mathbf{i}]=\prod_{j=1}^i(\gamma-\mathbf{M}[\mathbf{j}])$$, where $$\gamma$$ is relaxation parameter 
+    - $$\mathbf{P}[\mathbf{0}]$$ : initialized as 1
 
 - **sparse selection** of the most salient features
 
-  $\rightarrow$ model becomes more parameter efficient. 
+  $$\rightarrow$$ model becomes more parameter efficient. 
 
 - for further sparisty … **sparsity regularization**
-  - $L_{\text {sparse }}=\sum_{i=1}^{N_{\text {steps }}} \sum_{b=1}^B \sum_{j=1}^D \frac{-\mathbf{M}_{\mathbf{b}, \mathbf{j}}[\mathbf{i}] \log \left(\mathbf{M}_{\mathrm{b}, \mathrm{j}}[\mathbf{i} \mathbf{i}]+\mathrm{c}\right)}{N_{\text {steps }} \cdot B}$.
-  - add the sparsity regularization to the overall loss ( with a coefficient $\lambda_{\text {sparse }}$)
+  - $$L_{\text {sparse }}=\sum_{i=1}^{N_{\text {steps }}} \sum_{b=1}^B \sum_{j=1}^D \frac{-\mathbf{M}_{\mathbf{b}, \mathbf{j}}[\mathbf{i}] \log \left(\mathbf{M}_{\mathrm{b}, \mathrm{j}}[\mathbf{i} \mathbf{i}]+\mathrm{c}\right)}{N_{\text {steps }} \cdot B}$$.
+  - add the sparsity regularization to the overall loss ( with a coefficient $$\lambda_{\text {sparse }}$$)
 
 <br>
 
@@ -134,10 +137,10 @@ Details :
 
 process the filtered features using a feature transformer
 
-$[\mathbf{d}[\mathbf{i}], \mathbf{a}[\mathbf{i}]]=\mathrm{f}_i(\mathbf{M}[\mathbf{i}] \cdot \mathbf{f})$ : split for…
+$$[\mathbf{d}[\mathbf{i}], \mathbf{a}[\mathbf{i}]]=\mathrm{f}_i(\mathbf{M}[\mathbf{i}] \cdot \mathbf{f})$$ : split for…
 
-- (1) decision step output : $\mathbf{d}[\mathbf{i}]$
-- (2) information for subsequent step : $\mathbf{a}[\mathbf{i}]$
+- (1) decision step output : $$\mathbf{d}[\mathbf{i}]$$
+- (2) information for subsequent step : $$\mathbf{a}[\mathbf{i}]$$
 
 <br>
 
