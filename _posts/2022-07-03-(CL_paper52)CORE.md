@@ -1,13 +1,15 @@
-```
+---
 title: (paper 52) CORE
 categories: [CL, SSL]
 tags: []
 excerpt: 2021
-```
+---
+
+
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-# CORE: Self- and Semi-supervised Tabular Learning with COnditional REgularizations
+# CORE: Self- and Semi-supervised Tabular Learning with COnditional Regularizations
 
 <br>
 

@@ -1,9 +1,9 @@
-```
+---
 title: (paper 51) TabNet
 categories: [CL]
 tags: []
 excerpt: 2021
-```
+---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
