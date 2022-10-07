@@ -220,3 +220,127 @@ Loss function :
   \sum_{i \in(\Psi-\Phi)} \log \left(1-\mathcal{F}_{\boldsymbol{S}}\left(\boldsymbol{x}_k, \boldsymbol{x}_1, \ldots, \boldsymbol{x}_n\right)[i]\right)
   \end{aligned}$$.
 
+<br>
+
+# 3. Experiment
+
+## (1) Dataset
+
+### Classification Task
+
+UCR Time Series Classification Archive 2015, 85 datasets
+
+- each dataset : TRAIN & TEST ( ratio not fixed )
+- 65 datasets : TEST > TRAIN
+  - \# of class : (min) 2 & (max) 60
+  - seq length : (min) 24 & (max) 2709
+
+<br>
+
+### Prediction Task
+
+real data from website : **power demand** ( of Dutch research )
+
+- length : 35040
+  - (max) 2152
+  - (min) 614
+
+<br>
+
+## (2) Experiment Settings
+
+use $$H=12$$ Self-attention block **convolution kernel size** : 
+
+- \{3, 5, 7, 9, 11, 13, 15 ,17, 19, 21, 23, 25\}
+
+Backbone = Stack 4 multiple self-attention blocks
+
+Add 1~2 conv layers on the backbone for specific tasks
+
+<br>
+
+Loss function :
+
+- CLS : CE loss
+- REG :  MSE loss
+
+<br>
+
+## (3) Ablation Study
+
+2 aspects
+
+- (1) effectiveness of conv layer
+- (2) way of adding noise ( in pretext A )
+
+use CLS task to quantify the performance
+
+<br>
+
+### a) Effectiveness of conv layer
+
+in Self-attention…
+
+-  option 1) FC layer
+- option 2) Conv layer
+
+<br>
+
+![figure2](/assets/img/cl/img115.png)
+
+<br>
+
+TS length :
+
+- (1) short : linear $$\approx$$ conv
+- (2) long : conv > linear
+
+<br>
+
+### b) Way of adding noise
+
+many ways to add noise 
+
+compare two ways : adding noise to…
+
+- (1) the sub-series of the TS
+- (2) several moments in the TS
+
+<br>
+
+**(1) the sub-series of the TS**
+
+- randomly select a sub-series, whose length is 70% of the original TS 
+- add Gaussian white noise
+
+<br>
+
+**(2) several moments in the TS**
+
+- add Gaussian white noise at the randomly selected 70% $$\times$$ TS length moments
+- compare the differences, by **visualizing the features obtained by the trained model**
+  - use t-SNE for dim-reduction & visualize
+
+<br>
+
+![figure2](/assets/img/cl/img116.png)
+
+<br>
+
+Fig.3(1)(a)
+
+-  denoising pre-training is effective!
+- $$\because$$ easy to determine the classes through the features extracted by the model
+
+<br>
+
+Fig.3(1,2,3,4)(a)
+
+- after training by denoising, has strong transferability
+
+<br>
+
+$$\rightarrow$$ **effect of adding noise to the sub-series**  > adding noise at several moments
+
+<br>
+
