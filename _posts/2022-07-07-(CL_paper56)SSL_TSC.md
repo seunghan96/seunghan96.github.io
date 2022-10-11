@@ -164,7 +164,7 @@ Notation
 - (before noise) $$\boldsymbol{x}=\left\{\boldsymbol{v}_1, \boldsymbol{v}_2, \ldots, \boldsymbol{v}_m\right\}$$
   - add noise to $$\boldsymbol{x}[i: j]$$
 - (after noise) $$\left\{\boldsymbol{v}_1, \ldots, \overline{\boldsymbol{v}}_i, \ldots, \overline{\boldsymbol{v}}_j, \ldots, \boldsymbol{v}_m\right\}$$
-  - $$\overline{\boldsymbol{v}}_k=\boldsymbol{v}_k+\boldsymbol{d}_{k-i}(1 \leq k \leq m)$$
+  - $$\overline{\boldsymbol{v}}_k=\boldsymbol{v}_k+\boldsymbol{d}_{k-i}(1 \leq k \leq m)$$,
 - (model) $$\mathcal{F}_{\boldsymbol{D}}(\cdot)$$
 - (model output) $$\mathcal{F}_{\boldsymbol{D}}(\overline{\boldsymbol{x}})=\left\{\hat{\boldsymbol{v}}_1, \ldots, \hat{\boldsymbol{v}}_m\right\}$$
 
