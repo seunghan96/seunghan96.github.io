@@ -64,6 +64,14 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+  - image_path: /assets/img/SQL.png  
+    alt: "placeholder image 2"
+    title: "SQL"
+    excerpt: 'SQL'
+    url: "categories/sql/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/PYTHON.png
     alt: "placeholder image 2"
     title: "Advanced Python"
