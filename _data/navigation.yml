@@ -13,7 +13,9 @@ main:
   - title: "STUDY"
     url: /categories/study/
   - title: "GIT"
-    url: /categories/git/  
+    url: /categories/git/ 
+  - title: "SQL"
+    url: /categories/sql/ 
   - title: "PYTHON"
     url: /categories/python/
   - title: "FP"
@@ -42,6 +44,8 @@ main:
     url: /categories/rl/   
   - title: "RS"
     url: /categories/rs/   
+  - title: "SSL"
+    url: /categories/ssl/  
   - title: "CL"
     url: /categories/cl/   
   - title: "CO"
