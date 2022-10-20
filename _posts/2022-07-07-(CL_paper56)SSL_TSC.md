@@ -1,6 +1,6 @@
 ---
 title: (paper 56) SS Pre-training for TSC
-categories: [CL, TS,SQL]
+categories: [CL, TS]
 tags: []
 excerpt: 2021
 ---
