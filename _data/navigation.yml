@@ -14,8 +14,6 @@ main:
     url: /categories/study/
   - title: "GIT"
     url: /categories/git/ 
-  - title: "SQL"
-    url: /categories/sql/ 
   - title: "PYTHON"
     url: /categories/python/
   - title: "FP"
