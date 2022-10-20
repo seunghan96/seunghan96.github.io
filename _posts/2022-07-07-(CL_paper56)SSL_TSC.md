@@ -1,12 +1,11 @@
 ---
 title: (paper 56) SS Pre-training for TSC
-categories: [CL, TS]
+categories: [CL, TS,SQL]
 tags: []
 excerpt: 2021
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-
 # Self-Supervised Pre-Training For TS Classification
 
 <br>
@@ -54,6 +53,7 @@ Notation :
 
 - sub series : $$\left\{\boldsymbol{v}_i, \ldots, \boldsymbol{v}_j\right\}$$ ( = $$\boldsymbol{x}[i: j]$$ )
 - labeled TS : $$\boldsymbol{D}=\left\{\left\langle\boldsymbol{x}_1, y_1\right\rangle,\left\langle\boldsymbol{x}_2, y_2\right\rangle, \ldots,\left\langle\boldsymbol{x}_N, y_N\right\rangle\right\}$$
+  
   - $$\boldsymbol{D}_{\text {train }}$$ & $$\boldsymbol{D}_{\text {test }}$$
 
 <br>
