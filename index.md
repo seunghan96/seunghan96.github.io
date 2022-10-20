@@ -67,7 +67,7 @@ feature_row2:
   - image_path: /assets/img/SQL.png  
     alt: "placeholder image 2"
     title: "SQL"
-    excerpt: 'SQL'
+    excerpt: 'sql'
     url: "categories/sql/"
     btn_label: "Read More"
     btn_class: "btn--primary"
