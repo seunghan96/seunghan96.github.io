@@ -6,7 +6,6 @@ excerpt: 2022
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-
 # BEIT: BERT Pre-Training of Image Transformers
 
 <br>
