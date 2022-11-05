@@ -65,7 +65,7 @@ excerpt: 2022
 
 (4) Classification + Clustering : ***“hybrid approach of semi-unsupervised learning”***
 
-$\rightarrow$ present SuSL4TS
+$$\rightarrow$$ present SuSL4TS
 
 -  a convolutional GMM for semi-unsupervised learning on TS data
 
@@ -108,6 +108,7 @@ only hand-select some datasets for our purposes.
     ( standing, sitting, laying down, walking, walking downstairs and walking upstairs )
 
   - each activity was performed for 15 sec
+    
     - except… walking up and downstairs : 12 sec
   - each activity was performed twice & 5 sec pauses separated activities
 
@@ -117,9 +118,10 @@ only hand-select some datasets for our purposes.
 
 - 9 signals were sampled with a window of 2.56 sec with 50 % overlap 
 
-  ( i.e. input is of size $R^{9×128}$ )
+  ( i.e. input is of size $$R^{9×128}$$ )
 
 - A feature vector was obtained from each sampling window
+  
   - 561 features were extracted
 - 70/30 training/test split = 7352 / 2947 samples
 
@@ -136,11 +138,11 @@ only hand-select some datasets for our purposes.
 
 - grouped in 5 categories
 
-- class frequency is skewed towards the $N$ class ( = Normal )
+- class frequency is skewed towards the $$N$$ class ( = Normal )
 
 - each entry in the set consists of a single heartbeat padded with zeroes
 
-  ( i.e. input is of size $R^{1×186}$ )
+  ( i.e. input is of size $$R^{1×186}$$ )
 
 <br>
 
@@ -154,7 +156,7 @@ only hand-select some datasets for our purposes.
 
 - After pre-processing and resampling to 15 min averages….
 
-  $\rightarrow$ length of 96 values ( i.e.  input is of size $R^{1×96}$ )
+  $$\rightarrow$$ length of 96 values ( i.e.  input is of size $$R^{1×96}$$ )
 
 - regrouping the originally 10 classes to 7
 
@@ -168,8 +170,8 @@ only hand-select some datasets for our purposes.
 
 ## (1) GMM
 
-- encoder of VAE : $\Phi(x): \mathbb{R}^n \rightarrow \mathbb{R}^d$
-- decoder of VAE : $\Theta(z): \mathbb{R}^d \rightarrow \mathbb{R}^n$ 
+- encoder of VAE : $$\Phi(x): \mathbb{R}^n \rightarrow \mathbb{R}^d$$
+- decoder of VAE : $$\Theta(z): \mathbb{R}^d \rightarrow \mathbb{R}^n$$ 
 - compressed space is often used for other downstream tasks
 - 2 steps
   - step 1) unsupervised
@@ -177,9 +179,9 @@ only hand-select some datasets for our purposes.
 
 - 2-step process can be merged into one
 
-  $\rightarrow$ by adapting the joint probability distribution $p_{\Theta}$
+  $$\rightarrow$$ by adapting the joint probability distribution $$p_{\Theta}$$
 
-  $\rightarrow$ resulting in a Gaussian Mixture Deep Generative model (GMM) 
+  $$\rightarrow$$ resulting in a Gaussian Mixture Deep Generative model (GMM) 
 
   ( capable of learning semi-supervised classification )
 
@@ -187,24 +189,24 @@ only hand-select some datasets for our purposes.
 
 ## (2) GMM for Semi-unsupervised Classification
 
-- adapt [7, 30]  and replace 2d conv $\rightarrow$ 1d conv
+- adapt [7, 30]  and replace 2d conv $$\rightarrow$$ 1d conv
 
 - use the work shown in [30] in 2 ways
   - 1) use it a reference in performance for the presented convolutional model
-  - 2) adapt their idea of **Gaussian $L_2$ reg )
+  - 2) adapt their idea of **Gaussian $$L_2$$ reg )
 - overall loss function : 
-  - $\begin{aligned}
+  - $$\begin{aligned}
     \mathcal{L} &:=\underset{x, y \in D_l}{\mathbb{E}}\left[\mathcal{L}_l(x, y)-\alpha \cdot \log q_{\Phi}(y \mid x)\right] \\
     &+\underset{x \in D_u}{\mathbb{E}}\left[\mathcal{L}_u(x)-\gamma \cdot \lambda \cdot \sum_{c \in C} q_{\Phi}(c \mid x) \cdot \log q_{\Phi}(c \mid x)\right] \\
     &+w \cdot \Theta_t .
-    \end{aligned}$.
+    \end{aligned}$$.
 
 <br>
 
 Notation
 
-- $D_l$ : labeled subset of the data
-- $D_u$ : all unlabeled data
-- $\Theta_t$ : trainable weights at epoch $t$
-- $\alpha, \gamma, \lambda$ : hyperparameters weighting the entropy regularization
-- loss terms $\mathcal{L}_l, \mathcal{L}_u$ measure the evidence lower bound (ELBO) from the GMM model
+- $$D_l$$ : labeled subset of the data
+- $$D_u$$ : all unlabeled data
+- $$\Theta_t$$ : trainable weights at epoch $$t$$
+- $$\alpha, \gamma, \lambda$$ : hyperparameters weighting the entropy regularization
+- loss terms $$\mathcal{L}_l, \mathcal{L}_u$$ measure the evidence lower bound (ELBO) from the GMM model
