@@ -1,5 +1,5 @@
 ---
-title: (paper 60) CA-TCC
+title: (paper 61) CA-TCC
 categories: [CL, TS]
 tags: []
 excerpt: 2022
@@ -175,6 +175,7 @@ Starting with TS-TCC
     by predicting the future of one view using the past of the other
 
 - step 3) **contextual contrasting module**
+  
   - maximize the agreement between the contexts of the AR models
 
 <br>
