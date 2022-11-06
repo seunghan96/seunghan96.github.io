@@ -1,5 +1,5 @@
 ---
-$$title: (paper 63) SSL for Semi-Supervised TSC
+title: (paper 63) SSL for Semi-Supervised TSC
 categories: [CL, TS]
 tags: []
 excerpt: 2020

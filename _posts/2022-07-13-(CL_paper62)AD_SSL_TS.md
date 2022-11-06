@@ -1,5 +1,5 @@
 ---
-$title: (paper 62) SSL for TS Anomaly Detection
+title: (paper 62) SSL for TS Anomaly Detection
 categories: [CL, TS]
 tags: []
 excerpt: 2022
