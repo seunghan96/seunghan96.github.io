@@ -22,6 +22,7 @@ excerpt: 2022
    2. Temporal Contrasting
    3. Contextual Contrasting
    4. Class-Aware TS-TCC
+4. Experiments
 
 <br>
 
@@ -47,7 +48,7 @@ Details
 
 - conduct a systematic study of **time-series data augmentation selection**
 
-- extend TS-TCC to the semi-supervised learning settings
+- extend TS-TCC to the semi-supervised learning sestings
 
   $$\rightarrow$$ propose a **Class-Aware TS-TCC (CA-TCC)**
 
@@ -393,3 +394,110 @@ Notation
 Overall Loss :
 
 - $$\mathcal{L}_{\text {semi }}=\lambda_3 \cdot\left(\mathcal{L}_{T C}^s+\mathcal{L}_{T C}^w\right)+\lambda_4 \cdot \mathcal{L}_{S C C}$$.
+
+<br>
+
+# 4. Experiments
+
+Evaluate on 3 different training settings
+
+- **(1) linear evaluation**
+- **(2) semi-supervised training**
+- **(3) transfer learning**
+
+<br>
+
+2 metrics
+
+- (1) accuracy
+- (2) macro-averaged F1-score (MF1) 
+  - for imbalanced datasets
+
+<br>
+
+## (1) Comparison with Baselines
+
+Baselines
+
+- (1) Random Initialization: 
+  - training a linear classifier on top of frozen and randomly initialized encoder
+- (2) Supervised: 
+  - supervised training of both encoder and classifier
+- (3) SSL-ECG
+- (4) CPC
+- (5) SimCLR
+  - use our timeseries specific augmentations to pretrain SimCLR
+- (6) FixMatch
+  - relies on weak and strong augmentations in training
+  -  trained it using our proposed augmentations
+
+<br>
+
+To evaluate the performance of **SSL-ECG, CPC, SimCLR and TS-TCC** ….
+
+- step 1) pretrain ( w.o labeled data )
+- step 2) evaluation ( with a portion of the labeled data )
+  - standard linear evaluation scheme
+  -  train a linear classifier on top of a frozen SSL pretrained encoder model
+
+<br>
+
+### Accuracy ( with LIMITED labeled dataset )
+
+![figure2](/assets/img/cl/img179.png)
+
+<br>
+
+Implications
+
+- contrastive methods > pretext-based method
+  - contrastive methods : CPC, SimCLR and our TS-TCC
+  - pretext-based method : SSL-ECG
+- CPC > SimCLR
+  - temporal features are more important than general features in TS data
+
+<br>
+
+## (2) Semi-supervised Experiments
+
+investigate TS-TCC, under different semi-supervised settings
+
+- fine-tune the pretrained model using 1%, 5%, 10%, 50%, 75% data
+- metric : MF1 ( $$\because$$ imabalance of Sleep-EDF )
+
+![figure2](/assets/img/cl/img180.png)
+
+<br>
+
+## (3) Transfer Learning
+
+Dataset : Fault Diagnosis (FD)
+
+- has 4 working conditions ( = 4 domains, A/B/C/D )
+
+<br>
+
+Process
+
+- step 1) train the model on the data from one condition (i.e., source domain)
+- step 2) test it on another condition (i.e., target domain)
+
+<br>
+
+3 training schemes on the source domain
+
+- (1) Supervised training
+- (2) TS-TCC fine-tuning
+- (3) CATCC fine-tuning 
+
+<br>
+
+(2) TS-TCC fine-tuning & (3) CA-TCC fine-tuning
+
+- fine-tune our pretrained encoder using the labeled data in the source domain
+
+<br>
+
+![figure2](/assets/img/cl/img181.png)
+
+<br>

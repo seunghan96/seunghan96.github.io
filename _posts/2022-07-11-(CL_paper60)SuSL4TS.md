@@ -22,6 +22,8 @@ excerpt: 2022
    1. GMM
    2. GMM for Semi-unsupervised Classification
 
+4. Experiments
+
 <br>
 
 # 0. Abstract
@@ -210,3 +212,8 @@ Notation
 - $$\Theta_t$$ : trainable weights at epoch $$t$$
 - $$\alpha, \gamma, \lambda$$ : hyperparameters weighting the entropy regularization
 - loss terms $$\mathcal{L}_l, \mathcal{L}_u$$ measure the evidence lower bound (ELBO) from the GMM model
+
+<br>
+
+# 4. Experiments
+

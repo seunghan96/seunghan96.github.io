@@ -1,4 +1,5 @@
 ---
+
 title: (paper 64) Mixing Up CL ; SSL for TS
 categories: [CL, TS]
 tags: []
@@ -17,6 +18,7 @@ excerpt: 2022
 2. Method
    1. Training on labeled data
    2. Training on unlabeled data
+3. Experiments
 
 <br>
 
@@ -33,6 +35,7 @@ propose an **unsupervised CL**
   in which new samples are generated ***by mixing two data samples***
 
 - task : predict the mixing component
+  
   - utilized as soft targets in the loss function
 
 <br>
@@ -163,3 +166,106 @@ $$-(1-\lambda) \log \frac{\exp \left(\frac{D_C\left(\tilde{\tilde{z}}_i, \mathbf
 ( proposed ) predicting the amount of mixing
 
 - ( + discourage overconfidence ... since the model is tasked with predicting the mixing factor instead of a hard 0 or 1 decision )
+
+<br>
+
+# 3. Experiments
+
+(1) test on both **UTS and MTS dataset**
+
+- UCR archive (Dau et al., 2018) : 128 UTS datasets
+- UEA archive (Bagnall et al., 2018) : 30 MTS datasets
+
+(2) enables **transfer learning** in clinical time series
+
+<br>
+
+## (1) Evaluating Quality of REPRESENTATION
+
+***Training a simple classifier on the learned representation***
+
+- use a 1-nearest-neighbor (1NN) cos
+
+- requires no training and minimal hyperparameter tuni
+
+<br>
+
+### a) Architecture
+
+- Encoder $$f$$ : FCN (Fully Convolutional Network)
+  - ( for all contastive learning approaches )
+  - Representation : output of the average pooling layer
+
+- Projection head $$g$$ : 2 layer NN
+  - 128 neurons in each layer & ReLU
+
+<br>
+
+### b) Others
+
+- Adam Optimzier / 1000 epochs
+- temperature parameter $$\tau$$ : 0.5
+- $$\alpha$$ : 0.2
+
+<br>
+
+### Accuracy & Ranking ( with 1-NN cls )
+
+average across 5 training runs at the last epoch
+
+![figure2](/assets/img/cl/img174.png)
+
+<br>
+
+### Accuracy ( scatter plot )
+
+- diagonal = similar performance
+
+![figure2](/assets/img/cl/img175.png)
+
+<br>
+
+### Accuracy ( box plot )
+
+- of UCR & UEA datasets
+
+![figure2](/assets/img/cl/img176.png)
+
+<br>
+
+## (2) Transfer Learning for clinical TS
+
+Settings
+
+- (1) classification of echocardiograms (ECGs) datasets
+- (2) with **limited** datasets
+
+<br>
+
+Process
+
+- step 1) train an encoder
+  - using MCL ( self-supervised pretext task )
+  - pretext task datasets ( from UCR ) :
+    - Syntehetic Control (Synthetic)
+    - Swedish Leaf (Dissimilar)
+    - ECG5000 (Similar)
+
+- step 2) Initialize with pre-trained weights 
+  - ( encoder architecture : FCN )
+
+<br>
+
+### Accuracy 
+
+- Baseline : random initializatiion
+- Proposed : 3 datasets
+- ( $$N$$ : number of training samples )
+
+![figure2](/assets/img/cl/img177.png)
+
+<br>
+
+### Accuracy ( by Epochs )
+
+![figure2](/assets/img/cl/img178.png)
