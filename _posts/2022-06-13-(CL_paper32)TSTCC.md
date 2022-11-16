@@ -198,7 +198,7 @@ Use transformer as the AR model
    - for **transferability experiment**
    - num domains = 4 different working conditions ( A, B, C, D )
    - num classes = 3 class ( per each domain )
-     - inner fault / outer fault / healty
+     - inner fault / outer fault / healthy
 
 <br>
 
