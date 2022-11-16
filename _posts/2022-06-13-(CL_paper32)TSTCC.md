@@ -1,5 +1,5 @@
 ---
-title: (paper 32) TS-TCC
+(title: (paper 32) TS-TCC
 categories: [CL, TS]
 tags: []
 excerpt: 2021
@@ -19,6 +19,10 @@ excerpt: 2021
    1. TS Data Augmentation
    2. Temporal Contrasting
    3. Contextual Contrasting
+3. Experiments
+   1. Experiment Setups
+   2. Results
+
 
 <br>
 
@@ -147,3 +151,150 @@ Use transformer as the AR model
 - Overall self-supervised loss :
   - $$\mathcal{L}=\lambda_1 \cdot\left(\mathcal{L}_{T C}^s+\mathcal{L}_{T C}^w\right)+\lambda_2 \cdot \mathcal{L}_{C C}$$.
 
+<br>
+
+# 3. Experiments
+
+1. Experiment Setups
+   1. Datasets
+   2. Implementation Details
+2. Results
+   1. Comparison with Baselines
+   2. Semi-supervised Training
+   3. Transfer Learning
+   4. Ablation Study
+
+<br>
+
+## (1) Experiment Setups
+
+### a) Datasets
+
+3 public datasets + 1 additional dataset ( for **transfer learning** )
+
+![figure2](/assets/img/cl/img182.png)
+
+<br>
+
+1. HAR (Human Activity Recognition)
+
+   - 30 subjects
+   - num classes = 6 activities
+
+2. Sleep-EDF (Sleep Stage Classification)
+
+   - num classes = 5 EEG signals ( W, N1, N2, N3, REM )
+
+3. Epilepsy (Epilepsy Seizure Prediction)
+
+   - 500 subjects
+
+   - num classes = 5 $$\rightarrow$$ 2
+
+     ( 4 of them do not include epileptic seizure $$\rightarrow$$ group them into 1 class )
+
+4. FD (Fault Diagnosis)
+
+   - for **transferability experiment**
+   - num domains = 4 different working conditions ( A, B, C, D )
+   - num classes = 3 class ( per each domain )
+     - inner fault / outer fault / healty
+
+<br>
+
+### b) Implementation Details
+
+- train/val/tes : 60/20/20
+
+- etc) SleepEDF : subject-wise split
+
+- repeat experiment for 5 times ( 5 different seed )
+
+  - report mean & std
+
+- epochs : 40
+
+  ( both for pretraining & downstream tasks )
+
+- batch size : 128 ( 32 for **few-labeled data** experiments )
+
+- Adam optimizer
+
+<br>
+
+## (2) Results
+
+### a) Comparison with Baselines
+
+Baselines
+
+- (1) Random Initialization: 
+  - training a linear classifier on top of frozen and randomly initialized encoder
+- (2) Supervised: 
+  - supervised training of both encoder and classifier
+- (3) SSL-ECG
+- (4) CPC
+- (5) SimCLR
+  - use our timeseries specific augmentations to pretrain SimCLR
+
+<br>
+
+**[ standard linear benchmarking evaluation scheme ]**
+
+To evaluate the performance of **SSL-ECG, CPC, SimCLR and TS-TCC** ….
+
+- step 1) pretrain ( w.o labeled data )
+- step 2) evaluation ( with a portion of the labeled data )
+  - standard linear evaluation scheme
+  - train a linear classifier on top of a frozen SSL pretrained encoder model
+
+![figure2](/assets/img/cl/img183.png)
+
+<br>
+
+### b) Semi-supervised Training
+
+semi-supervised settings
+
+- by training ( = fine-tuning ) the model with 1%, 5%, 10%, 50%, and 75%
+
+![figure2](/assets/img/cl/img184.png)
+
+<br>
+
+### c) Transfer Learning
+
+- use Fault Diagnosis (FD) dataset
+- adopt 2 training schemes on the source domain
+  - (1) supervised training
+  - (2) TS-TCC fine-tuning
+    - fine tune the pre-trained encoder,
+    - using the labeled data in source domain
+
+![figure2](/assets/img/cl/img185.png)
+
+<br>
+
+### d) Ablation Study
+
+Notation
+
+- TC = Temporal Contrasting module
+
+<br>
+
+Model variants
+
+- (1) ***TC only*** = train TC **without** the cross-view prediction task
+  - each branch predicts the future timesteps of the same augmented view
+
+- (2) ***TC + XAug*** = train the TC **with** adding the cross-view prediction task
+
+- (3) ***TS-TCC (TC + X-Aug + CC)***   = whole version 
+- (4) Single Augmentation
+  - (4-1)  ***TS-TCC (Weak only)***
+  - (4-2)  ***TS-TCC (String only)***
+
+<br>
+
+![figure2](/assets/img/cl/img186.png)
