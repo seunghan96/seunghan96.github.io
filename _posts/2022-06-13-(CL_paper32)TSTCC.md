@@ -1,5 +1,5 @@
 ---
-(title: (paper 32) TS-TCC
+title: (paper 32) TS-TCC
 categories: [CL, TS]
 tags: []
 excerpt: 2021
