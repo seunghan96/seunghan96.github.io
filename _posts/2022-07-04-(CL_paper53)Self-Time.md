@@ -67,7 +67,7 @@ SSL in TS domain
 
 - ex) **metric learning** based :
   -  ***triplet loss*** (Franceschi et al., 2019)
-  - ***contrastive loss*** (Schneider et al., 2019; Saeed et al., 2020)
+  -  ***contrastive loss*** (Schneider et al., 2019; Saeed et al., 2020)
 - ex) **multi-task learning** based :
   - ***predict different handcrafted features*** (Pascual et al., 2019a; Ravanelli et al., 2020)
   - ***predict different signal transformations*** (Saeed et al., 2019; Sarkar & Etemad, 2020)
@@ -101,7 +101,7 @@ This paper explores the **(1) inter-sample relation**  reasoning and **(2) intra
 - (1) generate an **anchor piece**
 - (2) sample several **reference pieces**
   - to construct “different scales” of temporal relation ( between the anchor & reference )
-  -  relation scales are determined based on the “temporal distance”
+  - relation scales are determined based on the “temporal distance”
 
 <br>
 
@@ -157,7 +157,7 @@ Process
 - **Feature Extraction**
   - Extracts TS feature & Time Piece feature
   - to aggregate the inter-sample relation feature and intra-temporal relation feature
-  - by backbone encoder $$f_\theta(\cdot)$$ e
+  - by backbone encoder $$f_\theta(\cdot)$$ 
 - **Relation Reasoning**
   - feed to 2 separate relation reasoning heads  $$r_\mu(\cdot)$$ and $$r_{\varphi}(\cdot)$$ 
   - to reason the final relation score of inter-sample & intra-temporal relation.
@@ -178,7 +178,7 @@ Step 1) 2 sets of $$K$$ augmentations
 Step 2) construct 2 types of relation pairs ( let $$m$$ : anchor )
 
 - (pair 1) positive relation pairs
-  - $$\left(\boldsymbol{t}_m^{(i)}, \boldsymbol{t}_n^{(j)}\right)$$ sampled from same augmentation set $$\mathcal{A}\left(\boldsymbol{t}_m\right)$$
+  - $\left(\boldsymbol{t}_m^{(i)}, \boldsymbol{t}_m^{(j)}\right)$ sampled from same augmentation set $$\mathcal{A}\left(\boldsymbol{t}_m\right)$$
 - (pair 2) negative relation pairs
   - $$\left(\boldsymbol{t}_m^{(i)}, \boldsymbol{t}_n^{(j)}\right)$$ sampled from different augmentation sets $$\mathcal{A}\left(\boldsymbol{t}_m\right)$$ and $$\mathcal{A}\left(\boldsymbol{t}_n\right)$$. 
 
@@ -190,7 +190,7 @@ Step 3) Learn the relation representation
 - use the backbone encoder $$f_\theta$$ 
 - step 3-1) extract sample representations
   -  $$\boldsymbol{z}_m^{(i)}=f_\theta\left(\boldsymbol{t}_m^{(i)}\right)$$ & $$\boldsymbol{z}_m^{(j)}=f_\theta\left(\boldsymbol{t}_m^{(j)}\right)$$.
-  - $$\boldsymbol{z}_n^{(j)}=f_\theta\left(\boldsymbol{t}_n^{(j)}\right)$$. 
+  -  $$\boldsymbol{z}_n^{(j)}=f_\theta\left(\boldsymbol{t}_n^{(j)}\right)$$. 
 - step 3-2) construct pos & neg relation representations
   - [pos] $$\left[\boldsymbol{z}_m^{(i)}, \boldsymbol{z}_m^{(j)}\right]$$
   - [neg] $$\left[\boldsymbol{z}_m^{(i)}, \boldsymbol{z}_n^{(j)}\right]$$
@@ -281,7 +281,7 @@ Notation :
 
 <br>
 
-## (3) Sumamry
+## (3) Summary
 
 Jointly optimize 2 loss functions : $$\mathcal{L}=\mathcal{L}_{\text {inter }}+\mathcal{L}_{\text {intra }}$$
 

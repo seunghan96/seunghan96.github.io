@@ -176,7 +176,7 @@ Starting with TS-TCC
     by predicting the future of one view using the past of the other
 
 - step 3) **contextual contrasting module**
-  
+
   - maximize the agreement between the contexts of the AR models
 
 <br>
@@ -252,12 +252,9 @@ weak augmentation
 
 - contrastive loss :
 
-  $$\begin{gathered}
-  \mathcal{L}_{T C}^s=-\frac{1}{K} \sum_{k=1}^K \log \frac{\exp \left(\left(\mathcal{W}_k\left(c_t^s\right)\right)^T z_{t+k}^w\right)}{\sum_{n \in \mathcal{N}_{t, k}} \exp \left(\left(\mathcal{W}_k\left(c_t^s\right)\right)^T z_n^w\right)} \\
-  \mathcal{L}_{T C}^w=-\frac{1}{K} \sum_{k=1}^K \log \frac{\exp \left(\left(\mathcal{W}_k\left(c_t^w\right)\right)^T z_{t+k}^s\right)}{\sum_{n \in \mathcal{N}_{t, k}} \exp \left(\left(\mathcal{W}_k\left(c_t^w\right)\right)^T z_n^s\right)}
-  \end{gathered}$$.
+  $$ \begin{gathered} \mathcal{L}_{T C}^s=-\frac{1}{K} \sum_{k=1}^K \log \frac{\exp \left(\left(\mathcal{W}_k\left(c_t^s\right)\right)^T z_{t+k}^w\right)}{\sum_{n \in \mathcal{N}_{t, k}} \exp \left(\left(\mathcal{W}_k\left(c_t^s\right)\right)^T z_n^w\right)} \\ \mathcal{L}_{T C}^w=-\frac{1}{K} \sum_{k=1}^K \log \frac{\exp\left(\left(\mathcal{W}_k\left(c_t^w\right)\right)^T z_{t+k}^s\right)}{\sum_{n \in \mathcal{N}_{t, k}} \exp \left(\left(\mathcal{W}_k\left(c_t^w\right)\right)^T z_n^s\right)}\end{gathered}$$.
 
-<br>
+  <br>
 
 ### Transformer
 
@@ -282,9 +279,9 @@ Procedures
   - $$\tilde{\mathbf{z}}=\mathcal{W}_{\operatorname{Tran}}(\mathbf{z}_{\leq t}), \quad \tilde{\mathbf{z}} \in \mathbb{R}^h$$. 
 - step 3) attach the **context vector** into the **feature vector** $$\tilde{\mathbf{z}}$$ 
   - input features become $$\psi_0=[c ; \tilde{\mathbf{z}}]$$
--  step 4) pass $$\psi_0$$ through Transformer layers
-  - $$\tilde{\psi}_l =\operatorname{MHA}\left(\operatorname{Norm}\left(\psi_{l-1}\right)\right)+\psi_{l-1},  1 \leq l \leq L$$.
-  - $$\psi_l  =\operatorname{MLP}\left(\operatorname{Norm}\left(\tilde{\psi}_l\right)\right)+\tilde{\psi}_l,1 \leq l \leq L$$.
+- step 4) pass $$\psi_0$$ through Transformer layers
+    - $$\tilde{\psi}_l =\operatorname{MHA}\left(\operatorname{Norm}\left(\psi_{l-1}\right)\right)+\psi_{l-1},  1 \leq l \leq L$$.
+    - $$\psi_l  =\operatorname{MLP}\left(\operatorname{Norm}\left(\tilde{\psi}_l\right)\right)+\tilde{\psi}_l,1 \leq l \leq L$$.
 
 - step 5) re-attach the context vector from the final output 
   - $$c_t=\psi_L^0$$ ….. be the input of the contextual contrasting module
@@ -317,10 +314,7 @@ Procedures
 
 - step 2) Contextual Contrasting Loss ( $$\mathcal{L}_{C C}$$ )
 
-  - $$\begin{aligned}
-    &\ell\left(i, i^{+}\right)=-\log \frac{\exp \left(\operatorname{sim}\left(c_t^i, c_t^{i+}\right) / \tau\right)}{\sum_{m=1}^{2 N} \mathbb{1}_{[m \neq i]} \exp \left(\operatorname{sim}\left(c_t^i, c_t^m\right) / \tau\right)} \\
-    &\mathcal{L}_{C C}=\frac{1}{2 N} \sum_{k=1}^{2 N}[\ell(2 k-1,2 k)+\ell(2 k, 2 k-1)]
-    \end{aligned}$$.
+  - $$\begin{aligned} &\ell\left(i, i^{+}\right)=-\log \frac{\exp\left(\operatorname{sim}\left(c_t^i, c_t^{i+}\right) / \tau\right)}{\sum_{m=1}^{2 N} \mathbb{1}_{[m \neq i]} \exp \left(\operatorname{sim}\left(c_t^i, c_t^m\right) / \tau\right)} \\&\mathcal{L}_{C C}=\frac{1}{2 N} \sum_{k=1}^{2 N}[\ell(2 k-1,2 k)+\ell(2 k, 2 k-1)]\end{aligned}$$.
     - $$\operatorname{sim}(\boldsymbol{u}, \boldsymbol{v})=\boldsymbol{u}^T \boldsymbol{v} / \mid \mid \boldsymbol{u} \mid \mid  \mid \mid \boldsymbol{v} \mid \mid $$.
 
 - step 3) Overall SSL Loss :
@@ -341,8 +335,7 @@ second variant of our framework :
   ( to further improve the representation learned by TS-TCC ) 
 
 - aim to overcome one drawback in the contextual contrasting
-  module : ***considering all the samples in mini-batch as
-  negative pairs***
+  module : ***considering all the samples in mini-batch as negative pairs***
 
 - solution : CA TCC
 
@@ -358,8 +351,7 @@ second variant of our framework :
 
 - first proposed to improve the supervised CE loss
 - reuse it in our framework to improve the contextual contrasting
-- ***instead of having a single positive pair (from augmented views), we
-  use multiple instances from the same class as positive pairs***
+- ***instead of having a single positive pair (from augmented views), we use multiple instances from the same class as positive pairs***
 
 <br>
 
@@ -389,7 +381,7 @@ Notation
     - $$P(i)=\left\{p \in A(i): \hat{y}_p=\hat{y}_i\right\}$$ : indices of all samples with same class as $$\hat{\mathbf{x}}_i$$ in a batch
     - $$ \mid P(i) \mid $$ : cardinality of $$P(i)$$
 
-<br>
+  <br>
 
 Overall Loss :
 
@@ -429,7 +421,7 @@ Baselines
   - use our timeseries specific augmentations to pretrain SimCLR
 - (6) FixMatch
   - relies on weak and strong augmentations in training
-  -  trained it using our proposed augmentations
+  - trained it using our proposed augmentations
 
 <br>
 
@@ -438,7 +430,7 @@ To evaluate the performance of **SSL-ECG, CPC, SimCLR and TS-TCC** ….
 - step 1) pretrain ( w.o labeled data )
 - step 2) evaluation ( with a portion of the labeled data )
   - standard linear evaluation scheme
-  -  train a linear classifier on top of a frozen SSL pretrained encoder model
+  - train a linear classifier on top of a frozen SSL pretrained encoder model
 
 <br>
 
@@ -463,7 +455,7 @@ Implications
 investigate TS-TCC, under different semi-supervised settings
 
 - fine-tune the pretrained model using 1%, 5%, 10%, 50%, 75% data
-- metric : MF1 ( $$\because$$ imabalance of Sleep-EDF )
+- metric : MF1 ( $$\because$$ imbalance of Sleep-EDF )
 
 ![figure2](/assets/img/cl/img180.png)
 
