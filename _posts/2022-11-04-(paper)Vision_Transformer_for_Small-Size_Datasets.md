@@ -22,19 +22,18 @@ excerpt: 2021
    3. Locality Self-Attention (LSA)
 3. Experiments
 
-
 <br>
 
 # 0. Abstract
 
 High performance of the ViT results from ...
 
-$\rightarrow$ pre-trainingusing a large-size dataset ( such as JFT-300M )
+$\rightarrow$ pre-trainingusing a **“large-size dataset”** ( such as JFT-300M )
 
 <br>
 Why large datsaet?
 
-$\rightarrow$ due to low locality inductive bias
+$\rightarrow$ due to **“low locality inductive bias”**
 
 <br>
 
@@ -61,7 +60,9 @@ effectively solve the lack of locality inductive bias
 
 2 problems that decrease locality inductive bias & limit the performance of ViT
 
-### 1) Poor tokenization
+<br>
+
+### 1) Poor “tokenization”
 
 - divides an image into **non-overlapping** patches of equal size
 
@@ -81,21 +82,21 @@ effectively solve the lack of locality inductive bias
 
 <br>
 
-### 2) Poor attention mechanism
+### 2) Poor “attention mechanism”
 
-feature dimension of image data : greater than that of natural language
+feature dim of image data : greater than that of natural language
 
 $\rightarrow$ number of embedded tokens is inevitably large
 
-$\rightarrow$ distn of attention scores of tokens becomes smooth
+$\rightarrow$ **distn of attention scores of tokens becomes smooth**
 
-( = fcannot attend locally to important visual tokens )
+( = cannot attend locally to important visual tokens )
 
 <br>
 
 Problem 1) & 2) 
 
-$\rightarrow$ cause highly redundant attentions that cannot focus on a target class
+$\rightarrow$ cause **highly redundant attentions** that cannot focus on a target class
 
 $\rightarrow$ redundant attention : concentrate on background, not the shape of the target class!			
 
@@ -103,13 +104,13 @@ $\rightarrow$ redundant attention : concentrate on background, not the shape of 
 
 ## (2) 2 Proposals
 
-two solutions to effectively improve the **locality inductive bias** of ViT for learning **small-size datasets from scratch**
+two solutions to effectively improve the ***locality inductive bias*** of ViT for learning **small-size datasets from scratch**
 
 <br>
 
 ### 1) Shifted Patch Tokenization (SPT)
 
-- to further utilize **spatial relations between neighboring pixels** in the tokenization process
+- to further utilize **”SPATIAL relations between neighboring pixels** in the tokenization process
 - idea from Temporal Shift Module (TSM) 
   - TSM : effective **temporal** modeling which shifts some temporal channels of features
   - SPT : effective **spatial** modeling that tokenizes **spatially shifted images** together with the input image
@@ -119,24 +120,27 @@ two solutions to effectively improve the **locality inductive bias** of ViT for 
 
 ### 2) Locality Self-Attention (LSA)
 
-- allows ViTs to attend locally
+- allows ViTs to **“attend locally”**
+
 - mitigates the smoothing phenomenon of attention score distn
+
 - HOW?
-  - (1) by excluding self-tokens
-  - (2) by applying learnable temperature to the softmax function
-- induces attention to work locally by forcing each token to focus more on tokens with large relation to itself
+  - (1) by **excluding self-tokens**
+  - (2) by applying **learnable temperature** to the softmax function
+  
+- induces attention ***to work locally***, 
+
+  by forcing each token to **focus more on tokens with large relation to itself**
 
 <br>
 
-Both SPT and LSA :
-
-- can be easily applied to various ViTs 
+Both SPT and LSA : can be **easily applied** to various ViTs 
 
 <br>
 
 # 2. Proposed Method
 
-describes 2 key ideas for increasing the locality inductive bias of ViTs 
+describes 2 key ideas for increasing the **locality inductive bias** of ViTs 
 
 $\rightarrow$ SPT & LSA
 
@@ -148,14 +152,21 @@ $\rightarrow$ SPT & LSA
 
 ### Shifted Patch Tokenization (SPT)
 
-- step 1) spatially shifts an input image in several directions
-  & concatenates them with the input image
-- step 2) patch partitioning
+- step 1) **spatially shifts** an input image in several directions
+  & **concatenates** them with the input image
+  
+- step 2) **patch partitioning**
+
 - step 3) embedding into visual tokens
   - 3-1) patch flattening
   - 3-2) layer normalization
   - 3-3) linear projection
-- Result) can embed more spatial information into visual tokens & increase the locality inductive bias of ViTs.
+  
+- Result ) 
+
+  - can embed more **spatial information** into visual tokens 
+
+  - increase the **locality inductive bias** of ViTs
 
 <br>
 
