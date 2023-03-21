@@ -112,7 +112,7 @@ Goal : forecast $$T$$ future values $$\left(\boldsymbol{x}_{L+1}, \ldots, \bolds
 
 encoder : vanilla Transformer
 
-![figure2](/assets/img/cl/img323.png)
+![figure2](/assets/img/ts/img323.png)
 
 <br>
 
@@ -161,7 +161,7 @@ Result : number of input tokens can reduce from $$L$$ to approximately $$L / S$$
 
 - memory usage & computational complexity of the attention map : quadratically decreased by a factor of $$S$$
 
-![figure2](/assets/img/cl/img324.png)
+![figure2](/assets/img/ts/img324.png)
 
 <br>
 
@@ -235,11 +235,11 @@ etc )
 
 ### a) Datasets
 
-![figure2](/assets/img/cl/img325.png)
+![figure2](/assets/img/ts/img325.png)
 
 <br>
 
 ### b) Results
 
-![figure2](/assets/img/cl/img326.png)
+![figure2](/assets/img/ts/img326.png)
 
