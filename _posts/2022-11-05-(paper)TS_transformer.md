@@ -17,8 +17,14 @@ excerpt: 2023
 
 0. Abstract
 1. Introduction
-2. Related Works
-3. 
+2. Proposed Method
+   1. Model Structure
+   2. Representation Learning
+3. Experiments
+   1. LTSF
+   2. Representation Learning
+   3. Ablation Study
+4. Conclusion
 
 <br>
 
@@ -229,7 +235,7 @@ etc )
 
 <br>
 
-# 4. Experiments
+# 3. Experiments
 
 ## (1) Long Term TS Forecasting
 
@@ -454,7 +460,7 @@ PatchTST : consistently reduces the MSE scores as the receptive field increases
 
 <br>
 
-# 5. Conclusion
+# 4. Conclusion
 
 Proposes an effective design of Transformer-based models for time series forecasting tasks
 
