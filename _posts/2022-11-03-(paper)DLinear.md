@@ -20,9 +20,9 @@ Simplest DMS model, via **LTSF-Linear ( = a temporal linear layer )**
 
 Basic formulation of **LTSF-Linear **
 
-- $\hat{X}_i=W X_i$, 
+- $$\hat{X}_i=W X_i$$, 
 
-  - where $W \in \mathbb{R}^{T \times L}$ is a linear layer along the temporal axis
+  - where $$W \in \mathbb{R}^{T \times L}$$ is a linear layer along the temporal axis
 
   - ***shares weights across different variates*** 
 
