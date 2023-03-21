@@ -237,9 +237,247 @@ etc )
 
 ![figure2](/assets/img/ts/img325.png)
 
+Among these 8 popular datasets..
+
+- several large datasets: Weather, Traffic, and Electricity
+
+  $$\rightarrow$$ more stable and less susceptible to overfitting than other smaller datasets.
+
 <br>
 
-### b) Results
+### b) Baselines & Experimental SEttings
+
+Baselines : **SOTA Transformer-based models**
+
+- same experimental settings
+
+  - prediction length $$T$$ : 
+    - [ILI dataset] 24,36,48,60
+    - [others] 96,192,336,720
+  - collect baseline from **Zeng et al. (2022)** ( = Linear/DLinear/NLinear )
+
+- in order to vaoid undersetimating the baselines…
+
+  - also run FEDformer / Autoformer / Informer for 6 different look-back window
+
+    ( L $$\in \{24, 48,96,192,336,720\}$$ & chose the best results )
+
+  - more details in Appendix A.1.2
+
+- metrics : MSE & MAE
+
+<br>
+
+### c) Model Variants
+
+2 versions of PatchTST
+
+- PatchTST/64 :
+  - \# of input patches = 64
+  - look-back window = 512
+- PatchTST/42
+  - \# of input patches = 42
+  - look-back window = 336
+- for both…
+  - patch length $$P$$ = 16
+  - stride $$S$$ = 8
+
+<br>
+
+Summary
+
+- PatchTST/42 : for fair comparison
+- PatchTST/64 : better reseults for larger datsaets
+
+<br>
+
+### d) Results
+
+**MTS forecasting**
 
 ![figure2](/assets/img/ts/img326.png)
+
+<br>
+
+**UTS forecasting**
+
+![figure2](/assets/img/ts/img327.png)
+
+<br>
+
+## (2) Representation Learning
+
+### a) Settings
+
+experiments with masked self-supervised learning 
+
+- where we set the patches to be non-overlapped
+
+<br>
+
+Settings :
+
+- input sequence length = 512 
+- patch size = 12 ( thus, 42 patches )
+- high masking ratio : 40% 
+  - mask with zero
+
+<br>
+
+Procedure
+
+- Step 1) apply self-supervised pre-training ( 100 epochs )
+
+- Step 2) perform supervised training , with 2 options
+
+  - (a) linear probing
+
+    - only train model head for 20 epochs & freeze rest
+
+  - (b) end-to-end fine-tuning
+
+    - linear probing for 10 epochs to update model head
+    - then, end-to-end fine tuning for 20 epochs
+
+    ( proven that a 2-step strategy with linear probing followed by fine-tuning can outperform only doing fine-tuning directly (Kumar et al., 2022) )
+
+<br>
+
+![figure2](/assets/img/ts/img328.png)
+
+<br>
+
+### b) Comparison with Supervised methods
+
+performance of PatchTST (ver1,2,3) vs supervised
+
+- ver 1) fine-tuning
+- ver 2) linear probing
+- ver 3) supervising from scratch
+
+<br>
+
+![figure2](/assets/img/ts/img329.png)
+
+<br>
+
+### c) Transfer Learning
+
+pre-train the model on Electricity dataset
+
+- fine-tuning MSE is lightly worse than pre-training and fine-tuning on the same dataset
+- fine-tuning performance is also worse than supervised training in some cases.
+- However, the forecasting performance is still better than other models
+
+<br>
+
+supervised PatchTST
+
+- Entire model is trained for EACH PREDICTION HORIZON
+
+self-supervised PatchTST
+
+- only retrain the linear head or the entire model for much fewer epochs
+
+  $$\rightarrow$$ results in significant computational time reduction.
+
+<br>
+
+### d) Comparison with other SSL methods
+
+![figure2](/assets/img/ts/img330.png)
+
+- test the forecasting performance on ETTh1 dataset
+
+- only apply linear probing after the learned representation is obtained (only fine-tune the last linear layer) for fair comparison
+
+( cite results of TS2Vec from (Yue et al., 2022) and {BTSF,TNC,TS-TCC} from (Yang & Hong, 2022) )
+
+<br>
+
+## (3) Ablation Study
+
+### a) Patching & Channel Independence
+
+with /w.o patching / channel-independence
+
+both of them are important factors
+
+<br>
+
+### Patching
+
+- motivation of patching is natural 
+- improves the running time and memory consumption
+  - due to shorter Transformer sequence input. 
+
+![figure2](/assets/img/ts/img331.png)
+
+<br>
+
+### Channel-independence
+
+- may not be intuitive
+
+- provide an in-depth analysis on the key factors that make channel-independence more preferable in Appendix A.7. 
+  - (1) *Adaptability: Since each time series is passed through the Transformer separately, it generates its own attention maps. That means different series can learn different attention patterns for their prediction, as shown in Figure 6. In contrast, with the channel mixing approach, all the series share the same attention patterns, which may be harmful if the underlying multivariate time series carries series of different behaviors.*
+  - (2) *Channel-mixing models may need more training data to match the performance of the channelindependent ones. The flexibility of learning cross-channel correlations could be a doubleedged sword, because it may need much more data to learn the information from different channels and different time steps jointly and appropriately, while channel-independent models only focus on learning information along the time axis.*
+  - (3) *Channel-independent models are less likely to overfit data during training.*
+
+<br>
+
+![figure2](/assets/img/ts/img332.png)
+
+<br>
+
+### b) Varying Look-back Window
+
+longer look-back window increases the receptive field,
+
+$$\rightarrow$$ potentially improves the forecasting performance. 
+
+<br>
+
+However…
+
+- (1) as argued in (Zeng et al., 2022), this phenomenon hasn’t been observed in most of the Transformer-based models. 
+- (2) demonstrate in Figure 2 that in most cases, these Transformer-based baselines have not benefited from longer look-back window $$L$$
+  - which indicates their ineffectiveness in capturing temporal information.
+
+<br>
+
+PatchTST : consistently reduces the MSE scores as the receptive field increases
+
+<br>
+
+![figure2](/assets/img/ts/img333.png)
+
+<br>
+
+# 5. Conclusion
+
+Proposes an effective design of Transformer-based models for time series forecasting tasks
+
+<br>
+
+Introducing 2 key components: 
+
+- (1) patching
+  - simple but proven tobe an effective operator that can be transferred easily to other models
+- (2) channel-independent structure
+  - can be further exploited to incorporate the correlation between different channels
+
+<br>
+
+Benefits
+
+- capture local semantic information
+- benefit from longer look-back windows
+
+<br>
+
+Experiments
+
+- outperforms other baselines in supervised learning, 
+- prove its promising capability in self-supervised representation learning & transfer learning.
 
