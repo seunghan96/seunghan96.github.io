@@ -373,7 +373,7 @@ obtain the reconstructed original TS
 
 Reconstruction loss:
 
-- $$\mathcal{L}_{\text {reconstruction }}=\sum_{i=1}^N\left \mid \mathbf{x}_i-\widehat{\mathbf{x}}_i\right \mid _2^2 .$$.
+- $$\mathcal{L}_{\text {reconstruction }}=\sum_{i=1}^N \mid \mid \mathbf{x}_i-\widehat{\mathbf{x}}_i \mid \mid _2^2 .$$.
 
 <br>
 
