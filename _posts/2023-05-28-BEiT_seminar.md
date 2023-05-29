@@ -1,5 +1,5 @@
 ---
-title: (발표 자료) Beit: Bert pre-training of image transformers
+title: (발표 자료) Beit; Bert pre-training of image transformers
 categories: [CL,TS,CV, PPT]
 tags: [Masked Image Modeling, Computer Vision]
 excerpt: 

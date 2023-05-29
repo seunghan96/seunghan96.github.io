@@ -217,7 +217,7 @@ Modify the pseudo label
 - based on the **neighboring relations** in the feature space
 - step 1) calculate the cosine similarity $$\boldsymbol{d}$$ 
   - between self positive view $$z_1^{\prime}$$ & representations in memory bank $$\left\{z_2^{\prime}, z_3^{\prime}, \ldots, z_{n+1}^{\prime}\right\}$$ 
-  - $$d_j=\frac{z_1^{\prime T} z_j^{\prime}}{\left \mid \mid z_1^{\prime}\right \mid \mid _2\left \mid \mid z_j^{\prime}\right \mid \mid _2}, j=2, \ldots, n+1$$.
+  - $$d_j=\frac{z_1^{\prime T} z_j^{\prime}}{ \mid \mid z_1^{\prime} \mid \mid _2 \mid \mid z_j^{\prime} \mid \mid _2}, j=2, \ldots, n+1$$.
 
 - step 2) 
   - a) Hard Relabeling
