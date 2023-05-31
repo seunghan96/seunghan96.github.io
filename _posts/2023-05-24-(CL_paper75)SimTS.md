@@ -1,6 +1,5 @@
 ---
-title: (paper 75) SimTS; Rethinking Contrastive Representation Learning for Time Series
-Forecasting
+title: (paper 75) SimTS; Rethinking Contrastive Representation Learning for Time Series Forecasting
 categories: [CL, TS]
 tags: []
 excerpt: 2023
@@ -11,12 +10,20 @@ excerpt: 2023
 
 <br>
 
-![figure2](/assets/img/cv/cv397.png)
-
 ## Contents
 
 0. Abstract
-1. 
+1. Introduction
+   1. Problems of CL in TS
+   2. SimTS
+   3. Contribution
+2. Methods
+   1. Notation
+   2. Four parts of SimTS
+   3. Process
+   4. Multi-scale Encoder
+   5. Stop-gradient
+   6. Final Loss
 
 <br>
 
