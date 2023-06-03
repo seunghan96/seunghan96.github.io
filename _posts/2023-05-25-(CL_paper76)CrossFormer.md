@@ -439,7 +439,7 @@ Overall computation complexity of TSA layer
 
 - $$O\left(D L^2+D L\right)=O\left(D L^2\right)$$.
 
-<brr>
+<br>
 
 ### Summary
 
