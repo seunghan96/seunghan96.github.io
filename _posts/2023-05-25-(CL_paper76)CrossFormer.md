@@ -373,7 +373,7 @@ $$\begin{aligned}
 - where $$1 \leq d \leq D$$ 
 - all dimensions $$(1 \leq d \leq D)$$ share the same MSA layer
 
-<brR>
+<br>
 
 Computation complexity of cross-time stage =  $$O\left(D L^2\right)$$. 
 
