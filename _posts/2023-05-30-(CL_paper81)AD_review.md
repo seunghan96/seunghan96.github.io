@@ -1,5 +1,5 @@
 ---
-  title: (paper 81) A Review on Outlier/Anomaly Detection in TS data
+title: (paper 81) A Review on Outlier, Anomaly Detection in TS data
 categories: [TS]
 tags: []
 excerpt: 2020

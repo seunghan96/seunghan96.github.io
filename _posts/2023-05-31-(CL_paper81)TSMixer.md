@@ -217,7 +217,7 @@ MTS forecasting
   - ex) ETC
     - improving specific challenges, such as non-stationarity (Kim et al., 2022; Liu et al., 2022b). 
 
-<brR>
+<br>
 
 UTS works better??
 
@@ -605,7 +605,7 @@ to explore the model’s ability to leverage
 - (1) cross-variate information
 - (2) auxiliary features
 
-<brr>
+<br>
 
 **Forecast with HISTORICAL features only**
 
