@@ -135,7 +135,7 @@ TSMixer
 
 ### Experiment 1
 
-Datasets : long-term forecasting datasets (Wu et al., 2021
+Datasets : long-term forecasting datasets (Wu et al., 2021)
 
 ( where UTS models >> MTS models )
 
@@ -235,11 +235,16 @@ This paper :
 
 <br>
 
-Along with auxiliary information
 
-- auxiliary information
-  - static features (e.g. location)
-  - future time-varying features (e.g. promotion in coming weeks), 
+
+Use along with Auxiliary information
+- static features (e.g. location)
+- future time-varying features (e.g. promotion in coming weeks), 
+
+
+
+Algorithms example )
+
 - ex) state-space models (Rangapuram et al., 2018; Alaa & van der Schaar, 2019; Gu et al., 2022)
 - ex) RNN variants ( Wen et al. (2017); Salinas et al. (2020) )
 - ex) Attention models ( Lim et al. (2021) )
