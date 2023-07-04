@@ -37,13 +37,15 @@ excerpt: 2021
 
 Unlabeled data in reality 
 
-- imbalanced & long-tail distribution, 
+- imbalanced & **long-tail** distribution, 
 
 $$\rightarrow$$ Unclear how robustly the latest CL methods could perform
 
 <br>
 
-Hypothesize that long-tail samples are also tougher for the model to learn well due to insufficient examples. 
+Hypothesize that **long-tail samples are also tougher** for the model to learn well due to **insufficient examples
+
+<br>
 
 ### Self-Damaging Contrastive Learning (SDCLR), 
 
@@ -55,7 +57,9 @@ Hypothesize that long-tail samples are also tougher for the model to learn well 
 
 - contrasting the two models 
 
-  $$\rightarrow$$ lead to **adaptive online mining of the most easily forgotten samples** for the current target model, and implicitly emphasize them more in the contrastive loss. 
+  $$\rightarrow$$ lead to **adaptive online mining of the "most easily forgotten samples"** for the current target model, 
+  
+  & implicitly emphasize them more in the contrastive loss. 
 
 <br>
 
@@ -63,7 +67,7 @@ Hypothesize that long-tail samples are also tougher for the model to learn well 
 
 ## (1) Background & Research Gaps
 
-Contrastive learning 
+**Contrastive learning** 
 
 - learn powerful visual representations from unlabeled data. 
 - SOTA CL : consistently benefit from using bigger models and training on more task-agnostic unlabeled data
@@ -73,20 +77,20 @@ Contrastive learning
 
 However, GAP between
 
-- (1) controlled benchmark data
-- (2) uncontrolled real-world data
+- (1) **"controlled"** benchmark data
+- (2) **"uncontrolled"** real-world data
 
 <br>
 
-Questions) ***Can CL can still generalize well in those long-tail scenarios?***
+Questions) ***Can CL can still generalize well in those LONG-TAIL scenarios?***
 
 - not the first to ask this question
 - Earlier works (Yang \& Xu, 2020; Kang et al., 2021) 
-  - when the data is imbalanced by class, CL can learn more balanced feature space than its supervised counterpart. 
+  - when the data is imbalanced by class, ***CL can learn more balanced feature space than SL***
 
 <br>
 
-Fnd that SOTA CL methods remain certain vulnerability to the long-tailed data 
+Find that SOTA CL methods remain certain **vulnerability to the long-tailed data** 
 
 - reflected on the linear separability of pretrained features 
 
@@ -100,13 +104,13 @@ Fnd that SOTA CL methods remain certain vulnerability to the long-tailed data
 
 ## (2) Rationale and Contributions
 
-Overall goal : Extend the **loss re-balancing** and **cost-sensitive learning** ideas into an **unsupervised setting**. 
+Overall goal : Extend the **(a) loss re-balancing** and **(b) cost-sensitive learning** ideas into an **unsupervised setting**. 
 
 <br>Previous findings:
 
 - Network pruning = removes the smallest magnitude weights in a trained DNN
   - affect all learned classes or samples **unequally**
-  - forget **long-tailed and most difficult images** more!
+  - forget **LONG-tailed and most difficult images** more!
 
 $$\rightarrow$$ Inspired this .. propose **Self-Damaging Contrastive Learning (SDCLR)**
 
@@ -122,22 +126,26 @@ Details
 
 - strong contrastive views by input data augmentation
 
-- new level of contrasting via"model augmentation"
+- new level of contrasting via***"model augmentation"***
 
-  - by perturbing the target model's structure and/or current weights. 
+  - by **perturbing** the target model's structure and/or current weights. 
 
-- Dynamic self-competitor model 
+- **Dynamic self-competitor model **
 
-  - by pruning the target model online
+  ( = by pruning the target model online )
+
   - contrast the pruned model's features with the target model's. 
 
-- Rare Instances
+- **Rare Instances**
 
-  = will have the largest prediction differences between pruned & non-pruned models. 
+  = **largest prediction differences** between pruned & non-pruned models. 
 
-- Since the self-competitor is always obtained from the updated target model, the two models will co-evolve
 
-  $$\rightarrow$$ allows the target model to spot diverse memorization failures at different training stages and to progressively learn more balanced representations. 
+<br>
+
+Since the self-competitor is always obtained from the updated target model, **the two models will co-evolve**
+
+$$\rightarrow$$ allows the target model to spot **diverse memorization failures** at different training stages and to progressively learn more balanced representations. 
 
 <br>
 
@@ -145,9 +153,9 @@ Details
 
 ## (1) Data Imbalance and SSL
 
-Classical LT recognition 
+**Classical LT recognition**
 
-- mainly amplify the impact of tail class samples
+- mainly **amplify** the impact of **TAIL** class samples
 - ex) re-sampling or re-weighting
 
 $$\rightarrow$$ Rely on label information & not directly applicable to **unsupervised representation learning**
@@ -156,8 +164,9 @@ $$\rightarrow$$ Rely on label information & not directly applicable to **unsuper
 
 Kang et al., 2019; Zhang et al., 2019
 
-- learning of (1) feature extractor and (2) classifier head can be decoupled. 
-- suggests the promise of pre-training a feature extractor.
+- learning of **(1) feature extractor** and **(2) classifier head** can be decoupled. 
+
+  ( = pre-training a feature extractor )
 
 <br>
 
@@ -165,16 +174,16 @@ Yang \& Xu, 2020
 
 - Benefits of a balanced feature space from SSL pre-training for generalization. 
 
-- first study to utilize SSL for overcoming the intrinsic label bias. 
+- first study to **utilize SSL for overcoming the intrinsic label bias.** 
 
-- simply plugging in SSL pre-training outperform their corresponding end-to-end baselines for LT classification. 
+- **SSL pre-training >> end-to-end baselines**
 - given more unlabeled data, the labels can be more effectively leveraged in a semi-supervised manner for accurate and debiased classification. reduce label bias in a semi-supervised manner. 
 
 <br>
 
 Kang et al., 2021
 
-- when the data is imbalanced by class, CL can learn more balanced feature space than SL
+- ( when the data is **imbalanced** by class ) **CL can learn more balanced feature space than SL**
 
 <br>
 
@@ -201,11 +210,11 @@ Hooker et al., 2020
 
 High-level idea of SDCLR
 
-= contrasting two similar competitor models & weighing more on their most disagreed samples
+= contrasting two similar competitor models & **weighing more on their most DISAGREED samples**
 
 <br>
 
-Co-teaching (Han et al., 2018; Yu et al., 2019) 
+**Co-teaching** (Han et al., 2018; Yu et al., 2019)
 
 - performs sample selection in noisy label learning by using two DNNs
 
@@ -243,11 +252,11 @@ Hooker et al., 2020
 
 <br>
 
-This paper extend (Hooker et al., 2020)'s **PIE** hypothesis **from SL to SSL**
+### This paper extend PIE hypothesis **from "SL" to "SSL"**
 
 - Instead of pruning a trained model and expose its PIEs once, 
 
-  integrrate pruning into the training process as an **online step**. 
+  integrate pruning into the training process as an **online step**. 
 
 - With **PIEs dynamically generated** by pruning a target model under training, we expect them to **expose different long-tail examples** during training
 
@@ -259,7 +268,7 @@ This paper extend (Hooker et al., 2020)'s **PIE** hypothesis **from SL to SSL**
 
 ***CL is NOT immune to imbalance***
 
-- Even CL does not rely on class labels, it still learns the transformation invariances in a data-driven manner, and will be affected by dataset bias (Purushwalkam \& Gupta, 2020). 
+- Even CL does not rely on class labels, it still learns the transformation invariances in a data-driven manner, and will be **affected by dataset bias** (Purushwalkam \& Gupta, 2020). 
 
 <br>
 
@@ -295,14 +304,16 @@ Details
 
 - at each iteration ) have a...
 
-  - dense branch $$N_1$$
-  - sparse branch $$N_2^p$$  ( by pruning $$N_1$$ )
+  - **(1) Dense branch** $$N_1$$
+  - **(2) Sparse branch** $$N_2^p$$  ( by pruning $$N_1$$ )
 
   using the simplest magnitude-based pruning
 
 - Pruning mask of $$N_2^p$$ could be updated per iteration after the model weights are updated. 
 
-- In practice, since the backbone is a large DNN and its **weights will not change much for a single iteration or two**, we set the pruning mask to be **lazy-updated at the beginning of every epoch**, to save computational overheads; 
+- Since the backbone is a large DNN and its **weights will not change much for a single iteration or two**, 
+
+  $$\rightarrow$$  Set the pruning mask to be **lazy-updated at the beginning of every epoch**, to save computational overheads; 
 
   - all iterations in the same epoch then adopt the same mask
 
@@ -377,6 +388,8 @@ Three popular imbalanced datasets
 - (2) **long-tail CIFAR-100**
 - (3) **ImageNet-LT**
 
+<br>
+
 \+ Consider a more realistic and more challenging benchmark, **long-tail ImageNet-100**
 
 - with a different exponential sampling rule. 
@@ -399,7 +412,7 @@ Long tail CIFAR
 
 - by sampling long tail subsets from the original datasets. 
 
-- Imbalance factor = class size of the largest class / smallest class
+- **Imbalance factor = class size of the largest class / smallest class**
 
   ( default : set it to 100 )
 
