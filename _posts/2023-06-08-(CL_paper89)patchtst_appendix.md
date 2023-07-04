@@ -1,6 +1,6 @@
 ---
 title: (paper 89) PatchTST Experiments
-categories: [CV, CL, SEMI]
+categories: [CV, CL, TS]
 tags: []
 excerpt: 2023
 ---
