@@ -34,13 +34,13 @@ excerpt: 2023
 
 - Two novel conditioning mechanisms: 
 
-  - **(1) future mixup**
+  - **(1) Future Mixup**
 
     - similar to teacher forcing
 
       ( allows parts of the GT future predictions for conditioning )
 
-  - **(2) autoregressive initialization** 
+  - **(2) Autoregressive Initialization** 
 
     - helps better initialize the model with basic time series patterns such as short-term trends. 
 
@@ -60,8 +60,8 @@ Existing TS diffusion models : 2 categories by decoding strategy
 ### (1) Autoregrerssive
 
 - ex) Rasul et al., 2021 &  Yang et al., 2022
-- future predictions are generated one by one over time. 
-- limitation in long-range prediction performance 
+- future predictions are generated ***one by one*** over time. 
+- limitation in **LONG-range** prediction performance 
   - due to **error accumulation & slow inference speed**
 
 <br>
@@ -74,7 +74,7 @@ Existing TS diffusion models : 2 categories by decoding strategy
 
 - long-range prediction performance : worse than Fedformer
 
-  ( $\because$ conditioning strategies are from image or text data, but not tailored for TS )
+  ( $\because$ conditioning strategies are from image or text data, ***but not tailored for TS*** )
 
 - Only using the denoising objective to introduce inductive bias may not be sufficient to guide the conditioning network in capturing helpful information from the lookback window, leading to inaccurate predictions. 
 
@@ -82,14 +82,14 @@ Existing TS diffusion models : 2 categories by decoding strategy
 
 ### TimeDiff
 
-- a **conditional nonautoregressive diffusion model** for LTSF
+- a **Conditional Non-autoregressive Diffusion model** for LTSF
 
 - introduces additional inductive bias in the conditioning module that is tailor-made for TS
-- two conditioning mechanisms
-  - **(i) future mixup**
-    - randomly reveals parts of the ground-truth future predictions during training
-  - **(ii) autoregressive initialization**
-    - better initializes the model with basic components in the time series.
+- Two conditioning mechanisms
+  - **(i) Future Mixup**
+    - randomly reveals parts of the **ground-truth** future predictions during training
+  - **(ii) Autoregressive Initialization**
+    - better initializes the model with **basic components in TS**
 - Experimental results on 9 real-world datasets
 
 <br>
@@ -98,46 +98,50 @@ Existing TS diffusion models : 2 categories by decoding strategy
 
 Diffusion models 
 
-- Forward diffusion process
-- Backward denoising process. 
+- (1) **Forward** diffusion process
+- (2) **Backward** denoising process. 
 
 <br>
 
-### Denoising diffusion probabilistic model (DDPM) (Ho et al., 2020)
+## (1) Denoising Diffusion Probabilistic Model (DDPM)
 
 gradually adding noise
 
 <br>
 
-***Forward diffusion process*** ( $K$ steps ) :
+### a) Forward diffusion process ( $K$ steps ) :
 
-- transforms  $\mathbf{x}^0$ to a white Gaussian noise vector $\mathbf{x}^K$ 
+transforms  $\mathbf{x}^0$ to a white Gaussian noise vector $\mathbf{x}^K$ 
 
-  - $q\left(\mathbf{x}^k \mid \mathbf{x}^{k-1}\right)=\mathcal{N}\left(\mathbf{x}^k ; \sqrt{1-\beta_k} \mathbf{x}^{k-1}, \beta_k \mathbf{I}\right)$.
+- $q\left(\mathbf{x}^k \mid \mathbf{x}^{k-1}\right)=\mathcal{N}\left(\mathbf{x}^k ; \sqrt{1-\beta_k} \mathbf{x}^{k-1}, \beta_k \mathbf{I}\right)$.
 
-    - where $\beta_k \in[0,1]$ is the noise variance 
+  - where $\beta_k \in[0,1]$ is the noise variance 
 
-      ( following a predefined schedule )
-
-- $q\left(\mathbf{x}^k \mid \mathbf{x}^0\right)=\mathcal{N}\left(\mathbf{x}^k ; \sqrt{\bar{\alpha}_k} \mathbf{x}^0,\left(1-\bar{\alpha}_k\right) \mathbf{I}\right),$.
-
-  - where $\alpha_k:=1-\beta_k$ and $\bar{\alpha}_k:=\Pi_{s=1}^k \alpha_s$. 
-
-- $\mathbf{x}^k=\sqrt{\bar{\alpha}_k} \mathbf{x}^0+\sqrt{1-\bar{\alpha}_k} \epsilon,$.
-
-  - where $\epsilon$ is sampled from $\mathcal{N}(0, \mathbf{I})$. 
+    ( following a predefined schedule )
 
 <br>
 
-***Backward denoising process ( = Markovian process )***
+$q\left(\mathbf{x}^k \mid \mathbf{x}^0\right)=\mathcal{N}\left(\mathbf{x}^k ; \sqrt{\bar{\alpha}_k} \mathbf{x}^0,\left(1-\bar{\alpha}_k\right) \mathbf{I}\right)$.
 
-- $p_\theta\left(\mathbf{x}^{k-1} \mid \mathbf{x}^k\right)=\mathcal{N}\left(\mathbf{x}^{k-1} ; \mu_\theta\left(\mathbf{x}^k, k\right), \Sigma_\theta\left(\mathbf{x}^k, k\right)\right) $.
-  - $\Sigma_\theta\left(\mathbf{x}^k, k\right)$ is often fixed at $\sigma_k^2 \mathbf{I}$
-  - $\mu_\theta\left(\mathbf{x}^k, k\right)$ is modeled by a NN
+- where $\alpha_k:=1-\beta_k$ and $\bar{\alpha}_k:=\Pi_{s=1}^k \alpha_s$. 
 
 <br>
 
-### Training the diffusion model
+$\mathbf{x}^k=\sqrt{\bar{\alpha}_k} \mathbf{x}^0+\sqrt{1-\bar{\alpha}_k} \epsilon,$.
+
+- where $\epsilon$ is sampled from $\mathcal{N}(0, \mathbf{I})$. 
+
+<br>
+
+### b) Backward denoising process ( = Markovian process )
+
+$p_\theta\left(\mathbf{x}^{k-1} \mid \mathbf{x}^k\right)=\mathcal{N}\left(\mathbf{x}^{k-1} ; \mu_\theta\left(\mathbf{x}^k, k\right), \Sigma_\theta\left(\mathbf{x}^k, k\right)\right) $.
+- $\Sigma_\theta\left(\mathbf{x}^k, k\right)$ is often fixed at $\sigma_k^2 \mathbf{I}$
+- $\mu_\theta\left(\mathbf{x}^k, k\right)$ is modeled by a NN
+
+<br>
+
+### c) Training the Diffusion Model
 
 - uniformly samples $k$ from $\{1,2, \ldots, K\}$ 
 
@@ -145,52 +149,55 @@ gradually adding noise
 
   ( = learning the denoising process )
 
-- For more stable training, $q\left(\mathbf{x}^{k-1} \mid \mathbf{x}^k\right)$ is often replaced by
-
-  $q\left(\mathbf{x}^{k-1} \mid \mathbf{x}^k, \mathbf{x}^0\right)=\mathcal{N}\left(\mathbf{x}^{k-1} ; \tilde{\mu}_k\left(\mathbf{x}^k, \mathbf{x}^0, k\right), \tilde{\beta}_k \mathbf{I}\right)$.
-
-  - $\tilde{\mu}_k\left(\mathbf{x}^k, \mathbf{x}^0, k\right)=\frac{\sqrt{\bar{\alpha}_{k-1}} \beta_k}{1-\bar{\alpha}_k} \mathbf{x}^0+\frac{\sqrt{\alpha_k}\left(1-\bar{\alpha}_{k-1}\right)}{1-\bar{\alpha}_k} \mathbf{x}^k$.
-  - $\tilde{\beta}_k=\frac{1-\bar{\alpha}_{k-1}}{1-\bar{\alpha}_k} \beta_k$.
 
 <br>
 
-### Training Objective 
+For more stable training, $q\left(\mathbf{x}^{k-1} \mid \mathbf{x}^k\right)$ is often replaced by
 
-can be rewritten as...
+$q\left(\mathbf{x}^{k-1} \mid \mathbf{x}^k, \mathbf{x}^0\right)=\mathcal{N}\left(\mathbf{x}^{k-1} ; \tilde{\mu}_k\left(\mathbf{x}^k, \mathbf{x}^0, k\right), \tilde{\beta}_k \mathbf{I}\right)$.
 
-- $\mathcal{L}_k=\frac{1}{2 \sigma_k^2}\left\|\tilde{\mu}_k\left(\mathbf{x}^k, \mathbf{x}^0, k\right)-\mu_\theta\left(\mathbf{x}^k, k\right)\right\|^2$.
+- $\tilde{\mu}_k\left(\mathbf{x}^k, \mathbf{x}^0, k\right)=\frac{\sqrt{\bar{\alpha}_{k-1}} \beta_k}{1-\bar{\alpha}_k} \mathbf{x}^0+\frac{\sqrt{\alpha_k}\left(1-\bar{\alpha}_{k-1}\right)}{1-\bar{\alpha}_k} \mathbf{x}^k$.
+- $\tilde{\beta}_k=\frac{1-\bar{\alpha}_{k-1}}{1-\bar{\alpha}_k} \beta_k$.
 
-  ( = ignoring the variance term )
+<br>
+
+### d) Training Objective 
+
+Rewritten as...
+
+$\mathcal{L}_k=\frac{1}{2 \sigma_k^2}\left\|\tilde{\mu}_k\left(\mathbf{x}^k, \mathbf{x}^0, k\right)-\mu_\theta\left(\mathbf{x}^k, k\right)\right\|^2$.
+
+( = ignoring the variance term )
 
 <br>
 
 $\mu_\theta\left(\mathbf{x}^k, k\right)$ can be defined in 2ways
 
-- (1) $\mu_\epsilon\left(\epsilon_\theta\right)$ 
-
-  - computed from a noise prediction model $\epsilon_\theta\left(\mathbf{x}^k, k\right)$ 
-
-  - $\mu_\epsilon\left(\epsilon_\theta\right)=\frac{1}{\sqrt{\alpha_k}} \mathbf{x}^k-\frac{1-\alpha_k}{\sqrt{1-\bar{\alpha}_k} \sqrt{\alpha_k}} \epsilon_\theta\left(\mathbf{x}^k, k\right) $.
-
-  - Ho et al. (2020) show that optimizing the following simplified training objective leads to better generation quality :
-
-    $\mathcal{L}_\epsilon=\mathbb{E}_{k, \mathbf{x}^0, \epsilon}\left[\left\|\epsilon-\epsilon_\theta\left(\mathbf{x}^k, k\right)\right\|^2\right]$.
-
-    - $\epsilon$ : noise used to obtain $\mathbf{x}^k$ from $\mathbf{x}^0$ at step $k$
-
-- (2) $\mu_{\mathbf{x}}\left(\mathbf{x}_\theta\right)$
-
-  - from a data prediction model $\mathbf{x}_\theta\left(\mathbf{x}^k, k\right)$ 
-  - $\mu_{\mathbf{x}}\left(\mathbf{x}_\theta\right)=\frac{\sqrt{\alpha_k}\left(1-\bar{\alpha}_{k-1}\right)}{1-\bar{\alpha}_k} \mathbf{x}^k+\frac{\sqrt{\bar{\alpha}_{k-1}} \beta_k}{1-\bar{\alpha}_k} \mathbf{x}_\theta\left(\mathbf{x}^k, k\right)$.
-  - $\mathcal{L}_{\mathbf{x}}=\mathbb{E}_{k, \mathbf{x}^0, \epsilon}\left[\left\|\mathbf{x}^0-\mathbf{x}_\theta\left(\mathbf{x}^k, k\right)\right\|^2\right] $.
+- (1) $\mu_\epsilon\left(\epsilon_\theta\right)$ : from **NOISE** prediction model
+- (2) $\mu_{\mathbf{x}}\left(\mathbf{x}_\theta\right)$ : from **DATA** prediction model
 
 <br>
 
-Noise prediction model $\epsilon_\theta\left(\mathbf{x}^k, k\right)$ 
+(1) $\mu_\epsilon\left(\epsilon_\theta\right)=\frac{1}{\sqrt{\alpha_k}} \mathbf{x}^k-\frac{1-\alpha_k}{\sqrt{1-\bar{\alpha}_k} \sqrt{\alpha_k}} \epsilon_\theta\left(\mathbf{x}^k, k\right) $.
 
-Data prediction model $\mathbf{x}_\theta\left(\mathbf{x}^k, k\right)$ 
+- computed from a noise prediction model $\epsilon_\theta\left(\mathbf{x}^k, k\right)$ 
 
-$\rightarrow$ both conditioned on the diffusion step $k$ only. 
+- optimizing the following simplified training objective leads to better generation quality ( Ho et al. (2020) )
+
+  $\mathcal{L}_\epsilon=\mathbb{E}_{k, \mathbf{x}^0, \epsilon}\left[\left\|\epsilon-\epsilon_\theta\left(\mathbf{x}^k, k\right)\right\|^2\right]$.
+
+  - $\epsilon$ : noise used to obtain $\mathbf{x}^k$ from $\mathbf{x}^0$ at step $k$
+
+<br>
+
+(2) $\mu_{\mathbf{x}}\left(\mathbf{x}_\theta\right)=\frac{\sqrt{\alpha_k}\left(1-\bar{\alpha}_{k-1}\right)}{1-\bar{\alpha}_k} \mathbf{x}^k+\frac{\sqrt{\bar{\alpha}_{k-1}} \beta_k}{1-\bar{\alpha}_k} \mathbf{x}_\theta\left(\mathbf{x}^k, k\right)$.
+
+- from a data prediction model $\mathbf{x}_\theta\left(\mathbf{x}^k, k\right)$ 
+- $\mathcal{L}_{\mathbf{x}}=\mathbb{E}_{k, \mathbf{x}^0, \epsilon}\left[\left\|\mathbf{x}^0-\mathbf{x}_\theta\left(\mathbf{x}^k, k\right)\right\|^2\right] $.
+
+<br>
+
+$\rightarrow$ both (1) & (2) : conditioned on the diffusion step $k$ only. 
 
 - When an additional condition input $\mathbf{c}$ is available, can be injected
 
@@ -202,9 +209,11 @@ $\rightarrow$ both conditioned on the diffusion step $k$ only.
 
 ## (2) Conditional DDPMs for TS Prediction
 
-Input :  $\mathbf{x}_{-L+1: 0}^0 \in \mathbb{R}^{d \times L}$
+Notation
 
-Target : future values $\mathbf{x}_{1: H}^0 \in \mathbb{R}^{d \times H}$ 
+- Input :  $\mathbf{x}_{-L+1: 0}^0 \in \mathbb{R}^{d \times L}$
+
+- Target : $\mathbf{x}_{1: H}^0 \in \mathbb{R}^{d \times H}$ 
 
 <br>
 
@@ -217,11 +226,11 @@ Conditional DDPMs
 
 <br>
 
-### TimeGrad (Rasul et al., 2021) 
+## (3) TimeGrad (Rasul et al., 2021) 
 
-Denoising diffusion model for TS prediction
+Denoising diffusion model for **TS prediction**
 
-- autoregressive model
+- **autoregressive** model
 - model the joint distribution $p_\theta\left(\mathbf{x}_{1: H}^{0: K}\right)$, 
   - where $\mathbf{x}_{1: H}^{0: K}=\left\{\mathbf{x}_{1: H}^0\right\} \bigcup\left\{\mathbf{x}_{1: H}^k\right\}_{k=1, \ldots, K}$ 
 
@@ -249,9 +258,9 @@ Objective function :
 
 Pros & Cons
 
-- Pros ) Successfully used for short-term TS prediction
+- Pros ) Successfully used for ***short-term*** TS prediction
 
-- Conse ) Due to autoregressive decoding
+- Conse ) Due to ***autoregressive decoding***
 
   $\rightarrow$ error can accumulate and inference is also slow.
 
@@ -259,15 +268,15 @@ Pros & Cons
 
 <br>
 
-### CSDI (Tashiro et al., 2021)
+## (4) CSDI (Tashiro et al., 2021)
 
-Non-autoregressive inference
+**Non-autoregressive** inference
 
 - by diffusing and denoising the whole time series $\mathbf{x}_{-L+1: H}^0$. 
 
 <br>
 
-Input of denoising model
+Two Inputs of denoising model
 
 - (1) $\mathbf{x}_{-L+1: H}^0$ 
 - (2) Binary mask $\mathbf{m} \in\{0,1\}^{d \times(L+H)}$ 
@@ -275,7 +284,7 @@ Input of denoising model
 
 <br>
 
-SSL strategy : masking some input observations
+SSL strategy : **masking** some input observations
 
 - $\mathcal{L}_\epsilon=\mathbb{E}_{k, \mathbf{x}^0, \epsilon}\left[\left\|\epsilon-\epsilon_\theta\left(\mathbf{x}_{\text {target }}^k, k \mid \mathbf{c}=\mathcal{F}\left(\mathbf{x}_{\text {observed }}^k\right)\right)\right\|^2\right]$.
   - $\mathbf{x}_{\text {target }}^k=\mathbf{m} \odot \mathbf{x}_{-L+1: H}^0$ : the masked part
@@ -283,7 +292,7 @@ SSL strategy : masking some input observations
 
 <br>
 
-CSDI is still limited in 2aspects:
+CSDI is still limited in **2 aspects**:
 
 - (1) CSDI's denoising network is based on 2 transformers, 
   - complexity issue
@@ -292,7 +301,7 @@ CSDI is still limited in 2aspects:
 
 <br>
 
-### SSSD (Alcaraz \& Strodthoff, 2022) 
+## (5) SSSD (Alcaraz \& Strodthoff, 2022) 
 
 replaces **transformers** $\rightarrow$ **structured state space model**
 
@@ -320,21 +329,19 @@ TS prediction : more challenging ...
 
 # 3. Proposed Model
 
-Conditional diffusion models : widely used
+**Conditional Diffusion models** : widely used
 
-- usually focus on capturing the semantic similarities across modalities (e.g., text and image) (Choi et al., 2021; Kim et al., 2022). 
+- usually focus on capturing the **semantic similarities** across modalities (e.g., text and image) (Choi et al., 2021; Kim et al., 2022). 
 
-<br>
+- HOWEVER, in **non-stationary TS**
 
-HOWEVER, in non-stationary time serie...
-
-$\rightarrow$ capturing the complex temporal dependencies maybe even more important.
+  $\rightarrow$ capturing the complex ***temporal*** dependencies maybe even more important.
 
 <br>
 
-Propose TimeDiff
+Propose **TimeDiff**
 
-- novel conditioning mechanisms that are tailored for TS
+- novel **conditioning** mechanisms that are **tailored for TS**
 
 <br>
 
@@ -344,11 +351,15 @@ Propose TimeDiff
 
 ## (1) Forward Diffusion Process
 
+Diffusion on **forecast window**
+
+<br>
+
 $\mathbf{x}_{1: H}^k=\sqrt{\bar{\alpha}_k} \mathbf{x}_{1: H}^0+\sqrt{1-\bar{\alpha}_k} \epsilon,$.
 
 - $\epsilon$ : sampled from $\mathcal{N}(0, \mathbf{I})$ 
 
-- $D^3 \mathrm{VAE}$ (Li et al., 2022b) also uses the same forward diffusion process on the lookback 
+- $D^3 \mathrm{VAE}$  : same forward diffusion process on the **lookback window**
   - NOT a diffusion model as the diffused $\mathbf{x}_{1: H}^k$ is produced by a VAE
     - with $\mathbf{x}_{-L+1: 0}^k$ (instead of $\mathbf{x}_{1: H}^k$ ) as input
     - does not denoise from random noise. 
@@ -377,33 +388,33 @@ Proposed inductive bias on the conditioning network : specific to TS prediction.
 
 Section Intro
 
-- 3.2.1) Mixup : to combine the past & future TS information into $\mathbf{z}_{\operatorname{mix}}$ 
-- 3.2.2) AR model to produce a crude approximation $\mathbf{z}_{a r}$ of $\mathbf{x}_{1: H}^0$. 
+- 3.2.1) **Mixup** : to combine the **past & future** TS information into $\mathbf{z}_{\operatorname{mix}}$ 
+- 3.2.2) **AR model** to produce a crude approximation $\mathbf{z}_{a r}$ of $\mathbf{x}_{1: H}^0$. 
 
-$\rightarrow$ These two are concatenated & become condition
+$\rightarrow$ These two are concatenated & **become condition**
 
 - $\mathbf{c}=\operatorname{concat}\left(\left[\mathbf{z}_{\mathrm{mix}}, \mathbf{z}_{a r}\right]\right) \in \mathbb{R}^{2 d \times H} $.
 
 <br>
 
-### a) Future Mixup
+### a) Future Mixup ( condition 1 : $\mathbf{z}_{\text {mix }}$ )
 
 Goal : predict $\mathbf{x}_{1: H}^0$, 
 
-Ideal condition to guide denosing process : $\mathbf{x}_{1: H}^0$ 
+Ideal condition to ***guide denosing process*** : $\mathbf{x}_{1: H}^0$ 
 
-- cannot be accessed on inference, but available during training. 
+- cannot be accessed on inference, but available **during training** 
 
 <br>
 
 Future mixup : combines
 
-- (1) the past information's mapping $\mathcal{F}\left(\mathbf{x}_{-L+1: 0}^0\right)$ 
-- (2) the future ground-truth $\mathbf{x}_{1: H}^0$. 
+- (1) the **PAST information's mapping** $\mathcal{F}\left(\mathbf{x}_{-L+1: 0}^0\right)$ 
+- (2) the **FUTURE ground-truth** $\mathbf{x}_{1: H}^0$. 
 
 <br>
 
-At diffusion step $k$ ) Conditioning signal
+**Conditioning signal** ( at diffusion step $k$ ) 
 
 - $\mathbf{z}_{\text {mix }}=\mathbf{m}^k \odot \mathcal{F}\left(\mathbf{x}_{-L+1: 0}^0\right)+\left(1-\mathbf{m}^k\right) \odot \mathbf{x}_{1: H}^0 $.
   - $\mathbf{m}^k \in[0,1)^{d \times H}$ : mixing matrix ( from uniform distn )
@@ -411,31 +422,33 @@ At diffusion step $k$ ) Conditioning signal
 
 <br>
 
-On Inference ) $\mathbf{x}_{1: H}^0$ is no longer available
+But $\mathbf{x}_{1: H}^0$ is no longer available on inference!
+
+Thus, use below instead.
 
 - $\mathbf{z}_{\operatorname{mix}}=\mathcal{F}\left(\mathbf{x}_{-L+1: 0}^0\right)$.
 
 <br>
 
-Similar to teacher forcing  & scheduled sampling 
+Similar to **Teacher Forcing**  & **Scheduled Sampling** 
 
-- introduce GT as input during training
-- only use the model's prediction during inference. 
+- (training) introduce **GT** as during training
+- (inference) use **model's prediction** during inference. 
 
 <br>
 
 Difference : 
 
-- Future mixup : 
+- **Future mixup** : 
   - for non-autoregressive conditional generation in TS diffusion models, 
   - mixes the past observations' embedding and future TS
-- Teacher forcing & Scheduled sampling : 
+- **Teacher forcing & Scheduled sampling** : 
   - for autoregressive decoding of RNN
   - replace the model's prediction at the previous step by the past GT
 
 <br>
 
-### b) AR model
+### b) AR model ( condition 2 : $\mathbf{z}_{\text {ar}}$ )
 
 ( Image Impainiting )
 
@@ -443,13 +456,13 @@ Difference :
 
 ( TS Prediction ) 
 
-- disharmony between the history and forecast segment
+- **disharmony** between the history and forecast segment
 
 <br>
 
-Linear AR model $\mathcal{M}_{a r}$
+**Linear AR model** $\mathcal{M}_{a r}$
 
-- to provide an initial guess $\mathbf{z}_{a r} \in \mathbb{R}^{d \times H}$ for $\mathbf{x}_{1: H}^0$. 
+- to provide an **initial guess** $\mathbf{z}_{a r} \in \mathbb{R}^{d \times H}$ for $\mathbf{x}_{1: H}^0$. 
 
 <br>
 
@@ -463,15 +476,15 @@ $\mathbf{z}_{a r}=\sum_{i=-L+1}^0 \mathbf{W}_i \odot \mathbf{X}_i^0+\mathbf{B}$.
 
 Pretrained on the training set ...
 
-- by minimizing the $\ell_2$-distance between $\mathbf{z}_{a r}$ and the groundtruth $\mathrm{x}_{1: H}^0$. 
+- by minimizing the $\ell_2$-distance between $\mathbf{z}_{a r}$ and the GT $\mathrm{x}_{1: H}^0$. 
 
 <br>
 
-This simple AR model cannot accurately approximate a complex nonlinear TS
+This simple AR model **cannot accurately approximate a complex nonlinear** TS
 
-Still capture simple patterns, such as short-term trends 
+But still capture **simple patterns**, such as short-term trends 
 
-Although $\mathcal{M}_{a r}$ is an autoregressive model, does not require autoregressive decoding.
+Although $\mathcal{M}_{a r}$ is an AR model, does not require AR decoding.
 
 ( = all columns of $\mathbf{z}_{a r}$ are obtained simultaneously )
 
