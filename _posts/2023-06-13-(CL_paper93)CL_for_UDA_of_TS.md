@@ -40,25 +40,25 @@ Unsupervised domain adaptation (UDA)
 
 ### CLUDA
 
-develop a novel framework for UDA of TS data
+develop a novel framework for **UDA of TS data**
 
-propose a CL framework in MTS
+propose a **CL** framework in MTS
 
 - preserve label information for the prediction task. 
 
-capture the variation in the contextual representations between source and target domain
+capture the variation in the contextual representations **between SOURCE & TARGET** domain
 
-- via a custom nearest-neighbor CL
+- via a **custom nearest-neighbor CL**
 
 <br>
 
-First framework to learn **domain-invariant** representation for UDA of TS data. 
+First framework to learn **domain-invariant** representation for **UDA of TS data**
 
 <br>
 
 # 1. Introduction
 
-Need for effective domain adaptation of TS, to learn Domain-invariant representations 
+Need for effective domain adaptation of TS, to learn **domain-invariant representations **
 
 <br>
 
@@ -70,34 +70,43 @@ Previous works
 
 - utilize a tailored feature extractor to capture temporal dynamics of MTS via RNNs, LSTM, CNNs …
 
-- minimize the domain discrepancy of learned features via ..
-  - adversarial-based methods (Purushotham et al., 2017; Wilson et al., 2020; 2021; Jin et al., 2022)
-  - restrictions through metric-based methods (Cai et al., 2021; Liu \& Xue, 2021).
+- minimize the **"domain discrepancy"** of learned features via ..
+  - **(1) adversarial-based** methods (Purushotham et al., 2017; Wilson et al., 2020; 2021; Jin et al., 2022)
+  - **(2) restrictions through metric-based** methods (Cai et al., 2021; Liu \& Xue, 2021).
 
 <br>
 
-Transfer Learning
+### Transfer Learning
 
-- pre-train a NN via CL to capture the contextual representation of TS from unlabeled source domain. 
-  - BUT … operate on a labeled target domain, which is different from UDA. 
+pre-train a NN via CL ...
+
+to capture the contextual representation of TS from **UN-LABELED source** domain
+
+- BUT … operate on a **LABELED target** domain ( $$\neq$$ UDA )
 
 <br>
 
 No method for UDA of TS
 
-$$\rightarrow$$ propose a novel framework for UDA of TS based on CL ( = CLUDA )
+$$\rightarrow$$ propose a novel framework for **UDA of TS based on CL ( = CLUDA )**
 
 <br>
 
-Components: 
+### Components of CLUDA
 
-- (1) Adversarial training
-  - to minimize the domain discrepancy between source & target domains
-- (2) Semantic-preserving augmentations
-- (3) Custom nearest-neighborhood CL
-  - further align the contextual representation across source and target domains
+**(1) Adversarial training**
+
+- to minimize the domain discrepancy between source & target domains
+
+**(2) Semantic-preserving augmentations**
+
+**(3) Custom nearest-neighborhood CL**
+
+- further align the contextual representation across source and target domains
 
 <br>
+
+### Experiments
 
 Datasets 1
 
@@ -120,12 +129,12 @@ Datasets 2
 
 ### Contributions
 
-1. Propose CLUDA
+1. Propose **CLUDA**
 
    ( unsupervised domain adaptation of time series )
 
 2. Capture domain-invariant, contextual representations in CLUDA 
-   - via a custom approach combining nearest-neighborhood CL & adversarial learning
+   - via a custom approach combining **(1) nearest-neighborhood CL** & **(2) adversarial learning**
 
 <br>
 
@@ -133,59 +142,67 @@ Datasets 2
 
 ## (1) Unsupervised Domain Adaptation (UDA)
 
-Leverage **LABELED source** domain to predict **UNLABELED target** domain
+**LABELED source** $$\rightarrow$$ **UNLABELED target** 
 
 Typically aim to minimize **domain discrepancy**
 
-3 Categories
+<br>
 
-- (1) Adversarial-based
+### 3 Categories
 
-  - reduce domain discrepancy via **domain discriminator networks**
+**(1) Adversarial-based**
 
-    ( force to learn domain-invariant feature representations )
+- reduce domain discrepancy via **domain discriminator networks**
 
-- (2) Contrastive
-  - via minimization of CL loss, aims to bring source & target embeddings of the same class
-  - labels are UNKNONWN … rely on pseudo-labels
-- (3) Metric-based
+  ( force to learn domain-invariant feature representations )
+
+**(2) Contrastive**
+
+- via minimization of CL loss, aims to bring source & target embeddings of the same class
+- labels are UNKNONWN … rely on pseudo-labels
+
+**(3) Metric-based**
 
 <br>
 
 ## (2) UDA for TS
 
-### Variational recurrent adversarial deep domain adaptation (VRADA)
+### a) Variational recurrent adversarial deep domain adaptation (VRADA)
 
-first UDA method for MTS that uses adversarial learning for reducing domain discrepancy.
+first UDA method for MTS that uses **adversarial learning** for reducing domain discrepancy.
 
--  Feature extractor = variational RNN
-- trains the classifier and the domain discriminator (adversarially) for the last latent variable of its variational recurrent neural network. 
-
-<br>
-
-### Convolutional deep domain adaptation for time series (CoDATS) 
-
-- same adversarial training as VRADA
-- Feature extractor = CNN 
+-  Feature extractor = **variational RNN**
+- trains the **(1) classifier** and the **(2) domain discriminator** (adversarially) 
 
 <br>
 
-### Time series sparse associative structure alignment (TS-SASA) 
+### b) Convolutional deep domain adaptation for time series (CoDATS) 
 
-- metric-based method
-- Intra-variables & inter-variables attention mechanisms are aligned between the domains via the minimization of maximum mean discrepancy (MMD). 
-
-<br>
-
-### Adversarial spectral kernel matching (AdvSKM) 
-
-- metric-based method
-- aligns the two domains via MMD. 
-- ntroduces a spectral kernel mapping, from which the output is used to minimize MMD between the domains. 
+VRADA + ( **Feature extractor = CNN** )
 
 <br>
 
-$$\rightarrow$$ [ Common ] Aim to align the features across source and target domains.
+### c) Time series sparse associative structure alignment (TS-SASA) 
+
+Metric-based method
+
+- **Intra-variables & Inter-variables attention mechanisms** are aligned between the domains via the minimization of maximum mean discrepancy (MMD). 
+
+<br>
+
+### d) Adversarial spectral kernel matching (AdvSKM) 
+
+Metric-based method
+
+- aligns the two domains **via MMD** 
+
+- introduces a **spectral kernel mapping,** 
+
+  from which the output is used to minimize MMD between the domains. 
+
+<br>
+
+$$\rightarrow$$ [ Common ] Aim to align the features across SOURCE and TARGET domains.
 
 <br>
 
@@ -193,7 +210,7 @@ $$\rightarrow$$ [ Common ] Aim to align the features across source and target do
 
 Existing works merely align the features across source & target domains. 
 
-Even though the source and target distributions overlap … this results in mixing the source and target samples of different classes. 
+**Even though the source and target distributions overlap** … this results in mixing the source and target samples of different classes. 
 
 <br>
 
@@ -203,18 +220,22 @@ Classification task
 
 2 distributions over the TS 
 
-- from the source domain $$\mathcal{D}_S$$ 
-- from the target domain $$\mathcal{D}_t$$
+- a) SOURCE domain $$\mathcal{D}_S$$ 
+- b) TARGET domain $$\mathcal{D}_t$$
 
 <br>
 
-**Labeled** samples from the source domain given by $$\mathcal{S}=\left\{\left(x_i^s, y_i^s\right)\right\}_{i=1}^{N_s} \sim \mathcal{D}_S$$, 
+**Labeled** samples from the **SOURCE** domain
 
-**Unlabeled** samples from the target domain given by $$\mathcal{T}=\left\{x_i^t\right\}_{i=1}^{N_t} \sim \mathcal{D}_T$$
+- given by $$\mathcal{S}=\left\{\left(x_i^s, y_i^s\right)\right\}_{i=1}^{N_s} \sim \mathcal{D}_S$$, 
+
+**Unlabeled** samples from the **TARGET** domain
+
+- given by $$\mathcal{T}=\left\{x_i^t\right\}_{i=1}^{N_t} \sim \mathcal{D}_T$$
 
 <br>
 
-Multivariate TS : each $$x_i$$ is a sample of MTS, 
+Each $$x_i$$ is a sample of MTS, 
 
 - denoted by $$x_i=\left\{x_{i t}\right\}_{t=1}^T \in \mathbb{R}^{M \times T}$$
 
@@ -225,6 +246,8 @@ Goal : build a classifier
 - that generalizes well over $$\mathcal{T}$$ 
 - by leveraging the labeled $$\mathcal{S}$$. 
 
+<br>
+
 ( At evaluation ) use the labeled $$\mathcal{T}_{\text {test }}=\left\{\left(x_i^t, y_i^t\right)\right\}_{i=1}^{N_{\text {test }}} \sim \mathcal{D}_T$$ 
 
 <br>
@@ -233,7 +256,7 @@ Goal : build a classifier
 
 Overview of our CLUDA framework
 
-1. Domain adversarial training, 
+1. Domain adversarial training
 2. Capture the contextual representation
 3. Align contextual representation across domains.
 
@@ -245,19 +268,20 @@ Overview of our CLUDA framework
 
 **(1) Feature extractor** $$F(\cdot)$$
 
-- takes the time series $$x^s$$ and $$x^t$$  & creates embeddings $$z^s$$ and $$z^t$$
-- momentum updated feature extractor network $$\tilde{F}(\cdot)$$
+- Input =  $$x^s$$ and $$x^t$$  
+- Output = $$z^s$$ and $$z^t$$
+- Momentum updated version = $$\tilde{F}(\cdot)$$
 
 **(2) Classifier network** $$C(\cdot)$$
 
-- predict $$y^s$$ of TS from the source domain using the embeddings $$z^s$$.
+- Predict $$y^s$$ using $$z^s$$.
 
 **(3) Discriminator network** $$D(\cdot)$$ 
 
-- trained to distinguish source $$z^s$$ from target $$z^t$$. 
-- introduce domain labels
-  - $$d=0$$ for source instances
-  - $$d=1$$ for target instances
+- Trained to distinguish $$z^s$$ & $$z^t$$. 
+- Introduce domain labels
+  - $$d=0$$ for SOURCE
+  - $$d=1$$ for TARGET
 
 <br>
 
@@ -265,25 +289,26 @@ Overview of our CLUDA framework
 
 Minimize a combination of two losses: 
 
-- (1) Prediction loss $$L_c$$ 
+<br>
 
-  - $$L_c=\frac{1}{N_s} \sum_i^{N_s} L_{\mathrm{pred}}\left(C\left(F\left(x_i^s\right)\right), y_i^s\right)$$.
+**(1) Prediction loss** $$L_c$$ 
 
-- (2) Domain classification loss $$L_{\mathrm{disc}}$$ 
+$$L_c=\frac{1}{N_s} \sum_i^{N_s} L_{\mathrm{pred}}\left(C\left(F\left(x_i^s\right)\right), y_i^s\right)$$.
 
-  - learn domain-invariant feature representations
+<br>
 
-  - use adversarial learning
+**(2) Domain classification loss** $$L_{\mathrm{disc}}$$ 
 
-  - $$D(\cdot)$$ is trained to minimize the domain classification loss
+$$L_{\text {disc }}=\frac{1}{N_s} \sum_i^{N_s} L_{\text {pred }}\left(D\left(R\left(F\left(x_i^s\right)\right)\right), d_i^s\right)+\frac{1}{N_t} \sum_i^{N_t} L_{\text {pred }}\left(D\left(R\left(F\left(x_i^t\right)\right)\right), d_i^t\right) $$.
 
-    & $$F(\cdot)$$ is trained to maximize the same loss
+- Adversarial learning
 
-  - achieved by the gradient reversal layer $$R(\cdot)$$ between $$F(\cdot)$$ and $$D(\cdot)$$, 
+  - $$D(\cdot)$$  = trained to MINIMIZE the loss
+  - $$F(\cdot)$$  = trained to MAXIMIZE the loss
 
-    defined by $$R(x)=x, \quad \frac{\mathrm{d} R}{\mathrm{~d} x}=-\mathbf{I} $$
+- achieved by the gradient reversal layer $$R(\cdot)$$ between $$F(\cdot)$$ and $$D(\cdot)$$, 
 
-  - $$L_{\text {disc }}=\frac{1}{N_s} \sum_i^{N_s} L_{\text {pred }}\left(D\left(R\left(F\left(x_i^s\right)\right)\right), d_i^s\right)+\frac{1}{N_t} \sum_i^{N_t} L_{\text {pred }}\left(D\left(R\left(F\left(x_i^t\right)\right)\right), d_i^t\right) $$.
+  defined by $$R(x)=x, \quad \frac{\mathrm{d} R}{\mathrm{~d} x}=-\mathbf{I} $$
 
 <br>
 
@@ -328,16 +353,16 @@ $$\rightarrow$$ two CL loss ( $$L_{\mathrm{CL}}^s$$ & $$L_{\mathrm{CL}}^t$$  )
 
 ## (4) Aligning the Contextual Representation Across Domains
 
-Further aligns the contextual representation across the source and target domains
+Further aligns the contextual representation across the SOURCE & TARGET
 
-First nearest-neighbor CL approach for UDA of TS
+First ***nearest-neighbor CL*** approach for UDA of TS
 
+<br>
 
+**Nearest-neighbor CL (NNCL) **
 
-Nearest-neighbor contrastive learning (NNCL) 
-
-- facilitate the classifier $$C(\cdot)$$ to make accurate predictions for the target domai
-- by creating positive pairs between domains
+- facilitate the classifier $$C(\cdot)$$ to make accurate predictions for the target domain
+- by creating positive pairs ***between*** domains
   - explicitly align the representations across domains. 
 
 <br>
@@ -349,8 +374,6 @@ $$L_{\mathrm{NNCL}}=-\frac{1}{N_t} \sum_{i=1}^{N_t} \log \frac{\exp \left(z_{q i
 <br>
 
 ## (5) Training
-
-Final Loss :
 
 $$L=L_c+\lambda_{\mathrm{disc}} \cdot L_{\mathrm{disc}}+\lambda_{\mathrm{CL}} \cdot\left(L_{\mathrm{CL}}^s+L_{\mathrm{CL}}^t\right)+\lambda_{\mathrm{NNCL}} \cdot L_{\mathrm{NNCL}}$$.
 
@@ -366,30 +389,28 @@ Earlier works of UDA on time series
 
 ## (1) Datasets
 
-1. Established benchmark datasets
-
+1. **Established benchmark datasets**
    - WISDM (Kwapisz et al., 2011), HAR (Anguita et al., 2013), and HHAR (Stisen et al., 2015). 
-   - each patient = each doomain
+   - **each patient = each domain**
    - randomly sample 10 source-target domain pairs for evaluation. 
-
-2. Real-world setting with medical datasets
-
-   - MIMIC-IV (Johnson et al., 2020) and AmsterdamUMCdb (Thoral et al., 2021). 
-
-   - treat each age group as a separate domain
+   
+2. **Real-world setting with medical datasets**
+- MIMIC-IV (Johnson et al., 2020) and AmsterdamUMCdb (Thoral et al., 2021). 
+   
+- **each age group = each domain**
 
 <br>
 
 ## (2) Baselines
 
-Model w/o UDA
+**Model w/o UDA**
 
 - use feature extractor $$F(\cdot)$$ and the classifier $$C(\cdot)$$ using the same architecture as in our CLUDA. 
 - only trained on the source domain.
 
 <br>
 
-Model w/ UDA ( for TS )
+**Model w/ UDA ( for TS )**
 
 - (1) VRADA (Purushotham et al., 2017)
 - (2) CoDATS (Wilson et al., 2020)
@@ -398,7 +419,7 @@ Model w/ UDA ( for TS )
 
 <br>
 
-Model w/ UDA ( not CV )
+**Model w/ UDA ( not CV )**
 
 - (5) CAN (Kang et al., 2019)
 - (6) CDAN (Long et al., 2018)

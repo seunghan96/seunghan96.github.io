@@ -13,8 +13,15 @@ excerpt: 2021
 ## Contents
 
 0. Abstract
-1. 
+1. Introduuction
+2. Diffusion Probabilistic Model
+3. TimeGrad
+   1. Training
+   2. Inference
+   3. Scaling
 
+4. Experiments
+   1. Evaluation Metric and Dataset
 
 
 <br>
@@ -133,7 +140,7 @@ Both $$\mu_\theta: \mathbb{R}^D \times \mathbb{N} \rightarrow \mathbb{R}^D$$ and
 
 Goal of $$p_\theta\left(\mathbf{x}^{n-1} \mid \mathbf{x}^n\right)$$ 
 
-= eliminate the Gaussian noise added 
+= **eliminate the Gaussian noise added**
 
 = $$\theta$$ are learned to fit the data distribution $$q_{\mathcal{X}}\left(\mathbf{x}^0\right)$$ 
 

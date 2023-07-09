@@ -31,7 +31,7 @@ Two types of outliers in UTS
 - (1) type 1 : affects a single observation
 - (2) type 2 : affects both a particular observation and the subsequent observations. 
 
-$\rightarrow$ Extended to 4 outlier types & to the case of MTS
+$$\rightarrow$$ Extended to 4 outlier types & to the case of MTS
 
 <br>
 
@@ -57,7 +57,7 @@ Outliers in TS can have 2 different meanings ( based on the interest of the anal
 
 - ex) Fraud detection => main objective is to detect and analyze the outlier itself. 
 
-  $\rightarrow$ often referred to as **anomalies**
+  $$\rightarrow$$ often referred to as **anomalies**
 
 <br>
 
@@ -80,22 +80,22 @@ Outlier detection techniques
 
 ## (1) Input Data
 
-1. UTS : $X=\left\{x_t\right\}_{t \in T}$ 
-   - recorded at a specific time $t \in T \subseteq \mathbb{Z}^{+}$.
-   - $x_t$ : point or observation collected at time $t$ 
-   - $S=x_p, x_{p+1}, \ldots, x_{p+n-1}$ : subsequence of length $n \leq \mid T \mid $ 
-   - assumed that $x_t$ is a realized value of a certain r.v $X_t$. 
+1. UTS : $$X=\left\{x_t\right\}_{t \in T}$$ 
+   - recorded at a specific time $$t \in T \subseteq \mathbb{Z}^{+}$$.
+   - $$x_t$$ : point or observation collected at time $$t$$ 
+   - $$S=x_p, x_{p+1}, \ldots, x_{p+n-1}$$ : subsequence of length $$n \leq \mid T \mid $$ 
+   - assumed that $$x_t$$ is a realized value of a certain r.v $$X_t$$. 
 
 <br>
 
-2. MTS : $\boldsymbol{X}=\left\{\boldsymbol{x}_t\right\}_{t \in T}$ 
+2. MTS : $$\boldsymbol{X}=\left\{\boldsymbol{x}_t\right\}_{t \in T}$$ 
 
-- ordered set of $k$ dim-vectors
-- recorded at a specific time $t \in T \subseteq \mathbb{Z}^{+}$
-- consists of $k$ real-valued observations, $\boldsymbol{x}_t=\left(x_{1 t}, \ldots, x_{k t}\right)^1$
+- ordered set of $$k$$ dim-vectors
+- recorded at a specific time $$t \in T \subseteq \mathbb{Z}^{+}$$
+- consists of $$k$$ real-valued observations, $$\boldsymbol{x}_t=\left(x_{1 t}, \ldots, x_{k t}\right)^1$$
 
-- $S=x_p, x_{p+1}, \ldots, x_{p+n-1}$ : subsequence of length $n \leq \mid T \mid $ of $X$, 
-- $X_t=\left(X_{1 t}, \ldots, X_{k t}\right)$.
+- $$S=x_p, x_{p+1}, \ldots, x_{p+n-1}$$ : subsequence of length $$n \leq \mid T \mid $$ of $$X$$, 
+- $$X_t=\left(X_{1 t}, \ldots, X_{k t}\right)$$.
 
 <br>
 
@@ -145,11 +145,11 @@ Summary
 
   - ex)  If the detection method uses the entire TS as contextual information
 
-    $\rightarrow$ then the detected outliers are global. 
+    $$\rightarrow$$ then the detected outliers are global. 
 
   - ex) If the method only uses a segment of the series (a time window)
 
-    $\rightarrow$  then the detected outliers are local 
+    $$\rightarrow$$  then the detected outliers are local 
 
     ( because they are outliers within their neighborhood )
 
@@ -217,10 +217,10 @@ Both in UTS & MTS
 
 ***Point Outlier*** = point that significantly deviates from its expectve value
 
-$ \mid x_t-\hat{x}_t \mid >\tau$.
+$$ \mid x_t-\hat{x}_t \mid >\tau$$.
 
-- $x_t$ : observed
-- $\hat{x}_t$ : expected
+- $$x_t$$ : observed
+- $$\hat{x}_t$$ : expected
 
 <br>
 
@@ -230,9 +230,9 @@ $ \mid x_t-\hat{x}_t \mid >\tau$.
 
 ### 1-a) Model-based methods
 
-- $ \mid x_t-\hat{x}_t \mid >\tau$.
+- $$ \mid x_t-\hat{x}_t \mid >\tau$$.
 - most common approaches 
-  - each technique computes $\hat{x}_t$ and $\tau$ differently
+  - each technique computes $$\hat{x}_t$$ and $$\tau$$ differently
   - common ) based on fitting a model (either explicitly or implicitly). 
 
 <br>
@@ -243,11 +243,11 @@ $ \mid x_t-\hat{x}_t \mid >\tau$.
 
 (1) Estimation model-based methods
 
-- $\hat{x}_t$ is obtained using previous and subsequent observations to $x_t$ **(past, current, and future data)**
+- $$\hat{x}_t$$ is obtained using previous and subsequent observations to $$x_t$$ **(past, current, and future data)**
 
 (2) Prediction model-based methods
 
-- $\hat{x}_t$ is obtained relying only on previous observations to $x_t$ **(past data)**
+- $$\hat{x}_t$$ is obtained relying only on previous observations to $$x_t$$ **(past data)**
 
 <br>
 
@@ -256,7 +256,7 @@ Main difference ?
 - Prediction methods : can be used in streaming TS
   - can determine whether or not a new datum is an outlier as soon as it arrives. 
 - Estimation methods : 
-  - can only be done if, in addition to some points preceding / current point $x_t$ is used to compute
+  - can only be done if, in addition to some points preceding / current point $$x_t$$ is used to compute
 
 <br>
 
@@ -264,7 +264,7 @@ Main difference ?
 
 Example 1) constant or piecewise constant models
 
-- use basic statistics ( ex. median, Median Absolute Deviation (MAD) ) to obtain $\hat{x_t}$
+- use basic statistics ( ex. median, Median Absolute Deviation (MAD) ) to obtain $$\hat{x_t}$$
 - calculated using the full TS or by grouping the TSin equal-length segments
 - cannot be applied in streaming when future data is needed (k2 > 0). 
 
@@ -274,10 +274,10 @@ Example 2) unequal-length segments
 
 - obtained with a segmentation technique
 - ex) use the mean of each segment to determine the expected value
-- ex) adaptive threshold $\tau_i=\alpha \sigma_i$
-  - $\alpha$ : fixed value
-  - $\sigma_i$ : std of segment $i$
-  - $\alpha$ is a fixed value and $\sigma_i$ the standard deviation of segment $i$.
+- ex) adaptive threshold $$\tau_i=\alpha \sigma_i$$
+  - $$\alpha$$ : fixed value
+  - $$\sigma_i$$ : std of segment $$i$$
+  - $$\alpha$$ is a fixed value and $$\sigma_i$$ the standard deviation of segment $$i$$.
 
 <br>
 
@@ -295,7 +295,7 @@ Example 3)
 
 ### Example) Prediction based
 
-- fit a model to the TS & obtain $\hat{x_t}$ using only PAST data
+- fit a model to the TS & obtain $$\hat{x_t}$$ using only PAST data
 
 - deal with streaming TS
 
@@ -313,7 +313,7 @@ Example 3)
 
   - obtain confidence intervals for the predictions instead of only point estimates.
 
-  $\rightarrow$ implicitly define $\tau$
+  $$\rightarrow$$ implicitly define $$\tau$$
 
 <br>
 
@@ -321,7 +321,7 @@ Example 3)
 
 ( = by retraining the model )
 
-- ex) predicts the value $\hat{x_t}$ with the median of its past data
+- ex) predicts the value $$\hat{x_t}$$ with the median of its past data
 - ex) fit an ARIMA model within a sliding window
   - to compute the prediction interval
   - parameters are refitted each time that the window moves
@@ -338,15 +338,15 @@ Extreme Value Theory ( EVT )
 
 Details of EVT
 
-- given a fixed risk $q$, allows us to obtain a threshold value $z_{q, t}$ that adapts itself to the evolution of the data
+- given a fixed risk $$q$$, allows us to obtain a threshold value $$z_{q, t}$$ that adapts itself to the evolution of the data
 
-  - such that $P\left(X_t>z_{q, t}\right)<q$, for any $t \geq 0$, 
+  - such that $$P\left(X_t>z_{q, t}\right)<q$$, for any $$t \geq 0$$, 
   - assuming that the extreme values follow a Generalized Pareto Distribution (GPD).
 
 - Data is used to both..
 
-  - (1) detect anomalies $\left(X_t>z_{q, t}\right)$ 
-  - (2) refine $z_{q, t}$. 
+  - (1) detect anomalies $$\left(X_t>z_{q, t}\right)$$ 
+  - (2) refine $$z_{q, t}$$. 
 
 - example)
 
@@ -355,34 +355,34 @@ Details of EVT
 
 - retrain the underlying model periodically ( or each time a new point arrives )
 
-  $\rightarrow$ can adapt to the evolution of TS
+  $$\rightarrow$$ can adapt to the evolution of TS
 
 <br>
 
-All of these techniques are based on $ \mid x_t-\hat{x}_t \mid >\tau$
+All of these techniques are based on $$ \mid x_t-\hat{x}_t \mid >\tau$$
 
 - but not all the existing point outlier detection methods rely on that idea
 
-  - ex) density-based methods ( $\leftrightarrow$ model-based methods )
+  - ex) density-based methods ( $$\leftrightarrow$$ model-based methods )
 
-    - consider that points with less than $\tau$ neighbors are outliers
+    - consider that points with less than $$\tau$$ neighbors are outliers
 
-      ( $x_t$ is an outlier $\Longleftrightarrow \mid \left\{x \in X \mid d\left(x, x_t\right) \leq R\right\} \mid <\tau$)
+      ( $$x_t$$ is an outlier $$\Longleftrightarrow \mid \left\{x \in X \mid d\left(x, x_t\right) \leq R\right\} \mid <\tau$$)
 
 <br>
 
 ### 1-b) Density-based methods
 
-$x_t \text { is an outlier } \Longleftrightarrow \mid \left\{x \in X \mid d\left(x, x_t\right) \leq R\right\} \mid <\tau$.
+$$x_t \text { is an outlier } \Longleftrightarrow \mid \left\{x \in X \mid d\left(x, x_t\right) \leq R\right\} \mid <\tau$$.
 
-- $d$ : (commonly) Euclidean distance
-- $x_t$ : data point at $t$ step to be analyzed
+- $$d$$ : (commonly) Euclidean distance
+- $$x_t$$ : data point at $$t$$ step to be analyzed
 
 <br>
 
-Point is an outlier if $\tau_p+\tau_s<\tau$, 
+Point is an outlier if $$\tau_p+\tau_s<\tau$$, 
 
-- $\tau_p$ and $\tau_s$ are the number of preceding and succeeding neighbors at distance lower or equal than $R$
+- $$\tau_p$$ and $$\tau_s$$ are the number of preceding and succeeding neighbors at distance lower or equal than $$R$$
 
 <br>
 
@@ -395,14 +395,14 @@ Widely handled in non-temporal data
 
 ![figure2](/assets/img/ts/img392.png)
 
-Two different time steps with $R=0.5$, $\tau=3$, and a sliding window of length 11.
+Two different time steps with $$R=0.5$$, $$\tau=3$$, and a sliding window of length 11.
 
-- outlier for a window (e.g., O13 at $t=13$ ) 
-- NOT outlier for window (e.g., I13 at $t=17$ )
+- outlier for a window (e.g., O13 at $$t=13$$ ) 
+- NOT outlier for window (e.g., I13 at $$t=17$$ )
 
-- if a data point has at least $\tau$ succeeding neighbors within a window…
+- if a data point has at least $$\tau$$ succeeding neighbors within a window…
 
-  $\rightarrow$ cannot be an outlier for any future evolution (e.g., S4 at $t=13$ ).
+  $$\rightarrow$$ cannot be an outlier for any future evolution (e.g., S4 at $$t=13$$ ).
 
 <br>
 
@@ -425,7 +425,7 @@ Can deal
 
 Point outlier in a MTS
 
-$\rightarrow$ can affect both univariate / multivariate point
+$$\rightarrow$$ can affect both univariate / multivariate point
 
 ![figure2](/assets/img/ts/img394.png)
 
@@ -433,13 +433,13 @@ $\rightarrow$ can affect both univariate / multivariate point
 
 Some multivariate techniques
 
-$\rightarrow$ able to detect univariate point outliers
+$$\rightarrow$$ able to detect univariate point outliers
 
 <br>
 
 Some univariate techniques
 
-$\rightarrow$ able to detect multivariate point outliers
+$$\rightarrow$$ able to detect multivariate point outliers
 
 
 
@@ -463,7 +463,7 @@ ex 2) Dimension Reduction
 
 UTS analysis ignore correlation between TS
 
-$\rightarrow$ some researchers apply a preprocessing method to the MTS to **find a new set of uncorrelated variables** where univariate techniques can be applied. 
+$$\rightarrow$$ some researchers apply a preprocessing method to the MTS to **find a new set of uncorrelated variables** where univariate techniques can be applied. 
 
 - based on dimensionality reduction techniques,
 
@@ -513,12 +513,12 @@ Deal simultaneously with multiple time-dependent variables ( w.o transformation 
 
 <br>
 
-For a predefined threshold $\tau$, outliers are identified if
+For a predefined threshold $$\tau$$, outliers are identified if
 
-- $ \mid \mid \boldsymbol{x}_t-\hat{\boldsymbol{x}}_t \mid \mid >\tau$.
-  - $\boldsymbol{x}_t$ : actual $k$-dimensional data point
-  - $\hat{\boldsymbol{x}}_t$ : expected value
-- $\hat{\boldsymbol{x}}_{\boldsymbol{t}}$ can be obtained using …
+- $$ \mid \mid \boldsymbol{x}_t-\hat{\boldsymbol{x}}_t \mid \mid >\tau$$.
+  - $$\boldsymbol{x}_t$$ : actual $$k$$-dimensional data point
+  - $$\hat{\boldsymbol{x}}_t$$ : expected value
+- $$\hat{\boldsymbol{x}}_{\boldsymbol{t}}$$ can be obtained using …
   - (1) estimation models
   - (2) prediction models
 
@@ -534,7 +534,7 @@ For a predefined threshold $\tau$, outliers are identified if
 
 - outliers = non-representative features
 
-  $\rightarrow$ AE fails to reconstruct them
+  $$\rightarrow$$ AE fails to reconstruct them
 
 - ex) Sakurada and Yairi [2014] 
 
@@ -549,8 +549,8 @@ For a predefined threshold $\tau$, outliers are identified if
 
 - ex) Su et al. [2019]
   - based on VAE & GRU
-  - Input = sequence of observations containing $\boldsymbol{x}_t$ and $l$ preceding observations
-  - Output = reconstructed $\boldsymbol{x}_t\left(=\hat{\boldsymbol{x}}_t\right)$. 
+  - Input = sequence of observations containing $$\boldsymbol{x}_t$$ and $$l$$ preceding observations
+  - Output = reconstructed $$\boldsymbol{x}_t\left(=\hat{\boldsymbol{x}}_t\right)$$. 
   - Apply **extreme value theory** in the reference of normality to **automatically select the threshold value.**
 
 <br>
@@ -570,7 +570,7 @@ General trend estimation of multiple co-evolving time series
 
   - UTS point outliers = identified within each variable
 
-    ( instead of $k$-dim points )
+    ( instead of $$k$$-dim points )
 
 <br>
 
@@ -595,9 +595,9 @@ Based on computing the pairwise dissimilarity between MTS points
 
 ( w.o fitting the model )
 
-For a predefined threshold $\tau, \boldsymbol{x}_{\boldsymbol{t}}$ is a point outlier if:
+For a predefined threshold $$\tau, \boldsymbol{x}_{\boldsymbol{t}}$$ is a point outlier if:
 
-- $s\left(\boldsymbol{x}_{\boldsymbol{t}}, \hat{\boldsymbol{x}}_{\boldsymbol{t}}\right)>\tau$.
+- $$s\left(\boldsymbol{x}_{\boldsymbol{t}}, \hat{\boldsymbol{x}}_{\boldsymbol{t}}\right)>\tau$$.
 
 <br>
 
@@ -641,7 +641,7 @@ Key aspects
 
 
 
-**(1) Fixed-length ( $\leftrightarrow$ variable length ) subsequences**
+**(1) Fixed-length ( $$\leftrightarrow$$ variable length ) subsequences**
 
 - need the user to predefine the length
 - ( commonly ) obtain the subsequences using a sliding window over TS
@@ -682,7 +682,7 @@ When analyzing subsequence outliers in a streaming context… 3 cases
 
 Most of the models are fixed & do not adapt to changes in the streaming sequence
 
-$\rightarrow$  focus on the incremental techniques!
+$$\rightarrow$$  focus on the incremental techniques!
 
 ( = more suitable for processing streaming TS )
 
@@ -700,13 +700,13 @@ Comparing each subsequence with the others
 
 <br>
 
-$D$ is a discord of time series $X$ if
+$$D$$ is a discord of time series $$X$$ if
 
-- $\forall S \in A, \min _{D^{\prime} \in A, D \cap D^{\prime}=\emptyset}\left(d\left(D, D^{\prime}\right)\right)>\min _{S^{\prime} \in A, S \cap S^{\prime}=\emptyset}\left(d\left(S, S^{\prime}\right)\right)$.
-  - $A$ : set of all subsequences of $X$ extracted by a sliding window
-  - $D^{\prime}$ : subsequence in $A$ that does not overlap with $D$ 
-    - $S^{\prime}$ in $A$ does not overlap with $S$ 
-  - $d$ : Euclidean distance
+- $$\forall S \in A, \min _{D^{\prime} \in A, D \cap D^{\prime}=\emptyset}\left(d\left(D, D^{\prime}\right)\right)>\min _{S^{\prime} \in A, S \cap S^{\prime}=\emptyset}\left(d\left(S, S^{\prime}\right)\right)$$.
+  - $$A$$ : set of all subsequences of $$X$$ extracted by a sliding window
+  - $$D^{\prime}$$ : subsequence in $$A$$ that does not overlap with $$D$$ 
+    - $$S^{\prime}$$ in $$A$$ does not overlap with $$S$$ 
+  - $$d$$ : Euclidean distance
 
 <br>
 
@@ -731,7 +731,7 @@ Problem : do not have a reference of normality or a threshold
 
 - cannot specify whether it is indeed an outlier or not
 
-$\rightarrow$ Decision must be made by the user. 
+$$\rightarrow$$ Decision must be made by the user. 
 
 <br>
 
@@ -739,27 +739,27 @@ $\rightarrow$ Decision must be made by the user.
 
 based on the direct comparison of subsequences, using a reference of normality
 
-$\rightarrow$ reference of normality vary widely 
+$$\rightarrow$$ reference of normality vary widely 
 
 ( in contrast to the dissimilarity-based techniques analyzed MTS + point outliers )
 
 <br>
 
-For a predefined threshold $\tau$ , subsequence outliers are those that are dissimilar to normal subsequences
+For a predefined threshold $$\tau$$ , subsequence outliers are those that are dissimilar to normal subsequences
 
-- $s(S, \hat{S})>\tau$.
+- $$s(S, \hat{S})>\tau$$.
 
-  - $S$ : the subsequence being analyzed
+  - $$S$$ : the subsequence being analyzed
 
-  - $\hat{S}$ : expected value of $S$ 
+  - $$\hat{S}$$ : expected value of $$S$$ 
 
     ( = obtained based on the reference of normality )
 
-- Typically, $S$ is of fixed-length, non-periodic, and extracted via a sliding window
+- Typically, $$S$$ is of fixed-length, non-periodic, and extracted via a sliding window
 
 <br>
 
-How to obtain $\hat{S}$ ?
+How to obtain $$\hat{S}$$ ?
 
 <br>
 
@@ -773,7 +773,7 @@ Clustering techniques
 
 - commonly use this reference of normality to create clusters 
 
-- $s(S, \hat{S})>\tau$. can be defined by the centroid of the cluster
+- $$s(S, \hat{S})>\tau$$. can be defined by the centroid of the cluster
 
   ![figure2](/assets/img/ts/img404.png)
 
@@ -783,7 +783,7 @@ Clustering techniques
 
 Rely on an external TS as a reference of normality
 
-$\rightarrow$ assuming that it has been generated by the same underlying process but with no outliers.
+$$\rightarrow$$ assuming that it has been generated by the same underlying process but with no outliers.
 
 <br>
 
@@ -791,7 +791,7 @@ $\rightarrow$ assuming that it has been generated by the same underlying process
 
 only use the previous adjacent non-overlapping window to the subsequence being analyzed as the reference of normality, 
 
-$\rightarrow$ have a much more local perspective than the others
+$$\rightarrow$$ have a much more local perspective than the others
 
 <br>
 
@@ -799,9 +799,9 @@ $\rightarrow$ have a much more local perspective than the others
 
 Assume that normality is reflected by a time series composed of past subsequences. 
 
-- $\sum_{i=p}^{p+n-1} \mid x_i-\hat{x}_i \mid>\tau$.
-  - $S=x_p, \ldots, x_{p+n-1}$ : subsequence being analyzed
-  - $\hat{S}$ : its predicted value
+- $$\sum_{i=p}^{p+n-1} \mid x_i-\hat{x}_i \mid>\tau$$.
+  - $$S=x_p, \ldots, x_{p+n-1}$$ : subsequence being analyzed
+  - $$\hat{S}$$ : its predicted value
 
 <br>
 
@@ -818,16 +818,16 @@ Predictions can be made in 2 different manners:
 
 ### 1-d) Frequency-based methods
 
- A subsequence $S$ is an outlier if it does not appear as frequently as expected:
-- $\mid f(S)-\hat{f}(S)\mid >\tau$.
-  - $f(S)$ : frequency of occurrence of $S$ 
-  - $\hat{f}(S)$ : its expected frequency
+ A subsequence $$S$$ is an outlier if it does not appear as frequently as expected:
+- $$\mid f(S)-\hat{f}(S)\mid >\tau$$.
+  - $$f(S)$$ : frequency of occurrence of $$S$$ 
+  - $$\hat{f}(S)$$ : its expected frequency
 
 <br>
 
 Due to the difficulty of finding two exact real-valued subsequences in a TS when counting the frequencies
 
-$\rightarrow$ work with a discretized time series.
+$$\rightarrow$$ work with a discretized time series.
 
 <br>
 
