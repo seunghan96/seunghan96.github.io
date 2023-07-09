@@ -14,8 +14,19 @@ excerpt: 2023
 
 0. Abstract
 1. Introduction
-2. 
+2. Related Works
+   1. Unsupervised Domain Adaptation (UDA)
+   2. UDA for TS
 
+3. Problem Definition
+4. Proposed CLUDA Framework
+   1. Architecture
+   2. Adversarial Training for UDA
+   3. Capturing Contextual Representations
+   4. Aligning the Contextual Representation Across Domains
+
+5. Experimental Setups
+6. Results
 
 <br>
 
@@ -44,12 +55,6 @@ capture the variation in the contextual representations between source and targe
 First framework to learn **domain-invariant** representation for UDA of TS data. 
 
 <br>
-
-```
-mv /home/seunghan9613/PatchTST_sim/PatchTST_self_supervised/patchtst_sim_pretrained_D32_cw512_patch24_stride24_epochs-pretrain150_mask0.5_model1_no_permute_tau_temp1.0/* /home/seunghan9613/PatchTST_sim/PatchTST_self_supervised/saved_models/weather2weather/masked_patchtst_sim_half_v3_mean_FC2_sep_R/based_model/max/patchtst_sim_pretrained_D32_cw512_patch24_stride24_epochs-pretrain150_mask0.5_model1_no_permute_tau_temp1.0/
-```
-
-
 
 # 1. Introduction
 
