@@ -1,6 +1,6 @@
 ---
 title: (paper 93) Contrastive Learning for Unsupervised Domain Adaptation of Time Series
-categories: [CL, TS]
+categories: [CL, TS,DA]
 tags: []
 excerpt: 2023
 ---
@@ -396,7 +396,7 @@ Earlier works of UDA on time series
    
 2. **Real-world setting with medical datasets**
 - MIMIC-IV (Johnson et al., 2020) and AmsterdamUMCdb (Thoral et al., 2021). 
-   
+  
 - **each age group = each domain**
 
 <br>
