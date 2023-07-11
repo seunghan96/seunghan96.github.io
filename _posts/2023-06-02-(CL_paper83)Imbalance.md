@@ -1,6 +1,6 @@
 ---
 title: (paper 83) Rethinking the Value of Labels for Improving Class-Imbalanced Learning
-categories: [CV, CL, SEMI]
+categories: [CV, CL, SSL]
 tags: []
 excerpt: 2020
 ---

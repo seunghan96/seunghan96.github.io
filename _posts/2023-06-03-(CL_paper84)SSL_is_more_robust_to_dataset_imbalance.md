@@ -1,6 +1,6 @@
 ---
 title: (paper 84) SSL is More Robust to Dataset Imbalance
-categories: [CV, CL, SEMI]
+categories: [CV, CL, SSL]
 tags: []
 excerpt: 2022
 ---

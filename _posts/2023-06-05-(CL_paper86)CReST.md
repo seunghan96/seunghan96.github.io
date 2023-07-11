@@ -1,6 +1,6 @@
 ---
 title: (paper 86) CReST; A Class-Rebalancing Self-Training Framework for Imbalanced Semi-Supervised Learning
-categories: [CV, CL, SEMI]
+categories: [CV, CL, SSL]
 tags: []
 excerpt: 2021
 ---

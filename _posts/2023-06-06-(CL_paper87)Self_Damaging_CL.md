@@ -1,6 +1,6 @@
 ---
 title: (paper 87) Self-Damaging Contrastive Learning
-categories: [CV, CL, SEMI]
+categories: [CV, CL, SSL]
 tags: []
 excerpt: 2021
 ---
