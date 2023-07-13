@@ -81,3 +81,24 @@ $\rightarrow$ ***Continual Learning***
 
 ### Continual Active Learning (CAL)
 
+***Applies CL strategies to accelerate batch Active Learning***
+
+- apply CL to enable the model ...
+
+  - (1) to learn the **NEWLY** labeled points, 
+  - (2) without forgetting **PREVIOUSLY** labeled points
+
+  while using past samples efficiently, using replay-based methods. 
+
+- results) attains significant training time speedups 
+
+<br>
+
+Beneficial for the following reasons
+
+- (1) Cost Save
+- (2) Makes AL more accessible for edge computing
+- (3) Agnostic to the AL algorithm and the neural architecture
+
+<br>
+
