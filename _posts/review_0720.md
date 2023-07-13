@@ -21,11 +21,63 @@ when fine-tuning over AL query rounds
 
 ### Proposal) Continual Active Learning
 
+By **biasing** further training towards **previously labeled sets**
 
+- via replay-based Continual Learning (CL) algorithms
+  - effective at quickly learning the new without forgetting the old
 
- by biasing further training towards previously labeled sets. We accomplish this by employing existing, and developing novel, replay-based Continual Learning (CL) algorithms that are effective at quickly learning the new without forgetting the old, especially when data comes from an evolving distribution. We call this paradigm "Continual Active Learning" (CAL). We show CAL achieves significant speedups using a plethora of replay schemes that use model distillation and that select diverse/uncertain points from the history. We conduct experiments across many data domains, including natural language, vision, medical imaging, and computational biology, each with different neural architectures and dataset sizes. CAL consistently provides a $\sim 3 \mathrm{x}$ reduction in training time, while retaining performance and out-of-distribution robustness, showing its wide applicability.
-
-
+<br>
 
 # 1. Introduction
+
+Problems of NN
+
+- labeled-data hungry
+- require significant computation
+
+<br>
+
+Active learning (AL) 
+
+- selects subsets of points to label from a large pool of unlabeled data
+- incrementally add points to the labeled pool
+- shown to reduce the amount of training data required
+- Procedure of AL
+  - step 1)  Train a model fom scratch ( using $D_L$ )
+  - step 2) Measeure model uncertainty / Diversity to select a set of points to query
+- Problem of AL
+  - can be computationally expensive since it requires retraining a model after each query round.
+
+<br>
+
+### [ Solution 1 ]
+
+**Warm start** the model parameters between query rounds
+
+<br>
+
+BUT not a good solution..
+
+- reason 1) tend to still be limited, since the model must make several passes through an **ever-increasing pool of data**
+- reason 2) warm starting alone in some cases can hurt generalization
+
+<br>
+
+### [ Solution 2 ]
+
+Solely train on the newly labeled batch of examples to avoid re-initialization. 
+
+STILL not a good solution ...
+
+- fails to retain accuracy on previously seen examples,
+
+  since the distn of the query pool may drastically change with each round.
+
+  ( = catastrophic foregtting )
+
+$\rightarrow$ ***Continual Learning***
+
+<br>
+
+### Continual Active Learning (CAL)
 
