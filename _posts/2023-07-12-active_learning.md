@@ -68,12 +68,10 @@ Learner가 데이터를 생성 & 이에 대한 label을 인간에게 요청
 
 Output value ( after softmax )
 
-$$\begin{array}{|c|c|c|c|}
-\hline \text { Data } & \text { class A } & \text { class B } & \text { class C } \\
-\hline \mathrm{d} 1 & 0.9 & 0.09 & 0.01 \\
-\hline \mathrm{d} 2 & 0.2 & 0.5 & 0.3 \\
-\hline
-\end{array}$$
+(Class A, Class B, Class C)
+
+- $$d1$$ = ( 0.9, 0.09, 0.01 )
+- $$d2$$ = ( 0.2, 0.5, 0.3 )
 
 <br>
 
