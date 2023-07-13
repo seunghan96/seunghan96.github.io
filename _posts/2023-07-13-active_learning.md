@@ -1,10 +1,21 @@
-### Motivation
+---
+title: Active Learning
+categories: [ML]
+tags: []
+excerpt:
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+# [ Active Learning ]
+
+### Motivation of Active Learning
 
 잠재적으로 뛰어난 기계를 두고, 사람이 모든 라벨링을 진행??
 
 어떤 데이터가 필요한지를 기계가 판단 & 사람에게 라벨링을 부탁하는건?
 
-$\rightarrow$ Active Learning
+$$\rightarrow$$ Active Learning
 
  
 
@@ -57,30 +68,30 @@ Learner가 데이터를 생성 & 이에 대한 label을 인간에게 요청
 
 Output value ( after softmax )
 
-$\begin{array}{|c|c|c|c|}
+$$\begin{array}{|c|c|c|c|}
 \hline \text { Data } & \text { class A } & \text { class B } & \text { class C } \\
 \hline \mathrm{d} 1 & 0.9 & 0.09 & 0.01 \\
 \hline \mathrm{d} 2 & 0.2 & 0.5 & 0.3 \\
 \hline
-\end{array}$
+\end{array}$$
 
 <br>
 
 ## 1) Least Confidence (LC)
 
-- $d1$ = 0.9
-- $d2$ = 0.5
+- $$d1$$ = 0.9
+- $$d2$$ = 0.5
 
-$\rightarrow$ ask label of $d2$
+$$\rightarrow$$ ask label of $$d2$$
 
 <br>
 
 ## 2) Margin Samping
 
-- $d1$ = 0.9-0.009 = 0.81
-- $d2$ = 0.5-0.3 = 0.2
+- $$d1$$ = 0.9-0.009 = 0.81
+- $$d2$$ = 0.5-0.3 = 0.2
 
-$\rightarrow$ ask label of $d2$
+$$\rightarrow$$ ask label of $$d2$$
 
 <br>
 
@@ -88,12 +99,12 @@ $\rightarrow$ ask label of $d2$
 
 Entropy ( = Uncertainty )
 
-$\mathrm{H}(X)=-\sum_{i=1}^n \mathrm{P}\left(x_i\right) \log \mathrm{P}\left(x_i\right)$.
+$$\mathrm{H}(X)=-\sum_{i=1}^n \mathrm{P}\left(x_i\right) \log \mathrm{P}\left(x_i\right)$$.
 
-- $d1$ = 0.115
-- $d2$ = 0.447
+- $$d1$$ = 0.115
+- $$d2$$ = 0.447
 
-$\rightarrow$ ask label of $d2$
+$$\rightarrow$$ ask label of $$d2$$
 
 <br>
 
@@ -104,11 +115,11 @@ Overall procedure of **Active Learning**
 - Step 1) Data Collection ( = Unlabeled )
 
 - Step 2) Label some data
-  - (1) Labeled data : $D_L$
-  - (2) Unlabeled data : $D_U$
+  - (1) Labeled data : $$D_L$$
+  - (2) Unlabeled data : $$D_U$$
 
 - Step 3) Train the model
-  - using $D_L$
+  - using $$D_L$$
 
 - ***Step 4) Select some unlabeled data to be labeled***
 - Step 5) Repeat Step 3&4 ( until threshold )

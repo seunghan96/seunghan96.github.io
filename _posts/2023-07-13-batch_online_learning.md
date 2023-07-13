@@ -1,4 +1,13 @@
-# Batch Learning & Online Learning
+---
+title: Batch Learning vs Online Learning
+categories: [ML]
+tags: []
+excerpt:
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+# [ Batch Learning & Online Learning ]
 
 <br>
 
@@ -17,9 +26,9 @@
 
 한계점 : 데이터 양이 매우 많을 경우에...?
 
-$\rightarrow$ 새로운 데이터가 들어오면 실시간으로/능동적으로 학습할 필요가 있음!
+$$\rightarrow$$ 새로운 데이터가 들어오면 실시간으로/능동적으로 학습할 필요가 있음!
 
-$\rightarrow$ 이래서 등장한 것이 **Online Learning**
+$$\rightarrow$$ 이래서 등장한 것이 **Online Learning**
 
 <br>
 
@@ -36,7 +45,7 @@ $\rightarrow$ 이래서 등장한 것이 **Online Learning**
 
 - 학습이 끝난 데이터는 더 이상 보관 필요 X
 
-  $\rightarrow$ 저장공간 절약 가능!
+  $$\rightarrow$$ 저장공간 절약 가능!
 
 <br>
 
@@ -49,7 +58,7 @@ $\rightarrow$ 이래서 등장한 것이 **Online Learning**
 
 Online Learning에서 중요한 **Learning Rate (lr)**
 
-$\rightarrow$ lr이 클 경우, 새로운 데이터에 빠르게 적응 / but 과거 데이터 정보 잘 잊음
+$$\rightarrow$$ lr이 클 경우, 새로운 데이터에 빠르게 적응 / but 과거 데이터 정보 잘 잊음
 
 <br>
 
