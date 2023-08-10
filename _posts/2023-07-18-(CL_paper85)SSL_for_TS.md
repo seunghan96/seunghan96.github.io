@@ -46,7 +46,7 @@ Tasks : TS forecasting, classification, anomaly detection, and clustering tasks
 
 Transferring the pretext tasks designed for CV/NLP directly to TS
 
-$\rightarrow$ often fails to work in many scenarios. 
+$$\rightarrow$$ often fails to work in many scenarios. 
 
 <br>
 
@@ -161,7 +161,7 @@ Model architectures & Training objectives.
 
 ### Generative-based approach 
 
-- Encoder : $\mathbf{x} \rightarrow \mathbf{z}$
+- Encoder : $$\mathbf{x} \rightarrow \mathbf{z}$$
 - Training objective : Reconstruction error
 
 <br>
@@ -271,11 +271,11 @@ Categories
 
 ## (1) Autoregressive-based forecasting (ARF)
 
-Goal : $\hat{X}_{[t+1: t+K]}=f\left(X_{[1: t]}\right)$.
+Goal : $$\hat{X}_{[t+1: t+K]}=f\left(X_{[1: t]}\right)$$.
 
-Learning objective : $\mathcal{L}=D\left(\hat{X}_{[t+1: t+K]}, X_{[t+1: t+K]}\right)$.
+Learning objective : $$\mathcal{L}=D\left(\hat{X}_{[t+1: t+K]}, X_{[t+1: t+K]}\right)$$.
 
-- usually MSE : $\mathcal{L}=\frac{1}{K} \sum_{k=1}^K\left(\hat{X}_{[t+k]}-X_{[t+k]}\right)^2 $
+- usually MSE : $$\mathcal{L}=\frac{1}{K} \sum_{k=1}^K\left(\hat{X}_{[t+k]}-X_{[t+k]}\right)^2 $$
 
 <br>
 
@@ -303,9 +303,9 @@ SSTSC
 
 ## (2) Autoencoder-based reconstruction
 
-AE : $Z=E(X), \quad \tilde{X}=D(Z)$.
+AE : $$Z=E(X), \quad \tilde{X}=D(Z)$$.
 
-Goal : $\mathcal{L}=\|X-\tilde{X}\|_2 $
+Goal : $$\mathcal{L}=\|X-\tilde{X}\|_2 $$
 
 <br>
 
@@ -353,7 +353,7 @@ FuSAGNet [64]
 
 Denoisining AE
 
-- $X_n=\mathcal{T}(X), \quad Z=E\left(X_n\right), \quad \tilde{X}=D(Z)$,
+- $$X_n=\mathcal{T}(X), \quad Z=E\left(X_n\right), \quad \tilde{X}=D(Z)$$,
 - noise example
   - adding Gaussian noise
   - randomly setting some time steps to zero 
@@ -362,10 +362,10 @@ Denoisining AE
 
 Mask autoencoder (MAE) 
 
-- $X_m=\mathcal{M}(X), \quad Z=E\left(X_m\right), \quad \tilde{X}=D(Z)$,
+- $$X_m=\mathcal{M}(X), \quad Z=E\left(X_m\right), \quad \tilde{X}=D(Z)$$,
 
 - objective function
-  - $\mathcal{L}=\mathcal{M}\left(\|X-\tilde{X}\|_2\right)$.
+  - $$\mathcal{L}=\mathcal{M}\left(\|X-\tilde{X}\|_2\right)$$.
   - loss of MAE is only computed on the masked part. 
 - Masking in TS
   - time-step-wise masking
@@ -421,9 +421,9 @@ TARNet [74]
 
 Variational autoencoder (VAE) 
 
-- $P(Z \mid X)=E(X), \quad Z=\mathcal{S}(P(Z \mid X)), \quad \tilde{X}=D(Z)$.
-  - $\mathcal{S}(\cdot)$ : sampling operation
-- Loss term : $\mathcal{L}=\|X-\tilde{X}\|_2+\operatorname{KL}(\mathcal{N}(\mu, \delta), \mathcal{N}(0, I))$
+- $$P(Z \mid X)=E(X), \quad Z=\mathcal{S}(P(Z \mid X)), \quad \tilde{X}=D(Z)$$.
+  - $$\mathcal{S}(\cdot)$$ : sampling operation
+- Loss term : $$\mathcal{L}=\|X-\tilde{X}\|_2+\operatorname{KL}(\mathcal{N}(\mu, \delta), \mathcal{N}(0, I))$$
   - reconstruction item & regularization item
 - ex) InterFusion [77] 
   - hierarchical VAE
@@ -478,33 +478,33 @@ Two Markov chains
 
 
 
-Data distribution : $\boldsymbol{x}_0 \sim q\left(\boldsymbol{x}_0\right)$
+Data distribution : $$\boldsymbol{x}_0 \sim q\left(\boldsymbol{x}_0\right)$$
 
 <br>
 
 Forward Markov process : 
 
-- transition kernel $q\left(\boldsymbol{x}_t \mid \boldsymbol{x}_{t-1}\right)$. 
-  - usually set as $q\left(\boldsymbol{x}_t \mid \boldsymbol{x}_{t-1}\right)=\mathcal{N}\left(\boldsymbol{x}_t ; \sqrt{1-\beta_t} \boldsymbol{x}_{t-1}, \beta_t I\right)$
+- transition kernel $$q\left(\boldsymbol{x}_t \mid \boldsymbol{x}_{t-1}\right)$$. 
+  - usually set as $$q\left(\boldsymbol{x}_t \mid \boldsymbol{x}_{t-1}\right)=\mathcal{N}\left(\boldsymbol{x}_t ; \sqrt{1-\beta_t} \boldsymbol{x}_{t-1}, \beta_t I\right)$$
 
-- joint pdf  $\boldsymbol{x}_1, \boldsymbol{x}_2, \ldots, \boldsymbol{x}_T$ conditioned on $\boldsymbol{x}_0$ :
-  - $q\left(\boldsymbol{x}_1, \boldsymbol{x}_2, \ldots, \boldsymbol{x}_T \mid \boldsymbol{x}_0\right)=\prod_{t=1}^T q\left(\boldsymbol{x}_t \mid \boldsymbol{x}_{t-1}\right) $.
+- joint pdf  $$\boldsymbol{x}_1, \boldsymbol{x}_2, \ldots, \boldsymbol{x}_T$$ conditioned on $$\boldsymbol{x}_0$$ :
+  - $$q\left(\boldsymbol{x}_1, \boldsymbol{x}_2, \ldots, \boldsymbol{x}_T \mid \boldsymbol{x}_0\right)=\prod_{t=1}^T q\left(\boldsymbol{x}_t \mid \boldsymbol{x}_{t-1}\right) $$.
 
 <br>
 
 Backward Markov process
 
--  $p\left(\boldsymbol{x}_T\right)=\mathcal{N}\left(\boldsymbol{x}_T ; 0, I\right)$. 
-- joint pdf :  $p_\theta\left(\boldsymbol{x}_0, \boldsymbol{x}_1, \ldots, \boldsymbol{x}_T\right)=p\left(\boldsymbol{x}_T\right) \prod_{t=1}^T p_\theta\left(x_{t-1} \mid x_t\right)$,
-  - $p_\theta\left(\boldsymbol{x}_{\boldsymbol{t}-\mathbf{1}} \mid \boldsymbol{x}_{\boldsymbol{t}}\right)=$ $\mathcal{N}\left(\boldsymbol{x}_{t-1} ; \mu_\theta\left(\boldsymbol{x}_t, t\right), \sum_\theta\left(\boldsymbol{x}_t, t\right)\right)$. 
+-  $$p\left(\boldsymbol{x}_T\right)=\mathcal{N}\left(\boldsymbol{x}_T ; 0, I\right)$$. 
+- joint pdf :  $$p_\theta\left(\boldsymbol{x}_0, \boldsymbol{x}_1, \ldots, \boldsymbol{x}_T\right)=p\left(\boldsymbol{x}_T\right) \prod_{t=1}^T p_\theta\left(x_{t-1} \mid x_t\right)$$,
+  - $$p_\theta\left(\boldsymbol{x}_{\boldsymbol{t}-\mathbf{1}} \mid \boldsymbol{x}_{\boldsymbol{t}}\right)=$$ $$\mathcal{N}\left(\boldsymbol{x}_{t-1} ; \mu_\theta\left(\boldsymbol{x}_t, t\right), \sum_\theta\left(\boldsymbol{x}_t, t\right)\right)$$. 
 
 <br>
 
 Goal : minimize KL-div btw 2 joint distns
 
-- $\begin{array}{r}
+- $$\begin{array}{r}
   \mathbf{K L}\left(q\left(\boldsymbol{x}_1, \boldsymbol{x}_2, \ldots, \boldsymbol{x}_T\right) \| p_\theta\left(\boldsymbol{x}_0, \boldsymbol{x}_1, \ldots, \boldsymbol{x}_T\right)\right) \geq \mathbf{E}\left[-\log p_\theta\left(\boldsymbol{x}_0\right)\right]+\text { const }
-  \end{array}$.
+  \end{array}$$.
 
 <br>
 
@@ -512,9 +512,9 @@ Goal : minimize KL-div btw 2 joint distns
 
 Notation :
 
-- pdf : $p(\boldsymbol{x})$
-- Stein score : $\nabla_x \log p(\boldsymbol{x})$ 
-  - gradient of the log density function of the input data $\boldsymbol{x}$, 
+- pdf : $$p(\boldsymbol{x})$$
+- Stein score : $$\nabla_x \log p(\boldsymbol{x})$$ 
+  - gradient of the log density function of the input data $$\boldsymbol{x}$$, 
   - points to the directions with the largest growth rate in pdf
 
 <br>
@@ -529,13 +529,13 @@ Key idea :
 
 Langevin dynamics
 
-- ( step size $\alpha>0$, a number of iterations $T$ , initial sample $x_0$ )
+- ( step size $$\alpha>0$$, a number of iterations $$T$$ , initial sample $$x_0$$ )
 
-- iteratively does the following estimation to gain a close approximation of $p(\boldsymbol{x})$
+- iteratively does the following estimation to gain a close approximation of $$p(\boldsymbol{x})$$
 
-  $\boldsymbol{x}_t \leftarrow \boldsymbol{x}_{t-1}+\alpha \nabla_x \log p\left(\boldsymbol{x}_{t-1}\right)+\sqrt{2 \alpha} \boldsymbol{z}_t, 1 \leq t \leq T$.
+  $$\boldsymbol{x}_t \leftarrow \boldsymbol{x}_{t-1}+\alpha \nabla_x \log p\left(\boldsymbol{x}_{t-1}\right)+\sqrt{2 \alpha} \boldsymbol{z}_t, 1 \leq t \leq T$$.
 
-  - where $z_t \sim \mathcal{N}(0, I)$. 
+  - where $$z_t \sim \mathcal{N}(0, I)$$. 
 
 - However, the score function is inaccurate without the training data, and Langevin dynamics may not converge correctly. 
 
@@ -559,9 +559,9 @@ DDPMs & SGMs
 Score SDEs 
 
 - process the diffusion operation according to the stochastic differential equation 
-- $d \boldsymbol{x}=f(\boldsymbol{x}, t) d t+g(t) d \boldsymbol{w}$,
-  - where $f(\boldsymbol{x}, t)$ and $g(t)$ are diffusion function and drift function of the SDE
-  - $\boldsymbol{w}$ : standard Wiener process. 
+- $$d \boldsymbol{x}=f(\boldsymbol{x}, t) d t+g(t) d \boldsymbol{w}$$,
+  - where $$f(\boldsymbol{x}, t)$$ and $$g(t)$$ are diffusion function and drift function of the SDE
+  - $$\boldsymbol{w}$$ : standard Wiener process. 
 
 <br>
 
@@ -569,23 +569,23 @@ Score SDEs generalize the diffusion process to the case of **infinite time steps
 
 Fortunately, DDPMs and SGMs also can be formulated with corresponding SDEs. 
 
-- DDPMs : $d \boldsymbol{x}=-\frac{1}{2} \beta(t) \boldsymbol{x} d t+\sqrt{\beta(t)} d \boldsymbol{w}$
-  - where $\beta\left(\frac{t}{T}\right)=T \beta_t$ when $\mathrm{T}$ goes to infinity
-- SGMs : $d \boldsymbol{x}=\sqrt{\frac{d\left[\delta(t)^2\right]}{d t}} d \boldsymbol{w}$
-  - where $\delta\left(\frac{t}{T}\right)=\delta_t$ as $\mathrm{T}$ goes to infinity.
+- DDPMs : $$d \boldsymbol{x}=-\frac{1}{2} \beta(t) \boldsymbol{x} d t+\sqrt{\beta(t)} d \boldsymbol{w}$$
+  - where $$\beta\left(\frac{t}{T}\right)=T \beta_t$$ when $$\mathrm{T}$$ goes to infinity
+- SGMs : $$d \boldsymbol{x}=\sqrt{\frac{d\left[\delta(t)^2\right]}{d t}} d \boldsymbol{w}$$
+  - where $$\delta\left(\frac{t}{T}\right)=\delta_t$$ as $$\mathrm{T}$$ goes to infinity.
 
 <br>
-With any diffusion process in the form of $d \boldsymbol{x}=f(\boldsymbol{x}, t) d t+g(t) d \boldsymbol{w}$,
+With any diffusion process in the form of $$d \boldsymbol{x}=f(\boldsymbol{x}, t) d t+g(t) d \boldsymbol{w}$$,
 
-$\rightarrow$ reverse process can be gained by ..
+$$\rightarrow$$ reverse process can be gained by ..
 
-- $d \boldsymbol{x}=\left[f(\boldsymbol{x}, t)-g(t)^2 \nabla_{\boldsymbol{x}} \log q_t(\boldsymbol{x})\right] d t+g(t) d \overline{\boldsymbol{w}}$.
-  - $\overline{\boldsymbol{w}}$ : a standard Wiener process when time flows reversely
-  - $d t$ :an infinitesimal time step. 
+- $$d \boldsymbol{x}=\left[f(\boldsymbol{x}, t)-g(t)^2 \nabla_{\boldsymbol{x}} \log q_t(\boldsymbol{x})\right] d t+g(t) d \overline{\boldsymbol{w}}$$.
+  - $$\overline{\boldsymbol{w}}$$ : a standard Wiener process when time flows reversely
+  - $$d t$$ :an infinitesimal time step. 
 
 <br>
 
-Besides that, the existence of an ordinary differential equation, which is also called the probability flow $O D E$, is defined as follows.
+Besides that, the existence of an ordinary differential equation, which is also called the probability flow $$O D E$$, is defined as follows.
 $$
 d \boldsymbol{x}=\left[f(\boldsymbol{x}, t)-\frac{1}{2} g(t)^2 \nabla_{\boldsymbol{x}} \log q_t(\boldsymbol{x})\right] d t .
 $$
