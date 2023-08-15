@@ -231,7 +231,7 @@ Linear state space transition equation
 
   via a $$N$$-D hidden state $$x(t)$$. 
 
-- $$x^{\prime}(t)=A x(t)+B u(t) \text { and } y(t)=C x(t)+D u(t)$$.
+- $$x^{\prime}(t)=A x(t)+B u(t) \text { and } y(t)=C x^{\prime}(t)+D u(t)$$.
 
 <br>
 
