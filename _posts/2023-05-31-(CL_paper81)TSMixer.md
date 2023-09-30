@@ -103,8 +103,7 @@ DL ( Transformer-based models )
 
 2 essential questions
 
-1. ***Does cross-variate information truly provide a benefit for TS forecasting?***
-2. ***When cross-variate information is not beneficial, can multivariate models still perform as well as univariate models?***
+1.  
 
 <br>
 
@@ -342,9 +341,9 @@ perfect solution :
 
 Deeper insights into ***why previous DL models tend to overfit the data***
 
-- Linear models = “time-step-dependent”
+- Linear models = **“time-step-dependent”**
   - weights of the mapping are fixed for each time step
-- Recurrernt / Attention models = "data-dependent" 
+- Recurrent / Attention models = **"data-dependent"** 
   - weights over the input sequence are outputs of a "data-dependent" function
 
 <br>
