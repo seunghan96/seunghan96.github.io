@@ -17,6 +17,19 @@ https://github.com/thuml/Nonstationary_Transformers.
 
 0. Abstract
 0. Introduction
+0. Related Works
+   0. Deep Models for TSF
+   0. Stationarization for TSF
+
+0. Non-stationary Transformers
+   0. Series Stantionarization
+   0. De-stationary Attention
+
+0. Experiments
+   0. Experimental Setups
+   0. Main Results
+   0. Ablation Study
+
 
 <br>
 
@@ -24,7 +37,7 @@ https://github.com/thuml/Nonstationary_Transformers.
 
 Previous studies : use stationarization to attenuate the non-stationarity of TS
 
-$\rightarrow$ can be less instructive for real-world TS
+$$\rightarrow$$ can be less instructive for real-world TS
 
 <br>
 
@@ -52,7 +65,7 @@ Non-stationarity of data
 
 However, non-stationarity is the inherent property
 
-$\rightarrow$ also good guidance for discovering temporal dependencies
+$$\rightarrow$$ also good guidance for discovering temporal dependencies
 
 <br>
 
@@ -62,7 +75,7 @@ Example) Figure 1
 
 - ( Figure 1 (b) ) Transformers trained on the stationarized series tend to generate indistinguishable attentions
 
-  $\rightarrow$ ***over-stationarization*** problem
+  $$\rightarrow$$ ***over-stationarization*** problem
 
   - unexpected side-effect ... makes Transformers fail to capture eventful temporal dependencies
 
@@ -166,27 +179,122 @@ De-stationary Attention mechanism
 
 <br>
 
-Self-Attention: $\operatorname{Attn}(\mathbf{Q}, \mathbf{K}, \mathbf{V})=\operatorname{Softmax}\left(\frac{\mathbf{Q K}^{\top}}{\sqrt{d_k}}\right) \mathbf{V}$.
+Self-Attention: $$\operatorname{Attn}(\mathbf{Q}, \mathbf{K}, \mathbf{V})=\operatorname{Softmax}\left(\frac{\mathbf{Q K}^{\top}}{\sqrt{d_k}}\right) \mathbf{V}$$.
 
 Bring the vanished non-stationary information back to its calculation
 
 - approximate the 
 
-  - positive scaling scalar $\tau=\sigma_{\mathbf{x}}^2 \in \mathbb{R}^{+}$
-  - shifting vector $\boldsymbol{\Delta}=\mathbf{K} \mu_{\mathbf{Q}} \in \mathbb{R}^{S \times 1}$, 
+  - positive scaling scalar $$\tau=\sigma_{\mathbf{x}}^2 \in \mathbb{R}^{+}$$
+  - shifting vector $$\boldsymbol{\Delta}=\mathbf{K} \mu_{\mathbf{Q}} \in \mathbb{R}^{S \times 1}$$, 
 
   which are defined as de-stationary factors. 
 
-- try to learn de-stationary factors directly from the statistics of unstationarized $\mathbf{x}, \mathbf{Q}$ and $\mathbf{K}$ by MLP
+- try to learn de-stationary factors directly from the statistics of unstationarized $$\mathbf{x}, \mathbf{Q}$$ and $$\mathbf{K}$$ by MLP
 
 <br>
 
-$\log \tau=\operatorname{MLP}\left(\sigma_{\mathbf{x}}, \mathbf{x}\right)$.
+$$\log \tau=\operatorname{MLP}\left(\sigma_{\mathbf{x}}, \mathbf{x}\right)$$.
 
-$\boldsymbol{\Delta}=\operatorname{MLP}\left(\mu_{\mathbf{x}}, \mathbf{x}\right)$.
-$\operatorname{Attn}\left(\mathbf{Q}^{\prime}, \mathbf{K}^{\prime}, \mathbf{V}^{\prime}, \tau, \boldsymbol{\Delta}\right)=\operatorname{Softmax}\left(\frac{\tau \mathbf{Q}^{\prime} \mathbf{K}^{\prime}+\mathbf{1} \boldsymbol{\Delta}^{\top}}{\sqrt{d_k}}\right) \mathbf{V}^{\prime}$.
+$$\boldsymbol{\Delta}=\operatorname{MLP}\left(\mu_{\mathbf{x}}, \mathbf{x}\right)$$.
+$$\operatorname{Attn}\left(\mathbf{Q}^{\prime}, \mathbf{K}^{\prime}, \mathbf{V}^{\prime}, \tau, \boldsymbol{\Delta}\right)=\operatorname{Softmax}\left(\frac{\tau \mathbf{Q}^{\prime} \mathbf{K}^{\prime}+\mathbf{1} \boldsymbol{\Delta}^{\top}}{\sqrt{d_k}}\right) \mathbf{V}^{\prime}$$.
 
 <br>
 
 # 4. Experiments
+
+## (1) Experimental Setups
+
+### a) Datasets
+
+- Electricity
+- ETT datasets
+- IExchange
+- ILI
+- Traffic
+- Weather
+
+<br>
+
+### b) Degree of stationarity
+
+Augmented Dick-Fuller (ADF) test statistic 
+
+- small value = high stationarity
+
+![figure2](/assets/img/ts/img472.png)
+
+<br>
+
+### c) Baselines
+
+- pass
+
+<br>
+
+## (2) Main Results
+
+### a) Forecasting
+
+MTS Forecasting
+
+![figure2](/assets/img/ts/img473.png)
+
+<br>
+
+UTS Forecasting
+
+![figure2](/assets/img/ts/img474.png)
+
+<br>
+
+### b) Framework Generality
+
+![figure2](/assets/img/ts/img475.png)
+
+Conclusion: Non-stationary Transformer is an **effective and lightweight** framework that can be widely **applied to Transformer-based models** and enhances their non-stationary predictability
+
+<br>
+
+## (3) Ablation Study
+
+### a) Quality evaluation 
+
+Dataset: ETTm2
+
+Models: 
+
+- vanilla Transformer
+- Transformer with only Series Stationarization
+- Non-stationary Transformer
+
+<br>
+
+![figure2](/assets/img/ts/img476.png)
+
+<br>
+
+### b) Quantitative performance
+
+![figure2](/assets/img/ts/img477.png)
+
+<br>
+
+## (3) Model Analysis
+
+### a) Over-stationarization problem
+
+Transformers with ....
+
+- v1) Transformer + Ours ( = Non-stationary Transformer )
+- v2) Transformer + RevIN
+- v3) Transformer + Series Stationarization
+
+<br>
+
+![figure2](/assets/img/ts/img478.png)
+
+Result
+
+- v2 & v3) tend to output series with unexpected high degree of stationarity
 
