@@ -47,6 +47,14 @@ feature_row2:
     url: "categories/ts/"
     btn_label: "Read More"
     btn_class: "btn--primary"
+
+  - image_path: /assets/img/TAB.png
+    alt: "placeholder image 2"
+    title: "Tabular Deep Learning"
+    excerpt: 'DL with Tabular Data'
+    url: "categories/tab/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
     
   - image_path: /assets/img/STUDY.jpg  
     alt: "placeholder image 2"
