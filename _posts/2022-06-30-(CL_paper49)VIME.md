@@ -1,6 +1,6 @@
 ---
 title: (paper 49) VIME
-categories: [CL, CV, SSL]
+categories: [CL, SSL, TAB]
 tags: []
 excerpt: 2020
 ---

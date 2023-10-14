@@ -1,6 +1,6 @@
 ---
 title: (paper 52) CORE
-categories: [CL, SSL]
+categories: [CL, SSL, TAB]
 tags: []
 excerpt: 2021
 ---
