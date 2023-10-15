@@ -2,20 +2,28 @@
 title: Semi-SL & Self-SL for Tabular Data
 categories: [TAB]
 tags: []
-excerpt: 
+excerpt: VIME, SubTab, SCARF, Contrastive Mixup
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 # Semi-SL & Self-SL for Tabular Data
 
-<br>
-
-https://www.youtube.com/watch?v=nt2d6JTIoH0
+참고: https://www.youtube.com/watch?v=nt2d6JTIoH0
 
 <br>
 
-# Semi-SL & Self-SL
+# Contents
+
+0. Introduction
+1. VIME
+2. SubTab
+3. SCARF
+4. Contrastive Mixup
+
+# 0. Introduction
+
+## (1) Semi-SL & Self-SL
 
 Semi-supervised Learning
 
@@ -31,7 +39,7 @@ Self-supervised Learning
 
 <br>
 
-# Tabular data
+## (2) Tabular data
 
 Tabular Data : 2차원의 데이터 ( 행& 열 )
 
@@ -39,7 +47,7 @@ Tabular Data의 트렌드 :  정형 데이터의 상대적 비중이 줄어들�
 
 <br>
 
-# Tabular Data의 어려움
+## (3) Tabular Data의 어려움
 
 Perform poor on tabular
 
@@ -60,7 +68,7 @@ Feature 간의 관계
 전처리가 어려움
 
 - 수치형 & 범주형 변수의 공존
-  - 범주형 변수: 원핫인코딩 $\rightarrow$ 차원의 저주 
+  - 범주형 변수: 원핫인코딩 $$\rightarrow$$ 차원의 저주 
 
 - 기존의 data augmentation 기법의 적용 어려움
 
@@ -70,7 +78,7 @@ Feature 간의 관계
 
 <br>
 
-# Different Approaches for Tabular Data
+## (4) Different Approaches for Tabular Data
 
 방법 1) 정형 데이터를 이미지화
 
@@ -158,8 +166,8 @@ Losses
 
 How to treat unlabeled data?
 
-- augment $K$ times ... with random mask ( from mask generator )
-- $K$ outputs should be consistent
+- augment $$K$$ times ... with random mask ( from mask generator )
+- $$K$$ outputs should be consistent
 
 ![figure2](/assets/img/tab/img3.png)
 
@@ -227,7 +235,7 @@ A) 서로 다른 2개의 subset ( = 2 views )
 - 같은 row : positive pair
 - 다른 row : negative pair
 
-( 추가: class 수가 많을 수록, negative pair 가능성 UP $\rightarrow$ 효과 UP )
+( 추가: class 수가 많을 수록, negative pair 가능성 UP $$\rightarrow$$ 효과 UP )
 
 <br>
 
@@ -235,7 +243,7 @@ A) 서로 다른 2개의 subset ( = 2 views )
 
 같은 row, 다른 subset: embedding space에서 가까워야! 
 
-$\rightarrow$ MSE loss 추가 부여 가능
+$$\rightarrow$$ MSE loss 추가 부여 가능
 
 <br>
 
@@ -247,9 +255,9 @@ $\rightarrow$ MSE loss 추가 부여 가능
 
 Network
 
-1. Encoder $f$  ........... pretrain
-2. Pretrain head $g$ ........... pretrain
-3. Cls head $h$ ........... finetune
+1. Encoder $$f$$  ........... pretrain
+2. Pretrain head $$g$$ ........... pretrain
+3. Cls head $$h$$ ........... finetune
 
 <br>
 
@@ -309,7 +317,7 @@ Loss
 ## a) Mixup ( LABELED data )
 
 - (1) "data space"가 아닌 "embedding space"에서 진행 
-  - ($\because$ categorical var는 섞을 수 없음)
+  - ($$\because$$ categorical var는 섞을 수 없음)
 - (2) "동일한 label"을 가진 sample 간에서만 진행
 
 ![figure2](/assets/img/tab/img8.png)
@@ -327,7 +335,7 @@ Loss
 
 ## c) Overall Procedure
 
-( 참고: pseudo-label은 $K+1$ 번째 epoch 이후로 진행 ... 그 이전까지는 labeled data로만 )
+( 참고: pseudo-label은 $$K+1$$ 번째 epoch 이후로 진행 ... 그 이전까지는 labeled data로만 )
 
 Reconstruction Loss
 
@@ -340,3 +348,9 @@ Contrastive Loss
 Contrastive Loss
 
 - Unlabeled Loss (K+1번째 epoch 이후)
+
+<br>
+
+## d) Fine-tune
+
+Labeled data 뿐만 아니라, Unlabeled data ( + pseudo-label )도 함께 사용
