@@ -44,21 +44,21 @@ Plotting complex numbers in ...
 
 <br>
 
-$\cos (\gamma)=\frac{a}{|c|} $.
+$\cos (\gamma)=\frac{a}{ \mid c \mid } $.
 
-$\rightarrow$ $a=|c| \cdot \cos (\gamma)$
+$\rightarrow$ $a= \mid c \mid  \cdot \cos (\gamma)$
 
 <br>
 
-$\sin (\gamma)=\frac{b}{|c|}$.
+$\sin (\gamma)=\frac{b}{ \mid c \mid }$.
 
-$\rightarrow$ $b=|c| \cdot \sin (\gamma)$
+$\rightarrow$ $b= \mid c \mid  \cdot \sin (\gamma)$
 
 <br>
 
  $c = a+ib$
 
-$\rightarrow$ $c=|c| \cdot(\cos (\gamma)+i \sin (\gamma))$.
+$\rightarrow$ $c= \mid c \mid  \cdot(\cos (\gamma)+i \sin (\gamma))$.
 
 <br>
 
@@ -88,7 +88,7 @@ $\rightarrow$ $e^{i\pi}=-1$.
 
 ## (3) Polar coordinates 2.0
 
-$c=|c| \cdot(\cos (\gamma)+i \sin (\gamma))$.
+$c= \mid c \mid  \cdot(\cos (\gamma)+i \sin (\gamma))$.
 
 $e^{i \gamma}=\cos (\gamma)+i \sin (\gamma)$.
 
@@ -182,7 +182,7 @@ ABSOLUTE value of $\hat{g}(f)$
 
 = REAL part of $c_f$
 
-= $d_f=\sqrt{2} \cdot|\hat{g}(f)|$.
+= $d_f=\sqrt{2} \cdot \mid \hat{g}(f) \mid $.
 
 <br>
 
