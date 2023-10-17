@@ -12,6 +12,8 @@ main:
     url: /categories/ts/  
   - title: "TAB"
     url: /categories/tab/  
+  - title: "AUDIO"
+    url: /categories/audio/  
   - title: "STUDY"
     url: /categories/study/
   - title: "GIT"
