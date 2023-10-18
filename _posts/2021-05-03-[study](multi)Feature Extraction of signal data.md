@@ -1,6 +1,6 @@
 ---
 title: \[multimodal\] FE of signal data - (1) Fourier Transform
-categories: [MULT]
+categories: [MULT,TS,AUDIO]
 tags: [Multimodal Learning]
 excerpt: Signal Data, Fourier Transform, MFCC
 ---
