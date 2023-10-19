@@ -17,11 +17,11 @@ excerpt:
 
 # 1. (Recap) Discrete Fourier Transform
 
-### $\hat{x}(k / N)=\sum_{n=0}^{N-1} x(n) \cdot e^{-i 2 \pi n \frac{k}{N}}$.
+### $$\hat{x}(k / N)=\sum_{n=0}^{N-1} x(n) \cdot e^{-i 2 \pi n \frac{k}{N}}$$.
 
-$\rightarrow$ no time information!
+$$\rightarrow$$ no time information!
 
-$\rightarrow$ solution: **STFT**
+$$\rightarrow$$ solution: **STFT**
 
 <br>
 
@@ -37,7 +37,7 @@ slide the window & perform FFT per window!
 
 apply **windowing function** to signal & slide!
 
-$x_w(k)=x(k) \cdot w(k)$.
+$$x_w(k)=x(k) \cdot w(k)$$.
 
 <br>
 
@@ -50,19 +50,19 @@ Two designs
 
 <br>
 
-## (2) DFT $\rightarrow$ STFT
+## (2) DFT $$\rightarrow$$ STFT
 
 [DFT]
 
-### $\hat{x}(k)=\sum_{n=0}^{N-1} x(n) \cdot e^{-i 2 \pi n \frac{k}{N}}$.
+### $$\hat{x}(k)=\sum_{n=0}^{N-1} x(n) \cdot e^{-i 2 \pi n \frac{k}{N}}$$.
 
 <br>
 
 [STFT]
 
-### $S(m, k)=\sum_{n=0}^{N-1} x(n+m H) \cdot w(n) \cdot e^{-i 2 \pi n \frac{k}{N}}$.
+### $$S(m, k)=\sum_{n=0}^{N-1} x(n+m H) \cdot w(n) \cdot e^{-i 2 \pi n \frac{k}{N}}$$.
 
-- $mH$ : starting sample of current frame
+- $$mH$$ : starting sample of current frame
 
 <br>
 
@@ -76,7 +76,7 @@ DFT
 
 - spectral vector 
   - shape: ( \# of frequency bins )
-- $N$ complex Fourier coefficients
+- $$N$$ complex Fourier coefficients
 
 <br>
 
@@ -84,9 +84,9 @@ STFT
 
 - spectral matrix 
   - shape: ( \# of frequency bins , \# of frames)
-    - \# of frequency bins : $\frac{\text{frame size}}{2} + 1$
-    - \# of frames = $
-- $N^{\prime}$ complex Fourier coefficients
+    - \# of frequency bins : $$\frac{\text{frame size}}{2} + 1$$
+    - \# of frames = $$
+- $$N^{\prime}$$ complex Fourier coefficients
 
 <br>
 
@@ -94,7 +94,7 @@ STFT
 
 Settings
 
-- Raw signal = 10,000 samples ( $N=10,000$ )
+- Raw signal = 10,000 samples ( $$N=10,000$$ )
 
 - Frame size = 1,000
 
@@ -102,19 +102,19 @@ Settings
 
 <br>
 
-\# of frequency bins = $\frac{1000}{2}+1 = 501$ .... ( 0, sampling rate / 2)
+\# of frequency bins = $$\frac{1000}{2}+1 = 501$$ .... ( 0, sampling rate / 2)
 
-\# of frames = $\frac{10000-1000}{500} + 1= 19$
+\# of frames = $$\frac{10000-1000}{500} + 1= 19$$
 
-$\rightarrow$ shape of **spectral matrix** = **(501,19)**
+$$\rightarrow$$ shape of **spectral matrix** = **(501,19)**
 
 <br>
 
 ## (5) Parameters of STFT
 
 1. Frame Size
-   - HIGH frame size $\rightarrow$ HIGH frequency resolution & LOW time resolution
-   - SMALL frame size $\rightarrow$ LOW frequency resolution & HIGH time resolution
+   - HIGH frame size $$\rightarrow$$ HIGH frequency resolution & LOW time resolution
+   - SMALL frame size $$\rightarrow$$ LOW frequency resolution & HIGH time resolution
 2. Hop Size
 3. Windowing Function
    - ex) Hann window
@@ -131,7 +131,7 @@ $\rightarrow$ shape of **spectral matrix** = **(501,19)**
 
 ### Visualizing sound
 
-value: $Y(m, k)=\mid S(m, k)\mid ^2$.
+value: $$Y(m, k)=\mid S(m, k)\mid ^2$$.
 
 <br>
 
