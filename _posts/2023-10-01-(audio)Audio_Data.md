@@ -34,10 +34,10 @@ Compare signal with **sinusoids of various freuqencies**
 
 ### Sine wave
 
-$\sin (2 \pi \cdot(f t-\varphi))$.
+$$\sin (2 \pi \cdot(f t-\varphi))$$.
 
-- $f$ : frequency
-- $\varphi$ : phase
+- $$f$$ : frequency
+- $$\varphi$$ : phase
 
 <br>
 
@@ -45,7 +45,7 @@ $\sin (2 \pi \cdot(f t-\varphi))$.
 
 Step 1) Choose a frequency
 
-Step 2) Optimize phase $\varphi$
+Step 2) Optimize phase $$\varphi$$
 
 - that maximizes the similarity with the signal
 
@@ -53,32 +53,32 @@ Step 3) Calculate magnitude
 
 - magnitude = similarity btw signal & sinusoid of chosen frequency
 
-$\rightarrow$ REPEAT 1~3 for all possible frequencies ( inifinte..? )
+$$\rightarrow$$ REPEAT 1~3 for all possible frequencies ( inifinte..? )
 
 <br>
 
 ### Optimizing a phase
 
-$\varphi_f=\operatorname{argmax}_{\varphi \in[0,1)}\left(\int s(t) \cdot \sin (2 \pi \cdot(f t-\varphi)) \cdot d t\right)$.
+$$\varphi_f=\operatorname{argmax}_{\varphi \in[0,1)}\left(\int s(t) \cdot \sin (2 \pi \cdot(f t-\varphi)) \cdot d t\right)$$.
 
-- $s(t) \cdot \sin (2 \pi \cdot(f t-\varphi)) $ : multiplying **signal** & **sinusoid**
+- $$s(t) \cdot \sin (2 \pi \cdot(f t-\varphi)) $$ : multiplying **signal** & **sinusoid**
 
-- $\operatorname{argmax}_{\varphi \in[0,1)}$ : selecting the phase that maximizes the area
+- $$\operatorname{argmax}_{\varphi \in[0,1)}$$ : selecting the phase that maximizes the area
 
 <br>
 
 ### Calculate the (largest possible) area
 
-( with the chosen best $\varphi$ )
+( with the chosen best $$\varphi$$ )
 
-$d_f=\max _{\varphi \in[0,1)}\left(\int s(t) \cdot \sin (2 \pi \cdot(f t-\varphi)) \cdot d t\right)$.
+$$d_f=\max _{\varphi \in[0,1)}\left(\int s(t) \cdot \sin (2 \pi \cdot(f t-\varphi)) \cdot d t\right)$$.
 
 <br>
 
 BUT .... infinite range!
 
-- $t \in R$.
-- $f \in R$.
+- $$t \in R$$.
+- $$f \in R$$.
 
 <br>
 
