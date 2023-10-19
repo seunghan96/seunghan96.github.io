@@ -1,5 +1,5 @@
 ---
-title: Demystifying the Fourier Transform: The Intuition
+title: Demystifying the Fourier Transform; The Intuition
 categories: [TS, AUDIO]
 tags: []
 excerpt: 

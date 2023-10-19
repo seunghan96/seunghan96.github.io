@@ -82,8 +82,6 @@ $$e^{i\pi} +1=0$$.
 
 $$\rightarrow$$ $$e^{i\pi}=-1$$.
 
-$$\rightarrow$$ $$e^{i\pi}=-1$$.
-
 <br>
 
 ## (3) Polar coordinates 2.0
