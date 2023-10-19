@@ -17,10 +17,10 @@ excerpt:
 
 To express both (1) frequency & (2) phase!
 
-- complex numbers : $c = a+ib$
-  - where $a,b \in \mathbb{R}$.
-  - $a$ : REAL part
-  - $ib$ : IMAGINARY part
+- complex numbers : $$c = a+ib$$
+  - where $$a,b \in \mathbb{R}$$.
+  - $$a$$ : REAL part
+  - $$ib$$ : IMAGINARY part
 
 <br>
 
@@ -36,7 +36,7 @@ Plotting complex numbers in ...
 
 ![figure2](/assets/img/audio/img26.png)
 
-- express using $c$ and $\gamma$
+- express using $$c$$ and $$\gamma$$
 
 <br>
 
@@ -44,27 +44,27 @@ Plotting complex numbers in ...
 
 <br>
 
-$\cos (\gamma)=\frac{a}{ \mid c \mid } $.
+$$\cos (\gamma)=\frac{a}{ \mid c \mid } $$.
 
-$\rightarrow$ $a= \mid c \mid  \cdot \cos (\gamma)$
-
-<br>
-
-$\sin (\gamma)=\frac{b}{ \mid c \mid }$.
-
-$\rightarrow$ $b= \mid c \mid  \cdot \sin (\gamma)$
+$$\rightarrow$$ $$a= \mid c \mid  \cdot \cos (\gamma)$$
 
 <br>
 
- $c = a+ib$
+$$\sin (\gamma)=\frac{b}{ \mid c \mid }$$.
 
-$\rightarrow$ $c= \mid c \mid  \cdot(\cos (\gamma)+i \sin (\gamma))$.
+$$\rightarrow$$ $$b= \mid c \mid  \cdot \sin (\gamma)$$
 
 <br>
 
-$\text{tan}(\gamma) = \frac{\sin (\gamma)}{\cos (\gamma)}=\frac{b}{a}$.
+ $$c = a+ib$$
 
-$\rightarrow$ $\gamma=\arctan \left(\frac{b}{a}\right)$.
+$$\rightarrow$$ $$c= \mid c \mid  \cdot(\cos (\gamma)+i \sin (\gamma))$$.
+
+<br>
+
+$$\text{tan}(\gamma) = \frac{\sin (\gamma)}{\cos (\gamma)}=\frac{b}{a}$$.
+
+$$\rightarrow$$ $$\gamma=\arctan \left(\frac{b}{a}\right)$$.
 
 <br>
 
@@ -72,31 +72,31 @@ $\rightarrow$ $\gamma=\arctan \left(\frac{b}{a}\right)$.
 
 ## (1) Euler formula
 
-$e^{i \gamma}=\cos (\gamma)+i \sin (\gamma)$.
+$$e^{i \gamma}=\cos (\gamma)+i \sin (\gamma)$$.
 
 <br>
 
 ## (2) Euler identity
 
-$e^{i\pi} +1=0$.
+$$e^{i\pi} +1=0$$.
 
-$\rightarrow$ $e^{i\pi}=-1$.
+$$\rightarrow$$ $$e^{i\pi}=-1$$.
 
-$\rightarrow$ $e^{i\pi}=-1$.
+$$\rightarrow$$ $$e^{i\pi}=-1$$.
 
 <br>
 
 ## (3) Polar coordinates 2.0
 
-$c= \mid c \mid  \cdot(\cos (\gamma)+i \sin (\gamma))$.
+$$c= \mid c \mid  \cdot(\cos (\gamma)+i \sin (\gamma))$$.
 
-$e^{i \gamma}=\cos (\gamma)+i \sin (\gamma)$.
+$$e^{i \gamma}=\cos (\gamma)+i \sin (\gamma)$$.
 
-$\rightarrow$ $c= \mid c \mid e^{i\gamma}$.
+$$\rightarrow$$ $$c= \mid c \mid e^{i\gamma}$$.
 
-- can express complex number $c$ with
-  - (1) $\mid c \mid$ : magnitude
-  - (2) $\gamma$ : direction
+- can express complex number $$c$$ with
+  - (1) $$\mid c \mid$$ : magnitude
+  - (2) $$\gamma$$ : direction
 
 <br>
 
@@ -106,7 +106,7 @@ Interpretation
 
 <br>
 
-$\rightarrow$ why not use MAGNITUDE & PHASE as polar coordinates?
+$$\rightarrow$$ why not use MAGNITUDE & PHASE as polar coordinates?
 
 <br>
 
@@ -128,13 +128,13 @@ $\rightarrow$ why not use MAGNITUDE & PHASE as polar coordinates?
 
 ![figure2](/assets/img/audio/img31.png)
 
-- meaning of $-$  : rotate "clock-wise"
+- meaning of $$-$$  : rotate "clock-wise"
 
 <br>
 
 ## (2) Continuous audio signal
 
-$g(t) \quad g: \mathbb{R} \rightarrow \mathbb{R}$.
+$$g(t) \quad g: \mathbb{R} \rightarrow \mathbb{R}$$.
 
  ![figure2](/assets/img/audio/img32.png)
 
@@ -142,9 +142,9 @@ $g(t) \quad g: \mathbb{R} \rightarrow \mathbb{R}$.
 
 ## (3) COMPLEX Fourier Transform
 
-$\hat{g}(f)=c_f$.
+$$\hat{g}(f)=c_f$$.
 
-- $\hat{g}: \mathbb{R} \rightarrow \mathbb{C}$.
+- $$\hat{g}: \mathbb{R} \rightarrow \mathbb{C}$$.
 
 <br>
 
@@ -156,7 +156,7 @@ Mapping into a complex space!
 
 ### Mathematical Expression
 
-$\hat{g}(f)=\int g(t) \cdot e^{-i 2 \pi f t} d t$.
+$$\hat{g}(f)=\int g(t) \cdot e^{-i 2 \pi f t} d t$$.
 
 <br>
 
@@ -172,34 +172,34 @@ $\hat{g}(f)=\int g(t) \cdot e^{-i 2 \pi f t} d t$.
 
 ## (5) Magnitude & Phase
 
-### $c_f=\frac{d_f}{\sqrt{2}} \cdot e^{-i 2 \pi \varphi_f}$.
+### $$c_f=\frac{d_f}{\sqrt{2}} \cdot e^{-i 2 \pi \varphi_f}$$.
 
 <br>
 
 ### a) Magnitude
 
-ABSOLUTE value of $\hat{g}(f)$
+ABSOLUTE value of $$\hat{g}(f)$$
 
-= REAL part of $c_f$
+= REAL part of $$c_f$$
 
-= $d_f=\sqrt{2} \cdot \mid \hat{g}(f) \mid $.
+= $$d_f=\sqrt{2} \cdot \mid \hat{g}(f) \mid $$.
 
 <br>
 
 ### b) Phase
 
-IMAGINARY value of $\hat{g}(f)$
+IMAGINARY value of $$\hat{g}(f)$$
 
-= $\varphi_f=-\frac{\gamma_f}{2 \pi}$.
+= $$\varphi_f=-\frac{\gamma_f}{2 \pi}$$.
 
 <br>
 
 # 5. Fourier & Inverse Fourier Transform
 
-$\begin{gathered}
+$$\begin{gathered}
 \hat{g}(f)=\int g(t) \cdot e^{-i 2 \pi f t} d t \\
 g(t)=\int c_f \cdot e^{i 2 \pi f t} d f
-\end{gathered}$.
+\end{gathered}$$.
 
 
 

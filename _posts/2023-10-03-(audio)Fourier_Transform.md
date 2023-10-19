@@ -66,9 +66,9 @@ HIGH amplitude $$\rightarrow$$ LOWD sound
 
 ![figure2](/assets/img/audio/img19.png)
 
-- sampling period : $T$
-  - time index: $t_n = n \cdot T$
-- samplig rate : $1/T$
+- sampling period : $$T$$
+  - time index: $$t_n = n \cdot T$$
+- samplig rate : $$1/T$$
 
 <br>
 
@@ -83,7 +83,7 @@ HIGH amplitude $$\rightarrow$$ LOWD sound
 - original signal (RED) : high frequency
 - reconstructed signal (BLUE) : low frequency
 
-$\rightarrow$ removing certain frequencyes ABOVE ceratin threshold
+$$\rightarrow$$ removing certain frequencyes ABOVE ceratin threshold
 
 ![figure2](/assets/img/audio/img21.png)
 
@@ -120,18 +120,18 @@ Sampling rate = 44100Hz
 
 Bit depth = 16 bit
 
-- amplitude is quantized into 16 bits ( $2^{16}$ possibilities)
+- amplitude is quantized into 16 bits ( $$2^{16}$$ possibilities)
 
 <br>
 
 Total Memory of Sound in 1 minute ( in `.wav` file )
 
-- number of bits per second : $16 \times 44,100$
-- number of megabits per second : $(16 \times 44,100) / 1,048,576$
-- number of megabytes per second : $(16 \times 44,100) / (1,048,576\times8)$
-- number of megabytes per mintue : $(16 \times 44,100) / (1,048,576\times8)$ $\times 60 = 5.49\text{MB}$
+- number of bits per second : $$16 \times 44,100$$
+- number of megabits per second : $$(16 \times 44,100) / 1,048,576$$
+- number of megabytes per second : $$(16 \times 44,100) / (1,048,576\times8)$$
+- number of megabytes per mintue : $$(16 \times 44,100) / (1,048,576\times8)$$ $$\times 60 = 5.49\text{MB}$$
 
-$\rightarrow$ to shrink memory, we use `.mp3` file!
+$$\rightarrow$$ to shrink memory, we use `.mp3` file!
 
 <br>
 
