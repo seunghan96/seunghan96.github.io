@@ -85,7 +85,7 @@ STFT
 - spectral matrix 
   - shape: ( \# of frequency bins , \# of frames)
     - \# of frequency bins : $$\frac{\text{frame size}}{2} + 1$$
-    - \# of frames = $$
+    - \# of frames = $$\frac{N-\text{frame size}}{\text{hop size}}+1$$
 - $$N^{\prime}$$ complex Fourier coefficients
 
 <br>
