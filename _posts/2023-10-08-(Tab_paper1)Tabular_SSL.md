@@ -1,6 +1,6 @@
 ---
 title: Semi-SL & Self-SL for Tabular Data
-categories: [TAB]
+categories: [TAB, CL]
 tags: []
 excerpt: VIME, SubTab, SCARF, Contrastive Mixup
 ---

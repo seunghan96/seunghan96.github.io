@@ -1,6 +1,6 @@
 ---
 title: Unsupervised feature learning for audio classification using convolutional deep belief networks
-categories: [AUDIO, TS]
+categories: [AUDIO, TS, CL]
 tags: []
 excerpt: NeurIPS 2009
 ---

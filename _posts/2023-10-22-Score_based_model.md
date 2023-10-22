@@ -1,3 +1,10 @@
+---
+title: Score-based Generative Modeling by Diffusion Process
+categories: [GAN, CL,CV]
+tags: []
+excerpt: 
+---
+
 # Score-based Generative Modeling by Diffusion Process
 
 # 1. Intro to Generative Models

@@ -1,6 +1,6 @@
 ---
-title: Masked Autoencoders that Listenbelief networks
-categories: [AUDIO, TS]
+title: Masked Autoencoders that Listen
+categories: [AUDIO, TS, CL]
 tags: []
 excerpt: NeurIPS 2022
 ---
@@ -16,8 +16,28 @@ https://arxiv.org/pdf/2207.06405.pdf
 # Contents
 
 0. Abstract
+1. Introduction
+2. Related Work
+   1. Visual masked pre-training
+   2. Out-of-domain pre-training for audio
+   3. In-domain pretraining for aduio
 
-   
+3. Audio-MAE
+   1. Spectogram Patch Embeddings
+   2. Masking strategies
+   3. Encoder
+   4. Decoder with Local Attention
+   5. Objective
+   6. Fine-tuning for Downstream Tasks
+
+4. Experiments
+   1. Datasets and Tasks
+   2. Implementation Details
+   3. Pre-training and Fine-tuning
+   4. Ablations and Model properties
+   5. Comparion with SOTA
+   6. Visualization
+
 
 <br>
 
@@ -252,7 +272,7 @@ Concurrent work : [38,43,44]
 
 <br>
 
-## (1) Spectrogram Patch Embeddings. 
+## (1) Spectrogram Patch Embeddings 
 
 Step 1) Transform audio recordings into ***Melspectrograms*** 
 

@@ -1,6 +1,6 @@
 ---
 title: SAINT; Improved Neural Networks for Tabular Data via Row Attention and Contrastive Pre-training
-categories: [TAB]
+categories: [TAB, CL]
 tags: []
 excerpt: SAINT
 ---
@@ -187,14 +187,14 @@ SAINT: propose ***intersample attention***
 Notation
 
 -  $$\mathcal{D}=\left\{\mathbf{x}_{\mathbf{i}}, y_i\right\}_{i=1}^m$$ : tabular dataset with $$m$$ points
-  - $$x_i$$ : $$n$$-dimensional feature vector
+  -  $$x_i$$ : $$n$$-dimensional feature vector
 
 -  $$\mathbf{x}_{\mathbf{i}}=\left[ \text{[cls]} , f_i^{\{1\}}, f_i^{\{2\}}, . ., f_i^{\{n\}}\right]$$ be a single data-point
-  - like BERT, append **[CLS] token** with a learned embedding
-  - single data-point with categorical or continuous features $$f_i^{\{j\}}$$
-- $$\mathbf{E}$$ : embedding layer that embeds each feature into a $$d$$-dim 
+  -  like BERT, append **[CLS] token** with a learned embedding
+  -  single data-point with categorical or continuous features $$f_i^{\{j\}}$$
+-  $$\mathbf{E}$$ : embedding layer that embeds each feature into a $$d$$-dim 
   - $$\mathbf{E}$$ may use different embedding functions for different features
-- Given $$\mathbf{x}_{\mathbf{i}} \in \mathbb{R}^{(n+1)}$$, we get $$\mathbf{E}\left(\mathbf{x}_{\mathbf{i}}\right) \in \mathbb{R}^{(n+1) \times d}$$.
+-  Given $$\mathbf{x}_{\mathbf{i}} \in \mathbb{R}^{(n+1)}$$, we get $$\mathbf{E}\left(\mathbf{x}_{\mathbf{i}}\right) \in \mathbb{R}^{(n+1) \times d}$$.
 
 <br>
 
@@ -355,7 +355,7 @@ Two embeddings
 - Augmented embedding :
   - CutMix in raw data space : $$\mathbf{x}_{\mathbf{i}}^{\prime}=\mathbf{x}_{\mathbf{i}} \odot \mathbf{m}+\mathbf{x}_{\mathbf{a}} \odot(\mathbf{1}-\mathbf{m})$$.
     - where $$\mathbf{x}_{\mathbf{a}}, \mathbf{x}_{\mathbf{b}}$$ are random samples from the current batch
-    -  $$\mathbf{m}$$ is the binary mask vector with probability $$p_{\text {cutmix }}$$
+    - $$\mathbf{m}$$ is the binary mask vector with probability $$p_{\text {cutmix }}$$
   - Mixup in the embdding space: $$\mathbf{p}_{\mathbf{i}}^{\prime}=\alpha * \mathbf{E}\left(\mathbf{x}_{\mathbf{i}}^{\prime}\right)+(1-\alpha) * \mathbf{E}\left(\mathbf{x}_{\mathbf{b}}^{\prime}\right) $$.
     -  $$\mathbf{x}_{\mathbf{b}}^{\prime}$$ is the CutMix version of $$\mathbf{x}_{\mathbf{b}}$$
 

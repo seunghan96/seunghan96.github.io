@@ -1,6 +1,6 @@
 ---
 title: (paper 102) DCdetector; Dual Attention Contrastive Representation Learning for TS Anomaly Detection
-categories: [TS]
+categories: [TS,CL]
 tags: []
 excerpt: KDD 2023
 ---
@@ -16,12 +16,12 @@ https://arxiv.org/pdf/2306.10347.pdf
 ## Contents
 
 0. Abstract
-0. Introduction
-0. Methodology
+1. Introduction
+2. Methodology
    0. Overall Architecture
-   0. Dual Attention Contrastive Structure
-   0. Representation Discrepancy
-   0. Anomaly Criterion
+   1. Dual Attention Contrastive Structure
+   2. Representation Discrepancy
+   3. Anomaly Criterion
 
 
 

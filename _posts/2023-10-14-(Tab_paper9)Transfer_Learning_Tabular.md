@@ -1,6 +1,6 @@
 ---
 title: Transfer Learning with Deep Tabular Models
-categories: [TAB,TL]
+categories: [TAB, CL, TL]
 tags: []
 excerpt: ICLR 2023
 ---

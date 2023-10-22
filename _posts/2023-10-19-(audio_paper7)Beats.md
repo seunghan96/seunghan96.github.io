@@ -1,6 +1,6 @@
 ---
 title: BEATs; Audio Pre-Training with Acoustic Tokenizers
-categories: [AUDIO, TS]
+categories: [AUDIO, TS, CL]
 tags: []
 excerpt: ICML 2023
 ---

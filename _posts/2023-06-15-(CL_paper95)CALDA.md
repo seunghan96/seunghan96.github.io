@@ -1,6 +1,6 @@
 ---
 title: (paper 95) CALDA; Improving Multi-Source Time Series Domain Adaptation with Contrastive Adversarial Learning
-categories: [TS,DA]
+categories: [TS,DA,CL]
 tags: []
 excerpt: 2021
 ---
@@ -15,7 +15,7 @@ https://arxiv.org/pdf/2109.14778.pdf
 ## Contents
 
 0. Abstract
-0. Introduction
+1. Introduction
 
 
 

@@ -1,6 +1,6 @@
 ---
 title: Audio Self-supervised Learning; A Survey
-categories: [AUDIO, TS]
+categories: [AUDIO, TS, CL]
 tags: []
 excerpt: arxiv 2022
 ---

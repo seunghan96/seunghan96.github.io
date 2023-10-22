@@ -1,6 +1,6 @@
 ---
 title: On Embeddings for Numerical Features in Tabular Deep Learning
-categories: [TAB]
+categories: [TAB, CL]
 tags: []
 excerpt: NeurIPS 2022
 ---

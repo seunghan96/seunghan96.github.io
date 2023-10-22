@@ -1,6 +1,6 @@
 ---
 title: TransTab; Learnable Transferable Tabular Transformers across Tables
-categories: [TAB]
+categories: [TAB, CL]
 tags: []
 excerpt: TransTab (NeurIPS 2022)
 ---

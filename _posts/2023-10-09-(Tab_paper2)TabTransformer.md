@@ -1,6 +1,6 @@
 ---
 title: TabTransformer; Tabular Data Modeling Using Contextual Embeddings
-categories: [TAB]
+categories: [TAB, CL]
 tags: []
 excerpt: TabTransformer
 ---
@@ -141,7 +141,7 @@ $$\rightarrow$$ These embeddings $$\boldsymbol{E}_\phi\left(\boldsymbol{x}_{\mat
 
 <br>
 
-### Sequence of Transformer layers:  $$f_\theta$$. 
+### Sequence of Transformer layers:  $f_\theta$. 
 
 ( only for categorical variables )
 

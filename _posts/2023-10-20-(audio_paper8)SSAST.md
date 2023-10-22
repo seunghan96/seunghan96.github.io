@@ -1,6 +1,6 @@
 ---
 title: SSAST; Self-Supervised Audio Spectrogram Transformer
-categories: [AUDIO, TS]
+categories: [AUDIO, TS, CL]
 tags: []
 excerpt: AAAI 2022
 ---
