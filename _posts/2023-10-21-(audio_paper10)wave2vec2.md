@@ -1,6 +1,5 @@
 ---
-title: wav2vec 2; A Framework for Self-Supervised
-Learning of Speech Representations
+title: Wav2Vec 2; A Framework for Self-Supervised Learning of Speech Representations
 categories: [AUDIO, TS, CL]
 tags: []
 excerpt: NeurIPS 2020
