@@ -1,5 +1,5 @@
 ---
-title: wav2vec 2.0; A Framework for Self-Supervised
+title: wav2vec 2; A Framework for Self-Supervised
 Learning of Speech Representations
 categories: [AUDIO, TS, CL]
 tags: []
