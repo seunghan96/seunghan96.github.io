@@ -1,6 +1,6 @@
 ---
 title: (paper 50) Contrastive Mixup
-categories: [CL, SSL]
+categories: [CL, SSL,TAB]
 tags: []
 excerpt: 2021
 ---

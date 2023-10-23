@@ -1,6 +1,6 @@
 ---
 title: (paper 92) Diffusion-based TS Imputation and Forecasting with SSSM
-categories: [GAN, TS]
+categories: [GAN, TS,CL]
 tags: []
 excerpt: 2022
 ---
@@ -83,9 +83,9 @@ Details:
 
 - (1) Diffusion Models 
 - (2) Structured State Space Models
-  
+
   ( instead of dilated CNN, transformer layers )
-  
+
   - particularly suited to handling long-term-dependencies 
 
 <br>
@@ -150,7 +150,7 @@ $$q\left(x_1, \ldots, x_T \mid x_0\right)=\prod_{t=1}^T q\left(x_t \mid x_{t-1}\
 
 - where $$q\left(x_t \mid x_{t-1}\right)=\mathcal{N}\left(\sqrt{1-\beta_t} x_{t-1}, \beta_t \mathbb{1}\right)\left[x_t\right]$$ 
   - $$\beta_t$$ = noise level (fixed or learnable) 
-  
+
     ( ex. 0.0001 )
 
 <br>

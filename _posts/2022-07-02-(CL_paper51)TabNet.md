@@ -1,6 +1,6 @@
 ---
 title: (paper 51) TabNet
-categories: [CL]
+categories: [CL,TAB]
 tags: []
 excerpt: 2021
 ---
