@@ -166,7 +166,7 @@ $$\rightarrow$$ use **frame aggregation strategy**
 
 For each RGB frame, we resize and center crop it to $$224 \times 224$$, and then split it into $$19616 \times 16$$ square patches $$\mathbf{v}=\left[v^1, \ldots, v^{196}\right]$$.
 
-<brr>
+<br>
 
 ### b) Transformer Architecture
 
