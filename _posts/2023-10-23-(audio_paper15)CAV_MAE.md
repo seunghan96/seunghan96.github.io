@@ -56,7 +56,7 @@ Manually annotating **audio and video** is expensive
 
 $$\rightarrow$$ **Audio-visual self-supervised learning** 
 
-<brR>
+<br>
 
 ### a) Contrastive Audio-Visual Learning (CAVL)
 
