@@ -152,7 +152,7 @@ But 2 minor changes
 
       ( to match the original AST paper via interpolating learned positional embeddings )
 
-  - MAE-AST = overlap (O) for both pretraining & finetuning
+  - MAE-AST = overlap (X) for both pretraining & finetuning
 
 - (2) positional embedding (PE)
   - SSAST = interpolation or trunctation of PE to support variable-length inputs during finetuning
@@ -193,9 +193,9 @@ MAE-AST : adopt this strategy, with small differences:
 
 ***1-layer vs 2-layer NN for task***
 
-- SSAST : the encoder output is fed into 2 separate 2-layer NN
+- SSAST : the encoder output is fed into 2 separate **2-layer NN**
   - 1 for reconstruction & 1 for classification
-- MAE-AST :  single linear layer for both
+- MAE-AST :  **single linear layer** for each
 
 
 

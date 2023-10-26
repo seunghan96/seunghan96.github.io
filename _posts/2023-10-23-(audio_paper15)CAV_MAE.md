@@ -330,7 +330,7 @@ For a mini-batch of $$N$$ audio-visual pair samples ...
 
 $$\mathcal{L}_{\mathrm{c}}=-\frac{1}{N} \sum_{i=1}^N \log \left[\frac{\exp \left(s_{i, i} / \tau\right)}{\sum_{k \neq i} \exp \left(s_{i, k} / \tau\right)+\exp \left(s_{i, i} / \tau\right)}\right]$$.
 
-- where $$s_{i, j}=\left\|c_i^v\right\|^T\left\|c_j^a\right\|$$ and $$\tau$$ is the temperature.
+- where $$s_{i, j}=\mid \mid c_i^v \mid \mid ^T \mid \mid c_j^a \mid \mid $$ and $$\tau$$ is the temperature.
 
 <br>
 
