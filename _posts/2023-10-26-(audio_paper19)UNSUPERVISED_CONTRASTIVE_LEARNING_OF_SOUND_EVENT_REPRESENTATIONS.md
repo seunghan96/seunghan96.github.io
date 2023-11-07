@@ -1,5 +1,5 @@
 ---
-title: Contrastive Learning of General Purpose Audio Representations
+title: Unsupervised Contrastive Learning of Sound Event Representations
 categories: [AUDIO, TS, CL]
 tags: []
 excerpt: arxiv 2020
@@ -7,7 +7,7 @@ excerpt: arxiv 2020
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-# Contrastive Learning of General Purpose Audio Representations (arXiv, 2020)
+# Unsupervised Contrastive Learning of Sound Event Representations (arXiv, 2020)
 
 https://arxiv.org/pdf/2011.07616.pdf
 
