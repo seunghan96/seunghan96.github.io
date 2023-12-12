@@ -1,6 +1,6 @@
 ---
-title: (paper) Contrastive Masked Autoencoders are Strong Vision Learners
-categories: [CL,TS,CV]
+title: (paper) Contrastive Masked Autoencoders are Stronger Vision Learners
+categories: [CL,CV]
 tags: []
 excerpt: 2022
 ---
