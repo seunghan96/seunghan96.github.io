@@ -17,7 +17,12 @@ excerpt: 2023
 
 0. Abstract
 
-0. <br>
+0. 
+
+
+
+
+<br>
 
 
 # Abstract
@@ -282,11 +287,50 @@ Inference
 
 - ScoreGrad: Multivariate Probabilistic Time Series Forecasting with Continuous Energy-based Generative Models
 
-
-
-
-
 ***shares the same target distribution as TimeGrad, but it is alternatively built upon SDEs, extending the diffusion process from discrete to continuous and replacing the number of diffusion steps with an interval of integration***
+
+<br>
+
+Composed of ...
+
+- (1) **Feature extraction module**
+- (2) **Conditional SDE-based score-matching module**
+
+<br>
+
+(1) **Feature extraction module**
+- almost identical to $h_t$ in TimeGrad
+- use RNN/TCN/Attention ... all OK ( default: RNN )
+
+<br>
+
+(2) **Conditional SDE-based score-matching module**
+
+- diffusion process is conducted through the same SDE
+- associated time-reverse SDE is refined as following:
+  - $\mathrm{d} \boldsymbol{x}_t=\left[f\left(\boldsymbol{x}_t, k\right)-g(k)^2 \nabla_{\boldsymbol{x}_t} \log q_k\left(\boldsymbol{x}_t \mid \boldsymbol{h}_t\right)\right] \mathrm{d} k+g(k) \mathrm{d} \boldsymbol{w}$.
+    - $k \in[0, K]$: SDE integral time.
+
+- Conditional score function $\nabla_{\boldsymbol{x}_t} \log q_k\left(\boldsymbol{x}_t \mid \boldsymbol{h}_t\right)$ : approximated with $\boldsymbol{s}_{\boldsymbol{\theta}}\left(\boldsymbol{x}_t^k, \boldsymbol{h}_t, k\right)$
+- Inspired by WaveNet & DiffWave, $s_{\theta}$ : 8 connected residual blocks
+  - each block: a bidirectional dilated convolution module, a gated activation unit, a skip-connection process, and an 1D CNN
+
+
+<br>
+
+### Objective Function
+
+$\sum_{t=t_0}^T L_t(\boldsymbol{\theta})$, where $L_t(\boldsymbol{\theta})=\mathbb{E}_{k, \boldsymbol{x}_t^0, \boldsymbol{x}_t^k}\left[\delta(k)\left\|\boldsymbol{s}_{\boldsymbol{\theta}}\left(\boldsymbol{x}_t^k, \boldsymbol{h}_t, k\right)-\nabla_{\boldsymbol{x}_t} \log q_{0 k}\left(\boldsymbol{x}_t \mid \boldsymbol{x}_t^0\right)\right\|^2\right]$
+
+only use the general expression of SDE 
+
+- decide the specific type of SDE to use .... options : VE SDE, VP SDE, and sub-VP SDE 
+
+<br>
+
+### Sampling
+
+use predictor-corrector sampler to sample from the time-reverse SDE.
 
 <br>
 
