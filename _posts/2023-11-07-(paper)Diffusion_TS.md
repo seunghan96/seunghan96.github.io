@@ -11,8 +11,6 @@ excerpt: 2023
 
 <br>
 
-![figure2](/assets/img/ts/img497.png)
-
 # Contents
 
 0. Abstract
@@ -183,7 +181,87 @@ $$\begin{aligned}
 
 ## (3) SDE
 
-pass
+DDPMs and SGMs : Forward pass = ***Discrete process***
+
+- (limitation) should carefully design the diffusion steps
+
+<br>
+
+Solution : Consider the diffusion process as ***continuous***
+
+$$\rightarrow$$  Stochastic differential equation (SDE) (Song et al., 2021)
+
+- Backward process : Time-reverse SDE
+  - generate samples by solving this time-reverse SDE
+
+<br>
+
+General expression of SDE:
+
+- $$\mathrm{d} \boldsymbol{x}=f(\boldsymbol{x}, k) \mathrm{d} k+g(k) \mathrm{d} \boldsymbol{w}$$.
+  - $$\boldsymbol{w}$$ and $$\tilde{\boldsymbol{w}}$$ : Standard Wiener process and its time-reverse version
+  - a continuous diffusion time $$k \in[0, K]$$. 
+
+<br>
+
+Time-reverse SDE ( Anderson (1982) )
+
+- $$\mathrm{d} \boldsymbol{x}=\left[f(\boldsymbol{x}, k)-g(k)^2 \nabla_{\boldsymbol{x}} \log q_k(\boldsymbol{x})\right] \mathrm{d} k+g(k) \mathrm{d} \tilde{\boldsymbol{w}}$$.
+
+<br>
+
+### SDE $$\rightarrow$$ ODE
+
+Sampling from the probability flow ODE as following has the same distribution as the time-reverse SDE:
+
+$$\mathrm{d} \boldsymbol{x}=\left[f(\boldsymbol{x}, k)-\frac{1}{2} g(k)^2 \nabla_{\boldsymbol{x}} \log q_k(\boldsymbol{x})\right] \mathrm{d} k $$.
+
+- $$f(\boldsymbol{x}, k)$$ : drift coefficient
+- $$g(k)$$ : diffusion coefficient
+- $$\nabla_{\boldsymbol{x}} \log q_k(\boldsymbol{x})$$ : Stein score
+  - unknown but can be learned with a similar method as in SGMs with ...
+    - $$\mathbb{E}_{k, \boldsymbol{x}^0, \boldsymbol{x}^k}\left[\delta(k) \mid \mid \boldsymbol{s}_{\boldsymbol{\theta}}\left(\boldsymbol{x}^k, k\right)-\nabla_{\boldsymbol{x}^k} \log q_{0 k}\left(\boldsymbol{x}^k \mid \boldsymbol{x}^0\right) \mid \mid ^2\right] $$.
+
+<br>
+
+How to write the diffusion processes of **DDPMs & SGMs** as **SDEs**?
+
+- $$\alpha_k$$ : Parameter in DDPMs
+- $$\sigma_k^2$$ : Noise level in SGMs. 
+
+<br>
+
+VP-SDE & VE-SDE
+
+- VP-SDE: Variance Preserving (VP) SDE
+  - SDE corresponding to DDPMs
+  - $$\mathrm{d} \boldsymbol{x}=-\frac{1}{2} \alpha(k) \boldsymbol{x} \mathrm{d} k+\sqrt{\alpha(k)} \mathrm{d} \boldsymbol{w}$$.
+    - $$\alpha(\cdot)$$ : continuous function
+    - $$\alpha\left(\frac{k}{K}\right)=K\left(1-\alpha_k\right)$$ as $$K \rightarrow \infty$$. 
+
+- VE-SDE: Variance Exploding (VE) SDE
+
+  - SDE corresponding to SGMs
+
+  - $$\mathrm{d} \boldsymbol{x}=\sqrt{\frac{\mathrm{d}\left[\sigma(k)^2\right]}{\mathrm{d} k}} \mathrm{~d} \boldsymbol{w}$$.
+    - $$\sigma(\cdot)$$ : continuous function
+    - $$\sigma\left(\frac{k}{K}\right)=\sigma_k$$ as $$K \rightarrow \infty$$ 
+
+- Sub-VP SDE 
+
+  - performs especially well on likelihoods, given by
+
+    $$\mathrm{d} \boldsymbol{x}=-\frac{1}{2} \alpha(k) \boldsymbol{x} \mathrm{d} k+\sqrt{\alpha(k)\left(1-e^{-2 \int_0^k \alpha(s) \mathrm{d} s}\right)} \mathrm{d} \boldsymbol{w} $$.
+
+<br>
+
+### Summary
+
+Objective function involves a perturbation distribution $$q_{0 k}\left(\boldsymbol{x}^k \mid \boldsymbol{x}^0\right)$$ that varies for different SDEs
+
+$$q_{0 k}\left(\boldsymbol{x}^k \mid \boldsymbol{x}^0\right)= \begin{cases}\mathcal{N}\left(x^k ; x^0,\left[\sigma(k)^2-\sigma(0)^2\right] \boldsymbol{I}\right), & \text { (VP SDE) } \\ \mathcal{N}\left(x^k ; x^0 e^{-\frac{1}{2} \int_0^k \alpha(s) \mathrm{d} s},\left[1-e^{-\int_0^k \alpha(s) \mathrm{d} s}\right] \boldsymbol{I}\right), & \text { (VE SDE) } \\ \left.\mathcal{N}\left(x^k ; x^0 e^{-\frac{1}{2} \int_0^k \alpha(s) \mathrm{d} s},\left[1-e^{-\int_0^k \alpha(s) \mathrm{d} s}\right]\right]^2 \boldsymbol{I}\right), & \text { (sub-VP SDE) }\end{cases}$$.
+
+- After successfully learning $$\boldsymbol{s}_{\boldsymbol{\theta}}(\boldsymbol{x}, k)$$, samples are produced by deriving the solutions to the time-reverse SDE or the probability flow ODE with techniques such as ALD.
 
 <br>
 
