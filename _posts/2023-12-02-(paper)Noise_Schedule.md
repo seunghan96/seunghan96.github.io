@@ -1,8 +1,9 @@
 ---
 title: On the Importance of Noise Scheduling for Diffusion Models
-categories: [TS,GAN,CV]
+categories: [TS,CV,GAN]
 tags: []
-excerpt: arxiv 2023
+excerpt: arXiv 2023
+
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
