@@ -1,6 +1,6 @@
 ---
 title: DYffusion; A Dynamics-informed Diffusion Model for Spatio-temporal Forecasting
-categories: [TS,GAN,CL]
+categories: [TS,GAN,CL,DIFF]
 tags: []
 excerpt: NeurIPS 2023
 ---

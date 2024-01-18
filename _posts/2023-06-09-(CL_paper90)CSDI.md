@@ -1,6 +1,6 @@
 ---
 title: (paper 90) CSDI; Conditional Score-baesd Diffusion Models for Probabilistic TS Imputation
-categories: [GAN, TS]
+categories: [GAN, TS,DIFF]
 tags: []
 excerpt: 2021
 ---

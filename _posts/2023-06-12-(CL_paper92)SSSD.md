@@ -1,6 +1,6 @@
 ---
 title: (paper 92) Diffusion-based TS Imputation and Forecasting with SSSM
-categories: [GAN, TS,CL]
+categories: [GAN, TS,CL,DIFF]
 tags: []
 excerpt: 2022
 ---

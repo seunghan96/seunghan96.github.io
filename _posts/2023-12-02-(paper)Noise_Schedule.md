@@ -1,6 +1,6 @@
 ---
 title: On the Importance of Noise Scheduling for Diffusion Models
-categories: [TS,CV,GAN]
+categories: [TS,CV,GAN,DIFF]
 tags: []
 excerpt: arXiv 2023
 

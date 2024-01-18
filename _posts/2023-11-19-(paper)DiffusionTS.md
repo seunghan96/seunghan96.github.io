@@ -1,6 +1,6 @@
 ---
 title: Diffusion-TS; Interpretable Diffusion for General Time Series Generation
-categories: [TS,GAN]
+categories: [TS,GAN,DIFF]
 tags: []
 excerpt: ICLR 2024 (?)
 ---

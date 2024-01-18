@@ -1,6 +1,6 @@
 ---
 title: PriSTI; A Conditional Diffusion Framework for Spatiotemporal Imputation
-categories: [TS,GAN]
+categories: [TS,GAN,DIFF]
 tags: []
 excerpt: arXiv 2023
 ---

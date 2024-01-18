@@ -1,6 +1,6 @@
 ---
 title: Predict, Refine, Synthesize; Self-Guiding Diffusion Models for Probabilistic Time Series Forecasting
-categories: [TS, GAN]
+categories: [TS, GAN,DIFF]
 tags: []
 excerpt: NeurIPS 2023
 ---

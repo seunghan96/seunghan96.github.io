@@ -1,6 +1,6 @@
 ---
 title: Diffusion Models for Time Series Applications; A Survey
-categories: [TS, GAN]
+categories: [TS, GAN,DIFF]
 tags: []
 excerpt: 2023
 ---
@@ -15,9 +15,15 @@ excerpt: 2023
 
 0. Abstract
 
-0. 
+0. Introduction
 
+0. Basic of Diffusion Models
 
+0. TS Forecasting
+
+0. TS Imputation
+
+0. TS Generation
 
 
 <br>

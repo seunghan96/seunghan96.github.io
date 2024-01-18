@@ -1,6 +1,6 @@
 ---
 title: Patch Diffusion; Faster and More Data-Efficient Training of Diffusion Models
-categories: [TS,GAN,CV]
+categories: [TS,GAN,CV,DIFF]
 tags: []
 excerpt: NeurIPS 2023
 ---

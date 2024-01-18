@@ -1,6 +1,6 @@
 ---
 title: Data Augmentation for Seizure Prediction with Generative Diffusion Model
-categories: [TS,GAN,CL]
+categories: [TS,GAN,CL,DIFF]
 tags: []
 excerpt: arXiv 2023
 ---

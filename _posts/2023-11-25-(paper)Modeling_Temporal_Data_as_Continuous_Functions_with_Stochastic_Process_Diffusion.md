@@ -1,6 +1,6 @@
 ---
 title: Modeling Temporal Data as Continuous Functions with Stochastic Process Diffusion
-categories: [TS,GAN]
+categories: [TS,GAN,DIFF]
 tags: []
 excerpt: ICML 2023
 ---

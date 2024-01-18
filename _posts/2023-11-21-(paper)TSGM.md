@@ -1,6 +1,6 @@
 ---
 title: Regular Time-series Generation using SGM
-categories: [TS,GAN]
+categories: [TS,GAN,DIFF]
 tags: []
 excerpt: arxiv 2023
 ---

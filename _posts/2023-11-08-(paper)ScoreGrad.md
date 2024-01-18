@@ -1,6 +1,6 @@
 ---
 title: ScoreGrad; Multivariate Probabilistic Time Series Forecasting with Continuous Energy-based Generative Models
-categories: [TS, GAN]
+categories: [TS, GAN,DIFF]
 tags: []
 excerpt: 2021
 ---
@@ -14,10 +14,11 @@ excerpt: 2021
 # Contents
 
 0. Abstract
-
-0. 
-
-
+0. Introduction
+0. Related Work
+0. Score-based generative models
+0. Method
+0. Experiment
 
 
 <br>

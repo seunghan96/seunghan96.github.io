@@ -1,6 +1,6 @@
 ---
 title: Generative Learning for Financial TS with Irregular and Scale-Invariant Patterns
-categories: [TS,GAN]
+categories: [TS,GAN,DIFF]
 tags: []
 excerpt: ICLR 2024 (?)
 ---

@@ -1,6 +1,6 @@
 ---
 title: Consistency Models
-categories: [TS,GAN,CV]
+categories: [TS,GAN,CV,DIFF]
 tags: []
 excerpt: arxiv 2023
 ---

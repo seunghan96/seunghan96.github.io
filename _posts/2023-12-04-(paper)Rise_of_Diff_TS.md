@@ -1,6 +1,6 @@
 ---
 title: The Rise of Diffusion Models in Time-Series Forecasting
-categories: [TS,GAN]
+categories: [TS,GAN,DIFF]
 tags: []
 excerpt: arXiv 2023
 

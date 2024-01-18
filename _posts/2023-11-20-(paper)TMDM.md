@@ -1,6 +1,6 @@
 ---
 title: Transformer-Modulated Diffusion Models for Probabilistic MTS Forecasting
-categories: [TS,GAN]
+categories: [TS,GAN,DIFF]
 tags: []
 excerpt: ICLR 2024 (?)
 ---

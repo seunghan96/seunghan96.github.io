@@ -1,6 +1,6 @@
 ---
 title: Multi-resolution Diffusion Models for Time-Series Forecasting
-categories: [TS,GAN]
+categories: [TS,GAN,DIFF]
 tags: []
 excerpt: ICLR 2024 (?)
 ---

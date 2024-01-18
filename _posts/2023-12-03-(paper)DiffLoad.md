@@ -1,6 +1,6 @@
 ---
 title: DiffLoad; Uncertainty Quantification in Electrical Load Forecasting with the Diffusion Model
-categories: [TS,GAN]
+categories: [TS,GAN,DIFF]
 tags: []
 excerpt: arXiv 2023
 ---

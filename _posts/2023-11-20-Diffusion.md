@@ -1,6 +1,6 @@
 ---
 title: All About Diffusion 
-categories: [TS,PPT,CV,CL,GAN]
+categories: [TS,PPT,CV,CL,GAN,DIFF]
 tags: [diffusion]
 excerpt: 
 ---

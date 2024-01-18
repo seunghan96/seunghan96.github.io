@@ -1,6 +1,6 @@
 ---
 title: (paper 89) Non-autoregressive Conditional Diffusion Models for Time Series Prediction
-categories: [GAN, TS]
+categories: [GAN, TS,DIFF]
 tags: []
 excerpt: 2023
 ---

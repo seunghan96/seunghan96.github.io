@@ -1,6 +1,6 @@
 ---
 title: All About Score-based Models
-categories: [TS,PPT,CV,CL,GAN]
+categories: [TS,PPT,CV,CL,GAN,DIFF]
 tags: [diffusion]
 excerpt: 
 ---

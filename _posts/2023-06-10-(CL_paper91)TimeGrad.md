@@ -1,6 +1,6 @@
 ---
 title: (paper 91) Autoregressive Denoising Diffusion Models for Multivariate Probabilistic Time Series Forecasting
-categories: [GAN, TS]
+categories: [GAN, TS,DIFF]
 tags: []
 excerpt: 2021
 ---

@@ -1,6 +1,6 @@
 ---
 title: Score-based Generative Modeling by Diffusion Process
-categories: [GAN, CL,CV,TS]
+categories: [GAN, CL,CV,TS,DIFF]
 tags: []
 excerpt: 
 ---
