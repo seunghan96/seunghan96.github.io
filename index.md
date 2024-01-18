@@ -51,7 +51,7 @@ feature_row2:
   - image_path: /assets/img/DIFF.png
     alt: "placeholder image 2"
     title: "Diffusion Models"
-    excerpt: 'Diffusion/Score-based modeels'
+    excerpt: 'Diffusion/Score-based models'
     url: "categories/diff/"
     btn_label: "Read More"
     btn_class: "btn--primary"
