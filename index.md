@@ -48,6 +48,14 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
 
+  - image_path: /assets/img/DIFF.png
+    alt: "placeholder image 2"
+    title: "Diffusion Models"
+    excerpt: 'Diffusion/Score-based modeels'
+    url: "categories/diff/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/AUDIO.png
     alt: "placeholder image 2"
     title: "Audio DL"
