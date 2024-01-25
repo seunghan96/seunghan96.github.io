@@ -95,7 +95,7 @@ $$L_{\text {simple }}(\theta)=\mathbb{E}_{t, \boldsymbol{x}_0, \epsilon}\left[ \
 
 ## (1) Intuition
 
-![figure2](/assets/img/ts/img620.png)
+![figure2](/assets/img/ts/img621.png)
 
 <br>
 
@@ -154,7 +154,7 @@ $$\tau$$ : Randomly selected subsequence of $$[1, \ldots, N]$$ with a length of 
 
 $$\hat{\boldsymbol{x}}_0$$ = Any marginal variable combinations
 
-- $$\left\{\tau \in[1, \ldots, N],|\tau|=S \mid \hat{\boldsymbol{x}}_{\mathbf{0}}^\tau\right\}$$, 
+- $$\left\{\tau \in[1, \ldots, N], \mid \tau \mid =S \mid \hat{\boldsymbol{x}}_{\mathbf{0}}^\tau\right\}$$, 
 
 - $$p\left(\hat{\boldsymbol{x}}_{\mathbf{0}}\right)$$ = corresponding marginal distn
 

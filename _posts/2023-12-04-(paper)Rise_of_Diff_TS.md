@@ -217,11 +217,11 @@ With Bayes' rule..
 
 Reverse diffusion process:
 
-- $$p_\theta\left(x^{k-1} \mid x^k, \mathbf{c}\right)=\mathcal{N}\left(x^{k-1} ; \mu_\theta\left(x^k, k\right), \sigma_k^2 \mathbf{I}\right)+ \textcolor{red}{s \sigma_k^2 \nabla_{x^k} \log p\left(\mathbf{c} \mid x^k\right)}$$.
+- $$p_\theta\left(x^{k-1} \mid x^k, \mathbf{c}\right)=\mathcal{N}\left(x^{k-1} ; \mu_\theta\left(x^k, k\right), \sigma_k^2 \mathbf{I}\right)+ s \sigma_k^2 \nabla_{x^k} \log p\left(\mathbf{c} \mid x^k\right)$$.
 
 <br>
 
-$$\textcolor{red}{s \sigma_k^2 \nabla_{x^k} \log p\left(\mathbf{c} \mid x^k\right)}$$.
+$$s \sigma_k^2 \nabla_{x^k} \log p\left(\mathbf{c} \mid x^k\right)$$.
 
 - guidance term
 - with...

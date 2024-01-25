@@ -101,7 +101,7 @@ $$\rightarrow$$ Thus need some modification!
 
 - 5 TS tasks
 
-<brR>
+<br>
 
 # 2. Related Works
 
@@ -191,7 +191,7 @@ $$\rightarrow$$ ***cross-variable*** info is also critical in MTS
 
 $$\rightarrow$$ more modifications are needed for TS
 
-<bRR>
+<br>
 
 ## (2) TS related modification
 
