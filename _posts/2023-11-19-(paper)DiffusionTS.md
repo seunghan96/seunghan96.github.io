@@ -35,7 +35,7 @@ Diffusion-TS
   - (2) Disentangled temporal representations ( trend + seasonality + residual )
 - Directly model the TS (instead of noise)
 - Combine a Fourier-based loss term
-- Easily extended to conditional generationt tas ( imputation, forecasting)
+- Easily extended to conditional generationt tasks ( imputation, forecasting)
 
 <br>
 
@@ -59,7 +59,7 @@ Limitations
 
 ### Diffusion-TS
 
-- Non-autogregressive diffusion model
+- Non-autoregressive diffusion model
 
 - 2 key points
   - (1) Transformer-based architecture
@@ -120,14 +120,18 @@ Trend = slow-varying behavior
 
 Polynomial regressor
 
-- $$V_{t r}^t=\sum_{i=1}^N\left(\mathbf{C} \cdot \operatorname{Linear}\left(w_{t r}^{i, t}\right)+\mathcal{X}_{t r}^{i, t}\right), \quad \mathbf{C}=\left[1, c, \ldots, c^p\right]$$.
+- $$V_{t r}^t=\sum_{i=1}^K\left(\mathbf{C} \cdot \operatorname{Linear}\left(w_{t r}^{i, t}\right)+\mathcal{X}_{t r}^{i, t}\right), \quad \mathbf{C}=\left[1, c, \ldots, c^p\right]$$.
+
+  - $$w_{(\cdot)}^{i, t}$$: Input of interpretable layers
+
+    - where $i \in 1, \ldots, K$ denotes the index of the corresponding decoder block at diffusion step $t$.
 
   - $$\mathcal{X}_{t r}^{i, t}$$ : Mean value of the output of the $$i^{t h}$$ decoder block
 
   - $$\mathbf{C}$$ : Slow-varying poly space 
-
+  
     ( = matrix of powers of vector $$c=[0,1,2, \ldots, \tau-2, \tau-1]^T / \tau$$ )
-
+  
   - $$p$$ : Small degree (e.g. $$p=3$$ ) to model low frequency behavior.
 
 <br>
@@ -150,7 +154,7 @@ S_{i, t}=\sum_{k=1}^K A_{i, t}^{\kappa_{i, t}^{(k)}}\left[\cos \left(2 \pi f_{\k
 
 ### c) Final Result
 
-$$\hat{x}_0\left(x_t, t, \theta\right)=V_{t r}^t+\sum^K S_{i, t}+R$$.
+$$\hat{x}_0\left(x_t, t, \theta\right)=V_{t r}^t+\sum_{k=1}^K S_{i, t}+R$$.
 
 - $$R$$: output of the last decoder block
 
@@ -180,7 +184,7 @@ $$\mathcal{L}_\theta=\mathbb{E}_{t, x_0}\left[w_t\left[\lambda_1 \mid \mid x_0-\
 
 <br>
 
-Dhariwal \& Nichol (2021)
+Dhariwal & Nichol (2021)
 
 - Gradient-guided way to overcome this limitation
 - Pre-trained diffusion model can be conditioned using the gradients of a classifier

@@ -345,4 +345,4 @@ Inference
 
 ![figure2](/assets/img/ts/img592.png)
 
-![figure2](/assets/img/ts/img593.png)
+![figure2](/assets/img/ts/img593.png)w
