@@ -20,6 +20,7 @@ excerpt: ICLR 2024 (?)
 4. mr-Diff: Multi-Resolution Diffusion model
    1. Extracting Fine-to-Coarse Trends
    2. Temporal Multi-resolution Reconstruction
+5. Experiments
 
 
 <br>
@@ -345,4 +346,53 @@ Inference
 
 ![figure2](/assets/img/ts/img592.png)
 
-![figure2](/assets/img/ts/img593.png)w
+![figure2](/assets/img/ts/img593.png)
+
+<br>
+
+# 5. Experiments
+
+22 recent strong prediction models
+
+9 popular real-world time series datasets
+
+![figure2](/assets/img/ts/img635.png)
+
+<br>
+
+### a) Performance Measures 
+
+- mean absolute error (MAE)
+
+- mean squared error (MSE) 
+
+  ( results on MSE are in Appendix K )
+
+<br>
+
+### b) Implementation Details
+
+- Adam with a learning rate of $$10^{-3}$$. 
+- Batch size is 64 
+- Early stopping for a maximum of 100 epochs. 
+- $$K=100$$ diffusion steps are used
+  - with a linear variance schedule (Rasul et al., 2021) starting from $$\beta_1=10^{-4}$$ to $$\beta_K=10^{-1}$$
+- $$S=5$$ stages 
+- History length (in $$\{96,192,336,720,1440\}$$ ) 
+  - is selected by using the validation set
+
+<br>
+
+## (1) Main Results
+
+![figure2](/assets/img/ts/img636.png)
+
+![figure2](/assets/img/ts/img638.png)
+
+![figure2](/assets/img/ts/img637.png)
+
+<br>
+
+## (2) Inference Efficiency
+
+![figure2](/assets/img/ts/img639.png)

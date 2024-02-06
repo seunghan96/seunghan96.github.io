@@ -1,5 +1,5 @@
 ---
-title: MG-TSD; Multi-Granuality Time Series Diffusion Models with Guidedd Learning Process
+title: MG-TSD; Multi-Granuality Time Series Diffusion Models with Guided Learning Process
 categories: [TS,GAN,DIFF]
 tags: []
 excerpt: ICLR 2024 (?)
@@ -25,6 +25,7 @@ excerpt: ICLR 2024 (?)
    1. MG-TSD Architecture
    2. Multi-Granularity Guided Diffusion
 
+4. Expeirments
 
 <br>
 
@@ -308,5 +309,115 @@ $$N_*^g:=\arg \min _n \mathcal{D}\left(q\left(\boldsymbol{x}^g\right), p_\theta\
 
 - i.e. $$\mathcal{D}$$ : KL Divergence
 
+<br>
 
+# 4. Experiments
 
+## (1) Settings
+
+### a) Datasets
+
+6 Real-world datasets 
+
+- Characterized by a range of temporal dynamics
+- Solar, Electricity, Traffic, Taxi, KDD-cup, Wikipedia
+- Recorded at intervals of 30 minutes, 1 hour, or 1 day frequencies. 
+
+![figure2](/assets/img/ts/img629.png)
+
+<br>
+
+### b) Evaluation Metrics
+
+- CRPS (Continuous Ranked Probability Score)
+- NMAE (Normalized Mean Absolute Error) 
+- NRMSE (Normalized Root Mean Squared Error)
+
+<br>
+
+### c) Baselines
+
+- Vec-LSTM-ind-scaling (Salinas et al., 2019)
+- GP-scaling (Salinas et al., 2019)
+- GP-Copula (Salinas et al., 2019)
+- Transformer-MAF (Rasul et al., 2020)
+- LSTM-MAF (Rasul et al., 2020)
+- TimeGrad (Rasul et al., 2021)
+- TACTiS (Drouin et al., 2022)
+- MG-Input ensemble model 
+  - Baseline with multi-granularity inputs
+  - Combines two TimeGrad models trained on one coarse-grained and finest-grained data respectively, and generates the final predictions by a weighted average of their outputs.
+
+<br>
+
+### d) Implementation details
+
+Hyperparameters 
+
+- 30 epochs using the Adam optimizer
+- Fixed learning rate of $$10^{-5}$$. 
+- Batch size to 128 for solar and 32 for other datasets
+- Diffusion steps = 100
+
+<br>
+
+Additional hyperparameters
+
+- share ratios
+- granularity levels
+- loss weights
+
+![figure2](/assets/img/ts/img630.png)
+
+<br>
+
+## (2) Results
+
+MG-Input model 
+
+- Marginal improvement on certain datasets when compared to the TimeGrad
+
+  $$\rightarrow$$  Integrating multi-granularity information may result in some information gain, but direct ensembling of coarse-grained outputs is inefficient!!
+
+![figure2](/assets/img/ts/img631.png)
+
+<br>
+
+## (3) Ablation Study
+
+### a) Share ratio of variance schedule
+
+Various share ratios across different coarse granularities.
+
+Two-granularity setting
+
+- (1) Utilized to guide the learning process for the finest-grained data
+
+  - [Table 2] 
+
+    - For each coarse granularity level, the CRPS $$_{\text {sum }}$$ values initially decrease to their lowest values and then ascend again as the share ratio gets larger
+    - For coarser granularities, the model performs better with a smaller share ratio. 
+
+    $$\rightarrow$$ Suggests that the model achieves optimal performance **when the share ratio is chosen at the step where the coarse-grained samples most closely resemble intermediate states**
+
+![figure2](/assets/img/ts/img632.png)
+
+<br>
+
+In practice, the selection of share ratio can follow the **heuristic rule** (Section 3.2.2)
+
+![figure2](/assets/img/ts/img633.png)
+
+- Strong correlation exists between the polyline of CRPS sum time and the share ratio selection curve
+
+- As granularity transitions from fine to coarse $$(4 h \rightarrow 6 h \rightarrow 12 h \rightarrow 24 h)$$... 
+
+  the diffusion steps at which the distribution most resembles the coarse-grained targets increase (approximately at steps $$20 \rightarrow 40 \rightarrow 60 \rightarrow 80)$$. 
+
+<br>
+
+### b) Number of granularity
+
+![figure2](/assets/img/ts/img634.png)
+
+<br>
