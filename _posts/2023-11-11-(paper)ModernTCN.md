@@ -53,7 +53,7 @@ Previous CNN based models (Wang et al., 2023; Liu et al., 2022a)
 
 <br>
 
-![figure2](/assets/img/ts/imgt518.png)
+![figure2](/assets/img/ts/img518.png)
 
 $$\rightarrow$$ Increasing the ERF is the key!!
 
@@ -141,7 +141,7 @@ This paper: ***modernize & modify 1D CNN in TS***
 
 # 3. ModernTCN
 
-![figure2](/assets/img/ts/imgt519.png)
+![figure2](/assets/img/ts/img519.png)
 
 <br>
 
@@ -302,4 +302,4 @@ Convolution-based Model:
 
 ### Results
 
-![figure2](/assets/img/ts/imgt520.png)
+![figure2](/assets/img/ts/img520.png)
