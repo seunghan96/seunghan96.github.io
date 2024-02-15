@@ -3,7 +3,6 @@ title: Understanding Diffusion Objectivevs as the ELBO with Simple Ddata Augment
 categories: [TS,GAN,DIFF]
 tags: []
 excerpt: NeurIPS 2023
-
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
