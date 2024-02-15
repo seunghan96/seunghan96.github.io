@@ -1,5 +1,5 @@
 ---
-title: Understanding Diffusion Objectivevs as the ELBO with Simple Ddata Augmentation
+title: Understanding Diffusion Objectives as the ELBO with Simple Data Augmentation
 categories: [TS,GAN,DIFF]
 tags: []
 excerpt: NeurIPS 2023

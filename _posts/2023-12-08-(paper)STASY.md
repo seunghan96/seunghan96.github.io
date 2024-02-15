@@ -2,7 +2,7 @@
 title: STASY; Score-based Tabular Data Synthesis
 categories: [GAN,DIFF,TAB]
 tags: []
-excerpt: ICLR 2023ㅠ
+excerpt: ICLR 2023
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
