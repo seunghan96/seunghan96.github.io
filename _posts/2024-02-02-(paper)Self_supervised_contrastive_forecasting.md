@@ -1,13 +1,17 @@
 ---
-title: Understanding Diffusion Objectives as the ELBO with Simple Data Augmentation
-categories: [TS,GAN,DIFF]
+title: Self-supervised Contrastive Forecasting
+categories: [TS,CL]
 tags: []
-excerpt: NeurIPS 2023
+excerpt: ICLR 2024
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-# Understanding Diffusion Objectivevs as the ELBO with Simple Ddata Augmentation
+
+
+# Self-supervised Contrastive Forecasting
+
+https://openreview.net/pdf?id=nBCuRzjqK7
 
 <br>
 
@@ -15,386 +19,468 @@ excerpt: NeurIPS 2023
 
 0. Abstract
 1. Introduction
-2. Model
-   1. Forward process and noise schedule
-   2. Generative Model
-3. Diffusion Model Objectives
-   1. The weighted loss
-   2. Invariance of the weighted loss to the noise schedule $$\lambda_t$$
-
-4. Weighted Loss as the ELBO with DA
+2. Related Work
+3. Method
+4. Experiments
 
 <br>
 
-# 0. Abstract
+# Abstract
 
-SOTA Diffusion models
+Challenges of Long-term forecasting 
 
-- optimized with objectives that typically look very different from the MLE and ELBO
+- **Time and memory complexity** of handling long sequences
 
-This paper: reveal that ***diffusion model objectives*** are actually closely related to the ***ELBO***
+- Existing methods
 
+  - Rely on sliding windows to process long sequences
 
+    $$\rightarrow$$ Struggle to effectively capture long-term variations 
 
-Diffusion model objectives 
-
-= **weighted integral of ELBOs over different noise levels**
-
-- weight: depends on the specific objective used
+    ( $$\because$$ Partially caught within the short window )
 
 <br>
 
-Monotonic weighting: Diffusion objective = ELBO
+Self-supervised Contrastive Forecasting
 
-- combined with simple data augmentation, namely Gaussian noise perturbation
+- Overcomes this limitation by employing...
+
+  - (1) **contrastive learning** 
+  - (2) **enhanced decomposition architecture**
+
+  ( specifically designed to focus on long-term variations )
+
+<br>
+
+[1] Proposed contrastive loss
+
+- Incorporates **global autocorrelation** held in the **whole TS**
+  - facilitates the construction of positive and negative pairs in a self-supervised manner. 
+
+[2] **Decomposition networks**
+
+<br>
+
+https://github.com/junwoopark92/Self-Supervised-Contrastive-Forecsating.
 
 <br>
 
 # 1. Introduction
 
-Application of diffusion model
+**Sliding window approach** 
 
-- text-to-image generation
-- image-to-image generation
-- text-to-speech
-- density estimation
+- enables models to not only process the **long-time series** 
+- but also capture **local dependencies** between the past and future sequence within the windows, 
 
-<br>
-
-Diffusion models  
-
-= Special case of deep VAE
-
-- with a particular choice of inference model and generative model. 
+$$\rightarrow$$ Accurate **short-term predictions**
 
 <br>
 
-Optimization of diffusion models
+### a) Transformer & CNN
 
-- by maximizing the ELBO ( just like VAE)
-- ELBO for short. It was shown by Variational Diffusion Models (VDM) [Kingma et al., 2021] and [Song et al., 2021a] how to optimize **continuous-time diffusion models** with the **ELBO objective**
+- [1] Transformer-based models
+  - Reduced computational costs of using long windows 
 
-<br>
+- [2] CNN-based models
+  - Applied a dilation in convolution operations to learn more distant dependencies while benefiting from their efficient computational cost. 
 
-HOWEVER ... best results were achieved with **other objectives**
-
-- ex) **Denoising score matching objective** [Song and Ermon, 2019]
-- ex)  **Simple noise-prediction objective** [Ho et al., 2020]
-
-$$\rightarrow$$ Looks very different from the traditionally popular maximum likelihood and ELBO
-
-$$\rightarrow$$ This paper reveals that all training objective used in SOTA diffusion models are actually ***closely related to the ELBO objective***
+$$\rightarrow$$ ***Effectiveness in long-term forecasting remains uncertain***
 
 <br>
 
-### Section outline
+### b) Findings
 
-- [Section 2] **Broad diffusion model family**
+Analyze the limitations of existing models **trained with sub-sequences (i.e., based on sliding windows)** for long-term forecasting tasks. 
 
-- [Section 3] Various diffusion model objectives 
+- Observed that most TS **often contain long-term variations** with periods **longer than conventional window lengths** .... [Figure 1, 5]
 
-  = **Special cases of a weighted loss** with different choices of weighting
+- If a model successfully captures these long-term variations. ....
 
-  - Weighting function specifies the **weight per noise level**
-  - [Section 3.2] During training, the **noise schedule** acts as a **importance sampling distribution for estimating the loss**, and is thus important for efficient optimization. 
+  $$\rightarrow$$ Representations of **two distant yet correlated windows** to be more similar than uncorrelated ones
 
-  $$\rightarrow$$ Based on this insight we propose a ***simple adaptive noise schedule***
+![figure2](/assets/img/ts/img643.png)
 
-- [Section 4] Main result
+![figure2](/assets/img/ts/img644.png)
 
-  - If the weighting function is a monotonic function of time...
+<bR>
 
-    Weighted loss = Maximizing the ELBO with data augmentation ( Gaussian noise perturbation ) . 
+### c) Limitation of previous works
 
-- [Section 5] Experiments with various new monotonic weights on the ImageNet dataset
+- Treat each window ***independently*** during training
 
-<br>
+  $$\rightarrow$$ Challenging for the model to capture such **long-term variations across distinct windows**
 
-## (1) Related Work
+- [Figure 2]
 
-Variational Diffusion Models
+  - Fail to reflect the long-term correlations between **two distant windows**
+  - Overlook long-term variations by focusing more on learning short-term variations within the window
 
-- showed how to optimize continous-time diffusion models towards the ELBO
-
-<br>
-
-(This paper) Generalize these earlier results by showing that ***any diffusion objective*** that corresponds with ***monotonic weighting*** corresponds to the ***ELBO***, combined with a form of DistAug
-
-- DistAug : method of training data distribution augmentation for generative models, where model is 
-  - conditioned on the **data augmentation** parameter at **training time**
-  - conditioned on **’no augmentation’** at **inference time**
-- Additive Gaussian noise
-  - form of data distribution smoothing
+![figure2](/assets/img/ts/img645.png)
 
 <br>
 
-# 2. Model
+### d) Previous works
+
+[1] Decomposition approaches (Zeng et al., 2023; Wang et al., 2023)
+
+- Often treat the long-term variations partially caught in the window as simple **non-periodic trends** and employ a linear model to extend the past trend into the prediction. 
+
+<br>
+
+[2] Window-unit normalization methods (Kim et al., 2021; Zeng et al., 2023)
+
+- Hinder long-term prediction by normalizing numerically significant values (e.g., maximum, minimum, domain-specific values in the past) that may have a long-term impact on the TS
+
+- But still .... normalization methods are essential for mitigating distribution shift 
+
+  $$\rightarrow$$ ***New approach is necessary to learn long-term variations while still keeping the normalization methods**
+
+<br>
+
+### e) Proposal: AutoCon
+
+Novel **contrastive learning** to help the model capture **long-term** dependencies that exist across **different windows**. 
+
+Idea: ***Mini-batch can consist of windows that are temporally far apart***
+
+- Interval between windows to span the **entire TS length**
+
+  ( = much longer than the window length )
+
+<br>
+
+### f) Section Outline
+
+Contrastive loss
+
+- Combination with a decomposition-based model architecture
+  - consists two branches: (1) short-term branch & (2) long-term branch
+- CL loss is applied to the long-term branch
+  - Previous work: long-term branch = single linear layer
+    - Unsuitable for learning long-term representations
+  - Redesign the decomposition architecture where the long-term branch has sufficient capacity to learn long-term representation from our loss. 
+
+<br>
+
+### g) Main contributions
+
+- ***Long-term performances of existing models are poor***
+  - $$\because$$ Overlooked the long-term variations beyond the window
+- Propose AutoCon
+  - Novel contrastive loss function to learn a long-term representation by constructing **positive and negative pairs** across distant windows in a self-supervised manner
+- Extensive experiments
+
+<br>
+
+# 2. Related work
+
+## (1) CL for TSF
+
+Numerous methods (Tonekaboni et al., 2021; Yue et al., 2022; Woo et al., 2022a)
+
+How to construct positive pairs ?
+
+- Temporal consistency (Tonekaboni et al., 2021)
+- Subseries consistency (Franceschi et al., 2019)
+- Contextual consistency (Yue et al., 2022). 
+
+$$\rightarrow$$ Limitation in that only temporally close samples are selected as positives
+
+=> ***Overlooking the periodicity in the TS***
+
+<br>
+
+CoST (Woo et al., 2022a): consider periodicity through Frequency Domain Contrastive loss
+
+- Still .... could not consider periodicity **beyond the window length** 
+
+  ( $$\because$$ Still uses augmentation for the window )
+
+This paper: ***Randomly sampled sequences in a batch can be far from each other in time***
+
+<br>
+
+$$\rightarrow$$ Propose a **novel selection strategy** to choose 
+
+- not only **(1) local** positive pairs
+- but also **(2) global** positive pairs
+
+<br>
+
+## (2) Decomposition for LTSF
+
+Numerous methods (Wu et al., 2021; Zhou et al., 2022b; Wang et al., 2023)
+
+- offer robust and interpretable predictions
+
+<br>
+
+DLinear (Zeng et al., 2023) 
+
+- Exceptional performance by using a decomposition block and a single linear layer for each trend and seasonal component. 
+
+- Limitation
+
+  - Only effective in capturing high-frequency components that impact ***short-term predictions***
+  - Miss low-frequency components that significantly affect ***long-term predictions***
+
+  $$\rightarrow$$ A single linear model may be sufficient for short-term prediction! ( =Inadequate for long-term prediction )
+
+<br>
+
+# 3. Method
+
+### Notation
+
+Forecasting task: Sliding window approach
+
+- Covers all possible in-output sequence pairs of the entire TS $$\mathcal{S}=\left\{\mathbf{s}_1, \ldots, \mathbf{s}_T\right\}$$ 
+
+  - $$T$$ : Length of the observed TS
+
+  - $$\mathbf{s}_t \in \mathbb{R}^c$$ : Observation with $$c$$ dimension. 
+
+    ( set the dimension $$c$$ to 1 )
+
+- Sliding a window with a fixed length $$W$$ on $$\mathcal{S}$$, 
+
+  $$\rightarrow$$ Obtain the windows $$\mathcal{D}=\left\{\mathcal{W}_t\right\}_{t=1}^M$$ where $$\mathcal{W}_t=\left(\mathcal{X}_t, \mathcal{Y}_t\right)$$ are divided into two parts: 
+
+  - $$\mathcal{X}_t=$$ $$\left\{\mathbf{s}_t, \ldots, \mathbf{s}_{t+I-1}\right\}$$ .
+  - $$\mathcal{Y}_t=\left\{\mathbf{s}_{t+I}, \ldots, \mathbf{s}_{t+I+O-1}\right\}$$ .
+
+- **Global index sequence** of $$\mathcal{W}_t$$ as $$\mathcal{T}_t=\{t+i\}_{i=0}^{W-1}$$.
+
+<br>
+
+## (1) Autocorrelation-based Contrastive Loss for LTSF
+
+### a) Missing Long-term Dependency in the Window 
+
+Forecasting model : struggle to predict long-term variations
+
+$$\because$$ They are not captured within the window. 
+
+<br>
+
+**Step 1) Identify these long-term variations using autocorrelation**
+
+( Inspired by the stochastic process theory )
+
+( Notation: Real discrete-time process $$\left\{\mathcal{S}_t\right\}$$ )
+
+- **Autocorrelation function**
+
+   $$\mathcal{R}_{\mathcal{S}}(h)$$: $$\mathcal{R}_{\mathcal{S S}}(h)=\lim _{T \rightarrow \infty} \frac{1}{T} \sum_{t=1}^T \mathcal{S}_t \mathcal{S}_{t-h}$$
+
+  - Correlation between observations at different times (i.e., time lag $$h$$ ). 
+  - Range [-1,1] ... indicates that all points separated by $$h$$ in the series $$\mathcal{S}$$ are linearly related ( positive or negative )
+
+- Previous works
+
+  - Have also leveraged autocorrelation
+
+  - However, only apply it to capture variations **within the window**
+
+    ( overlooking long-term variations that span beyond the window )
+
+$$\rightarrow$$ Propose a representation learning method via CL to capture these **long-term variations** quantified by the **"GLOBAL" autocorrelation**
+
+<br>
+
+**Step 2) Autocorrelation-based Contrastive Loss (AutoCon)**
+
+- Mini-batch can consist of windows that are **temporally very far apart**
+- Time distance can be as long as the entire series length $$T$$ ( >> window length $$W$$ )
+- Address **long-term dependencies** that exist throughout the entire TS by establishing **relationships between windows**
+
+<br>
+
+Relationship between the two windows 
+
+- Based on the **global autocorrelation**
+- Two windows $$\mathcal{W}_{t_1}$$ and $$\mathcal{W}_{t_2}$$ 
+  - each have $$W$$ observations with globally indexed time sequence $$\mathcal{T}_{t_1}=\left\{t_1+i\right\}_{i=0}^{W-1}$$ and $$\mathcal{T}_{t_2}=\left\{t_2+j\right\}_{j=0}^{W-1}$$. 
+- Time distances between all pairs of two observations: matrix $$\boldsymbol{D} \in \mathbb{R}^{W \times W}$$. 
+  - Contains time distance as elements $$\boldsymbol{D}_{i, j}= \mid \left(t_2+j\right)-\left(t_1+i\right) \mid $$. 
+  - Global autocorrelation: $$r\left(\mathcal{T}_{t_1}, \mathcal{T}_{t_2}\right)= \mid \mathcal{R}_{\mathcal{S S}}\left( \mid t_1-t_2 \mid \right) \mid $$.
+    - $$\mathcal{R}_{\mathcal{SS}}$$ : global autocorrelation calculated from train series $$\mathcal{S}$$.
+
+<br>
+
+Similarities between all pairs of window representations 
+
+- follow the ***global autocorrelation measured in the data space***
+
+- Define positive and negative samples in a relative manner inspired by SupCR (Zha et al., 2022)
+
+- SupCR (Zha et al., 2022) vs. AutoCon
+
+  - SupCR: uses annotated labels to determine the relationship between images
+
+  - AutoCon: use the global autocorrelation $$\mathcal{R}_{\mathcal{S}}$$ to determine the relationship between windows
+
+    $$\rightarrow$$ making our approach an unsupervised method
+
+<br>
 
 Notation
 
-- Dataset distribution: $$q(\mathbf{x})$$. 
-- Generative mode: $$p_{\boldsymbol{\theta}}(\mathbf{x})$$ 
-  - shorthand notation $$p:=p_{\boldsymbol{\theta}}$$.
-- Observed variable: $$\mathbf{x}$$ 
-  - output of a pre-trained encoder, as in latent diffusion models
-- Latent variables: $$\mathbf{z}_t$$ for timesteps $$t \in[0,1]$$ : $$\mathbf{z}_{0, \ldots, 1}:=\mathbf{z}_0, \ldots, \mathbf{z}_1$$. 
+- Mini-batch $$\mathcal{X} \in \mathbb{R}^{N \times I}$$ consisting of $$N$$ windows
+- Representations $$\boldsymbol{v} \in \mathbb{R}^{N \times I \times d}$$ where $$\boldsymbol{v}=\operatorname{Enc}(\mathcal{X}, \mathcal{T})$$. 
+- AutoCon: computed over the representations $$\left\{\boldsymbol{v}^{(i)}\right\}_{i=1}^N$$ with the corresponding time sequence $$\left\{\mathcal{T}^{(i)}\right\}_{i=1}^N$$ as:
+
+$$\mathcal{L}_{\text {AutoCon }}=-\frac{1}{N} \sum_{i=1}^N \frac{1}{N-1} \sum_{j=1, j \neq i}^N r^{(i, j)} \log \frac{\exp \left(\operatorname{Sim}\left(\boldsymbol{v}^{(i)}, \boldsymbol{v}^{(j)}\right) / \tau\right)}{\sum_{k=1}^N \mathbb{1}_{\left[k \neq i, r^{(i, k)} \leq r^{(i, j)}\right]} \exp \left(\operatorname{Sim}\left(\boldsymbol{v}^{(i)}, \boldsymbol{v}^{(k)}\right) / \tau\right)}$$.
 
 <br>
 
-Forward & Backward
+## (2) Decomposition Architecture for Long-term Representation
 
-- [Forward] Forward process forming a conditional joint distribution $$q\left(\mathbf{z}_{0, \ldots, 1} \mid \mathbf{x}\right)$$
-- [Backward] Generative model forming a joint distribution $$p\left(\mathbf{z}_{0, \ldots, 1}\right)$$.
+![figure2](/assets/img/ts/img646.png)
 
-<br>
+Existing models : commonly adopt the decomposition architecture
 
-## (1) Forward process and noise schedule
-
-Forward process = Gaussian diffusion process
-
-- Conditional distribution $$q\left(\mathbf{z}_{0, \ldots, 1} \mid \mathbf{x}\right)$$
-- Marginal distribution $$q\left(\mathbf{z}_t \mid \mathbf{x}\right)$$ 
-  - $$\mathbf{z}_t=\alpha_\lambda \mathbf{x}+\sigma_\lambda \boldsymbol{\epsilon} \text { where } \boldsymbol{\epsilon} \sim \mathcal{N}(0, \mathbf{I})$$.
+- **seasonal** branch and a **trend** branch
 
 <br>
 
-Variance preserving (VP) forward process
+This paper
 
-- $$\alpha_\lambda^2=\operatorname{sigmoid}\left(\lambda_t\right)$$ ,
-- $$\sigma_\lambda^2=$$ sigmoid $$\left(-\lambda_t\right)$$, 
-
-( other choices are possible )
+- Trend branch = long-term branch
+- Seasonal branch = short-term branch
 
 <br>
 
-Log signal-to-noise ratio ( $$\log$$-SNR) 
+**AutoCon**
 
-- $$\lambda=\log \left(\alpha_\lambda^2 / \sigma_\lambda^2\right)$$.
-
-<br>
-
-**Noise schedule**
-
-- Strictly **monotonically decreasing** function $$f_\lambda$$ 
-
-- Maps from the time variable $$t \in[0,1]$$ to the corresponding log-SNR $$\lambda: \lambda=f_\lambda(t)$$. 
-- Denote the log-SNR as $$\lambda_t$$ to emphasize that it is a function of $$t$$.
-- Endpoints of the noise schedule
-  - $$\lambda_{\max }:=f_\lambda(0)$$ .
-  - $$\lambda_{\min }:=f_\lambda(1)$$. 
-
-![figure2](/assets/img/ts/img640.png)
+- Designed to learn long-term representations
+  - Not to use it in the short-term branch to enforce long-term dependencies
+- Integrating **(1) AutoCon** + **(2) current decomposition architecture**: ***Challenging***
+  - Reason 1) Both branches share the same representation 
+  - Reason 2) Long-term branch consists of a linear layer
+    - not suitable for learning representations
+  - Recent linear-based models (Zeng et al., 2023) outperform complicated DL models at **short-term predictions**
+    - doubts whether a DL model is necessary to learn the high-frequency variations. 
 
 <br>
 
-Due to its monotonicity, $$f_\lambda$$ is invertible: $$t=f_\lambda^{-1}(\lambda)$$. 
+Redesign a model architecture 
 
-- can do change of variables
+- Both **temporal locality for short-term** and **globality for long-term** forecasting
 
-<br>
+- Decomposition Architecture: 3 main features
 
-**a) Model training**
+  - (1) Normalization and Denormalization for Nonstationarity 
 
-- Sample time $$t$$ uniformly: $$t \sim \mathcal{U}(0,1)$$, 
-- Compute $$\lambda=f_\lambda(t)$$. 
-- Results: Distribution over noise levels $$p(\lambda)=-d t / d \lambda=-1 / f_\lambda^{\prime}(t)$$ 
+    - Window-unit normalization & denormalization 
+    - $$\mathcal{X}_{\text {norm }}=\mathcal{X}-\overline{\mathcal{X}}, \quad \mathcal{Y}_{\text {pred }}=\left(\mathcal{Y}_{\text {short }}+\mathcal{Y}_{\text {long }}\right)+\overline{\mathcal{X}}$$.
 
-<br>
+  - (2) Short-term Branch for Temporal Locality 
 
-**b) Sampling**
+    - Short-period variations :
+      - often repeat multiple times within the input sequence
+      - exhibit similar patterns with temporally close sequences
+    - This locality of short-term variations supports the recent success of linear-based models
+    - $$\mathcal{Y}_{\text {short }}=\operatorname{Linear}\left(\mathcal{X}_{\text {norm }}\right)$$.
 
-- Sometimes it is best to use a different noise schedule for sampling from the model than for training. 
+  - (3) Long-term Branch for Temporal Globality
 
-- Density $$p(\lambda)$$ gives the relative amount of time the sampler spends at different noise levels.
+    - Designed to apply the AutoCon method
 
-<br>
+    - Employs an encoder-decoder architecture
 
-## (2) Generative Model
+      - [Encoder] with sufficient capacity: $$\boldsymbol{v}=\operatorname{Enc}\left(\mathcal{X}_{\text {norm }}, \mathcal{T}\right) $$.
 
-Notation
+        - to learn the long-term presentation leverages both sequential information and global information  (i.e., timestampbased features derived from $$\mathcal{T}$$ )
+        - use TCN for its computational efficiency
 
-- Data $$\mathbf{x} \sim \mathcal{D}$$, with density $$q(\mathbf{x})$$, 
-- Forward model : defines a joint distribution $$q\left(\mathbf{z}_0, \ldots, \mathbf{z}_1\right)=$$ $$\int q\left(\mathbf{z}_0, \ldots, \mathbf{z}_1 \mid \mathbf{x}\right) q(\mathbf{x}) d \mathbf{x}$$,
-  - Marginals $$q_t(\mathbf{z}):=q\left(\mathbf{z}_t\right)$$. 
-- Generative model
-  - defines a corresponding joint distribution over latent variables: $$p\left(\mathbf{z}_0, \ldots, \mathbf{z}_1\right)$$.
+      - [Decoder] multi-scale Moving Average (MA) block (Wang et al., 2023)
 
-<br>
+        - with different kernel sizes $$\left\{k_i\right\}_{i=1}^n$$ 
+          - to capture multiple periods 
 
-log-SNR $$\lambda: \lambda=f_\lambda(t)$$. 
-
-- For large enough $$\lambda_{\max }$$
-  - $$\mathbf{z}_0$$ is almost identical to $$\mathbf{x}$$, 
-  - Learning a model $$p\left(\mathbf{z}_0\right)$$ $$\approx$$ Learning a model $$p(\mathbf{x})$$. 
-
-- For small enough $$\lambda_{\min }$$
-  - $$\mathbf{z}_1$$ holds almost no information about $$\mathbf{x}$$, 
-  - There exists a distribution $$p\left(\mathbf{z}_1\right)$$ satisfying $$D_{K L}\left(q\left(\mathbf{z}_1 \mid \mathbf{x}\right)  \mid \mid  p\left(\mathbf{z}_1\right)\right) \approx 0$$. 
-    - Usually we can use $$p\left(\mathbf{z}_1\right)=\mathcal{N}(0, \mathbf{I})$$.
+        - $$\hat{\mathcal{Y}}_{\text {long }}=\frac{1}{n} \sum_{i=1}^n \operatorname{AvgPool}(\operatorname{Padding}(M L P(\boldsymbol{v})))_{k_i} $$.
+        - The MA block at the head of the long-term branch smooths out short-term fluctuations, naturally encouraging the branch to focus on long-term information
 
 <br>
 
-Score model: $$\mathbf{s}_{\boldsymbol{\theta}}(\mathbf{z} ; \lambda)$$ 
+Objective function $$\mathcal{L}$$ :
 
-- Approximate $$\nabla_{\mathbf{z}} \log q_t(\mathbf{z})$$ 
-- If $$\mathbf{s}_{\boldsymbol{\theta}}(\mathbf{z} ; \lambda)=\nabla_{\mathbf{z}} \log q_t(\mathbf{z})$$, then the forward process can be exactly reversed
-
-<br>
-
-If $$D_{K L}\left(q\left(\mathbf{z}_1\right)  \mid \mid  p\left(\mathbf{z}_1\right)\right) \approx 0$$ and $$\mathbf{s}_{\boldsymbol{\theta}}(\mathbf{z} ; \lambda) \approx \nabla_{\mathbf{z}} \log q_t(\mathbf{z})$$,  then we have a good generative model
-
-$$\rightarrow$$ So, our generative modeling task is reduced to learning a score network $$\mathbf{s}_{\boldsymbol{\theta}}(\mathbf{z} ; \lambda)$$ that approximates $$\nabla_{\mathbf{z}} \log q_t(\mathbf{z})$$.
+- $$\mathcal{L}=\mathcal{L}_{\text {MSE }}+\lambda \cdot \mathcal{L}_{\text {AutoCon }} $$.
 
 <br>
 
-Sampling from the generative model 
+# 4. Experiments
 
-- By sampling $$\mathbf{z}_1 \sim p\left(\mathbf{z}_1\right)$$, then solving the reverse SDE using the estimated $$\mathbf{s}_{\boldsymbol{\theta}}(\mathbf{z} ; \lambda)$$.
+## (1) Main Results
 
-- ( Recent diffusion models ) Sophisticated procedures for approximating the reverse SDE
+### a) Extended Long-term Forecasting 
 
-<br>
-
-# 3. Diffusion Model Objectives
-
-### a) Denoising score matching
-
-Learn a score network $$\mathbf{s}_{\boldsymbol{\theta}}\left(\mathbf{z} ; \lambda_t\right)$$ for all noise levels $$\lambda_t$$. 
-
-$$\rightarrow$$  Can beachieved by minimizing a denoising score matching objective 
-
-- over all noise scales
-- and all datapoints $$\mathbf{x} \sim \mathcal{D}$$ 
+![figure2](/assets/img/ts/img647.png)
 
 <br>
 
-Denoising score matching objective
+### b) Dataset Analysis
 
-$$\mathcal{L}_{\mathrm{DSM}}(\mathbf{x})=\mathbb{E}_{t \sim \mathcal{U}(0,1), \boldsymbol{\epsilon} \sim \mathcal{N}(0, \mathbf{I})}\left[\tilde{w}(t) \cdot \mid \mid \mathbf{s}_{\boldsymbol{\theta}}\left(\mathbf{z}_t, \lambda_t\right)-\nabla_{\mathbf{z}_t} \log q\left(\mathbf{z}_t \mid \mathbf{x}\right) \mid \mid _2^2\right]$$,
+Goal : Learn long-term variations
 
-- where $$\mathbf{z}_t=\alpha_\lambda \mathbf{x}+\sigma_\lambda \boldsymbol{\epsilon}$$.
-
-<br>
-
-### b) $$\epsilon$$-prediction objective
-
-Score network : typically parameterized through a noise-prediction ( $$\boldsymbol{\epsilon}$$-prediction) model: 
-
-- $$\mathbf{s}_{\boldsymbol{\theta}}(\mathbf{z} ; \lambda)=-\hat{\boldsymbol{\epsilon}}_{\boldsymbol{\theta}}(\mathbf{z} ; \lambda) / \sigma_\lambda$$. 
+Performance improvements of our model = affected by the **magnitude and the number of long-term variations**
 
 <br>
 
-Noise-prediction loss
+[Figure 5]
 
-$$\mathcal{L}_{\boldsymbol{\epsilon}}(\mathbf{x})=\frac{1}{2} \mathbb{E}_{t \sim \mathcal{U}(0,1), \boldsymbol{\epsilon} \sim \mathcal{N}(0, \mathbf{I})}\left[ \mid \mid \hat{\epsilon}_\theta\left(\mathbf{z}_t ; \lambda_t\right)-\epsilon \mid \mid _2^2\right]$$.
+![figure2](/assets/img/ts/img648.png)
 
-<br>
-
-Since $$ \mid \mid \mathbf{s}_{\boldsymbol{\theta}}\left(\mathbf{z}_t, \lambda_t\right)-\nabla_{\mathbf{x}_t} \log q\left(\mathbf{z}_t \mid \mathbf{x}\right) \mid \mid _2^2=\sigma_\lambda^{-2} \mid \mid \hat{\boldsymbol{\epsilon}}_{\boldsymbol{\theta}}\left(\mathbf{z}_t ; \lambda_t\right)-\boldsymbol{\epsilon} \mid \mid _2^2$$ ...
-
-$$\rightarrow$$ Noise-prediction loss is simply a version of the denoising score matching objective
-
-- where $$\tilde{w}(t)=\sigma_t^2$$.
-
-<br>
-
-Ho et al. [2020] 
-
-- showed that this noise-prediction objective can result in high-quality samples
+- Various yearly-long business cycles and natural cycles
+- ex) ETTh2 and Electricity 
+  - Strong long-term correlations with peaks at several lags repeated multiple times. 
+  - Thus, AutoCOnexhibited significant performance gain s, which are 34% and 11% reduced error compared to the second-best model
+- ex) Weather 
+  - Relatively lower correlations outside the windows 
+  - Least improvement with a 3% reduced error
 
 <br>
 
-Dhariwal and Nichol [2022] 
+### c) Extension to Multivariate TSF
 
-- switch from a 'linear' to a 'cosine' noise schedule $$\lambda_t$$ 
-
-<br>
-
-### c) ELBO
-
-[Kingma et al., 2021, Song et al., 2021a] 
-
-ELBO of continuous-time diffusion models simplifies to ..
-
-$$-\operatorname{ELBO}(\mathbf{x})=\frac{1}{2} \mathbb{E}_{t \sim \mathcal{U}(0,1), \boldsymbol{\epsilon} \sim \mathcal{N}(0, \mathbf{I})}\left[-\frac{d \lambda}{d t} \cdot \mid \mid \hat{\epsilon}_\theta\left(\mathbf{z}_t ; \lambda_t\right)-\epsilon \mid \mid _2^2\right]+c$$.
+![figure2](/assets/img/ts/img649.png)
 
 <br>
 
-## (1) The weighted loss
+## (2) Model Analysis
 
-Objective functions used in practice
+### a) Temporal Locality and Globality: Figure 6(a)
 
-= special cases of a weighted loss introduced by Kingma with a particular choice of weighting function $$w\left(\lambda_t\right):$$
-
-## $$\mathcal{L}_w(\mathbf{x})=\frac{1}{2} \mathbb{E}_{t \sim \mathcal{U}(0,1), \boldsymbol{\epsilon} \sim \mathcal{N}(0, \mathbf{I})}\left[w\left(\lambda_t\right) \cdot-\frac{d \lambda}{d t} \cdot \mid \mid \hat{\epsilon}_\theta\left(\mathbf{z}_t ; \lambda_t\right)-\epsilon \mid \mid _2^2\right]$$
+![figure2](/assets/img/ts/img650.png)
 
 <br>
 
-![figure2](/assets/img/ts/img641.png)
+### b) Ablation Studies: Figure 6(b), Table 3
+
+![figure2](/assets/img/ts/img651.png)
 
 <br>
 
-![figure2](/assets/img/ts/img642.png)
+## (3) Comparison with Representation Learning methods
+
+![figure2](/assets/img/ts/img652.png)
 
 <br>
 
-Examples)
+## (4) Computational Efficiency Comparison
 
-- ex) ELBO = uniform weighting, i.e. $$w\left(\lambda_t\right)=1$$.
-- ex) Noise-prediction objective  = $$w\left(\lambda_t\right)=-1 /(d \lambda / d t)$$. 
-  - More compactly expressed as $$w\left(\lambda_t\right)=p\left(\lambda_t\right)$$, 
-    - i.e., the PDF of the implied distribution over noise levels $$\lambda$$ during training. 
-  - Often used with the cosine schedule $$\lambda_t$$, 
-    - which implies $$w\left(\lambda_t\right) \propto \operatorname{sech}\left(\lambda_t / 2\right)$$.
+( Dataset: ETT dataset )
 
-<br>
+- w/o AutoCon : computational times of 31.1 ms/iter
 
-## (2) Invariance of the weighted loss to the noise schedule $$\lambda_t$$
+  ( second best after the linear models )
 
-Kingma et al. [2021]
-
-- ELBO is invariant to the choice of noise schedule
-
-  ( except for its endpoints $$\lambda_{\min }$$ and $$\lambda_{\max }$$. )
-
-  
-
-General weighted diffusion loss
-
-- with a change of variables from $$t$$ to $$\lambda$$
-
-## $$\mathcal{L}_w(\mathbf{x})=\frac{1}{2} \int_{\lambda_{\min }}^{\lambda_{\max }} w(\lambda) \mathbb{E}_{\boldsymbol{\epsilon} \sim \mathcal{N}(0, \mathbf{I})}\left[ \mid \mid \hat{\boldsymbol{\epsilon}}_{\boldsymbol{\theta}}\left(\mathbf{z}_\lambda ; \lambda\right)-\boldsymbol{\epsilon} \mid \mid _2^2\right] d \lambda$$
+- w/o AutoCon : does not increase significantly (33.2 ms/iter) 
+  - $$\because$$ No augmentation process and the autocorrelation calculation occurs only once during the entire training. 
+- Transformer-based models (Nonstationary 365.7 ms/iter)
+- state-of-the-art CNN-based models (TimesNet 466.1 ms/iter)
 
 <br>
 
-Meaning
-
-- Shape of the function $$f_\lambda$$ between $$\lambda_{\min }$$ and $$\lambda_{\max }$$ does not affect the loss
-
-- Only the weighting function $$w(\lambda)$$ affects!
-
-<br>
-
-Monte Carlo estimator
-
-- This invariance does not hold for the Monte Carlo estimator of the loss, **based on random samples** $$t \sim \mathcal{U}(0,1), \boldsymbol{\epsilon} \sim \mathcal{N}(0, \mathbf{I})$$. 
-
-- Noise schedule still **affects the variance** of this Monte Carlo estimator and its gradients; 
-
-  $$\rightarrow$$ Affects the **efficiency of optimization**
-
-- Noise schedule acts as an **importance sampling distribution** for estimating the loss integral
-
-<br>
-
-Rewrite the weighted loss 
-
-- Note that $$p(\lambda)=-1 /(d \lambda / d t)$$. 
-- Clarifies the role of $$p(\lambda)$$ as an importance sampling distribution:
-
-## $$\mathcal{L}_w(\mathbf{x})=\frac{1}{2} \mathbb{E}_{\boldsymbol{\epsilon} \sim \mathcal{N}(0, \mathbf{I}), \lambda \sim p(\lambda)}\left[\frac{w(\lambda)}{p(\lambda)} \mid \mid \hat{\boldsymbol{\epsilon}}_{\boldsymbol{\theta}}\left(\mathbf{z}_\lambda ; \lambda\right)-\epsilon \mid \mid _2^2\right]$$
-
-<br>
-
-# 4. Weighted Loss as the ELBO with DA
-
+![figure2](/assets/img/ts/img654.png)
