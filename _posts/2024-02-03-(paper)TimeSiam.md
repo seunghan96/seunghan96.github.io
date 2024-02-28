@@ -2,7 +2,7 @@
 title: TimeSiam; A Pre-Training Framework for Siamese Time-Series Modeling
 categories: [TS,CL]
 tags: []
-excerpt: ICLR 2024
+excerpt: -
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
@@ -369,4 +369,6 @@ Advantages of employing varying numbers of lineage embeddings
 $$\rightarrow$$ Incorporation of lineage embeddings enhances prediction performance
 
 ![figure2](/assets/img/ts/img668.png)
+
+
 
