@@ -2,7 +2,7 @@
 title: Enhancing Represnetation Leanring for Periodic TS with Floss; A Frequency Domain Regularization Approach
 categories: [TS,CL]
 tags: []
-excerpt: -
+excerpt: 
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
