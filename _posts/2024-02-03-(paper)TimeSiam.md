@@ -2,7 +2,7 @@
 title: TimeSiam; A Pre-Training Framework for Siamese Time-Series Modeling
 categories: [TS,CL]
 tags: []
-excerpt: -
+excerpt: 
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
