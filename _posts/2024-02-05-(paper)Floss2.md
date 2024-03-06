@@ -2,7 +2,7 @@
 title: Enhancing Representation Learning for Periodic TS with Floss; A Frequency Domain Regularization Approach
 categories: [TS,CL]
 tags: []
-excerpt: 
+excerpt: -
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
@@ -156,7 +156,7 @@ Compute periodogram for each sampled batch
 Notation
 
 -  $$\boldsymbol{y}=\mathcal{G}\left(x_{\left[t_1, t_2\right]} ; \theta\right)$$ and $$\hat{\boldsymbol{y}}=\mathcal{G}\left(x_{\left[\hat{t}_1, \hat{t}_2\right]} ; \theta\right)$$. 
-- Let $$\Phi_y$$ and $$\Phi_{\hat{y}}$$ : Estimated periodograms of $$\boldsymbol{y}$$ and $$\hat{y}$$ respectively
+-  Let $$\Phi_y$$ and $$\Phi_{\hat{y}}$$ : Estimated periodograms of $$\boldsymbol{y}$$ and $$\hat{y}$$ respectively
 
 <br>
 
