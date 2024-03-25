@@ -1,6 +1,6 @@
 ---
 title: Time-LLM; TS Forecasting by Reprogrammming LLM
-categories: [TS,CL]
+categories: [TS,CL,NLP]
 tags: []
 excerpt: ICLR 2024
 ---

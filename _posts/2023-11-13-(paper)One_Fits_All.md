@@ -1,6 +1,6 @@
 ---
 title: One Fits All; Power General TS Analysis by Pretrained LM
-categories: [TS,NLP,GAN]
+categories: [TS,NLP,GAN,NLP]
 tags: []
 excerpt: NeurIPS 2023
 ---
