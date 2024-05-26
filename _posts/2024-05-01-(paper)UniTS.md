@@ -1,8 +1,8 @@
 ---
-title: UniTS: Building a Unified Time Series Model
+title: UniTS; Building a Unified Time Series Model
 categories: [TS]
 tags: []
-excerpt: arrive
+excerpt: arxive
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
