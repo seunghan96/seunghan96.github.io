@@ -14,6 +14,20 @@ excerpt: arxiv
 # Contents
 
 0. Abstract
+1. Introduction
+2. Related Works
+3. Approach
+   1. Data
+   2. Training Strategy
+   3. Model Design
+
+4. Experiments
+   1. TS Forecasting
+   2. Imputation
+   3. Anomaly Detection
+   4. Scalability
+   5. Analysis
+
 
 <br>
 
@@ -51,7 +65,7 @@ Accuracy deteriorate drastically in scenarios with limited data!
 - Training on large-scale text corpora
 - Remarkable few-shot and zero-shot abilities
 
-$\rightarrow$ Motivate to develop **large time series models (LTSM)** on numerous unlabeled series data 
+$$\rightarrow$$ Motivate to develop **large time series models (LTSM)** on numerous unlabeled series data 
 
 ( + transfer to various downstream tasks )
 
@@ -214,7 +228,7 @@ Record the statistics of each dataset, including
 - (2) TS characteristics
   - i.e. period- icity, stationarity, and predictability
 
-$\rightarrow$ Assess the complexity of different datasets and progressively conduct scalable pre-training. 
+$$\rightarrow$$ Assess the complexity of different datasets and progressively conduct scalable pre-training. 
 
 <br>
 
@@ -238,7 +252,7 @@ $\rightarrow$ Assess the complexity of different datasets and progressively cond
 
 Constructing unified TS sequences is not straightforward
 
-$\rightarrow$ Due to the **heterogeneity of series** 
+$$\rightarrow$$ Due to the **heterogeneity of series** 
 
 - i.e. amplitude, frequency, stationarity and disparities of the datasets in the variate number, series length
 
@@ -269,13 +283,13 @@ Step 1) Normalizing and merging at the **level of variates**
 
   - Time points of single-variate series for training follow the normal distribution ...
 
-    $\rightarrow$ which mainly mitigates the **discrepancies in the amplitude and variate numbers** across multiple datasets.
+    $$\rightarrow$$ which mainly mitigates the **discrepancies in the amplitude and variate numbers** across multiple datasets.
 
 Step 2) Sample
 
 - Uniformly sample sequences from the pool by a window
 
-  $\rightarrow$ Able to obtain a single-series sequences with a fixed length ( = format of S3 )
+  $$\rightarrow$$ Able to obtain a single-series sequences with a fixed length ( = format of S3 )
 
 - Extension of Channel Independence (CI)
 
@@ -283,11 +297,11 @@ Step 2) Sample
 
   - CI: flattens the variate dimension to the same batch, 
 
-    $\rightarrow$ Requiring the batch of series to originate from the same dataset
+    $$\rightarrow$$ Requiring the batch of series to originate from the same dataset
 
   - S3; model observes sequences from different periods and different datasets
 
-    $\rightarrow$ Increasing the pre-training difficulty and directing more attention to temporal variations.
+    $$\rightarrow$$ Increasing the pre-training difficulty and directing more attention to temporal variations.
 
 <br>
 
@@ -309,46 +323,46 @@ Pre-training objective: Generative modeling
 
 ### a) Next token prediction
 
-$P(\mathcal{U})=\prod_{i=1}^N p\left(u_i \mid u_{<i}\right)$.
+$$P(\mathcal{U})=\prod_{i=1}^N p\left(u_i \mid u_{<i}\right)$$.
 
-- on the token sequence $\mathcal{U}=\left\{u_1, \ldots, u_N\right\}$,
+- on the token sequence $$\mathcal{U}=\left\{u_1, \ldots, u_N\right\}$$,
 
 <br>
 
 ### b) Tokenization
 
-Tokenization of the given S3 $\mathbf{X}=\left\{x_1, \ldots, x_{N S}\right\}$ 
+Tokenization of the given S3 $$\mathbf{X}=\left\{x_1, \ldots, x_{N S}\right\}$$ 
 
-- with the unified context length $N S$
-- TS token = time segment of length $S$ 
-  - $\mathbf{s}_i=\left\{x_{(i-1) S+1}, \ldots, x_{i S}\right\} \in \mathbb{R}^S $.
+- with the unified context length $$N S$$
+- TS token = time segment of length $$S$$ 
+  - $$\mathbf{s}_i=\left\{x_{(i-1) S+1}, \ldots, x_{i S}\right\} \in \mathbb{R}^S $$.
 
 <br>
 
 ### c) Decoder-only Transformer*
 
-with dimension $D$ and $L$ layers for GPT on the $N$ tokens from a single-series sequence:
+with dimension $$D$$ and $$L$$ layers for GPT on the $$N$$ tokens from a single-series sequence:
 
-$\begin{aligned}
+$$\begin{aligned}
 \mathbf{h}_i^0 & =\mathbf{W}_e \mathbf{s}_i+\mathbf{T E}_i, i=1, \ldots, N, \\
 \mathbf{H}^l & =\operatorname{TrmBlock}\left(\mathbf{H}^{l-1}\right), l=1, \ldots, L, \\
 \left\{\hat{\mathbf{s}}_{i+1}\right\} & =\mathbf{H}^L \mathbf{W}_d, i=1, \ldots, N,
-\end{aligned}$.
+\end{aligned}$$.
 
-- $\mathbf{W}_e, \mathbf{W}_d \in \mathbb{R}^{D \times S}$ : encode and decode token embeddings $\mathbf{H}=\left\{\mathbf{h}_i\right\} \in \mathbb{R}^{N \times D}$
-- $\mathbf{T E}_i$ : corresponding (optional) timestamp embedding. 
+- $$\mathbf{W}_e, \mathbf{W}_d \in \mathbb{R}^{D \times S}$$ : encode and decode token embeddings $$\mathbf{H}=\left\{\mathbf{h}_i\right\} \in \mathbb{R}^{N \times D}$$
+- $$\mathbf{T E}_i$$ : corresponding (optional) timestamp embedding. 
 
 <br>
 
 Causal attention of the decoder-only Transformer
 
-- autoregressively generated $\hat{\mathbf{s}}_{i+1}$ 
+- autoregressively generated $$\hat{\mathbf{s}}_{i+1}$$ 
 
 <br>
 
 Pretraining objective
 
-- $\mathcal{L}_{\mathrm{MSE}}=\frac{1}{N S} \sum \mid \mid \mathbf{s}_i-\hat{\mathbf{s}}_i \mid \mid _2^2, i=2, \ldots, N+1$.
+- $$\mathcal{L}_{\mathrm{MSE}}=\frac{1}{N S} \sum \mid \mid \mathbf{s}_i-\hat{\mathbf{s}}_i \mid \mid _2^2, i=2, \ldots, N+1$$.
 
 <br>
 
@@ -375,7 +389,7 @@ Why Tranasformer?
 
   - (cons) flattening can also wipe out token dependencies modeled by attention
 
-    $\rightarrow$ Weaken Transformer layers to reveal the patterns of temporal variations
+    $$\rightarrow$$ Weaken Transformer layers to reveal the patterns of temporal variations
 
 <br>
 
@@ -390,7 +404,7 @@ Why Tranasformer?
 
 <br>
 
-$\rightarrow$ Summary: establish ***LLM-style decoder-only*** Timer
+$$\rightarrow$$ Summary: establish ***LLM-style decoder-only*** Timer
 
 - with **autoregressive generation pre-training**
 
@@ -400,7 +414,7 @@ $\rightarrow$ Summary: establish ***LLM-style decoder-only*** Timer
 
 TS forecasting, imputation, and anomaly detection 
 
-$\rightarrow$ **unified generative scheme**
+$$\rightarrow$$ **unified generative scheme**
 
 <br>
 
@@ -432,9 +446,9 @@ Analysis
 
 - Pre-train Timer on UTSD-12G 
 
-  - segment length $S = 96$ 
+  - segment length $$S = 96$$ 
 
-  - number of tokens $N = 15$
+  - number of tokens $$N = 15$$
 
     ( = context length up to 1440 )
 
@@ -459,4 +473,43 @@ SOTA baselines:
 
 ### a) Setups
 
+Imputation 
+
+- Conduct the segment-level imputation
+- TS is divided into 8 segments 
+  - segment length S = 24 and the token number N = 15
+
+<br>
+
 ### b) Results
+
+![figure2](/assets/img/ts2/img67.png)
+
+<br>
+
+## (3) Anomaly Detection
+
+pass
+
+<br>
+
+## (4) Scalability
+
+![figure2](/assets/img/ts2/img69.png)
+
+![figure2](/assets/img/ts2/img70.png)
+
+![figure2](/assets/img/ts2/img68.png)
+
+<br>
+
+## (5) Analysis
+
+![figure2](/assets/img/ts2/img71.png)
+
+![figure2](/assets/img/ts2/img72.png)
+
+![figure2](/assets/img/ts2/img73.png)
+
+![figure2](/assets/img/ts2/img74.png)
+
