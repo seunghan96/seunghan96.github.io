@@ -252,11 +252,14 @@ Prompt learning
 
 [2] Four tasks
 
-- forecasting, classification, anomaly detection, and imputation. 
+- forecasting
+- classification
+- anomaly detection
+- imputation
 
 <br>
 
-[3] Model
+[3] Models
 
 - $$F\left(\mathcal{X}_i, \theta\right)$$ : model with weights $$\theta$$ trained on $$\mathcal{X}_i$$
 - $$F(\mathcal{X}, \theta)$$ : model trained on all datasets in $$D$$, 
@@ -332,7 +335,10 @@ Single model $$F(\theta)$$
 Tested on multiple types of ***new tasks*** that are not trained for
 
 - $$F(\mathcal{X}, \theta) \rightarrow \hat{\mathcal{X}}, \hat{\mathcal{X}} \notin \mathcal{X}$$. 
-- ex) long-term forecasting with new length and forecasting on out-of-domain datasets with a new number of variables. 
+
+- ex) long-term forecasting with new length and 
+
+  forecasting on out-of-domain datasets with a new # of variables. 
 
 <br>
 
@@ -513,7 +519,6 @@ Sequence MHSA: Similarity-based relation modeling
 - simple and effective 
 - capture relations among tokens of **various sequence lengths** 
 - Idea) **weight interpolation scheme**
-  - 
 
 <br>
 
@@ -544,7 +549,13 @@ Dynamic MLP
 
 $$\mathbf{z}_{\text {out }}=\operatorname{Linear}\left(\operatorname{Concat}\left(\operatorname{DyLinear~}_M\left(\mathbf{z}_{\text {mid }}^1\right), \mathbf{z}_{\text {mid }}^2\right)\right)$$.
 
-- where DyLinear $$_M$$ processes the sequence and prompt tokens in $$\mathbf{z}_{\text {mid }}^1$$ with two DyLinear operators, 
+- where DyLinear $$_M$$ processes the 
+
+  - (1) sequence tokens
+  - (2) prompt tokens 
+
+  in $$\mathbf{z}_{\text {mid }}^1$$ with two DyLinear operators, 
+
 - CLS token is skipped to ensure consistency for all tasks. 
 
 <br>
@@ -623,9 +634,11 @@ Step 2) Accumulate dataset-level loss values:
 
 7 TS models
 
-- iTransformer (Liu et al., 2024), TimesNet (Nie et al., 2023), PatchTST (Nie et al., 2023), Pyraformer (Liu et al., 2021), and Autoformer (Wu et al., 2021).
+- iTransformer (Liu et al., 2024), TimesNet (Nie et al., 2023), PatchTST (Nie et al., 2023), 
 
-LLM baased methods
+  Pyraformer (Liu et al., 2021), and Autoformer (Wu et al., 2021).
+
+LLM based methods
 
 - GPT4TS (Zhou et al., 2023) and LLMTime (Nate Gruver \& Wilson, 2023). 
 
@@ -635,7 +648,9 @@ Many of these methods are designed only for one type of task
 
 - ex) GPT4TS, LLMTime: forecasting models
 
-- Add task-specific input/output modules for methods when necessary to support multiple tasks and include them in benchmarking. 
+- Add task-specific input/output modules for methods 
+
+  when necessary to support multiple tasks and include them in benchmarking. 
 
 <br>
 
@@ -662,7 +677,8 @@ Two variants of UniTS
 - (1) **Fully supervised** model
   - that uses the same training scheme as baselines, 
 - (2) **Prompt learning** model 
-  - where a self-supervised pretrained UniTS is fixed and only prompts for all tasks are generated. 
+  - where a pretrained UniTS is fixed
+  - only prompts for all tasks are generated. 
 
 <br>
 
@@ -842,7 +858,7 @@ $$\rightarrow$$ Selecting suitable prompt tokens alone can effectively adapt Uni
 
 <br>
 
-## (6) UniTS for Few-Shot Anomaly Detection
+## (6) 	
 
 Average score across all datasets using a multi-task setting. 
 
