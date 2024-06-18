@@ -1,6 +1,5 @@
 ---
-title: TimeMachine; A Time Series is Worth 4 Mambas for
-Long-term Forecasting
+title: TimeMachine; A Time Series is Worth 4 Mambas for Long-term Forecasting
 categories: [TS]
 tags: []
 excerpt: arxiv
