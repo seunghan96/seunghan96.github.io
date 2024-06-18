@@ -23,10 +23,7 @@ excerpt: arxiv
 
 Limitation of Transformer: **Quadratic complexity**
 
-***Mamba***
-
-- **Selective state space model (SSM)**
-- Process dependencies in sequences while maintaining near-linear complexity
+Solution: ***Mamba***: **Selective SSM**
 
 <br>
 
@@ -34,11 +31,11 @@ Limitation of Transformer: **Quadratic complexity**
 
 - Simple-Mamba (S-Mamba) for TSF
 - Details
-  - (1) **Tokenization**: Tokenize the time points of **each variate** autonomously via a linear layer
-  - (2) Encoder:
-    - 2-1) **Bidirectional** Mamba layer: to extract **inter-variate** correlations 
-    - 2-2) **FFN**: to learn temporal dependencies
-  - (3) Decoder: through a linear mapping layer. 
+  - (1) **Tokenization**: Tokenize the time points of **each variate** via a linear layer
+  - (2) **Encoder**:
+    - 2-1) **"Bidirectional"** Mamba layer: to extract **inter-variate** correlations 
+    - 2-2) **FFN**: to learn **temporal** dependencies
+  - (3) **Decoder**: linear mapping layer. 
 
 <br>
 
@@ -55,17 +52,16 @@ https://github.com/wzhwzhwzh0921/S-D-Mamba.
 
 <br>
 
-**S-Mamba (Mamba-based model Simple-Mamba)**
+**S-Mamba (Simple-Mamba)**
 
 - **Step 1) Linear layer**
-  - Time points of each variate are tokenized
+  - Time points of "each variate" are tokenized
 - **Step 2) Mamba VC (Inter-variate Correlation) Encoding layer** 
-  - encodes the VC by utilizing a **bidirectional** Mamba
-  - leverage the global **inter-variate** mutual information
+  - Encodes the "VC" by utilizing a **"Bidirectional"** Mamba
 - **Step 3) FFN TD (Temporal Dependency) Encoding Layer**
-  - extract the TD by simple **FFN**
+  - Extract the "TD" by simple **FFN**
 - **Step 4) Mapping layer** 
-  - to output the forecast results. 
+  - Output the forecast results. 
 
 <br>
 
@@ -91,7 +87,7 @@ Experiments
 
 (2) Experiments
 
-- vs. state-of-the-art models in TSF
+- vs. SOTA models in TSF
 - Superior forecast performance & Less computational resources
 
 (3) Extensive experiments 
@@ -129,13 +125,13 @@ Tasks of predicting sequences of
 
 <br>
 
-Sequence Reordering Mamba [60] 
+**Sequence Reordering Mamba [60]** 
 
 - Exploit the inherent valuable information embedded within the long sequences
 
 <br>
 
-TimeMachine
+**TimeMachine**
 
 - Capture long-term dependencies in MTS
 
@@ -154,8 +150,8 @@ Effectively reduce the parameter size & improve the efficiency of model inferenc
 - Input: $$U_{\text {in }}=\left[u_1, u_2, \ldots, u_L\right] \in \mathbb{R}^{L \times V}$$ 
   - $$u_n=\left[p_1, p_2, \ldots, p_V\right]$$. 
 - Output: $$U_{\text {out }}=\left[u_{L+1}, u_{L+2}, \ldots, u_{L+T}\right] \in$$ $$\mathbb{R}^{T \times V}$$. 
-  - $$p$$ : variate
-  - $$V$$ : total number of variates
+  - $$p$$ : Variate
+  - $$V$$ : Total number of variates
 
 <br>
 
@@ -176,7 +172,7 @@ y(t) & =\boldsymbol{C} h(t),
 
 - where $$\boldsymbol{A} \in \mathbb{R}^{N \times N}$$ and $$\boldsymbol{B}, \boldsymbol{C} \in \mathbb{R}^{N \times D}$$ are learnable matrices
 
-<brR>
+<br>
 
 Discretiztion: discretized by a step size $$\Delta$$, 
 
@@ -193,16 +189,16 @@ y_t & =\boldsymbol{C} h_t
 
 Transitioning from 
 
-- **continuous** form $$(\Delta, \boldsymbol{A}, \boldsymbol{B}, \boldsymbol{C})$$ to 
+- **Continuous** form $$(\Delta, \boldsymbol{A}, \boldsymbol{B}, \boldsymbol{C})$$ to 
 - **discrete** form $$(\overline{\boldsymbol{A}}, \overline{\boldsymbol{B}}, \boldsymbol{C})$$, 
 
-$$\rightarrow$$ Can be efficiently calculated using a linear recursive approach
+$$\rightarrow$$ Can be efficiently calculated using a **linear recursive approach**
 
 <br>
 
-**Structured state space model (S4)**
+**Structured SSM (S4)**
 
-- Utilizes HiPPO [23] for initialization to add structure to the state matrix $$\boldsymbol{A}$$, 
+- Utilizes **HiPPO** [23] for **initialization** to add structure to the state matrix $$\boldsymbol{A}$$, 
 
 $$\rightarrow$$ Improving long-range dependency modeling.
 
@@ -212,8 +208,8 @@ $$\rightarrow$$ Improving long-range dependency modeling.
 
 Mamba 
 
-- **Data-dependent selection mechanism** into the S4
-- **Hardware-aware parallel** algorithms in its looping model
+- **Data-dependent "selection" mechanism** into the S4
+- **Hardware-aware "parallel"** algorithms in its looping model
 
 $$\rightarrow$$ Enables Mamba to 
 
@@ -229,22 +225,21 @@ $$\rightarrow$$ Enables Mamba to
 
 Mamba layer takes a sequence $$\boldsymbol{X} \in \mathbb{R}^{B \times V \times D}$$ as input
 
-- $$B$$ : batch size
-- $$V$$ : number of variates
-- $$D$$ : hidden dimension
+- $$B$$ : Batch size
+- $$V$$ : Number of variates
+- $$D$$ : Hidden dimension
 
 <br>
 
 **Mamba Block**
 
-- Step 1) Expands the hidden dimension to $$E D$$ through linear projection
+- Step 1) Expands the $D$ to $$E D$$  ( with linear projection )
   - $$E$$ : block expansion factor
   - Obtain $$x$$ and $$z$$
 
 - Step 2) Conv1D + SiLU
   - Obtain $$x^{'}$$
-- Step 3) Generate state representation $$y$$. 
-  - Via discretized SSM 
+- Step 3) Generate state representation $$y$$ ( with discretized SSM  )
 - Step 4) $$y$$ is combined with a residual connection from $$z$$ after activation
   - Obtain final output $$y_t$$
 
