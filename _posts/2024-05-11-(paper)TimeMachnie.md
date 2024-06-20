@@ -162,7 +162,7 @@ $$x^{(1)}=E_1\left(x^{(0)}\right), \quad x^{(2)}=E_2\left(D O\left(x^{(1)}\right
 - $$D O$$ : Dropout operation
 - Embedding operations (via MLPs)
   - $$E_1: \mathbb{R}^{M \times L} \rightarrow \mathbb{R}^{M \times n_1}$$ ,
-  - $$E_2: \mathbb{R}^{M \times n_1} \rightarrow \mathbb{R}^{M \times n_2}$$ 
+  - $$E_2: \mathbb{R}^{M \times n_1} \rightarrow \mathbb{R}^{M \times n_2}$$ .
 
 <br>
 
@@ -275,8 +275,8 @@ Outputs from the left-side and right-side inner Mambas:
 
 $$x^{(3)}=v_L \bigoplus v_R \bigoplus x^{(2)}$$, 
 
-- $$v_L=\left[v_{L, 1}, \cdots, v_{L, M}\right] \in \mathcal{R}^{M \times n_2}$$
-- $$v_R=\left[v_{R, 1}, \cdots, v_{R, M}\right] \in \mathcal{R}^{M \times n_2}$$
+- $$v_L=\left[v_{L, 1}, \cdots, v_{L, M}\right] \in \mathcal{R}^{M \times n_2}$$.
+- $$v_R=\left[v_{R, 1}, \cdots, v_{R, M}\right] \in \mathcal{R}^{M \times n_2}$$.
 
 <br>
 
