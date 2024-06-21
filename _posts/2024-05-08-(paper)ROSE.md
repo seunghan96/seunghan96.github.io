@@ -450,9 +450,9 @@ Details
 
 - Store them in pre-training. 
 - Find a cluster center vector $$\mathbf{e}_\delta$$ from the register codebook $$\mathbf{E}$$ 
-  - $$\delta=\underset{j=1: H}{\arg \min }\left \mid \mid d\mathbf{x}_{\mathrm{e}}-\mathbf{e}_j\right \mid \mid d_2 $$.
+  - $$\delta=\underset{j=1: H}{\arg \min } \mid \mid d\mathbf{x}_{\mathrm{e}}-\mathbf{e}_j \mid \mid d_2 $$.
 - To update the cluster center vectors ... loss function:
-  - $$\mathcal{L}_{\text {register }}=\left \mid \mid d\operatorname{sg}\left(\mathbf{x}_{\mathrm{e}}\right)-\mathbf{e}_\delta\right \mid \mid d_2^2+\left \mid \mid d\mathbf{x}_{\mathrm{e}}-\operatorname{sg}\left(\mathbf{e}_\delta\right)\right \mid \mid d_2^2 $$.
+  - $$\mathcal{L}_{\text {register }}= \mid \mid d\operatorname{sg}\left(\mathbf{x}_{\mathrm{e}}\right)-\mathbf{e}_\delta \mid \mid d_2^2+ \mid \mid d\mathbf{x}_{\mathrm{e}}-\operatorname{sg}\left(\mathbf{e}_\delta\right)\mid \mid d_2^2 $$.
     - First term = update the register codebook $$\mathbf{E}$$, 
     - Second term = update the parameters of the linear layer that learns $$\mathbf{x}_{\mathrm{e}}$$.
 
@@ -490,7 +490,7 @@ Freeze the register parameters
 - Uses their average as $$\overline{\mathbf{e}}_k$$ 
   - $$\rightarrow$$ also patched into $$\mathbf{X}_{\mathrm{d}} \in \mathbb{R}^{N_{\mathrm{r}} \times D}$$ 
 
-$$\overline{\mathbf{e}}_k=\frac{1}{k} \sum_{i=1}^k \mathbf{e}_{\delta_i},\left\{\delta_1, \cdots, \delta_k\right\}=\underset{j=1: H}{\arg \operatorname{Topk}}\left(\frac{1}{\left \mid \mid d\mathbf{x}_{\mathrm{e}}-\mathbf{e}_j\right \mid \mid d_2}\right) .$$.
+$$\overline{\mathbf{e}}_k=\frac{1}{k} \sum_{i=1}^k \mathbf{e}_{\delta_i},\{\delta_1, \cdots, \delta_k\}=\underset{j=1: H}{\arg \operatorname{Topk}}(\frac{1}{\mid \mid d\mathbf{x}_{\mathrm{e}}-\mathbf{e}_j \mid \mid d_2}) .$$.
 
 <br>
 
@@ -556,7 +556,7 @@ $$\rightarrow$$ [(1), (2)] Feed into the transformer encoder, prediction decoder
 
 <br>
 
-$$\mathcal{L}_{\text {prediction }}=\sum_{F \in\{96,192,336,720\}}\left \mid \mid d\mathbf{Y}_F-\hat{\mathbf{Y}}_F\right \mid \mid d_2^2$$.
+$$\mathcal{L}_{\text {prediction }}=\sum_{F \in\{96,192,336,720\}} \mid \mid d\mathbf{Y}_F-\hat{\mathbf{Y}}_F \mid \mid d_2^2$$.
 
 <br>
 
