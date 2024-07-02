@@ -1,6 +1,6 @@
 ---
 title: Bi-Mamba+; Bidirectional Mamba for Time Series Forecasting
-categories: [TS]
+categories: [TS,MAMBA]
 tags: []
 excerpt: arxiv
 ---
@@ -546,7 +546,7 @@ Bidirectional Mamba+
 - Two Mamba+ blocks in one Bi-Mamba+ encoder
   - to model the input sequence from the forward and backward directions respectively
   - $$\mathbb{E}_{x, d i r}^{(l)}$$ where dir $$\in\{$$ forward, backward $$\}$$. 
-- $$\mathbb{E}_x^{(l+1)}=\sum_{d i r}^{\{\text {forward,backward }\}} \mathcal{F}\left(\mathbb{E}_{y, d i r}^{(l)}, \mathbb{E}_{x, d i r}^{(l)}\right)$$ 
+- $$\mathbb{E}_x^{(l+1)}=\sum_{d i r}^{\{\text {forward,backward }\}} \mathcal{F}\left(\mathbb{E}_{y, d i r}^{(l)}, \mathbb{E}_{x, d i r}^{(l)}\right)$$ .
   - ( = input of the next Bi-Mamba+ encoder layer )
 
 <br>

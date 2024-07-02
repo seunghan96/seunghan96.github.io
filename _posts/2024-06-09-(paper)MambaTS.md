@@ -1,6 +1,6 @@
 ---
 title: MambaTS: Improved Selective SSM for LTSF
-categories: [TS]
+categories: [TS,MAMBA]
 tags: []
 excerpt: arxiv 2024
 ---

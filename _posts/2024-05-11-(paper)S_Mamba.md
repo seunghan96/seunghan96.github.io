@@ -1,6 +1,6 @@
 ---
 title: Is Mamba Effective for Time Series Forecasting?
-categories: [TS]
+categories: [TS,MAMBA]
 tags: []
 excerpt: arxiv
 ---

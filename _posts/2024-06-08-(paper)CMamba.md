@@ -1,6 +1,6 @@
 ---
 title: C-Mamba; Channel Correlation Enhanced State Space Models for Multivariate Time Series Forecasting via Factorized Temporal and Channel Mixing
-categories: [TS]
+categories: [TS,MAMBA]
 tags: []
 excerpt: arxiv 2024
 ---

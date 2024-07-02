@@ -178,7 +178,7 @@ Adapter
 
 Channel-wise attention at each time step to discern inter-channel dependencies
 
-$$\mathbf{Z}_c=\operatorname{MSA}\left(\mathbf{H}_c\right) .$$
+$$\mathbf{Z}_c=\operatorname{MSA}\left(\mathbf{H}_c\right) $$,
 
 - where $$\mathbf{H}_c \in \mathbb{R}^{L \times N \times D}$$ , $$\mathbf{Z}_c \in \mathbb{R}^{L \times N \times D}$$
 
@@ -200,7 +200,7 @@ $$\mathbf{Z}_s=\operatorname{MSA}\left(\mathbf{H}_s\right)$$.
 
 <br>
 
-$$\mathbf{A}_s=\operatorname{Adapter}\left(\operatorname{Norm}\left(\mathbf{Z}_s\right)\right)+\mathbf{H}_s$$
+$$\mathbf{A}_s=\operatorname{Adapter}\left(\operatorname{Norm}\left(\mathbf{Z}_s\right)\right)+\mathbf{H}_s$$,	
 
 - where $$\mathbf{A}_s \in \mathbb{R}^{N \times L \times D}$$ 
 

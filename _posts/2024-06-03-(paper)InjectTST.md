@@ -48,7 +48,7 @@ Instead of designing a CM model,
 
 & **gradually inject global information** into individual channels in a selective way
 
-<brR>
+<br>
 
 Modules
 
