@@ -55,6 +55,14 @@ feature_row2:
     url: "categories/diff/"
     btn_label: "Read More"
     btn_class: "btn--primary"
+
+  - image_path: /assets/img/MAMBA.png
+    alt: "placeholder image 2"
+    title: "MAMBA"
+    excerpt: "Selective SSM"
+    url: "categories/mamba/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
     
   - image_path: /assets/img/AUDIO.png
     alt: "placeholder image 2"
