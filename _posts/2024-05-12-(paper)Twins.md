@@ -1,5 +1,5 @@
 ---
-title: TwinS: Revisiting Non-Stationarity in MTS Forecasting
+title: TwinS; Revisiting Non-Stationarity in MTS Forecasting
 categories: [TS]
 tags: []
 excerpt: arxiv 2024
