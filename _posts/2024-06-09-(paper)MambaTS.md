@@ -1,5 +1,5 @@
 ---
-title: DTMamba; Dual Twin Mamba for TS Forecasting
+title: MambaTS; Improved Selective SSM for LTSF
 categories: [TS,MAMBA]
 tags: []
 excerpt: arxiv 2024
