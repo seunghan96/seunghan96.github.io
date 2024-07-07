@@ -24,39 +24,42 @@ excerpt: arxiv
 
 # Abstract
 
-Pre-trained foundation models
+Pre-trained Foundation Models **(PFM)**
 
-- leveraging unlabeled data to capture general TS patterns
+- (1) leverages **UNlabeled** data
+- (2) captures **GENERAL** TS patterns
 
 <br>
 
-Limitations: suffer from high-bias and low-generality issues, due to ...
+Limitations of previous **C**L:
 
-- (1)  the use of predefined and rigid augmentation
-- (2) domain-specific data training
+$\rightarrow$ Suffer from ***high-bias*** and ***low-generality*** issues, due to ...
+
+- (1) Use of **predefined and rigid augmentation**
+- (2) **Domain-specific** data training
 
 <br>
 
 ### UniCL
 
-- (1) Universal and scalable CL framework
-- (2) for pretraining TS foundation models 
-- (3) cross-domain datasets
+- (1) Universal and scalable CL 
+- (2) PFM
+- (3) Cross-domain datasets
 
 <br>
 
 Details
 
-- (1) Unified and trainable TS augmentation operation 
+- (1) Unified and trainable **"TS augmentation"** operation 
 
-  - to generate pattern-preserved, diverse, and low-bias TS data 
-  - by leveraging spectral information
+  - Generate **pattern-preserved, diverse, and low-bias** TS data 
+  - Leveraging **spectral** information
 
-- (2) Scalable augmentation algorithm 
+- (2) **"Scalable augmentation"** algorithm 
 
-  - capable of handling datasets with varying lengths
+  - Handle datasets with **varying lengths**
 
-    ( facilitating cross-domain pretraining )
+    ( facilitating **cross-domain** pretraining )
 
 - Experiments) 2 benchmark datasets
   - across eleven domains
@@ -71,25 +74,25 @@ Challenges in analyzing TS data:
 
 <br>
 
-TS analysis in deep learning
+TS analysis in DL
 
 - (1) Supervised learning (SL)-based
-- (2) **Pretrained foundation model (PFM)-based**
+- (2) **PFM-based**
 
 <br>
 
-Procedures of PFM based approaches
+Procedures of PFM:
 
-- step 1) **Pre-train** a foundation model on TS data
-  - to capture the general intrinsic patterns of time-series data. 
-- step 2) **Fine-tune** a foundation model on specific TS tasks
+- step 1) **Pre-train** on "TS data"
+  - Capture the "general" intrinsic patterns of TS 
+- step 2) **Fine-tune** on "specific TS tasks"
 
 <br>
 
-Mask-based pre-training approaches? Limitations?
+**Mask-based** pre-training approaches: Limitations?
 
 - Require numerous unlabeled TS data
-- Unlike corpus data, TS are scarce in the open-world website
+- TS are **scarce** in the open-world website
 
 $$\rightarrow$$ Achieve suboptimal performance!
 
@@ -97,30 +100,30 @@ $$\rightarrow$$ Achieve suboptimal performance!
 
 To alleviate the heavy reliance on numerous TS data...
 
-$$\rightarrow$$ CL approaches are proposed to augment TS
+$$\rightarrow$$ CL approaches are proposed to **"augment TS"**
 
-- step 1) Generate positive views for each TS
-- step 2) Foundation model is optimized by CL loss
+- step 1) Generate **views**
+- step 2) **CL loss**
 
 <br>
 
-Limitations of CL-based pretrained foundation models
+Limitations of **CL-based PFMs**
 
-- (1) High-bias and low-generality issues
+- (1) **High-bias** & **Low-generality**
 
   - TS augmentation operations
 
     ( ex. permutation [41, 47], random masking [63, 72], and warping [14] )
 
-    - ignore the TS intrinsic properties (ex. periodicity)
+    - **ignore the TS intrinsic properties** (ex. periodicity)
 
-      $$\rightarrow$$ introducing high bias and noise
+      $$\rightarrow$$ Introduce ***high bias and noise***
 
     - ex) permutation shuffles the sequential information
 
-- (2) Generally pretrained within a single domain
+- (2) Generally pretrained within a **single domain**
 
-  - However, TS data can vary significantly across different domains 
+  - TS can vary significantly across different domains!
 
     $$\rightarrow$$ Fail to transfer!
 
@@ -128,73 +131,75 @@ Limitations of CL-based pretrained foundation models
 
 ## (1) UniCL
 
-Universal pre-trained foundation model for TS analysis
+### Universal PFM for TS analysis
 
-(Solution 1) High-bias issue
+(Solution 1) **High-bias**
 
-- use effective pattern-preserved augmentation operations
+- Use effective "**pattern-preserved augmentation**" operations
 
-  $$\rightarrow$$ capable of learning and retaining the intrinsic patterns
+  $$\rightarrow$$ Capable of learning the intrinsic patterns
 
-(Solution 2) Low-generality issue
+(Solution 2) **Low-generality**
 
-- pre-train the foundation model using data of various domains
+- Use data of **"various domains"**
 
-  $$\rightarrow$$ can generalize on various domains
-
-<br>
-
-Three technical challenges 
-
-- [A] No theoretical analysis and established metrics for preserving the patterns of TS data with deep learning
-  - cannot design effective augmentation operations
-
-- [B] High variations in TS data from different domains (i.e. different length)
-  - challenging to design a scalable and unified augmentation algorithm
-
-- [C] Existing studies) Train the LLM-based encoder by optimizing the predictive objective
-  - less attention in contrastive objective 
+  $$\rightarrow$$ Generalize on various domains
 
 <br>
 
-Solutions
+### Three technical challenges 
 
-- [A] Empirically reveal a positive correlation between 
+- [A] No theoretical analysis and established metrics for "**preserving the patterns of TS data"** with DL
+  - Cannot design effective augmentation operations
 
-  - a) bias of TS embeddings
-  - b) spectral distance between augmented and raw TS
+- [B] **"High variations"** in TS data from different domains (i.e. different length)
+  - Challenging to design a scalable and unified augmentation algorithm
+
+- [C] Existing studies) Train the LLM-based encoder by optimizing the "**predictive objective"**
+  - Less attention in contrastive objective 
+
+<br>
+
+### Three Solutions
+
+- [A] Empirically reveal a **"positive" correlation** between 
+
+  - a) **Bias of TS embeddings**
+  - b) **Spectral distance** between augmented and raw TS
 
   $$\rightarrow$$ Propose a unified and trainable TS augmentation operation & two novel losses
 
-- [B] Scalable and unified augmentation 
-  - utilizes spectrum preserved TS segmentation
-
-- [C] Train a transformer-based encoder 
-  - on 40 cross-domain datasets
-  - initialized with pre-trained weights from the text encoder of CLIP 
+- [B] **"Scalable and unified augmentation"**
+  
+  - utilizes **spectrum** preserved TS segmentation
+  
+- [C] **"Transformer"**-based encoder 
+  
+  - 40 cross-domain datasets
+  - Initialized with pre-trained weights from the text encoder of CLIP 
 
 <br>
 
 ## (2) Contributions
 
-(1) General framework for pretraining large foundation TS models based on CL
+(1) General framework for **PFM based on CL**
 
 - capable of handling high variation TS
 
-(2) Feveal the factor of representation bias based on a novel metric
+(2) Reveal the factor of **representation bias** based on a **novel metric**
 
 - ( + propose a unified and trainable augmentation )
 - ( + propose two novel losses )
 
-(3) Propose a scalable and unified algorithm to handle data with varied length 
+(3) Handle data with **"varied length"** 
 
 - by pattern-preserved segmentation and concatenation
 - demonstrate bounded convergence loss differences between scalable and non-scalable algorithms
 
-(4) First to train the LLM backbone with CL loss for general TS
+(4) First to train the **LLM backbone with "CL loss"** for general TS
 
-- train the UniCL on 40 cross-domain datasets
-- two downstream tasks
+- 40 cross-domain datasets
+- 2 downstream tasks
 
 <br>
 
@@ -204,59 +209,66 @@ Solutions
 
 # 2. Foundation Models for TS Data
 
-## (1) Pretrained Foundation Models. 
+## (1) PFMs 
 
 Three types
 
-- (1) pretrained language model-based
-- (2) mask-based
+- (1) LLM-based
+- (2) Mask-based
 - (3) CL-based
 
 <br>
 
-### a) Pretrained Language Models
+### a) LLM-based
 
 Naive approach
 
-- step 1) Directly take pretrained LMs as the foundation model $$f_{\theta^*}$$ 
-- step 2) Propose to apply these pretrained LMs in the TS
+- step 1) Take **pretrained LLMs** as the foundation model $$f_{\theta^*}$$ 
+- step 2) Propose to **apply it on the TS**
 
 <br>
 
-ex) LLMTIME [42] 
+ex) **LLMTIME [42]** 
 
-- encodes TS as a string of numerical digits
+- Encodes TS as a **"string" of numerical digits**
 
   ( with each digit separated by spaces )
 
-ex) LSTPrompt [32] and PromptCast [70] 
+ex) **LSTPrompt [32], PromptCast [70]** 
 
-- incorporate domain information and frequency into template-based descriptions
-- embed them using a text tokenizer to guide the LLM
+- Incorporate domain information and frequency into **"template-based"** descriptions
+- Embed them using a "**text tokenizer**" to guide the LLM
 
 <br>
 
-Limitation) LMs are inherently designed for handling text data ( = discrete and categorical )
+Limitation) 
 
-Solution) propose mask-based [12,74]  and CL based [72,78] foundation models 
+- Inherently designed for handling text data 
+
+  ( = **discrete and categorical** )
+
+Solution) 
+
+- Mask-based [12,74]  
+- CL based [72,78] 
 
 <br>
 
 ### b) Mask-based
 
-Classified into ...
+Classified into
 
-- (1) reconstruction based [12,16,28,74]
-- (2) prediction-based [3,22,37]
+- (1) **Reconstruction** based [12,16,28,74]
+- (2) **Prediction **based [3,22,37]
 
 <br>
 
 Procedures
 
-- step 1) Binary random mask $$\mathrm{M} \in\{0,1\}^{n \times T}$$ 
-  - mask the input series as $$\mathrm{X}^{(j)} \odot \mathrm{M}^{(j)}$$. 
+- step 1) Random mask $$\mathrm{M} \in\{0,1\}^{n \times T}$$ 
+  - Masking: $$\mathrm{X}^{(j)} \odot \mathrm{M}^{(j)}$$. 
 - step 2) 
-  - (1) Reconstruction based methods
+  - (1) Reconstruction loss
     - $$\mathcal{L}_{r l}=\frac{1}{m} \sum_{j=1}^m\left\|\mathrm{X}^{(j)} \odot\left(1-\mathrm{M}^{(j)}\right)-\hat{\mathrm{X}}^{(j)} \odot\left(1-\mathrm{M}^{(j)}\right)\right\|_2^2$$.
   - (2) Prediction loss
     - $$\mathcal{L}_{p l}=\frac{1}{m} \sum_{j=1}^m\left\|\mathrm{X}_{t: t+H_f}^{(j)}-\hat{\mathrm{X}}_{t: t+H_f}^{(j)}\right\|_2^2 $$.
@@ -265,12 +277,14 @@ Procedures
 
 Limitation) 
 
-- (1) necessitates abundant data
-  - due to its reliance on self-encoding reconstruction and prediction objectives
+- (1) Necessitates **abundant data**
+  - Due to its reliance on self-encoding reconstruction and prediction objectives
 
-- (2) masked values are often easily predicted from neighbors
+- (2) Masked values are often **easily predicted** from neighbors
 
-Solution) Large-scale datasets 
+Solution) 
+
+- **Large-scale datasets** 
 
 <br>
 
@@ -280,58 +294,65 @@ Solution) Large-scale datasets
 
 <br>
 
-Mainly differ in positive view generation
+Mainly differ in "**positive view generation"**
 
-Classified into two types
+Classified into 2 types
 
-- (1) context-based [25, 60, 72]
-- (2) augmentation-based
+- (1) **Context**-based [25, 60, 72]
+- (2) **Augmentation**-based
 
 <br>
 
-(1) Context-based approaches [25, 60, 72]
+**(1) Context-based**
 
-- generally advocate contextual consistency, considering sub-series with close temporal relationships as positive views
+- generally advocate **contextual consistency**
+
+  ( sub-series with close temporal relationships = positive views )
+
 - ex) TS2Vec [72] 
   - two overlapping time segments
+  
 - ex) others [25, 60] 
   - opt for temporal neighborhood sub-series
+  
 - Limitation)
-  - reliant on observed data
-  - may perform poorly on unseen data
+  - Rely on **observed data**
+  - Perform poorly on **unseen data**
 
 <br>
 
-(2) Augmentation-based methods 
+**(2) Augmentation-based**
 
-- can generate diverse TS based on observed data
-- ex) predefined data augmentation operation
+- **Generate diverse TS** based on observed data
+- ex) **Predefined** data augmentation operation
   - jittering [13, 52, 71], scaling [66], permutation [41, 47], magnitude warping [14], masking [63, 72], and pooling [29]
-- ex) perturbation in the frequency domain [33, 78]
+- ex) Perturbation in the frequency domain [33, 78]
 
 - ex) CLUDA [46] 
-  - adopts a composition of operations to generate positive views.
+  - adopts a **composition of operations** to generate positive views.
 - Limitation)
-  - dependence on expert knowledge [40]
-  - susceptible to inductive bias [56]
+  - Dependence on expert knowledge [40]
+  - Susceptible to inductive bias [56]
 - ex) meta-learning [39]  to select augmentation operations adaptively based on criteria of fidelity and variety.
 
-$$\rightarrow$$ Still rely on a pre-defined set of augmentations.
+$$\rightarrow$$ Still rely on a ***pre-defined set of augmentations***
 
 <br>
 
 ## (2) Fine-tuning TS Foundation Model
 
-- Partial Fine-tunining (P-FT)
-- Full Fine-Tuning (F-FT) $$\rightarrow$$ This paper
+- **Partial** Fine-tunining (P-FT)
+- **Full** Fine-Tuning (F-FT) $$\rightarrow$$ This paper
 
 <br>
 
 ## (3) Variable Independence
 
-Transformer-based learning : variable-mixing (or channel-mixing) 
+Transformer-based learning : 
 
-- MTS $$\mathrm{X} \in \mathbb{R}^{n \times T}$$ is mapped into $$\mathbf{Z} \in \mathbb{R}^{T \times D}$$
+**variable-mixing (or channel-mixing)** 
+
+- $$\mathrm{X} \in \mathbb{R}^{n \times T}$$ is mapped into $$\mathbf{Z} \in \mathbb{R}^{T \times D}$$
 
 - Two critical issues: 
 
@@ -347,7 +368,7 @@ Transformer-based learning : variable-mixing (or channel-mixing)
 
 <br>
 
-UniCL: **variable independence configuration**
+UniCL: **"variable independence" configuration**
 
 ( = processing $$n$$ variables independently )
 
@@ -357,10 +378,9 @@ UniCL: **variable independence configuration**
 
 UniCL
 
-- Universal CL framework designed for TS analysis
-- general and effective
-- capable of handling heterogeneous cross-domain TS
-- based on a unified augmentation operation 
+- (1) **Universal CL framework** designed for TS analysis
+- (2) Handle **heterogeneous** cross-domain TS
+- (3) **Unified augmentation** operation 
 
 <br>
 
@@ -368,38 +388,38 @@ UniCL
 
 Four steps: 
 
-- (1) data generation
-- (2) unified and scalable data augmentation module
-- (3) time-series encoder based on LLMs
-- (4) embedding contrast
+- (1) Data generation
+- (2) Data augmentation
+- (3) TS encoder based on LLMs
+- (4) Contrastive learning
 
 <br>
 
 Procedures
 
-- Step 1) TS datasets from diverse domains 
+- Step 1) **TS from diverse domains** 
   - Partitioned into batches
-- Step 2) Augmentation module
-  - can deal with varying lengths of inputs with missing values
-  - unified and learnable augmentation operation
-- Step 3) CLIP-based encoder 
+- Step 2) **Augmentation module**
+  - Varying lengths of inputs with missing values
+  - Unified and learnable augmentation operation
+- Step 3) **CLIP-based encoder** 
   - generates embeddings for all views
-- Step 4) CL loss
+- Step 4) **CL loss**
 
 <br>
 
 # 4. Unified Foundation Model
 
-4.1) Observations about the **bias in TS representation**
+4.1) Observations about the **"bias" in TS representation**
 
-- caused by pre-determined augmentation methods
+- caused by **"pre-determined"** augmentation methods
 
 <br>
 
 4.2) Summarize **existing methods** & propose a **unified and learnable augmentation operation family**
 
-- to facilitate the training of such operations, we introduce two novel efficient loss functions
-- propose a scalable version of this unified operation set
+- Introduce **two novel efficient loss functions**
+- Scalable version of this **unified operation set**
   - to handle datasets from various domains with different lengths and missing values. 
 
 <br>
@@ -412,13 +432,13 @@ Procedures
 
 Existing pre-defined TS augmentation methods
 
-$$\rightarrow$$ introduce an inductive bias 
+$$\rightarrow$$ introduce an "**inductive bias**" 
 
 <br>
 
 (Key motivational observation)
 
-***Bias in TS embedding correlates positively with the spectral distance (SD) between raw and augmented series***
+***Bias in TS embedding correlates "positively" with the spectral distance (SD) between raw and augmented series***
 
 <br>
 
@@ -435,11 +455,11 @@ Notation
 
 - $$|\cdot|$$ : amplitude operator
 
-  - calculates the amplitude as $$|\cdot|=$$ $$\sqrt{\mathcal{R}(\cdot)^2+\mathcal{J}(\cdot)^2}$$, 
+  - $$|\cdot|=$$ $$\sqrt{\mathcal{R}(\cdot)^2+\mathcal{J}(\cdot)^2}$$, 
 
-    - where $$\mathcal{R}(\cdot)$$ and $$\mathcal{J}(\cdot)$$ represent the real and imaginary part operators
+    - $$\mathcal{R}(\cdot)$$ and $$\mathcal{J}(\cdot)$$ : real and imaginary part operators
 
-  - Due to the conjugate symmetry of the frequency domain, we stipulate that the $$|\cdot|$$ operator only generates the first half and removes the zero-frequency component [68], 
+  - $$|\cdot|$$ operator: only generates the first half and removes the zero-frequency component
 
     ( i.e., $$|\cdot|: \mathbb{C}^T \rightarrow \mathbb{R}^{\left\lfloor\frac{T}{2}\right\rfloor}$$ )
 
@@ -447,7 +467,7 @@ Notation
 
 <br>
 
-[1] Bias introduced by $$\mathcal{T}(\cdot)$$ 
+[1] **Bias** introduced by $$\mathcal{T}(\cdot)$$ 
 
 - $$\begin{aligned}
   \operatorname{Bias}\left(\mathcal{T}\left(\mathbf{x}^{(j, i)}\right)\right) & =\left\|\mathbb{E}_{\boldsymbol{t} \sim \mathcal{T}}\left[f_\theta\left(t\left(\mathbf{x}^{(j, i)}\right)\right)\right]-f_\theta\left(\mathbf{x}^{(j, i)}\right)\right\|_2 \\
@@ -456,7 +476,7 @@ Notation
 
 <br>
 
-[2] Spectral distance between $$\mathbf{x}^{(j, i)}$$ and $$t\left(\mathbf{x}^{(j, i)}\right)$$ 
+[2] **Spectral distance** between $$\mathbf{x}^{(j, i)}$$ and $$t\left(\mathbf{x}^{(j, i)}\right)$$ 
 
 - $$S D\left(\mathbf{x}^{(j, i)}, t\left(\mathrm{x}^{(j, i)}\right)\right)=\left\|\left|\mathcal{F}\left(\mathrm{x}^{(j, i)}\right)\right|-\left|\mathcal{F}\left(t\left(\mathrm{x}^{(j, i)}\right)\right)\right|\right\|_2^2$$.
 
@@ -468,7 +488,7 @@ Settings
 - 4 pre-defined augmentation methods
   - jittering, scaling, time warping, and permutation
 - 23 selected MTS from UEA
-- Report the average bias and spectral distance
+- Report the **average bias and spectral distance**
 - Output layer of the encoder = 2D for viz
 - Generate $$K=500$$ augmented samples randomly for each sample, and compute the ..
   - (1) Average bias: $$\frac{1}{m n} \sum_{j=1}^m \sum_{i=1}^n \operatorname{Bias}\left(\mathcal{T}\left(\mathbf{x}^{(j, i)}\right)\right)$$ 
@@ -480,9 +500,11 @@ Result:
 
 ![figure2](/assets/img/ts2/img11.png)
 
-- (a) positive correlation 
+- (a) ***positive correlation***
 
-- (b) greater bias results in reduced performance on downstream classification tasks. 
+- (b) **Higher** bias $$\rightarrow$$ **Reduced** performance 
+
+  ( on downstream classification tasks )
 
   $$\rightarrow$$ motivate the need for TS augmentation methods to control the spectral distance between augmented and raw time-series. 
 
@@ -494,17 +516,19 @@ Result:
 
 ### Unified DA operation
 
-[1] Naive approach) employ all augmentation operations
+[1] Naive approach) Employ **all augmentation** operations
 
-[2] Limitation) hyper-parameter space can be continuous (e.g., standard deviation of jittering, number of speed changes of time warping)
+[2] Limitation) Hyper-parameter space can be **continuous** 
+
+(e.g., standard deviation of jittering, number of speed changes of time warping)
 
 $$\rightarrow$$ making it infeasible to explore the full augmented view space
 
 [3] Solution
 
-- Introduce a unified operation family $$\mathcal{U}$$. 
+- Introduce a **unified operation family** $$\mathcal{U}$$. 
 
-- Given input $$\mathbf{x}^{(j, i)}$$ &  $$u \sim \mathcal{U}$$ ...
+- Given input $$\mathbf{x}^{(j, i)}$$ &  $$u \sim \mathcal{U}$$ ,
 
   $$u\left(\mathbf{x}^{(j, i)}\right)=\mathbf{A} \mathbf{x}^{(j, i)}+\mathbf{y}$$.
 
@@ -518,7 +542,7 @@ $$\rightarrow$$ making it infeasible to explore the full augmented view space
 
 To introduce randomness ....
 
-- incorporate a random matrix $$\mathrm{G}$$ with the deterministic matrix A. 
+- incorporate a "**random**" matrix $$\mathrm{G}$$ with the "**deterministic**" matrix A. 
 
 <br>
 
@@ -533,15 +557,15 @@ To introduce randomness ....
 
   $$\rightarrow$$ Scalable and efficient algorithms in Section 4.2
 
-- [Proposition 2] The transformation distribution $$\mathcal{U}\left(\mathrm{x}^{(j, i)}\right)$$ follows a multivariate normal distribution
+- [Proposition 2] The transformation distribution $$\mathcal{U}\left(\mathrm{x}^{(j, i)}\right)$$ follows MVN
 
 <br>
 
 ## (2) Scalable and Diverse DA
 
-(1) Propose DA objective based on our proposed unified operation
+(1) Propose **DA objective** based on our **proposed unified operation**
 
-- to generate (1) spectrum-preserved and (2) diverse TS
+- to generate (1) **spectrum**-preserved and (2) **diverse** TS
 
 (2) Propose a scalable algorithm to apply this objective to TS with various lengths
 
@@ -558,14 +582,17 @@ Two properties of DA
 
 Two novel losses 
 
-- (1) Spectrum-preservation loss $$l_p$$
-- (2) Spectrum-diversity loss
+- (1) Spectrum-**preservation** loss $$l_p$$
+- (2) Spectrum-**diversity** loss
 
 
 
 **(1) Spectrum-preservation loss $$l_p$$**
 
-- to generate low-bias embeddings, positive pairs should be close to the original series in terms of spectral distance
+- To generate "**low-bias"** embeddings, p
+
+  positive pairs should be close to the original series "**in terms of spectral distance**"
+
 - $$\begin{aligned}
   l_p\left(\mathcal{U}, \mathbf{x}^{(j, i)}\right)= & \frac{1}{2} \mathbb{E}_{\tilde{\mathcal{U}} \sim} \mathcal{U}\left[\left\|\left|\mathcal{F}\left(\tilde{u}\left(\mathbf{x}^{(j, i)}\right)\right)\right|-\left|\mathcal{F}\left(\mathbf{x}^{(j, i)}\right)\right|\right\|_2^2\right] \\
   & \quad+\frac{1}{2} \mathbb{E}_{\hat{u} \sim \mathcal{U}}\left[\left\|\left|\mathcal{F}\left(\hat{u}\left(\mathbf{x}^{(j, i)}\right)\right)\right|-\left|\mathcal{F}\left(\mathbf{x}^{(j, i)}\right)\right|\right\|_2^2\right] \\
