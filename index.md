@@ -365,9 +365,11 @@ feature_row:
     btn_label: "CV"
     btn_class: "btn--primary"
 
+intro: 
+  - excerpt: 'Nullam suscipit et nam, tellus velit pellentesque at malesuada, enim eaque. Quis nulla, netus tempor in diam gravida tincidunt, *proin faucibus* voluptate felis id sollicitudin. Centered with `type="center"`'
 
 ---
-{% include feature_row id="intro" type="left" %}
 {% include feature_row id="feature_row" type="left" %}
+{% include feature_row id="intro" type="left" %}
 {% include feature_row id="feature_row2" %}
 
