@@ -355,7 +355,7 @@ feature_row2:
     
 
 feature_row:
-  - image_path: /assets/img/SeunghanLee4.jpg
+  - image_path: /assets/img/SeunghanLee5.jpg
     alt: "placeholder image 2"
     classes: wide
     title: "Seunghan Lee"
