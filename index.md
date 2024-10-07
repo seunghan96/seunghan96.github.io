@@ -7,16 +7,6 @@ header:
   overlay_image: /assets/img/main.jpg
 excerpt: "Machine Learning, Deep Learning, Data Science, Data Engineering, Statistics.."
 
-
-feature_row:
-  - image_path: /assets/img/SeunghanLee2.jpg
-    alt: "placeholder image 2"
-    title: "Seunghan Lee"
-    excerpt: 'DataScience Lab 1기 회장 <br> (학부) 연세대 경영/응용통계 <br> (석박통합) 연세대 통계데이터사이언스 대학원 <br> <br> T. 010-8768-8472 <br> E. seunghan96@naver.com'
-    url: "https://seunghan96.github.io/assets/pdf/SeunghanLee_CV.pdf"
-    btn_label: "Download my CV!"
-    btn_class: "btn--primary"
-
     
 feature_row2:    
   - image_path: /assets/img/prml.jpg
@@ -364,12 +354,20 @@ feature_row2:
     btn_class: "btn--primary"
     
 
-
+feature_row:
+  - image_path: /assets/img/SeunghanLee2.jpg
+    alt: "placeholder image 2"
+    title: "Seunghan Lee"
+    excerpt: 'DataScience Lab 1기 회장 <br> (학부) 연세대 경영/응용통계 <br> (석박통합) 연세대 통계데이터사이언스 대학원 <br> <br> T. 010-8768-8472 <br> E. seunghan96@naver.com'
+    url: "https://seunghan96.github.io/assets/pdf/SeunghanLee_CV.pdf"
+    btn_label: "Download my CV!"
+    btn_class: "btn--primary"
+    
 ---
 
 {% include feature_row id="intro" type="center" %}
 
-{% include feature_row id="feature_row2" %}
-
 {% include feature_row id="feature_row" type="left" %}
+
+{% include feature_row id="feature_row2" %}
 
