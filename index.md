@@ -362,12 +362,23 @@ feature_row:
     url: "https://seunghan96.github.io/assets/pdf/SeunghanLee_CV.pdf"
     btn_label: "CV"
     btn_class: "btn--primary"
+
+feature_row3:
+  - image_path: /assets/img/SeunghanLee2.jpg
+    alt: "placeholder image 2"
+    title: "Seunghan Lee"
+    excerpt: 'DataScience Lab 1st President <br> (B.S) Yonsei Univ., Business Administration/Applied Statistics <br> (M.S, Ph.D) Yonsei Univ., Statistics and Data Science <br> <br> T. 010-8768-8472 <br> E. seunghan9613@yonsei.ac.kr'
+    url: "https://seunghan96.github.io/assets/pdf/SeunghanLee_CV.pdf"
+    btn_label: "CV"
+    btn_class: "btn--primary"    
     
 ---
 
 {% include feature_row id="intro" type="center" %}
 
 {% include feature_row id="feature_row" type="left" %}
+
+{% include feature_row id="feature_row3" type="left" %}
 
 {% include feature_row id="feature_row2" %}
 
