@@ -5,7 +5,8 @@ permalink: /
 header:
   overlay_filter: "0.5"
   overlay_image: /assets/img/main.jpg
-  excerpt: "Machine Learning, Deep Learning, Data Science, Data Engineering, Statistics.."
+  
+excerpt: "Machine Learning, Deep Learning, Data Science, Data Engineering, Statistics.."
 
 feature_row2:    
   - image_path: /assets/img/prml.jpg
