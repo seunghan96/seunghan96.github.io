@@ -6,7 +6,7 @@ header:
   overlay_image: /assets/img/main.jpg
 excerpt: "Machine Learning, Deep Learning, Data Science, Data Engineering, Statistics.."
 intro: 
-  - excerpt: 'Nullam suscipit et nam, tellus velit pellentesque at malesuada, enim eaque. Quis nulla, netus tempor in diam gravida tincidunt, *proin faucibus* voluptate felis id sollicitudin. Centered with
+  - excerpt: 'Nullam suscipit et nam, tellus velit pellentesque at malesuada, enim eaque. Quis nulla, netus tempor in diam gravida tincidunt, *proin faucibus* voluptate felis id sollicitudin. Centered with'
 feature_row2:    
   - image_path: /assets/img/prml.jpg
     alt: "placeholder image 2"
