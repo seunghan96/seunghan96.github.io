@@ -355,7 +355,7 @@ feature_row2:
     
 
 feature_row:
-  - image_path: /assets/img/SeunghanLee2.jpg
+  - image_path: /assets/img/SeunghanLee3.jpeg
     alt: "placeholder image 2"
     title: "Seunghan Lee"
     excerpt: 'DataScience Lab 1st President <br> (B.S) Yonsei Univ., Business Administration/Applied Statistics <br> (M.S, Ph.D) Yonsei Univ., Statistics and Data Science <br> <br> T. 010-8768-8472 <br> E. seunghan9613@yonsei.ac.kr'
