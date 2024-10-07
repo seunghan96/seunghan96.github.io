@@ -5,18 +5,8 @@ permalink: /
 header:
   overlay_filter: "0.5"
   overlay_image: /assets/img/main.jpg
-excerpt: "Machine Learning, Deep Learning, Data Science, Data Engineering, Statistics.."
+  excerpt: "Machine Learning, Deep Learning, Data Science, Data Engineering, Statistics.."
 
-intro: 
-  - classes: wide
-    title: "Seunghan Lee"
-    excerpt: '(B.S) Yonsei Univ., Business Administration/Applied Statistics <br> (M.S, Ph.D) Yonsei Univ., Statistics and Data Science <br> <br>
-    **Recent Publications** <br> - ANT: Adaptive Noise Schedule for Time Series Diffusion Models (***NeurIPS 2024***) <br> - Soft Contrastive Learning for Time Series (***ICLR 2024, Spotlight***) <br> - Learning to Embed Time Series Patches Independently (***ICLR 2024***)
-    <br> <br>T. 010-8768-8472 <br> E. seunghan9613@yonsei.ac.kr'
-    url: "https://seunghan96.github.io/assets/pdf/SeunghanLee_CV.pdf"
-    btn_label: "CV"
-    btn_class: "btn--primary"
-    
 feature_row2:    
   - image_path: /assets/img/prml.jpg
     alt: "placeholder image 2"
@@ -379,6 +369,7 @@ feature_row:
 ---
 
 {% include feature_row id="intro" type="left" %}
-#{% include feature_row id="feature_row" type="left" %}
+{% include feature_row %}
+{% include feature_row id="feature_row" type="left" %}
 {% include feature_row id="feature_row2" %}
 
