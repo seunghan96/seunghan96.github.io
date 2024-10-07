@@ -362,7 +362,8 @@ feature_row:
     alt: "placeholder image 2"
     classes: wide
     title: "Seunghan Lee"
-    excerpt: "abc"
+    excerpt: '(B.S) Yonsei Univ., Business Administration/Applied Statistics <br> (M.S, Ph.D) Yonsei Univ., Statistics and Data Science <br> <br>
+    **Research of Interest** <br> - Time Series (TS) Deep Learning <br> - TS Forecasting <br> - TS Representation Learning <br> TS Diffusion Models, Foundation Models <br> <br>T. 010-8768-8472 <br> E. seunghan9613@yonsei.ac.kr'
     url: "https://seunghan96.github.io/assets/pdf/SeunghanLee_CV.pdf"
     btn_label: "CV"
     btn_class: "btn--primary"
