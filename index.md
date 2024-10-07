@@ -358,9 +358,10 @@ feature_row:
   - image_path: /assets/img/SeunghanLee2.jpg
     alt: "placeholder image 2"
     title: "Seunghan Lee"
-    excerpt: 'DataScience Lab 1기 회장 <br> (학부) 연세대 경영/응용통계 <br> (석박통합) 연세대 통계데이터사이언스 대학원 <br> <br> T. 010-8768-8472 <br> E. seunghan96@naver.com'
+    Data Science Lab 1st Term President
+    excerpt: 'DataScience Lab 1st President <br> (B.S) Yonsei Univ., Business Administration/Applied Statistics <br> (M.S, Ph.D) Yonsei Univ., Graduate School of Statistics and Data Science <br> <br> T. 010-8768-8472 <br> E. seunghan96@naver.com'
     url: "https://seunghan96.github.io/assets/pdf/SeunghanLee_CV.pdf"
-    btn_label: "Download my CV!"
+    btn_label: "CV"
     btn_class: "btn--primary"
     
 ---
