@@ -3,7 +3,7 @@ layout: splash
 permalink: /
 
 header:
-  overlay_filter: "0.2"
+  overlay_filter: "0.5"
   overlay_image: /assets/img/main.jpg
 excerpt: "Machine Learning, Deep Learning, Data Science, Data Engineering, Statistics.."
 
