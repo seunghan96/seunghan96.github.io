@@ -1,5 +1,4 @@
 ---
-​---
 layout: splash
 permalink: /
 header:
