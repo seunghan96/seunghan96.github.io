@@ -1,4 +1,5 @@
 ---
+​---
 layout: splash
 permalink: /
 header:
@@ -366,6 +367,13 @@ feature_row:
     btn_class: "btn--primary"
 
 
+​---
+
+{% include feature_row id="feature_row" type="left" %}
+
+{% include feature_row id="intro" type="center" %}
+
+{% include feature_row id="feature_row2" %}
 ---
 
 {% include feature_row id="feature_row" type="left" %}
