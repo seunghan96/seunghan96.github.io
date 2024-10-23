@@ -7,7 +7,7 @@ header:
 excerpt: "Machine Learning, Deep Learning, Data Science, Data Engineering, Statistics.."
 intro: 
   - title: "Recent Publications"
-  - excerpt: "<br> - Partial Channel Dependence with Channel Masks for Time Series Foundation Models (***NeurIPS Workshop 2024***) <br> - Sequential Order-Robust Mamba for Time Series Forecasting (***NeurIPS Workshop 2024***) <br> - ANT: Adaptive Noise Schedule for Time Series Diffusion Models (***NeurIPS 2024***) <br> - Soft Contrastive Learning for Time Series (***ICLR 2024, Spotlight***) <br> - Learning to Embed Time Series Patches Independently (***ICLR 2024***) <br> <br> <br>"
+  - excerpt: "<br> - Partial Channel Dependence with Channel Masks for Time Series Foundation Models (***NeurIPS Workshop 2024, Oral presentation***) <br> - Sequential Order-Robust Mamba for Time Series Forecasting (***NeurIPS Workshop 2024***) <br> - ANT: Adaptive Noise Schedule for Time Series Diffusion Models (***NeurIPS 2024***) <br> - Soft Contrastive Learning for Time Series (***ICLR 2024, Spotlight***) <br> - Learning to Embed Time Series Patches Independently (***ICLR 2024***) <br> <br> <br>"
 feature_row2:    
   - image_path: /assets/img/prml.jpg
     alt: "placeholder image 2"
@@ -360,7 +360,7 @@ feature_row:
     classes: wide
     title: "Seunghan Lee"
     excerpt: '(B.S) Yonsei Univ., Business Administration/Applied Statistics <br> (M.S, Ph.D) Yonsei Univ., Statistics and Data Science <br> <br>
-    ### Research Topics <br> - Time Series (TS) Deep Learning <br> - TS Forecasting <br> - TS Representation Learning <br> - TS Diffusion Models, Foundation Models <br> <br>T. 010-8768-8472 <br> E. seunghan9613@yonsei.ac.kr'
+    **Research Topics** <br> - Time Series (TS) Deep Learning <br> - TS Forecasting <br> - TS Representation Learning <br> - TS Diffusion Models, Foundation Models <br> <br>T. 010-8768-8472 <br> E. seunghan9613@yonsei.ac.kr'
     url: "https://seunghan96.github.io/assets/pdf/SeunghanLee_CV.pdf"
     btn_label: "CV"
     btn_class: "btn--primary"
