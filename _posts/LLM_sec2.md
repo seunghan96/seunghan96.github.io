@@ -1,0 +1,396 @@
+# 2. LLM을 이용한 의미 기반 검색
+
+## (1) Introduction
+
+"Text Embedding" 소개
+
+이후 섹션 소개
+
+- LLM을 사용한 의미 기반 검색 소개
+- 정보 검색과 분석을 위한 도구 
+
+<br>
+
+## (2) 작업
+
+전통적인 검색 엔진
+
+- 사용자의 입력 내용을 받아, 해당 텍스트가 포함된 링크 제공
+
+- 한계점) 항상 단어가 일치하지 않을 수도!
+
+<br>
+
+### 1) 비대칭적 의미 기반 검색
+
+의미 기반 검색
+
+- 사용자 query의 의미/맥락을 파악 & 검색 가능한 문서의 의미/맥락과 비교 및 대조
+- 반드시 단어 일치 필요성 X
+
+
+
+"비대칭" 의미 기반 검색
+
+- 비대칭: 입력 쿼리의 의미 정보 $\neq$ 문서/정보의 의미 정보
+- 일반적으로, "쿼리"는 "문서"보다 더 적은 정보
+
+$\rightarrow$ 쿼리에 정확한 단어를 사용하지 않더라도, 정확한 검색 결과를 얻어야!
+
+<br>
+
+Note! 의미 기반 검색이 "항상" 좋은 것은 아님. 
+
+예외 사례들:
+
+- (1) 대문자/구두점의 차이에 민감한 case
+- (2) 현지화된 문화 지식에 의존하는 풍자/아이러니
+- (3) 구현.유지에 더 많은 비용
+
+<br>
+
+## (3) 솔루션 개요
+
+"비대칭적 의미 기반 검색" 시스템의 일반적인 흐름:
+
+Step 1) 문서 저장
+
+- Embedding된 문서를 DB에 저장
+- 추후에 query가 주어지면, DB에서 search
+
+Step 2) 문서 검색
+
+- query가 주어짐
+- Embedding 유사도 기반으로 문서 검색
+- 문서의 순위 재순위화 (re-ranking)
+- 최정 검색 결과 반환
+
+<br>
+
+## (4) 구성 요소
+
+### a) 텍스트 임베더 (Text Embedder)
+
+역할: 텍스트 문서/단어를 받아 vector로 임베딩
+
+여러 방법 가능
+
+- Open source
+- Closed source => OpenAI의 Embedding 사용함
+
+텍스트간의 유사도: 
+
+- e.g., cosine similarity, dot product, Euclidean distance
+
+<br>
+
+**OpenAI의 Embedding**
+
+```python
+import openai 
+from openai.embeddings_utils import get_embeddings, get_enbedding
+
+openai.api_key = os.environ.get('OPENAI_API_KEY')
+ENGINE = 'text-embedding-ada-002'
+
+embedded_text = get_enbedding('I love to be vectorized', engine=ENGINE)
+
+len(embedded_text) == '1536'
+```
+
+다양한 엔진의 종류 (`ENGINE`)이 있음.
+
+- 한번에 여러 텍스트: `get_embeddings()`
+- 한번에 하나의 텍스트 `get_embedding()`
+
+<br>
+
+### 오픈 소스 대안
+
+E.g., BERT를 이용한 Bi-encoder
+
+- 두개의 BERT 모델을 훈련
+
+  - (1) 입력 텍스트 인코딩
+  - (2) 출력 텍스트 인코딩
+
+  두 쌍이 최대한 유사해지도록 동시에 훈련
+
+<br>
+
+Open source 대안들은 Closed source 제품보다 더 많은 맞춤와 파인튜닝을 필요로 하지만, 더 큰 유연성 제공.
+
+<br>
+
+Sentence Transformer 라이브러리
+
+- 다양한 pretrained model 제공
+
+<br>
+
+Example) `sentence_transformer` 패키지의 Bi-encoder를 사용하여 텍스트 임베딩
+
+```python
+from sentence_transformers import SentenceTransformer
+
+# (1) 모델 불러오기
+model = SentenceTransformer(
+    'sentence-transformers/multi-qa-mpnet-base-cos-v1')
+
+# (2) 임베딩할 문서(텍스트)
+docs = [
+  "Around 9 million people live in London", 
+  "London is known for its financial district" ]
+
+# (3) 임베딩하기
+doc_emb = model.encode(
+    docs,
+    batch_size=32,
+    show_progress_bar=True
+)
+
+# (4) 크기 확인
+doc_emb.shape == (2,768)
+```
+
+<br>
+
+### b) 문서 청킹 (Document Chunking)
+
+Text Embedding 엔진 설정 이후의 고민!
+
+$\rightarrow$ "***큰*** 문서를 어떻게 임베딩"할까?
+
+<br>
+
+전체 문서를 단일 vector로? NO!
+
+$\rightarrow$ ***Document chunking***을 통해 문서를 더 작고 관리가능한 청크로 나누기
+
+<br>
+
+**최대 토큰 범위 분할 (Max Token Window Chunking)**
+
+- 가장 쉬운/간단한 문서 청킹 방법
+- ex) token 범위 = 500:
+  - 각 청크가 토큰 500개 이하
+- 한계점: 중요한 텍스트 일부가 청크 사이에 나눠질 수 있음
+- 보완 방법: ( 비록 중복이 발생할지라도 ) 청크 간의 일정의 overlap
+
+<br>
+
+Example) 데이터 불러온 뒤 청킹하기
+
+```python
+import re
+
+def overlapping_chunks(text, max_tokens = 500, overlapping_factor = 5):
+  # (1) 구두점으로 텍스트 나누기
+  sentences = re.split(r'[.?!]', text)
+
+  # (2) 각 문장의 token 수
+  n_tokens = [len(tokenizer.encode(" " + s)) for s in sentences]
+  
+  # (3) Chunking
+  chunks, n_tokens_ , chunk = [], 0, []
+  for s, n in zip(sentences, n_tokens):
+    if n_tokens_ + n > max_tokens:
+      chuncks.append(". ".join(chunk) + ".")
+      if overlapping_factor > 0:
+        chunk = chunk[-overlapping_factor:]
+        n_tokens_ = sum([len(tokenizer:encode(c)) for c in chunk]) 
+     else:
+      chunk = []
+      n_tokens_ = 0
+  	if token > max_tokens:
+      continue
+     
+    chunk.append(s)
+    n_tokens_ += token + 1
+
+  return chunks
+```
+
+<br>
+
+**맞춤형 구분 기호 찾기**
+
+- e.g., 페이지 분리, 단락 사이의 새로운 줄 $\rightarrow$ 구분하기 좋은 기준일 것!
+
+<br>
+
+예시) 자연 공백으로 chunking하기
+
+```python
+import re
+from collections import Counter
+
+top_K = 5
+matches = re.findall(r'[\s]{1,}', pdf)
+most_common_spaces = Counter(matches).most_common(top_K)
+```
+
+매우 실용적이지만, 원본 문서에 대한 이해도 & 많은 지식이 필요.
+
+(참고: chunking을 위해, 머신러닝도 활용 가능)
+
+<br>
+
+**Clustering을 통한 의미 기반 문서 생성**
+
+$\rightarrow$ 의미적으로 유사한 작은 정보 청크를 결합하여 새로운 문서 생성
+
+- ex) 유사한 문장/단락을 함꼐 그룹화 하여 새로운 문서를 형성
+
+<br>
+
+```python
+from sklearn.cluster inport AgglomerativeClustering
+froe sklearn.metrics.pairwise inport cosine_similarity
+import numpy as np
+
+# (1) Cosine similarity matrix
+cos_sim = cosine_similarity(Z)
+
+# (2) Agglomerative clustering
+clustering = AgglomerativeClustering(
+    n_clusters=None
+    distance_threshold=0.1
+    affinity='precomputed'
+    linkage='complete'
+	)
+
+# (3) Fit
+clustering.fit(1-cos_sim)
+
+# (4) Cluster labels
+labels = clustering.labels_
+
+# (5) Clustering results
+cluster_idx, cluster_cnt = np.unique(labels, return_counts=True)
+for idx, cnt in zip(cluster_idx, cluster_cnt):
+  print(f'Cluster {idx}: {cnt} embeddings')
+```
+
+- 장점) 의미적으로 더 연관성 있는 청크를 생성
+- 단점) 내용의 일부가 주변 텍스트와 맥락에서 벗어날 수 있음.
+
+$\rightarrow$ 즉, 청크들이 서로 관련이 없을 때 (독립적일 때) 잘 작동
+
+<br>
+
+**(청크로 나누지 않고) 전체 문서 사용**
+
+- 문서가 너무 길지 않을 경우에만!
+- 장/단을 잘 고려해서 사용하기
+
+<br>
+
+### Summary
+
+Chunking 방법 개요
+
+- 최대 토큰 범위 Chunking (w/o 중복)
+- 최대 토큰 범위 Chunking (w/ 중복)
+- 자연 구분자를 기준으로 Chunking 
+- 의미 기반 문서 생성을 위한 클러스터링
+- 전체 문서 사용 ( Chunking  X )
+
+<br>
+
+### c) 벡터 데이터베이스 (Vector Database)
+
+Vector Database = 벡터를 빠르게 저장 & 검색하기 위한 DB
+
+- 의미적으로 유사한 텍스트를 검색하는 Nearest Neighbor Search (NNS) 방법을 효율적으로 수행
+
+<br>
+
+### d) 파인콘 (Pinecone)
+
+Pinecone = 소/중규모 데이터셋을 위한 Vector DB (100만개 미만의 항목)
+
+- 무료 버전 O
+- (추가 기능/확장성을 위한) 유료 버전도 O
+
+빠른 벡터 검색에 최적화 
+
+$\rightarrow$ 추천 시스템, 검색 엔진, 챗봇과 같이 "낮은 대기시간"이 필요한 application에 좋음
+
+<br>
+
+### e) 오픈 소스 대안
+
+Pinecone외에도 여러 대안이 있음.
+
+- Pgvector: PostgreSQL 확장 기능
+- Weaviate: 의미 기반 검색 지원 + ML 도구와 통합도 가능
+- ANNOY: 대규모 데이터셋에 최적화된 NNS을 위한 라이브러리
+
+<br>
+
+### f) 검색 결과 재순위화 (re-ranking)
+
+Vector DB로부터 유사도 비교를 사용하여, 주어진 query에 대한 잠재젹 결과를 검색한 후에는...
+
+$\rightarrow$ 사용자에게 가장 고나련된 결과가 제시되도록 "순위를 다시 지정" ( =re-ranking)
+
+<br>
+
+방법 1) **크로스 인코더 (Cross Encoder)**
+
+- What? 재순위화하는 대표적인 방법
+- How? 입력 시퀀스 쌍을 취하고, 2번째 시퀀쓰가 1번째와 얼마나 관련이 있는지 점수로 예측하는 Transformer
+- 효과: 개별 이쿼드만이 아닌, "전체 쿼리의 문맥"을 고려할 수 있음.
+- 장/단점
+  - 장점: 성능 향상
+  - 단점: overhead 추가, 대기시간 악화
+
+- ex) (앞에서 사용했던) Bi-encoder
+- 또한, 특정 데이터셋에 대해 fine-tuning도 가능!
+
+<br>
+
+방법 2) **BM25**
+
+- 전통적인 검색 모델
+- 문서 내 쿼리 용어의 "빈도"에 따라 결과를 순위하
+- 단순히 빈도를 사용하므로, 전체 쿼리의 "문맥 고려 X"지만, 결과의 대략적인/전반적인 관련성은 향상!
+
+<br>
+
+### g) API
+
+사용자가 문서에 빠르게/안전하게/쉽게 접근할 수 있도록, 위의 모든 컴포넌트를 넣을 장소가 필요함!
+
+$\rightarrow$ 이를 위한 API 만들기!
+
+<br>
+
+**FastAPI**
+
+- Python으로 API를 구축하기 위한 web framework
+
+```
+교재 참고
+```
+
+<br>
+
+## (5) 통합
+
+1단계: 문서 저장
+
+- 1-1) 임베딩 준비를 위한 문서 저장: ***Chunking***
+- 1-2) 텍스트 임베딩 생성: ***OpenAI의 embedding***
+- 1-3) 쿼리 주어졌을 떄, 검색할 수 있도록 임베딩을 DB에 저장: ***Pinecone***
+
+2단계: 문서 검색
+
+- 2-1) 사용자에게 전처리되고 정라힐 수 있는 쿼리: ***FastAPI***
+- 2-2) 후보 문서 검색: ***OpenAI의 embedding + Pinecone***
+- 2-3) (필요 시) 후보 문서 재순위화: ***크로스 인코더***
+- 2-4) 최종 결과 반환: ***Fast API***
+
+
+
