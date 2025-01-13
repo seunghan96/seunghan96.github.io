@@ -12,6 +12,8 @@ main:
     url: /categories/ts/  
   - title: "MAMBA"
     url: /categories/mamba/  
+  - title: "LLM"
+    url: /categories/llm/  
   - title: "TAB"
     url: /categories/tab/  
   - title: "DIFF"
