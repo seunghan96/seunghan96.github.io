@@ -1,6 +1,6 @@
 ---
 title: LLM-TS Integrator; Integrating LLM for Enhanced Time Series Modeling
-categories: [TS, NLP]
+categories: [TS, NLP, LLM]
 tags: []
 excerpt: NeurIPSW TSALM 2024
 ---

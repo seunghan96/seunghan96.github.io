@@ -1,6 +1,6 @@
 ---
 title: Lag-Llama; Towards Foundation Models for Time Series Forecasting
-categories: [TS,GAN,CL,NLP]
+categories: [TS,LLM,NLP]
 tags: []
 excerpt: Workshop on Robustness of Few-shot and Zero-shot Learning in Foundation Models at NeurIPS 2023
 ---

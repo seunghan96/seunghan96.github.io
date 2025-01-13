@@ -1,6 +1,6 @@
 ---
 title: Are Language Models Actually Useful for Time Series Forecasting?
-categories: [TS, NLP]
+categories: [TS, NLP, LLM]
 tags: []
 excerpt: NeurIPS 2024
 ---

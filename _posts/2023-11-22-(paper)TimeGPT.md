@@ -1,6 +1,6 @@
 ---
 title: TimeGPT-1
-categories: [TS,GAN,CL,NLP]
+categories: [TS,LLM,NLP]
 tags: []
 excerpt: arxiv 2023
 ---

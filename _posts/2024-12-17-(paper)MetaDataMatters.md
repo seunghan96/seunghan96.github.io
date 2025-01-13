@@ -1,6 +1,6 @@
 ---
 title: Metadata Matters for Time Series; Informative Forecasting with Transformers
-categories: [TS, NLP]
+categories: [TS, NLP, LLM]
 tags: []
 excerpt: ICLR 2025 submission
 ---

@@ -1,6 +1,6 @@
 ---
 title: LeMoLE; LLM-Enhanced Mixture of Linear Experts for Time Series Forecasting
-categories: [TS, NLP]
+categories: [TS, NLP, LLM]
 tags: []
 excerpt: ICLR 2025 submission
 ---

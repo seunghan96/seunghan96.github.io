@@ -1,6 +1,6 @@
 ---
 title: LLM-Mixer; Multiscale Mixing in LLMs for Time Series Forecasting
-categories: [TS, NLP]
+categories: [TS, NLP, LLM]
 tags: []
 excerpt: 
 ---

@@ -1,6 +1,6 @@
 ---
 title: (paper 101) LLM4TS; Two-stage Fine-tuning for TSF with Pretrained LLMs
-categories: [TS,NLP,CL]
+categories: [TS,NLP,CL,LLM]
 tags: []
 excerpt: 2023
 ---
