@@ -64,6 +64,14 @@ feature_row2:
     url: "categories/mamba/"
     btn_label: "Read More"
     btn_class: "btn--primary"
+
+  - image_path: /assets/img/LLM.png
+    alt: "placeholder image 2"
+    title: "LLM"
+    excerpt: "Large Language Models"
+    url: "categories/llm/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"    
     
   - image_path: /assets/img/AUDIO.png
     alt: "placeholder image 2"
