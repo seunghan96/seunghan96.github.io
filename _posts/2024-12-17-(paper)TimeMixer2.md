@@ -1,6 +1,6 @@
 ---
 title: TimeMixer++; A General TS Pattern Machine for Universal Predictive Analysis
-categories: [TS, NLP]
+categories: [TS]
 tags: []
 excerpt: ICLR 2025 submission
 ---
