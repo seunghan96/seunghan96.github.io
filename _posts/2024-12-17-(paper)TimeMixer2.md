@@ -279,8 +279,6 @@ Key point = Multi-scale + Multi-periodic
 - (2) With convolution operations with a stride of 2
   - $$\mathrm{x}_m=\operatorname{Conv}\left(\mathrm{x}_{m-1}, \text { stride }=2\right), \quad m \in\{1, \cdots, M\} $$
 
-<br>
-
 (3) Result: **multi-scale set** $$X_{\text {init }}=\left\{\mathrm{x}_0, \cdots, \mathrm{x}_M\right\}$$, 
 
 - where $$\mathrm{x}_m \in \mathbb{R}^{\frac{\pi}{2} m \mathrm{~J}} \times C$$. 
@@ -458,7 +456,7 @@ $$\mathbf{A},\left\{f_1, \cdots, f_K\right\},\left\{p_1, \cdots, p_K\right\}=\op
 
 Each 1 D time series $$\mathrm{x}_m^l$$ is then reshaped into $$K 2 \mathrm{D}$$ images as:
 
-v
+
 
 <br>
 
@@ -486,13 +484,11 @@ Conventional methods (Wu et al., 2021; Wang et al., 2024)
 
 ***Multi-resolution time images***
 
-- Each image $$\mathbf{z}_m^{(l, k)} \in \mathbb{R}^{p_k \times f_{m . k} \times d_{\text {model }}}$$ encodes a specific scale and period, 
+- Each image $$\mathbf{z}_m^{(l, k)} \in \mathbb{R}^{p_k \times f_{m . k} \times d_{\text {model }}}$$ encodes a specific scale and period 
 
   $$\rightarrow$$ Enabling finer disentanglement of seasonality and trend
 
-- How? Apply **2D convolution** to these images
-
-  $$\rightarrow$$ Capture long-range patterns and enhance temporal dependency extraction. 
+- Apply **2D conv** to these images
 
 - Details
 
