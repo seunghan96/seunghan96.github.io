@@ -89,7 +89,7 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/ASSET.jpg  
+  - image_path: /assets/img/ASSET.png  
     alt: "placeholder image 2"
     title: "Investments"
     excerpt: 'Asset, Finance, etc'
