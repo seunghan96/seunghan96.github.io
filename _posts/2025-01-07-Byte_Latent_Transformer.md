@@ -59,7 +59,7 @@ Pagnoni, Artidoro, et al. "Byte Latent Transformer: Patches Scale Better Than To
 
 ***Using Next-byte entropies from a small byte LM***
 
-$\rightarrow$ 새로운 patch의 시작점이 되는 경계: **Entropy** 기반으로 결정한다!
+$$\rightarrow$$ 새로운 patch의 시작점이 되는 경계: **Entropy** 기반으로 결정한다!
 
 ![figure2](/assets/img/llm/img40.png)
 
@@ -79,7 +79,7 @@ $\rightarrow$ 새로운 patch의 시작점이 되는 경계: **Entropy** 기반�
 - (1) **Byte단위로** Language Modeling
 - (2) Encoder에서 진행되는 무거운 연산은, 묶어서 **Patch 단위로써 진행**!
 
-$\rightarrow$ Consists of **Global** & **Local** Model
+$$\rightarrow$$ Consists of **Global** & **Local** Model
 
 <br>
 
@@ -105,9 +105,9 @@ Encoder & Decoder
 
 ### Encoder hash n-gram Embeddings
 
-$e_i=x_i+\sum_{n=3, s_8} E_n^{\text {hash }}\left(\operatorname{Hash}\left(g_{i, n}\right)\right)$.
+$$e_i=x_i+\sum_{n=3, s_8} E_n^{\text {hash }}\left(\operatorname{Hash}\left(g_{i, n}\right)\right)$$.
 
-해석: $i$ 번재 byte의 최종 임베딩 = (1) + (2)
+해석: $$i$$ 번재 byte의 최종 임베딩 = (1) + (2)
 
 - (1) i번째 byte의 unigram embedding
 - (2) i번쨰 byte까지의 n-gram embedding의 합
@@ -124,4 +124,4 @@ $e_i=x_i+\sum_{n=3, s_8} E_n^{\text {hash }}\left(\operatorname{Hash}\left(g_{i,
 
 ### 기타: Entropy Model
 
-entropy가 높은 Token $\rightarrow$ 새로운 patch의 경계
+entropy가 높은 Token $$\rightarrow$$ 새로운 patch의 경계
