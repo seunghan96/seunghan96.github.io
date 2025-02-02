@@ -78,7 +78,7 @@ How? ***무수한 더하기***
 
 ![figure2](/assets/img/ts2/img157.png)
 
-![figure2](/assets/imsg/ts2/img158.png)
+![figure2](/assets/img/ts2/img158.png)
 
 <br>
 
@@ -128,13 +128,13 @@ $$ y_n=y_{n-1}+h \cdot \frac{\partial y_{n-1}}{\partial x_{n-1}}=y_{n-2}+h \cdot
 
 <br>
 
-![figure2](/assets/imsg/ts2/img159.png)
+![figure2](/assets/img/ts2/img159.png)
 
 <br>
 
 ## (7) Neural ODE in SL 
 
-![figure2](/assets/imsg/ts2/img160.png)
+![figure2](/assets/img/ts2/img160.png)
 
 <br>
 
@@ -172,17 +172,17 @@ Procedure
 
 <br>
 
-![figure2](/assets/imsg/ts2/img161.png)
+![figure2](/assets/img/ts2/img161.png)
 
 <br>
 
-![figure2](/assets/imsg/ts2/img162.png)
+![figure2](/assets/img/ts2/img162.png)
 
 - 참고) $$\frac{d \mathbf{a}(t)}{d t}=-\mathbf{a}(t)^{\top} \frac{\partial f(\mathbf{z}(t), t, \theta)}{\partial \mathbf{z}}$$.
 
 <br>
 
-![figure2](/assets/imsg/ts2/img163.png)
+![figure2](/assets/img/ts2/img163.png)
 
 <br>
 
