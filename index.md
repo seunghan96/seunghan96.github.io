@@ -89,10 +89,18 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
+  - image_path: /assets/img/ASSET.jpg  
+    alt: "placeholder image 2"
+    title: "Investments"
+    excerpt: 'Asset, Finance, etc'
+    url: "categories/asset/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
   - image_path: /assets/img/STUDY.jpg  
     alt: "placeholder image 2"
     title: "Paper Reading Study"
-    excerpt: '2021.05 ~ ing'
+    excerpt: '2021.05 ~ 2021.09'
     url: "categories/study/"
     btn_label: "Read More"
     btn_class: "btn--primary"
