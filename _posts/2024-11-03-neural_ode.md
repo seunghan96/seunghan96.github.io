@@ -17,7 +17,7 @@ https://arxiv.org/abs/1806.07366
 
 <br>
 
-Contribution: ***Discrete layer $\rightarrow$ Continuous layer***
+Contribution: ***Discrete layer $$\rightarrow$$ Continuous layer***
 
 <br>
 
@@ -40,9 +40,9 @@ Contribution: ***Discrete layer $\rightarrow$ Continuous layer***
 **두 종류의 DE**
 
 - (1) **ODE (Ordinary DE, 상미분 방정식): univariate**
-  - $f^{\prime}(x)-2 x=0 \Leftrightarrow \frac{d f}{d x}-2 x=0 \Leftrightarrow y^{\prime}-2 x=0$.
+  - $$f^{\prime}(x)-2 x=0 \Leftrightarrow \frac{d f}{d x}-2 x=0 \Leftrightarrow y^{\prime}-2 x=0$$.
 - (2) PDE (Paratial DE, 편미분 방정식): multivariate
-  - $\frac{\partial f(x, z)}{\partial x}+\frac{\partial f(x, z)}{\partial z}=0$.
+  - $$\frac{\partial f(x, z)}{\partial x}+\frac{\partial f(x, z)}{\partial z}=0$$.
 
 <br>
 
@@ -93,9 +93,9 @@ How? ***무수한 더하기***
 **Residual connection vs. Neural ODE**
 
 - Residual connection:
-  - $h_{t+1}=h_t+f\left(h_t, \theta\right)$.
+  - $$h_{t+1}=h_t+f\left(h_t, \theta\right)$$.
 - Neural ODE:
-  - $y_n=y_1+h \cdot \frac{\partial y_1}{\partial x_1}+h \cdot \frac{\partial y_2}{\partial x_2}+\cdots+h \cdot \frac{\partial y_{n-1}}{\partial x_{n-1}}$.
+  - $$y_n=y_1+h \cdot \frac{\partial y_1}{\partial x_1}+h \cdot \frac{\partial y_2}{\partial x_2}+\cdots+h \cdot \frac{\partial y_{n-1}}{\partial x_{n-1}}$$.
 
 <br>
 
@@ -103,14 +103,14 @@ How? ***무수한 더하기***
 
 ### a) Residual connection
 
-$h_{t+1}=h_t+f\left(h_t, \theta\right)$.
+$$h_{t+1}=h_t+f\left(h_t, \theta\right)$$.
 
-- $h_2=h_1+f\left(h_1, \theta\right)$.
-- $h_3=h_2+f\left(h_2, \theta\right)=h_1+f\left(h_1, \theta\right)+f\left(h_2, \theta\right)$.
+- $$h_2=h_1+f\left(h_1, \theta\right)$$.
+- $$h_3=h_2+f\left(h_2, \theta\right)=h_1+f\left(h_1, \theta\right)+f\left(h_2, \theta\right)$$.
 
 <br>
 
-결론: $h_n=h_1+f\left(h_1, \theta\right)+f\left(h_2, \theta\right)+f\left(h_3, \theta\right)+\cdots+f\left(h_{n-1}, \theta\right)$.
+결론: $$h_n=h_1+f\left(h_1, \theta\right)+f\left(h_2, \theta\right)+f\left(h_3, \theta\right)+\cdots+f\left(h_{n-1}, \theta\right)$$.
 
 ( = Euler method in ***discrete*** transformation )
 
@@ -118,11 +118,11 @@ $h_{t+1}=h_t+f\left(h_t, \theta\right)$.
 
 ### b) Neural ODE
 
-$ y_n=y_{n-1}+h \cdot \frac{\partial y_{n-1}}{\partial x_{n-1}}=y_{n-2}+h \cdot \frac{\partial y_{n-2}}{\partial x_{n-2}}+h \cdot \frac{\partial y_{n-1}}{\partial x_{n-1}}$.
+$$ y_n=y_{n-1}+h \cdot \frac{\partial y_{n-1}}{\partial x_{n-1}}=y_{n-2}+h \cdot \frac{\partial y_{n-2}}{\partial x_{n-2}}+h \cdot \frac{\partial y_{n-1}}{\partial x_{n-1}}$$.
 
 <br>
 
-결론: $y_n=y_1+h \cdot \frac{\partial y_1}{\partial x_1}+h \cdot \frac{\partial y_2}{\partial x_2}+\cdots+h \cdot \frac{\partial y_{n-1}}{\partial x_{n-1}}$.
+결론: $$y_n=y_1+h \cdot \frac{\partial y_1}{\partial x_1}+h \cdot \frac{\partial y_2}{\partial x_2}+\cdots+h \cdot \frac{\partial y_{n-1}}{\partial x_{n-1}}$$.
 
 ( = Euler method in ***continuous*** transformation )
 
@@ -138,10 +138,10 @@ $ y_n=y_{n-1}+h \cdot \frac{\partial y_{n-1}}{\partial x_{n-1}}=y_{n-2}+h \cdot 
 
 <br>
 
-$z(1)=z(0)+\int_0^1 f(z(t), t ; \theta) d t$.
+$$z(1)=z(0)+\int_0^1 f(z(t), t ; \theta) d t$$.
 
-- $z$: ODE의 state (hidden vector)
-- $\int_0^1 f(z(t), t ; \theta) d t$ : $z$의 변화량
+- $$z$$: ODE의 state (hidden vector)
+- $$\int_0^1 f(z(t), t ; \theta) d t$$ : $$z$$의 변화량
   - 푸는 방법: **Euler method**
 
 <br>
@@ -157,18 +157,18 @@ Forward & Backward
 
 Procedure
 
-- (1) $a(t)$ : adjoint state 정의
+- (1) $$a(t)$$ : adjoint state 정의
 
   - 정의: ***각 state 별 gradient***
-  - 수식: $a(t)=\frac{\partial \text { Loss }}{\partial z(t)}=\text { Gradient }=\text { Adjoint state of } ' t-\text { state }^{\prime}$
+  - 수식: $$a(t)=\frac{\partial \text { Loss }}{\partial z(t)}=\text { Gradient }=\text { Adjoint state of } ' t-\text { state }^{\prime}$$
 
-- (2) $a(1) \rightarrow a(0)$.
+- (2) $$a(1) \rightarrow a(0)$$.
 
-  - $a(0)$을 얻기 위해서, 역으로 $a(1)$에서 시작하기!
+  - $$a(0)$$을 얻기 위해서, 역으로 $$a(1)$$에서 시작하기!
 
     ( 새로운 ODE를 forward와 같은 방식으로 풀기 )
 
-- (3) $a(\cdot)$ 를 통해 optimize 진행
+- (3) $$a(\cdot)$$ 를 통해 optimize 진행
 
 <br>
 
@@ -178,7 +178,7 @@ Procedure
 
 ![figure2](/assets/imsg/ts2/img162.png)
 
-- 참고) $\frac{d \mathbf{a}(t)}{d t}=-\mathbf{a}(t)^{\top} \frac{\partial f(\mathbf{z}(t), t, \theta)}{\partial \mathbf{z}}$.
+- 참고) $$\frac{d \mathbf{a}(t)}{d t}=-\mathbf{a}(t)^{\top} \frac{\partial f(\mathbf{z}(t), t, \theta)}{\partial \mathbf{z}}$$.
 
 <br>
 
