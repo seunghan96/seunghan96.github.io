@@ -20,6 +20,8 @@ main:
     url: /categories/diff/  
   - title: "AUDIO"
     url: /categories/audio/  
+  - title: "ASSET"
+    url: /categories/asset/
   - title: "STUDY"
     url: /categories/study/
   - title: "GIT"
