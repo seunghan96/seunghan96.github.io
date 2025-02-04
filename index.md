@@ -71,8 +71,80 @@ feature_row2:
     excerpt: "Large Language Models"
     url: "categories/llm/"
     btn_label: "Read More"
+    btn_class: "btn--primary"
+
+  - image_path: /assets/img/MULT.png
+    alt: "placeholder image 2"
+    title: "Multimodal DL"
+    excerpt: "Multimodal Deep Learning"
+    url: "categories/mult/"
+    btn_label: "Read More"
     btn_class: "btn--primary"    
+        
+  - image_path: /assets/img/CV2.jpg
+    alt: "placeholder image 2"
+    title: "Computer Vision"
+    excerpt: 'About Various CV Algorithms'
+    url: "categories/cv/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
     
+  - image_path: /assets/img/NLP.jpg
+    alt: "placeholder image 2"
+    title: "NLP"
+    excerpt: 'Natural Language Processing'
+    url: "categories/nlp/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+  
+  - image_path: /assets/img/GAN.jpg
+    alt: "placeholder image 2"
+    title: "GAN"
+    excerpt: 'Generative Adversarial Network'
+    url: "categories/gan/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/RL.jpg
+    alt: "placeholder image 2"
+    title: "RL"
+    excerpt: "Reinforcement Learning"
+    url: "categories/rl/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+  
+  - image_path: /assets/img/RS.jpg
+    alt: "placeholder image 2"
+    title: "Rec Sys"
+    excerpt: "Recommender System"
+    url: "categories/rs/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/SSL.png
+    alt: "placeholder image 2"
+    title: "Self-SL"
+    excerpt: "Self-SL & Contrastive learning"
+    url: "categories/cl/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+
+  - image_path: /assets/img/SSL2.png
+    alt: "placeholder image 2"
+    title: "Semi-SL"
+    excerpt: "Semi-SL"
+    url: "categories/ssl/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/NE.jpg
+    alt: "placeholder image 2"
+    title: "GNN"
+    excerpt: 'CS224W, Deep Walk, LINE, node2vec...'
+    url: "/categories/gnn/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"    
+
   - image_path: /assets/img/AUDIO.png
     alt: "placeholder image 2"
     title: "Audio DL"
@@ -89,23 +161,119 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/ASSET.png  
+  - image_path: /assets/img/DA.png
     alt: "placeholder image 2"
-    title: "Investments"
-    excerpt: 'Asset, Finance, etc'
-    url: "categories/asset/"
+    title: "Domain Adaptation"
+    excerpt: 'Tranfer Learning, Domain Adaptation '
+    url: "/categories/da/"
+    btn_label: "Read More"
+    btn_class: "btn--primary" 
+    
+  - image_path: /assets/img/BNN.png
+    alt: "placeholder image 2"
+    title: "Bayesian NN & VI"
+    excerpt: 'Paper reviews & Tensorflow2'
+    url: "categories/bnn/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/STUDY.jpg  
+  - image_path: /assets/img/META.png
+    alt: "placeholder image 2"
+    title: "Meta Learning"
+    excerpt: "Paper Reviews & CS330"
+    url: "categories/meta/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/CONT.png
+    alt: "placeholder image 2"
+    title: "Continual Learning"
+    excerpt: "Paper Reviews"
+    url: "categories/cont/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/RELI.png
+    alt: "placeholder image 2"
+    title: "Reliable DL"
+    excerpt: "Reliable Deep Learning"
+    url: "categories/reli/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/INTE.png
+    alt: "placeholder image 2"
+    title: "Interpretable DL"
+    excerpt: "Interpretable Deep Learning"
+    url: "categories/inte/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/HBERT.png
+    alt: "placeholder image 2"
+    title: "Hierarchical BERT"
+    excerpt: "Hierarchical BERT & ABSA"
+    url: "categories/hbert/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+  
+  - image_path: /assets/img/ABSA.png
+    alt: "placeholder image 2"
+    title: "ABSA"
+    excerpt: "Aspect based Sentiment Analysis"
+    url: "categories/absa/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+
+   - image_path: /assets/img/STUDY.jpg  
     alt: "placeholder image 2"
     title: "Paper Reading Study"
     excerpt: '2021.05 ~ 2021.09'
     url: "categories/study/"
     btn_label: "Read More"
     btn_class: "btn--primary"
+
+  - image_path: /assets/img/CO.png
+    alt: "placeholder image 2"
+    title: "Convex Optimization"
+    excerpt: "convex optimization"
+    url: "categories/co/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
     
-  - image_path: /assets/img/GIT.png  
+  - image_path: /assets/img/ST2.jpg
+    alt: "placeholder image 2"
+    title: "Bayesian Statistics"
+    excerpt: 'Gibbs Sampling & VI'
+    url: "/categories/st/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/de.jpg
+    alt: "placeholder image 2"
+    title: "Data Engineering"
+    excerpt: 'Basics of Data Engineering'
+    url: "/categories/de/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+  
+  - image_path: /assets/img/PPT.png
+    alt: "placeholder image 2"
+    title: "Presentation"
+    excerpt: "Presentations & Lecture Notes"
+    url: "/categories/ppt/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+    
+  - image_path: /assets/img/etc.jpg
+    alt: "placeholder image 2"
+    title: "Projects"
+    excerpt: "Projects & Competition"
+    url: "/categories/etc/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+
+    - image_path: /assets/img/GIT.png  
     alt: "placeholder image 2"
     title: "Git"
     excerpt: 'Git, Github'
@@ -193,181 +361,14 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
     
-  - image_path: /assets/img/CV2.jpg
+  - image_path: /assets/img/ASSET.png  
     alt: "placeholder image 2"
-    title: "Computer Vision"
-    excerpt: 'About Various CV Algorithms'
-    url: "categories/cv/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
-  - image_path: /assets/img/NLP.jpg
-    alt: "placeholder image 2"
-    title: "NLP"
-    excerpt: 'Natural Language Processing'
-    url: "categories/nlp/"
+    title: "Investments"
+    excerpt: 'Asset, Finance, etc'
+    url: "categories/asset/"
     btn_label: "Read More"
     btn_class: "btn--primary"
   
-  - image_path: /assets/img/GAN.jpg
-    alt: "placeholder image 2"
-    title: "GAN"
-    excerpt: 'Generative Adversarial Network'
-    url: "categories/gan/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
-  - image_path: /assets/img/RL.jpg
-    alt: "placeholder image 2"
-    title: "RL"
-    excerpt: "Reinforcement Learning"
-    url: "categories/rl/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-  
-  - image_path: /assets/img/RS.jpg
-    alt: "placeholder image 2"
-    title: "Rec Sys"
-    excerpt: "Recommender System"
-    url: "categories/rs/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
-  - image_path: /assets/img/SSL.png
-    alt: "placeholder image 2"
-    title: "Self-SL"
-    excerpt: "Self-SL & Contrastive learning"
-    url: "categories/cl/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-
-  - image_path: /assets/img/SSL2.png
-    alt: "placeholder image 2"
-    title: "Semi-SL"
-    excerpt: "Semi-SL"
-    url: "categories/ssl/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
- 
-  - image_path: /assets/img/CO.png
-    alt: "placeholder image 2"
-    title: "Convex Optimization"
-    excerpt: "convex optimization"
-    url: "categories/co/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
-  - image_path: /assets/img/NE.jpg
-    alt: "placeholder image 2"
-    title: "Graph NN"
-    excerpt: 'CS224W, Deep Walk, LINE, node2vec...'
-    url: "/categories/gnn/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"    
-  
-  - image_path: /assets/img/DA.png
-    alt: "placeholder image 2"
-    title: "Domain Adaptation"
-    excerpt: 'Tranfer Learning, Domain Adaptation '
-    url: "/categories/da/"
-    btn_label: "Read More"
-    btn_class: "btn--primary" 
-    
-  - image_path: /assets/img/BNN.png
-    alt: "placeholder image 2"
-    title: "Bayesian NN & VI"
-    excerpt: 'Paper reviews & Tensorflow2'
-    url: "categories/bnn/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
-  - image_path: /assets/img/META.png
-    alt: "placeholder image 2"
-    title: "Meta Learning"
-    excerpt: "Paper Reviews & CS330"
-    url: "categories/meta/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
-  - image_path: /assets/img/CONT.png
-    alt: "placeholder image 2"
-    title: "Continual Learning"
-    excerpt: "Paper Reviews"
-    url: "categories/cont/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
-  - image_path: /assets/img/RELI.png
-    alt: "placeholder image 2"
-    title: "Reliable DL"
-    excerpt: "Reliable Deep Learning"
-    url: "categories/reli/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
-  - image_path: /assets/img/INTE.png
-    alt: "placeholder image 2"
-    title: "Interpretable DL"
-    excerpt: "Interpretable Deep Learning"
-    url: "categories/inte/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
-  - image_path: /assets/img/MULT.png
-    alt: "placeholder image 2"
-    title: "Multimodal DL"
-    excerpt: "Multimodal Deep Learning"
-    url: "categories/mult/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
-  - image_path: /assets/img/HBERT.png
-    alt: "placeholder image 2"
-    title: "Hierarchical BERT"
-    excerpt: "Hierarchical BERT & ABSA"
-    url: "categories/hbert/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-  
-  - image_path: /assets/img/ABSA.png
-    alt: "placeholder image 2"
-    title: "ABSA"
-    excerpt: "Aspect based Sentiment Analysis"
-    url: "categories/absa/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-
-  - image_path: /assets/img/ST2.jpg
-    alt: "placeholder image 2"
-    title: "Bayesian Statistics"
-    excerpt: 'Gibbs Sampling & VI'
-    url: "/categories/st/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
-  - image_path: /assets/img/de.jpg
-    alt: "placeholder image 2"
-    title: "Data Engineering"
-    excerpt: 'Basics of Data Engineering'
-    url: "/categories/de/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-  
-  - image_path: /assets/img/PPT.png
-    alt: "placeholder image 2"
-    title: "Presentation"
-    excerpt: "Presentations & Lecture Notes"
-    url: "/categories/ppt/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
-  - image_path: /assets/img/etc.jpg
-    alt: "placeholder image 2"
-    title: "Projects"
-    excerpt: "Projects & Competition"
-    url: "/categories/etc/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
     
 
 feature_row:
