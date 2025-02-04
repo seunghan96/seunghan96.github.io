@@ -1,6 +1,6 @@
 ---
 title: LLaMA-Mesh; Unifying 3D Mesh Generation with Language Models
-categories: [LLM, NLP, CV]
+categories: [LLM, NLP, CV, MULT]
 tags: []
 excerpt: arxiv 2024
 ---
