@@ -96,6 +96,22 @@ feature_row2:
     url: "categories/nlp/"
     btn_label: "Read More"
     btn_class: "btn--primary"
+
+  - image_path: /assets/img/SSL.png
+    alt: "placeholder image 2"
+    title: "Self-SL"
+    excerpt: "Self-SL & Contrastive learning"
+    url: "categories/cl/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+
+  - image_path: /assets/img/SSL2.png
+    alt: "placeholder image 2"
+    title: "Semi-SL"
+    excerpt: "Semi-SL"
+    url: "categories/ssl/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"    
   
   - image_path: /assets/img/GAN.jpg
     alt: "placeholder image 2"
@@ -118,22 +134,6 @@ feature_row2:
     title: "Rec Sys"
     excerpt: "Recommender System"
     url: "categories/rs/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-    
-  - image_path: /assets/img/SSL.png
-    alt: "placeholder image 2"
-    title: "Self-SL"
-    excerpt: "Self-SL & Contrastive learning"
-    url: "categories/cl/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-
-  - image_path: /assets/img/SSL2.png
-    alt: "placeholder image 2"
-    title: "Semi-SL"
-    excerpt: "Semi-SL"
-    url: "categories/ssl/"
     btn_label: "Read More"
     btn_class: "btn--primary"
     
