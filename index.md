@@ -225,7 +225,7 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
 
-   - image_path: /assets/img/STUDY.jpg  
+  - image_path: /assets/img/STUDY.jpg  
     alt: "placeholder image 2"
     title: "Paper Reading Study"
     excerpt: '2021.05 ~ 2021.09'
@@ -273,7 +273,7 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
 
-    - image_path: /assets/img/GIT.png  
+  - image_path: /assets/img/GIT.png  
     alt: "placeholder image 2"
     title: "Git"
     excerpt: 'Git, Github'
