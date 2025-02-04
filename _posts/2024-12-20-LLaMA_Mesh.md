@@ -9,8 +9,6 @@ excerpt: arxiv 2024
 
 # LLaMA-Mesh: Unifying 3D Mesh Generation with Language Models
 
-![figure2](/assets/img/llm/img182.png)
-
 ```
 Wang, Zhengyi, et al. "LLaMA-Mesh: Unifying 3D Mesh Generation with Language Models." arXiv preprint arXiv:2411.09595 (2024).
 ```
