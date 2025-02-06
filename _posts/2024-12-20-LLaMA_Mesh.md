@@ -101,7 +101,7 @@ $$\rightarrow$$ Trading off some precision for **efficiency**
 
 Observation: Some spatial knowledge is ***already embedded*** in pretrained LLMs
 
-- ossibly due to the inclusion of **3D tutorials** in the pretraining data
+- Possibly due to the inclusion of **3D tutorials** in the pretraining data
 
 $$\rightarrow$$ Nonetheless, unsatisfactory results!
 
