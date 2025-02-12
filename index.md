@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/5bbe6b3f-e8ae-4a1f-9c68-41cb31f496a4)---
+---
 layout: splash
 permalink: /
 header:
@@ -377,7 +377,7 @@ feature_row:
     classes: wide
     title: "Seunghan Lee"
     excerpt: '(B.S) Yonsei Univ., Business Administration/Applied Statistics <br> (M.S, Ph.D) Yonsei Univ., Statistics and Data Science <br> <br>
-    **Research Topics** <br> - Time Series (TS) Deep Learning <br> - TS Forecasting <br> - Representation Learning <br> - Diffusion Models Foundation Models <br> - (Sub) VLMs Audio DL  <br> T. 010-8768-8472 <br> E. seunghan9613@yonsei.ac.kr'
+    **Research Topics** <br> - Time Series (TS) Deep Learning <br> - TS Forecasting <br> - Representation Learning <br> - Diffusion Models, Foundation Models <br> - (Sub) VLMs, Audio DL  <br> T. 010-8768-8472 <br> E. seunghan9613@yonsei.ac.kr'
     url: "https://seunghan96.github.io/assets/pdf/SeunghanLee_CV.pdf"
     btn_label: "CV"
     btn_class: "btn--primary"
