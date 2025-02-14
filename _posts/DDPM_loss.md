@@ -1,0 +1,53 @@
+(1) $p_\theta\left(\mathbf{x}_0\right)=\int p_\theta\left(\mathbf{x}_{0 : T}\right) d \mathbf{x}_{1: T}$.
+
+
+
+(2) $\log p_\theta\left(\mathrm{x}_0\right)=\log \int p_\theta\left(\mathrm{x}_{0 : T}\right) d \mathrm{x}_{1: T}$.
+
+
+
+(3) $\log p_\theta\left(\mathbf{x}_0\right)=\log \int q\left(\mathbf{x}_{1: T} \mid \mathbf{x}_0\right) \frac{p_\theta\left(\mathbf{x}_{0: T}\right)}{q\left(\mathbf{x}_{1: T} \mid \mathbf{x}_0\right)}  d \mathbf{x}_{1: T}$.
+
+
+
+(4) $\log p_\theta\left(\mathrm{x}_0\right) \geq \mathbb{E}_q\left[\log \frac{p_\theta\left(\mathbf{x}_{0: T}\right)}{q\left(\mathbf{x}_{1: T} \mid \mathbf{x}_0\right)}\right]$ = ELBO
+
+
+
+(5) $L=\mathbb{E}_q\left[-\log \frac{p_\theta\left(\mathbf{x}_{0: T}\right)}{q\left(\mathbf{x}_{1: T} \mid \mathbf{x}_0\right)}\right]$.
+
+
+
+전개하기!
+
+(5) $L=\mathbb{E}_q\left[-\log \frac{p_\theta\left(\mathbf{x}_{0: T}\right)}{q\left(\mathbf{x}_{1: T} \mid \mathbf{x}_0\right)}\right]$.
+
+- Forward: $q\left(\mathrm{x}_{1: T} \mid \mathrm{x}_0\right)=\prod_{t=1}^T q\left(\mathrm{x}_t \mid \mathrm{x}_{t-1}\right)$
+- Reverse: $p_\theta\left(\mathbf{x}_{0-T}\right)=p\left(\mathbf{x}_T\right) \prod_{t=1}^T p_\theta\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t\right)$.
+
+
+
+(위에서 $\mathbb{E}_q$는 생략)
+
+(6) $\log \frac{p\left(\mathrm{x}_{\mathrm{T}}\right) \prod_{t=1}^T p_\theta\left(\mathrm{x}_{t-1} \mid \mathrm{x}_t\right)}{\prod_{t=1}^T q\left(\mathrm{x}_t \mid \mathrm{x}_{t-1}\right)} $.
+
+(7) $\log p\left(\mathbf{x}_T\right)+\sum_{t=1}^T \log p_\theta\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t\right)-\sum_{t=1}^T \log q\left(\mathbf{x}_t \mid \mathbf{x}_{t-1}\right)$.
+
+(8) $\log p\left(\mathbf{x}_T\right)+\sum_{t \geq 1} \log \frac{p_\theta\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t\right)}{q\left(\mathbf{x}_t \mid \mathbf{x}_{t-1}\right)}$
+
+
+
+그러면 아래 식이 이해가 갈 것!
+
+$\begin{aligned}
+L & =\mathbb{E}_q\left[-\log \frac{p_\theta\left(\mathbf{x}_{0: T}\right)}{q\left(\mathbf{x}_{1: T} \mid \mathbf{x}_0\right)}\right] \\
+& =\mathbb{E}_q\left[-\log p\left(\mathbf{x}_T\right)-\sum_{t \geq 1} \log \frac{p_\theta\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t\right)}{q\left(\mathbf{x}_t \mid \mathbf{x}_{t-1}\right)}\right] \\
+& =\mathbb{E}_q\left[-\log p\left(\mathbf{x}_T\right)-\sum_{t>1} \log \frac{p_\theta\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t\right)}{\textcolor{red}{q\left(\mathbf{x}_t \mid \mathbf{x}_{t-1}\right)}}-\log \frac{p_\theta\left(\mathbf{x}_0 \mid \mathbf{x}_1\right)}{q\left(\mathbf{x}_1 \mid \mathbf{x}_0\right)}\right] \\ & =\mathbb{E}_q\left[-\log p\left(\mathbf{x}_T\right)-\sum_{t>1} \log \frac{p_\theta\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t\right)}{\textcolor{red}{q\left(\mathbf{x}_t \mid \mathbf{x}_{t-1}, \mathbf{x}_{0}\right)}}-\log \frac{p_\theta\left(\mathbf{x}_0 \mid \mathbf{x}_1\right)}{q\left(\mathbf{x}_1 \mid \mathbf{x}_0\right)}\right] \\ & =\mathbb{E}_q\left[-\log p\left(\mathbf{x}_T\right)-\sum_{t>1} \log \frac{p_\theta\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t\right)}{\textcolor{red}{\frac{q\left(x_t, x_{t-1}, x_0\right)}{q\left(x_{t-1}, x_0\right)} \cdot \frac{q\left(x_t, x_0\right)}{q\left(x_t, x_0\right)}}}-\log \frac{p_\theta\left(\mathbf{x}_0 \mid \mathbf{x}_1\right)}{q\left(\mathbf{x}_1 \mid \mathbf{x}_0\right)}\right] \\& =\mathbb{E}_q\left[-\log p\left(\mathbf{x}_T\right)-\sum_{t>1} \log \frac{p_\theta\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t\right)}{\textcolor{red}{q\left(x_{t-1} \mid x_t, x_0\right) \cdot \frac{q\left(x_t, x_0\right)}{q\left(x_{t-1}, x_0\right)}}}-\log \frac{p_\theta\left(\mathbf{x}_0 \mid \mathbf{x}_1\right)}{q\left(\mathbf{x}_1 \mid \mathbf{x}_0\right)}\right] \\ & =\mathbb{E}_q\left[-\log p\left(\mathbf{x}_T\right)-\sum_{t>1} \log \frac{p_\theta\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t\right)}{\textcolor{red}{q\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t, \mathbf{x}_0\right)}} \cdot \textcolor{red}{\frac{q\left(\mathbf{x}_{t-1} \mid \mathbf{x}_0\right)}{q\left(\mathbf{x}_t \mid \mathbf{x}_0\right)}}-\log \frac{p_\theta\left(\mathbf{x}_0 \mid \mathbf{x}_1\right)}{q\left(\mathbf{x}_1 \mid \mathbf{x}_0\right)}\right] \\ & =\mathbb{E}_q\left[-\log p\left(\mathbf{x}_T\right)-\sum_{t>1} \log \frac{p_\theta\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t\right)}{\textcolor{blue}{q\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t, \mathbf{x}_0\right)}} \textcolor{blue}{-\sum_{t>1} \log \frac{q\left(\mathbf{x}_{t-1} \mid \mathbf{x}_0\right)}{q\left(\mathbf{x}_t \mid \mathbf{x}_0\right)}}-\log \frac{p_\theta\left(\mathbf{x}_0 \mid \mathbf{x}_1\right)}{q\left(\mathbf{x}_1 \mid \mathbf{x}_0\right)}\right] \\ & =\mathbb{E}_q\left[-\log p\left(\mathbf{x}_T\right)-\sum_{t>1} \log \frac{p_\theta\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t\right)}{\textcolor{blue}{q\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t, \mathbf{x}_0\right)}} \textcolor{blue}{-\log \frac{q\left(x_1 \mid x_0\right)}{q\left(x_2 \mid x_0\right)}-\log \frac{q\left(x_2 \mid x_0\right)}{q\left(x_3 \mid x_0\right)}-\ldots -\log \frac{q\left(x_{T-1} \mid x_0\right)}{q\left(x_T \mid x_0\right)} } -\log \frac{p_\theta\left(\mathbf{x}_0 \mid \mathbf{x}_1\right)}{q\left(\mathbf{x}_1 \mid \mathbf{x}_0\right)}\right] \\
+& =\mathbb{E}_q\left[-\log \frac{p\left(\mathbf{x}_T\right)}{\textcolor{blue}{q\left(\mathbf{x}_T \mid \mathbf{x}_0\right)}}-\sum_{t>1} \log \frac{p_\theta\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t\right)}{q\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t, \mathbf{x}_0\right)}-\log p_\theta\left(\mathbf{x}_0 \mid \mathbf{x}_1\right)\right]\\ & =\mathbb{E}_q\left[D_{\mathrm{KL}}\left(q\left(\mathbf{x}_T \mid \mathbf{x}_0\right) \| p\left(\mathbf{x}_T\right)\right)+\sum_{t>1} D_{\mathrm{KL}}\left(q\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t, \mathbf{x}_0\right) \| p_\theta\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t\right)\right)-\log p_\theta\left(\mathbf{x}_0 \mid \mathbf{x}_1\right)\right]
+\end{aligned}$.
+
+
+
+
+
+$\textcolor{blue}{-\log \frac{q\left(x_1 \mid x_0\right)}{q\left(x_2 \mid x_0\right)}-\log \frac{q\left(x_2 \mid x_0\right)}{q\left(x_3 \mid x_0\right)}-\log \frac{q\left(x_3 \mid x_0\right)}{q\left(x_4 \mid x_0\right)}-\ldots}$

@@ -1,0 +1,38 @@
+(1) $p(\mathbf{x})=\int p(\mathbf{x}, \mathbf{z}) d \mathbf{z}$
+
+
+
+(2) $\log p(\mathbf{x})=\log \int p(\mathbf{x}, \mathbf{z}) d \mathbf{z}$.
+
+
+
+(3) $\log p(\mathbf{x})=\log \int q(\mathbf{z} \mid \mathbf{x}) \frac{p(\mathbf{x}, \mathbf{z})}{q(\mathbf{z} \mid \mathbf{x})} d \mathbf{z}$.
+
+
+
+Jensen: $\log \mathbb{E}[X] \geq \mathbb{E}[\log X]$
+
+(4) $
+\log p(\mathbf{x})=\log \int q(\mathbf{z} \mid \mathbf{x}) \frac{p(\mathbf{x}, \mathbf{z})}{q(\mathbf{z} \mid \mathbf{x})} d \mathbf{z} 
+\geq \int q(\mathbf{z} \mid \mathbf{x}) \log \frac{p(\mathbf{x}, \mathbf{z})}{q(\mathbf{z} \mid \mathbf{x})} d \mathbf{z}$.
+
+
+
+ELBO: $\mathcal{L}(\mathbf{x})=\mathbb{E}_{q(\mathbf{z} \mid \mathbf{x})}[\log p(\mathbf{x}, \mathbf{z})-\log q(\mathbf{z} \mid \mathbf{x})]$
+
+(5) $\mathcal{L}(\mathbf{x})=\mathbb{E}_{q(\mathbf{z} \mid \mathbf{x})}[\log p(\mathbf{x}, \mathbf{z})]-\mathbb{E}_{q(\mathbf{z} \mid \mathbf{x})}[\log q(\mathbf{z} \mid \mathbf{x})]$.
+
+
+
+(6) $\mathcal{L}(\mathbf{x})=\mathbb{E}_{q(\mathbf{z} \mid \mathbf{x})}[\log p(\mathbf{x} \mid \mathbf{z})]+\mathbb{E}_{q(\mathbf{z} \mid \mathbf{x})}[\log p(\mathbf{z})]-\mathbb{E}_{q(\mathbf{z} \mid \mathbf{x})}[\log q(\mathbf{z} \mid \mathbf{x})]$.
+
+- $D_{\mathrm{KL}}(q(\mathbf{z} \mid \mathbf{x}) \| p(\mathbf{z}))=\mathbb{E}_{q(\mathbf{z} \mid \mathbf{x})}[\log q(\mathbf{z} \mid \mathbf{x})-\log p(\mathbf{z})]$.
+
+
+
+(7) $\mathcal{L}(\mathbf{x})=\mathbb{E}_{q(\mathbf{z} \mid \mathbf{x})}[\log p(\mathbf{x} \mid \mathbf{z})]-D_{\mathrm{KL}}(q(\mathbf{z} \mid \mathbf{x}) \| p(\mathbf{z}))$.
+
+
+
+결론: $\mathcal{L}_{\mathrm{VAE}}=D_{\mathrm{KL}}(q(\mathbf{z} \mid \mathbf{x}) \| p(\mathbf{z}))-\mathbb{E}_{q(\mathbf{z} \mid \mathbf{x})}[\log p(\mathbf{x} \mid \mathbf{z})]$.
+
