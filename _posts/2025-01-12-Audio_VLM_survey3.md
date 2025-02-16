@@ -1,23 +1,16 @@
 ---
-title: (VLM survey) (Part 6; Performance Comparison & Future Works)
-categories: [MULT, LLM, NLP, CV]
+title: Speech LLMs; 3) xxxx
+categories: [MULT, LLM, NLP, CV, AUDIO]
 tags: []
-excerpt: arxiv 2024
+excerpt: A Survey on Speech Large Language Models
+
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-# Vision-Language Models for Vision Tasks: A Survey
+# A Survey on Speech LLMs
 
-https://arxiv.org/pdf/2304.00685
-
-<br>
-
-![figure2](/assets/img/llm/img492.png)
-
-# Contents
-
-
+https://arxiv.org/pdf/2410.18908
 
 
 
@@ -97,23 +90,26 @@ $\rightarrow$ Enabling **real-time multimodal interaction**
 
 [1] VoxtLM and LauraGPT 
 
-- Facilitate seamless integration of speech with visual and textual inputs
-- Providing coherent and accurate multimodal outputs. 
-- This capability is particularly valuable in applications such as live transcription and synchronized translation during presentations, where both speech and visual context need to be processed simultaneously.
+- Facilitate seamless integration of **(1) speech** + **(2) visual and textual inputs**
+
+- Providing coherent and accurate **multimodal outputs**
+
+- E.g., Live transcription and synchronized translation during presentations
+
+  $\rightarrow$ Both **speech & visual context** need to be processed simultaneously!
 
 <br>
 
-LLM-based systems have introduced new functionalities!
+LLM-based systems have introduced **new functionalities**!
 
-$\rightarrow$ E.g., Generation of descriptive text, summaries, and even translations based on audio input. 
+$\rightarrow$ E.g., **Generation of descriptive text**, summaries, and even translations based on audio input. 
 
 
 
 [2] ViOLA
 
-- Generate coherent summaries and crosslanguage translations with high fluency and accuracy, 
-- outperforming traditional models in both speed and quality of output.
-- This represents a significant advancement in how speech recognition systems can interact with and interpret complex multimodal data streams [35].
+- Generate coherent summaries and **crosslanguage translations** with high fluency and accuracy, 
+- Speech recognition systems can interact with and interpret complex multimodal data streams!
 
 <br>
 
