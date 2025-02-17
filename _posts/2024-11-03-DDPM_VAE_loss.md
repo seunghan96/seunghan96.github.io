@@ -12,19 +12,19 @@ excerpt: temp
 
 (VAE1) $$p(\mathbf{x})=\int p(\mathbf{x}, \mathbf{z}) d \mathbf{z}$$
 
-
+<br>
 
 (Diff2) $$\log p_\theta\left(\mathrm{x}_0\right)=\log \int p_\theta\left(\mathrm{x}_{0 : T}\right) d \mathrm{x}_{1: T}$$.
 
 (VAE2) $$\log p(\mathbf{x})=\log \int p(\mathbf{x}, \mathbf{z}) d \mathbf{z}$$.
 
-
+<br>
 
 (Diff3) $$\log p_\theta\left(\mathbf{x}_0\right)=\log \int q\left(\mathbf{x}_{1: T} \mid \mathbf{x}_0\right) \frac{p_\theta\left(\mathbf{x}_{0: T}\right)}{q\left(\mathbf{x}_{1: T} \mid \mathbf{x}_0\right)}  d \mathbf{x}_{1: T}$$.
 
 (VAE3) $$\log p(\mathbf{x})=\log \int q(\mathbf{z} \mid \mathbf{x}) \frac{p(\mathbf{x}, \mathbf{z})}{q(\mathbf{z} \mid \mathbf{x})} d \mathbf{z}$$.
 
-
+<br>
 
 ( Jensen: $$\log \mathbb{E}[X] \geq \mathbb{E}[\log X]$$ )
 
@@ -34,7 +34,7 @@ excerpt: temp
 \log p(\mathbf{x})=\log \int q(\mathbf{z} \mid \mathbf{x}) \frac{p(\mathbf{x}, \mathbf{z})}{q(\mathbf{z} \mid \mathbf{x})} d \mathbf{z} 
 \geq \int q(\mathbf{z} \mid \mathbf{x}) \log \frac{p(\mathbf{x}, \mathbf{z})}{q(\mathbf{z} \mid \mathbf{x})} d \mathbf{z}$$.
 
-
+<br>
 
 (Diff5) $$\mathcal{L}(\mathbf{x})=\mathbb{E}_q\left[-\log \frac{p_\theta\left(\mathbf{x}_{0: T}\right)}{q\left(\mathbf{x}_{1: T} \mid \mathbf{x}_0\right)}\right]$$.
 

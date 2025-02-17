@@ -1,4 +1,13 @@
-### Speech Tasks
+---
+title: Speech Tasks
+categories: [LLM, AUDIO]
+tags: []
+excerpt: 
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+# Speech Tasks
 
 1. **Automatic Speech Recognition (ASR)** – 음성을 텍스트로 변환
    - **예시**: 유튜브 자동 자막 생성, 음성 비서(Siri, Google Assistant)가 사용자의 말을 텍스트로 변환

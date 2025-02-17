@@ -13,6 +13,17 @@ https://arxiv.org/pdf/2410.18908
 
 <br>
 
+## Contents
+
+0. Abstract
+1. Introduction
+   1. LLMs
+   2. SLU
+   3. Challenges of Speech LLM
+   4. Contributions
+
+<br>
+
 # Abstract
 
 Integrate (1) & (2)
@@ -28,7 +39,7 @@ Procedures
 - Step 2) **Multimodal Information Fusion**
 - Step 3) **LLM Inference** (Speech LLMs)
 
-$\rightarrow$ Richer audio feature extraction + end-to-end fusion of **audio and text modalities**!
+$$\rightarrow$$ Richer audio feature extraction + end-to-end fusion of **audio and text modalities**!
 
 <br>
 
@@ -41,7 +52,7 @@ $\rightarrow$ Richer audio feature extraction + end-to-end fusion of **audio and
 - Parsing **contextually appropriate sentences** 
 - Maintaining coherence over **multiple conversational turns**
 
-$\rightarrow$ Crucial for tasks like **"dialogue systems, automatic summarization, machine translation"**
+$$\rightarrow$$ Crucial for tasks like **"dialogue systems, automatic summarization, machine translation"**
 
 <br>
 
@@ -84,7 +95,7 @@ $\rightarrow$ Crucial for tasks like **"dialogue systems, automatic summarizatio
 
   - Struggles with maintaining context over **extended periods** 
 
-    $\rightarrow$ Accuracy degradation & latency issues in real-time applications.
+    $$\rightarrow$$ Accuracy degradation & latency issues in real-time applications.
 
 - b) "**Hotword/keyword** recognition" 
 
