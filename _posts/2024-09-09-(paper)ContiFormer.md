@@ -37,7 +37,7 @@ Previous works
 
 - a) RNN, Transformer models: discrete 
 
-  $\rightarrow$ Limitations in generalizing to continuous-time data paradigms. 
+  $$\rightarrow$$ Limitations in generalizing to continuous-time data paradigms. 
 
 - b) Neural ODEs
   - Promising results in dealing with ITS
@@ -66,7 +66,7 @@ Previous works
 
 -  Divide into equally sized intervals??
 
-  $\rightarrow$ Weverely damage the continuity of the data 
+  $$\rightarrow$$ Weverely damage the continuity of the data 
 
 - Recent works)
   - Underlying continuous-time process is appreciated for ITS modeling 
@@ -92,7 +92,7 @@ Previous works
   - (a) Continuous dynamics of Neural ODEs
   - (b) Attention mechanism of Transformers
 
-  $\rightarrow$ Breaks the discrete nature of Transformer models. 
+  $$\rightarrow$$ Breaks the discrete nature of Transformer models. 
 
 - Process
   - Step 1) Defining **latent trajectories** for each observation in the given **irregularly sampled data points**
@@ -125,10 +125,10 @@ d) Experiment Results
 
 Irregular TS
 
-- $\Gamma=\left[\left(X_1, t_1\right), \ldots,\left(X_N, t_N\right)\right]$,
+- $$\Gamma=\left[\left(X_1, t_1\right), \ldots,\left(X_N, t_N\right)\right]$$,
   - Observations may occur ***at any time***
-  - Observation time points $\boldsymbol{\omega}=\left(t_1, \ldots, t_N\right)$ are ***with irregular intervals***
-- $X=\left[X_1 ; X_2 ; \ldots, X_N\right] \in \mathbb{R}^{N \times d}$.
+  - Observation time points $$\boldsymbol{\omega}=\left(t_1, \ldots, t_N\right)$$ are ***with irregular intervals***
+- $$X=\left[X_1 ; X_2 ; \ldots, X_N\right] \in \mathbb{R}^{N \times d}$$.
 
 <br>
 
@@ -138,10 +138,10 @@ Irregular TS
 
 Input)
 
-- (1) Irregular time series $X$ 
-- (2) Sampled time $\boldsymbol{\omega}$ 
+- (1) Irregular time series $$X$$ 
+- (2) Sampled time $$\boldsymbol{\omega}$$ 
   - Sequence of (reference) time points
-  - $t$ : random variable representing a query time point
+  - $$t$$ : random variable representing a query time point
 
 Output)
 
@@ -166,10 +166,10 @@ Summary
 Core of the ContiFormer layer 
 
 - ***continuous-time multi-head attention (CT-MHA)***
-- Transform $X$ into...
-  - $Q=\left[Q_1 ; Q_2 ; \ldots ; Q_N\right]$,
-  - $K=\left[K_1 ; K_2 ; \ldots ; K_N\right]$,
-  - $V=\left[V_1 ; V_2 ; \ldots ; V_N\right]$.
+- Transform $$X$$ into...
+  - $$Q=\left[Q_1 ; Q_2 ; \ldots ; Q_N\right]$$,
+  - $$K=\left[K_1 ; K_2 ; \ldots ; K_N\right]$$,
+  - $$V=\left[V_1 ; V_2 ; \ldots ; V_N\right]$$.
 - Utilize ODE to define the latent trajectories for each observation. 
   - Latent space: assume that the underlying dynamics evolve following linear ODEs
 - Construct a **continuous query function**
@@ -183,28 +183,28 @@ Core of the ContiFormer layer
 
 Step 1) Empoy ODE to define the latent trajectories for each observation
 
-- ex) first observation: at time point $t_1$
-- ex) last observation: at time point $t_N$
+- ex) first observation: at time point $$t_1$$
+- ex) last observation: at time point $$t_N$$
 
 
 
 Continuous keys and values:
 
-- $\mathbf{k}_i\left(t_i\right)=K_i$,
-  - $ \mathbf{k}_i(t)=\mathbf{k}_i\left(t_i\right)+\int_{t_i}^t f\left(\tau, \mathbf{k}_i(\tau) ; \theta_k\right) \mathrm{d} \tau$.
-- $\mathbf{v}_i\left(t_i\right)=V_i$
-  - $ \mathbf{v}_i(t)=\mathbf{v}_i\left(t_i\right)+\int_{t_i}^t f\left(\tau, \mathbf{v}_i(\tau) ; \theta_v\right) \mathrm{d} \tau$.
+- $$\mathbf{k}_i\left(t_i\right)=K_i$$,
+  - $$ \mathbf{k}_i(t)=\mathbf{k}_i\left(t_i\right)+\int_{t_i}^t f\left(\tau, \mathbf{k}_i(\tau) ; \theta_k\right) \mathrm{d} \tau$$.
+- $$\mathbf{v}_i\left(t_i\right)=V_i$$
+  - $$ \mathbf{v}_i(t)=\mathbf{v}_i\left(t_i\right)+\int_{t_i}^t f\left(\tau, \mathbf{v}_i(\tau) ; \theta_v\right) \mathrm{d} \tau$$.
 
 
 
 Notation:
 
-- $t \in\left[t_1, t_N\right], \mathbf{k}_i(\cdot), \mathbf{v}_i(\cdot) \in \mathbb{R}^d$: 
-  - Represent the ODE for the $i$-th observation 
-    - with parameters $\theta_k$ and $\theta_v$, 
-    - with initial state of $\mathbf{k}_i\left(t_i\right)$ and $\mathbf{v}_i\left(t_i\right)$ 
+- $$t \in\left[t_1, t_N\right], \mathbf{k}_i(\cdot), \mathbf{v}_i(\cdot) \in \mathbb{R}^d$$: 
+  - Represent the ODE for the $$i$$-th observation 
+    - with parameters $$\theta_k$$ and $$\theta_v$$, 
+    - with initial state of $$\mathbf{k}_i\left(t_i\right)$$ and $$\mathbf{v}_i\left(t_i\right)$$ 
 
-- $f(\cdot) \in \mathbb{R}^{d+1} \rightarrow \mathbb{R}^d$:
+- $$f(\cdot) \in \mathbb{R}^{d+1} \rightarrow \mathbb{R}^d$$:
   - Controls the change of the dynamics
 
 <br>
@@ -217,7 +217,7 @@ To model a dynamic system, queries can be modeled as a ***function of time***
 
 Adopt a common assumption that irregular time series is a **"discretization" of an underlying continuous-time process**
 
-$\rightarrow$ Define a closed-form continuous-time interpolation function (e.g., natural cubic spline) with knots at $t_1, \ldots, t_N$ such that $\mathbf{q}\left(t_i\right)=Q_i$ as an approximation of the underlying process.
+$$\rightarrow$$ Define a closed-form continuous-time interpolation function (e.g., natural cubic spline) with knots at $$t_1, \ldots, t_N$$ such that $$\mathbf{q}\left(t_i\right)=Q_i$$ as an approximation of the underlying process.
 
 <br>
 
@@ -227,46 +227,46 @@ Self-attention
 
 - Calculating the correlation between queries and keys
 
-- By inner product ( $Q \cdot K^{\top}$ )
+- By inner product ( $$Q \cdot K^{\top}$$ )
 
 <br>
 
 Extending the **discrete ** inner-product to its  **continuous-time ** domain!!
 
-- Two real functions: $f(x)$ and $g(x)$
-- Inner product of two functions in a closed interval $[a, b]$ :
-  - $\langle f, g\rangle=\int_a^b f(x) \cdot g(x) \mathrm{d} x$.
+- Two real functions: $$f(x)$$ and $$g(x)$$
+- Inner product of two functions in a closed interval $$[a, b]$$ :
+  - $$\langle f, g\rangle=\int_a^b f(x) \cdot g(x) \mathrm{d} x$$.
   - Meaning = How much the two functions "align" with each other over the interval
 
 <br>
 
-$\boldsymbol{\alpha}_i(t)=\frac{\int_{t_i}^t \mathbf{q}(\tau) \cdot \mathbf{k}_i(\tau)^{\top} \mathrm{d} \tau}{t-t_i}$.
+$$\boldsymbol{\alpha}_i(t)=\frac{\int_{t_i}^t \mathbf{q}(\tau) \cdot \mathbf{k}_i(\tau)^{\top} \mathrm{d} \tau}{t-t_i}$$.
 
 Evolving relationship between the..
 
--  (1) "$i$-th sample" (key)
-- (2) "dynamic system" at time point $t$ (query)
-- in a closed interval $\left[t_i, t\right]$,
+-  (1) "$$i$$-th sample" (key)
+- (2) "dynamic system" at time point $$t$$ (query)
+- in a closed interval $$\left[t_i, t\right]$$,
 
-$\rightarrow$ To avoid numeric instability during training, we ***divide*** the integrated solution by the ***time difference***
+$$\rightarrow$$ To avoid numeric instability during training, we ***divide*** the integrated solution by the ***time difference***
 
 <br>
 
-Discontinuity at $\boldsymbol{\alpha}_i\left(t_i\right)$.... How to solve?
+Discontinuity at $$\boldsymbol{\alpha}_i\left(t_i\right)$$.... How to solve?
 
-Define $\boldsymbol{\alpha}_i\left(t_i\right)$ as ...
+Define $$\boldsymbol{\alpha}_i\left(t_i\right)$$ as ...
 
-$\boldsymbol{\alpha}_i\left(t_i\right)=\lim _{\epsilon \rightarrow 0} \frac{\int_{t_i}^{t_i+\epsilon} \mathbf{q}(\tau) \cdot \mathbf{k}_i(\tau)^{\top} \mathbf{d} \tau}{\epsilon}=\mathbf{q}\left(t_i\right) \cdot \mathbf{k}_i\left(t_i\right)^{\top}$.
+$$\boldsymbol{\alpha}_i\left(t_i\right)=\lim _{\epsilon \rightarrow 0} \frac{\int_{t_i}^{t_i+\epsilon} \mathbf{q}(\tau) \cdot \mathbf{k}_i(\tau)^{\top} \mathbf{d} \tau}{\epsilon}=\mathbf{q}\left(t_i\right) \cdot \mathbf{k}_i\left(t_i\right)^{\top}$$.
 
 <br>
 
 ### d) Expected Values 
 
-Query time $t \in\left[t_1, t_N\right]$, 
+Query time $$t \in\left[t_1, t_N\right]$$, 
 
-Value of an observation at time point $t$:  **expected value from $t_i$ to $t$**
+Value of an observation at time point $$t$$:  **expected value from $$t_i$$ to $$t$$**
 
-= $\widehat{\mathbf{v}}_i(t)=\mathbb{E}_{t \sim\left[t_i, t\right]}\left[\mathbf{v}_i(t)\right]=\frac{\int_{t_i}^t \mathbf{v}_i(\tau) \mathrm{d} \tau}{t-t_i}$
+= $$\widehat{\mathbf{v}}_i(t)=\mathbb{E}_{t \sim\left[t_i, t\right]}\left[\mathbf{v}_i(t)\right]=\frac{\int_{t_i}^t \mathbf{v}_i(\tau) \mathrm{d} \tau}{t-t_i}$$
 
 <br>
 
@@ -280,12 +280,12 @@ Summary
 
 
 
-Continuous-time attention  ( given a query time $t$ )
+Continuous-time attention  ( given a query time $$t$$ )
 
-$\begin{aligned}
+$$\begin{aligned}
 \operatorname{CT}-\operatorname{ATTN}(Q, K, V, \boldsymbol{\omega})(t) & =\sum_{i=1}^N \widehat{\boldsymbol{\alpha}}_i(t) \cdot \widehat{\mathbf{v}}_i(t) \\
 \text { where } \widehat{\boldsymbol{\alpha}}_i(t) & =\frac{\exp \left(\boldsymbol{\alpha}_i(t) / \sqrt{d_k}\right)}{\sum_{j=1}^N \exp \left(\boldsymbol{\alpha}_j(t) / \sqrt{d_k}\right)}
-\end{aligned}$.
+\end{aligned}$$.
 
 <br>
 
@@ -295,16 +295,16 @@ Stabilizes training by reducing attention weight variance
 
 <br>
 
-Multi-head: $\operatorname{CT}-\operatorname{MHA}(Q, K, V, \boldsymbol{\omega})(t)=\operatorname{Concat}\left(\operatorname{head}_{(1)}(t), \ldots, \operatorname{head}_{(\mathrm{H})}(t)\right) W^O$.
+Multi-head: $$\operatorname{CT}-\operatorname{MHA}(Q, K, V, \boldsymbol{\omega})(t)=\operatorname{Concat}\left(\operatorname{head}_{(1)}(t), \ldots, \operatorname{head}_{(\mathrm{H})}(t)\right) W^O$$.
 
 <br>
 
 ## (2) Continuous-Time Transformer
 
-$\begin{aligned}
+$$\begin{aligned}
 & \tilde{\mathbf{z}}^l(t)=\mathrm{LN}\left(\operatorname{CT}-\operatorname{MHA}\left(X^l, X^l, X^l, \omega^l\right)(t)+\mathbf{x}^l(t)\right) \\
 & \mathbf{z}^l(t)=\operatorname{LN}\left(\operatorname{FFN}\left(\tilde{\mathbf{z}}^l(t)\right)+\tilde{\mathbf{z}}^l(t)\right)
-\end{aligned}$.
+\end{aligned}$$.
 
 <br>
 
@@ -312,14 +312,14 @@ $\begin{aligned}
 
 ContiFormer layer 
 
-- Output: ***Continuous function*** $\mathbf{z}^l(t)$ w.r.t. time as the output
-- Input: ***Discrete sequence*** $X^l$
+- Output: ***Continuous function*** $$\mathbf{z}^l(t)$$ w.r.t. time as the output
+- Input: ***Discrete sequence*** $$X^l$$
 
 <br>
 
-How to incorporate $\mathbf{z}^l(t)$ into NN?
+How to incorporate $$\mathbf{z}^l(t)$$ into NN?
 
-$\rightarrow$ Establish **reference time points** for the output of each layer
+$$\rightarrow$$ Establish **reference time points** for the output of each layer
 
 <br>
 
@@ -327,9 +327,9 @@ Reference time points
 
 - Used to discretize the layer output
 - Correspond to either 
-  - Input time points (i.e., $\boldsymbol{\omega}$ ) 
+  - Input time points (i.e., $$\boldsymbol{\omega}$$ ) 
   - Task-specific time points. 
 
-Assume that the reference points for the $l$-th layer is $\boldsymbol{\omega}^l=\left[t_1^l, t_2^l, \ldots, t_{\beta_l}^l\right]$, 
+Assume that the reference points for the $$l$$-th layer is $$\boldsymbol{\omega}^l=\left[t_1^l, t_2^l, \ldots, t_{\beta_l}^l\right]$$, 
 
-$\rightarrow$ Input to the next layer $X^{l+1}$ : sampled as $\left\{\mathbf{z}^l\left(t_j^l\right) \mid j \in\left[1, \beta_l\right]\right\}$
+$$\rightarrow$$ Input to the next layer $$X^{l+1}$$ : sampled as $$\left\{\mathbf{z}^l\left(t_j^l\right) \mid j \in\left[1, \beta_l\right]\right\}$$
