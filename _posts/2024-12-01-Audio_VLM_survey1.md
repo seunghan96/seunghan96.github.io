@@ -31,15 +31,20 @@ Integrate (1) & (2)
 - (1) LLMs
 - (2) **Spoken Language Understanding (SLU)**
 
-
+<br>
 
 Procedures
 
-- Step 1) **Audio Feature Extraction** 
-- Step 2) **Multimodal Information Fusion**
+- Step 1) **Audio** Feature Extraction
+- Step 2) **Multimodal** Information Fusion
 - Step 3) **LLM Inference** (Speech LLMs)
 
-$$\rightarrow$$ Richer audio feature extraction + end-to-end fusion of **audio and text modalities**!
+<br>
+
+Results
+
+- (1) Richer **audio** feature extraction  
+- (2) End-to-end fusion of **audio & text modalities**!
 
 <br>
 
@@ -47,7 +52,7 @@ $$\rightarrow$$ Richer audio feature extraction + end-to-end fusion of **audio a
 
 ## (1) LLMs
 
-(1) LLMs: Excel in ...
+LLMs do well on ...
 
 - Parsing **contextually appropriate sentences** 
 - Maintaining coherence over **multiple conversational turns**
@@ -56,7 +61,7 @@ $$\rightarrow$$ Crucial for tasks like **"dialogue systems, automatic summarizat
 
 <br>
 
-(2) LLMs: Achieved remarkable success in **"multimodal" tasks**
+Achieved remarkable success in **"multimodal"** tasks
 
 - e.g., visual question answering, image generation
 
@@ -64,47 +69,46 @@ $$\rightarrow$$ Crucial for tasks like **"dialogue systems, automatic summarizat
 
 ## (2) SLU
 
-(3) **Spoken Language Understanding (SLU)**
+**Spoken Language Understanding (SLU)**
 
 = Interpreting spoken language 
 
 - To extract meaning intent, and relevant information **beyond simple transcription**
+- Two steps
+  - Step 1) **Automatic Speech Recognition (ASR)**
+  - Step 2) **Natural Language Understanding (NLU)**
+
 
 <br>
 
-(4) (Basics) **Speech-to-text tasks**
-
-- e.g.,  Automatic speech recognition (ASR)
-
-<br>
-
-(5) Modern systems: Adept at ...
+Modern systems: Adept at ...
 
 - a) Handling **diverse accents & languages**
 
-- b) Improving **efficiency and accuracy **in workflows 
-  - e.g., medical transcription and customer service automation
+- b) Improving **efficiency & accuracy **in workflows 
+  - e.g., Medical transcription and customer service automation
 
 <br>
 
 ## (3) Challengs of Speech LLM
 
-(6) **Challenges of Speech LLM**
+Challenge 1) "**Long-form** recognition" 
 
-- a) "**Long-form** recognition" 
+- Struggles with maintaining context over **extended periods** 
 
-  - Struggles with maintaining context over **extended periods** 
+  $$\rightarrow$$ Accuracy degradation & latency issues in real-time applications.
 
-    $$\rightarrow$$ Accuracy degradation & latency issues in real-time applications.
+<br>
 
-- b) "**Hotword/keyword** recognition" 
+Challenge 2) "**Hotword/keyword** recognition" 
 
-  - Critical for wake word recognition ( e.g., *Hey Siri~!* )
+- Critical for wake word recognition ( e.g., *Hey Siri~!* )
 
-  - Faces difficulties in **noisy environments** 
-    - Balance btw **sensitivity and specificity**
-    - Especially when hotwords are **contextually similar to other phrases**
-    
+- Faces difficulties in **noisy environments** 
+
+  ( = Balance btw **sensitivity & specificity** )
+
+  - Especially when hotwords are **contextually similar to other phrases**
 
 <br>
 
@@ -113,7 +117,7 @@ $$\rightarrow$$ Crucial for tasks like **"dialogue systems, automatic summarizat
 1. Comprehensive survey analyzing **Speech LLMs** in the SLU domain
    - (1) Development of **Speech LLMs**
    - (2) **Model architecture**
-   - (3) **Comparative analysis** ( vs. traditional speech models )
+   - (3) **Comparative analysis** ( vs. Traditional speech models )
 
 2. Training methods for **aligning speech & text modalities**
    - Emphasis on the potential development of RL (e.g., DPO, PPO)

@@ -15,9 +15,10 @@ https://arxiv.org/pdf/2410.18908
 
 ## Contents
 
-2. Recent Advances in Speech LLMs
-   1. Evolution of Speech LLMs Architectures
-   2. Advancements of Speech LLMs in Key Tasks and Challenges
+2.Recent Advances in Speech LLMs
+
+1. Evolution of Speech LLMs Architectures
+2. Advancements of Speech LLMs in Key Tasks and Challenges
 
 <br>
 
@@ -30,7 +31,7 @@ Challenges in the field of SLU
 - (1) **Long-form** speech understanding 
 - (2) **Hotword** recognition
 
-$$\rightarrow$$ Begun to explore the **integration of LLMs into SLU**
+$$\rightarrow$$ Begun to explore the **integration of "LLMs into SLU"**
 
 <br>
 
@@ -40,7 +41,9 @@ $$\rightarrow$$ Begun to explore the **integration of LLMs into SLU**
 
 ( Title: *A no-recurrence sequence-to-sequence model for speech recognition* )
 
-- **End-to-end** speech recognition system based on the **Transformer**
+- (1) Task: **Speech Recognition** 
+
+- (2) Idea: **End-to-end** speech recognition system based on the **Transformer**
 
 <br>
 
@@ -48,11 +51,13 @@ $$\rightarrow$$ Begun to explore the **integration of LLMs into SLU**
 
 ( Title: *Conformer: Convolution-augmented Transformer for Speech Recognition* )
 
-- Combines **CNN** with **Transformer**
-  - **Transformer**: Capture content-based "global" interactions
-  - **CNN**: Exploit "local" features
+- (1) Task: **Speech Recognition** 
+  
+- (2) Idea: Combines **CNN** with **Transformer**
+  - **Transformer**: Capture content-based ***"global"*** interactions
+  - **CNN**: Exploit ***"local"*** features
 
-- Make the Transformer more robust in processing speech signals!
+- (3) Results: Make the Transformer more **robust** in processing speech signals!
 
 ![figure2](/assets/img/llm/img504.png)
 
@@ -62,9 +67,13 @@ $$\rightarrow$$ Begun to explore the **integration of LLMs into SLU**
 
 ( Title: *HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units* )
 
-- Major breakthrough in utilizing **LLMs** to process audio features
-- **SSL** on a large corpus of unlabeled speech data
-  - Offline clustering step to provide aligned target labels for a BERT-like prediction loss. 
+- (1) Task: SSL for **Speech** 
+  - **SSL** on a large corpus of unlabeled speech data
+
+- (2) Idea: Utilize **LLMs** to process audio features
+- (3) Details:
+  - **Offline clustering** step 
+  - Aligned target labels for a **BERT-like** prediction loss
 
 - $$L_m\left(f ; X,\left\{Z^{(k)}\right\}_k, M\right)=\sum_{t \in M} \sum_k \log p_f^{(k)}\left(z_t^{(k)} \mid \tilde{X}, t\right)$$.
   - $$p_f^{(k)}(c \mid \tilde{X}, t)=\frac{\exp \left(\operatorname{sim}\left(A^{(k)} o_t, e_c\right) / \tau\right)}{\sum_{c^{\prime}=1}^C \exp \left(\operatorname{sim}\left(A^{(k)} o_t, e_{c^{\prime}}\right) / \tau\right)}$$.
@@ -79,10 +88,14 @@ $$\rightarrow$$ Begun to explore the **integration of LLMs into SLU**
 
 ( Title: *Robust Speech Recognition via Large-Scale Weak Supervision* )
 
-- Integrated **multilingual and multitask** capabilities into a single model
-- Pretrained simply to predict **large amounts** of transcripts of audio on the internet
-  - **680,000 hours** of multilingual and multitask supervision
-- Also in **zero-shot** transfer setting
+- (1) Task: SSL for **Speech** 
+- (2) Idea: Integrated **multilingual & multitask** capabilities into a **single** model
+- (3) Details:
+  - Pretrained simply to predict **large amounts** of transcripts of audio
+    - **680,000 hours** of multilingual and multitask supervision
+  
+  - Also in **zero-shot** transfer setting
+  
 
 ![figure2](/assets/img/llm/img506.png)
 
@@ -94,31 +107,39 @@ $$\rightarrow$$ Begun to explore the **integration of LLMs into SLU**
 
 ( Title: *SpeechT5: Unified-Modal Encoder-Decoder Pre-Training for Spoken Language Processing* )
 
-- Unified **encoder-decoder** framework 
+- (1) Task: SSL for **Speech** 
+
+- (2) Idea: Unified **encoder-decoder** framework 
 
   - For various spoken language processing tasks
 
-- SpeechT5 consists of ...
-
-  - (1) **Shared** encoder-decoder network 
-  - (2) **Six modal-specific (speech/text)** pre/post-nets 
-
-- Process
-
-  - Step 1) Preprocess the input speech/text through the **pre-nets**
-  - Step 2) Sequence-to-sequence transformation with shared **encoder-decoder network models** 
-  - Step 3) Generate the output in the speech/text modality with **post-nets**
-    - Based on the output of the decoder
-
-- **Pre-training** (SSL) SpeechT5 to learn a unified-modal representation
+- (3) Goal: **Pre-training** (SSL) SpeechT5 to learn a unified-modal representation
 
   $$\rightarrow$$ Improve the modeling capability for both speech and text
 
-- How to align the **textual and speech information**?
+- (4) Architecture
 
-  $$\rightarrow$$ ***Cross-modal vector quantization*** approach 
+  - (1) **Shared** encoder-decoder network 
+    - Shared = shared across "speech & text"
+  - (2) **Six modal-specific (speech/text)** pre/post-nets 
+
+- (5) Process
+
+  - Step 1) **Pre-nets**
+    - Preprocess the input speech/text 
+  - Step 2) **Encoder-decoder**
+    - Sequence-to-sequence transformation 
+  - Step 3) **Post-nets**
+    - Generate the output in the speech/text modality
+
+- (6) Cross-modal pretraining tasks
+
+  - How to align the **textual and speech information**?
+
+    $$\rightarrow$$ ***Cross-modal vector quantization*** approach 
 
   - Randomly mixes up speech/text states with latent units 
+
 
 ![figure2](/assets/img/llm/img508.png)
 
@@ -148,17 +169,17 @@ $$\rightarrow$$ Gradually evolved into the ***main trend of using LLMs*** in the
 
 ( Title: *Modular end-to-end automatic speech recognition framework for acoustic-to-word model* )
 
-- First to explore this approach
+- (1) Previous works (Traditional CTC-based):
 
-  - Traditional CTC-based: Isolate the acoustic feature-to-text mapping as a **standalone unit**
+  - Isolate the acoustic feature-to-text mapping as a **standalone unit**
 
-- Separating the **mapping of speech feature information** from the **speech feature extraction process** into two independent modules:
+- (2) Idea: Separating the **mapping of speech feature information** from the **speech feature extraction process** into two independent modules:
 
-  - **(1) Acoustic-tophoneme (A2P) model** 
+  - (1) **Acoustic-to-phoneme (A2P)** model
     - a) Dataset: Trained on **"acoustic data"**
     - b) Task: Predicts the corresponding phoneme sequence with given acoustic features
 
-  - **(2) Phoneme-to-word (P2W) model**
+  - (2) **Phoneme-to-word (P2W)** model
     - a) Dataset: Trained on both **"text and acoustic data"**
     - b) Task: Translates the phoneme sequence to the desired word sequence
     - Fine-tuned by the acoustic data
@@ -198,17 +219,19 @@ Speech LLMs can mainly be divided into 2 categories
 
 Examples:
 
-- [1] **Vall-E (2023)**
+[1] **Vall-E (2023)**
 
-  ( Title: *Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers* )
+( Title: *Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers* )
 
-  - LLMs to process audio features
-  - Transformer architecture
-    - Combine audio features with the capabilities of LLMs to achieve more natural text-to-speech generation
-  - Pre-training: Scale up the TTS training data to 60K hours of English speech
-  - Emerges in-context learning capabilities
-  - Can be used to synthesize high-quality personalized speech 
-    - with only a 3-second enrolled recording of an unseen speaker as an acoustic prompt!
+- (1) Idea: **LLMs** to process audio features
+  - To achieve more natural **text-to-speech** generation
+- (2) Architecture: **Transformer**
+- (3) Pre-training: Neural Codec Language Modeling
+  - **60K hours** of English speech
+- (4) Results:
+  - Emerges **in-context** learning capabilities
+  - Can be used to **synthesize high-quality personalized speech** 
+    - with only a **3-second** enrolled recording of an unseen speaker as an acoustic prompt!
 
 ![figure2](/assets/img/llm/img512.png)
 
@@ -221,63 +244,63 @@ Examples:
 - Dataset $$\mathcal{D}=\left\{\mathbf{x}_i, \mathbf{y}_i\right\}$$, 
   - $$\mathbf{y}$$ : audio sample 
   - $$\mathbf{x}=\left\{x_0, x_1, \ldots, x_L\right\}$$ : Corresponding phoneme transcription
-  - (1) Pre-trained Neural codec model: $$\operatorname{Encodec}(\mathbf{y})=\mathbf{C}^{T \times 8}$$ 
-    - To encode each audio sample into discrete acoustic codes
-    - $$\mathbf{C}$$ = Two-dimensional acoustic code matrix
-      - Row vector $$\mathbf{c}_{t, \text { : }}$$ : Eight codes for frame $$t$$ 
-      - Column vector $$\mathbf{c}_{:, j}$$ : Code sequence from the $$j$$-th codebook, where $$j \in\{1, \ldots, 8\}$$. 
+  - (1) **Pre-trained Neural codec model**: $$\operatorname{Encoder}(\mathbf{y})=\mathbf{C}^{T \times 8}$$ 
+    - To encode each **continuous** audio sample into **discrete** acoustic codes
+    - $$\mathbf{C}$$ = Two-dimensional acoustic **code matrix**
+      - **Row** vector $$\mathbf{c}_{t, \text { : }}$$ : Eight codes for frame $$t$$ 
+      - **Column** vector $$\mathbf{c}_{:, j}$$ : Code sequence from the $$j$$-th codebook, where $$j \in\{1, \ldots, 8\}$$. 
     - $$T$$ = Downsampled utterance length. 
-  - (2) Neural codec decoder: $$\operatorname{Decodec}(\mathbf{C}) \approx \hat{\mathbf{y}}$$.
+  - (2) **Neural codec decoder**: $$\operatorname{Decodec}(\mathbf{C}) \approx \hat{\mathbf{y}}$$.
     - After quantization, reconstruct the waveform
 
 <br>
 
-- [2] **Vall-E 2 (2023)**
+[2] **Vall-E 2 (2023)**
 
-  ( Title: *VALL-E 2: Neural Codec Language Models are Human Parity Zero-Shot Text to Speech Synthesizers* )
+( Title: *VALL-E 2: Neural Codec Language Models are Human Parity Zero-Shot Text to Speech Synthesizers* )
 
-  - Zero-shot text-to-speech synthesis (TTS)
-  - Two enhancements (vs. Vall-E)
-    - (1) Repetition Aware Sampling
-    - (2) Grouped Code Modeling
-  - **(1) Repetition Aware Sampling**
-    - Refines the original nucleus sampling process 
-      - By accounting for **token repetition in the decoding history**
-    - Stabilizes the decoding & Circumvents the infinite loop issue
-  - **(2) Grouped Code Modeling**
-    - Organizes codec codes **into groups** 
-      - To effectively shorten the sequence length
-    - Boosts inference speed & Addresses the challenges of long sequence modeling
+- **Zero-shot** text-to-speech synthesis (TTS)
+- Two enhancements (vs. Vall-E)
+  - (1) Repetition Aware Sampling
+  - (2) Grouped Code Modeling
+- **(1) Repetition Aware Sampling**
+  - Refines the original nucleus sampling process 
+    - By accounting for **token repetition in the decoding history**
+  - Stabilizes the decoding & Circumvents the infinite loop issue
+- **(2) Grouped Code Modeling**
+  - Organizes codec codes **into groups** 
+    - To effectively shorten the sequence length
+  - Boosts inference speed & Addresses the challenges of long sequence modeling
 
-  ![figure2](/assets/img/llm/img511.png)
+![figure2](/assets/img/llm/img511.png)
 
 <br>
 
-- [3] **SpeechGPT (2023)** 
+[3] **SpeechGPT (2023)** 
 
-  ( Title: *Speechgpt: Empowering large language models with intrinsic crossmodal conversational abilities* )
+( Title: *Speechgpt: Empowering large language models with intrinsic crossmodal conversational abilities* )
 
-  - Trend: Multi-modal LLMs is crucial for AGI
+- (1) Trend: **Multi-modal LLMs** is crucial for AGI
 
-  - Motivation: However, current speech LLMs typically adopt the cascade paradigm!
+- (2) Motivation: Current speech LLMs typically adopt the cascade paradigm!
 
-    $$\rightarrow$$ Preventing inter-modal knowledge transfer
+  $$\rightarrow$$ Preventing **inter-modal knowledge** transfer
 
-  - Solution: SpeechGPT
+- (3) Proposal
 
-    - Deep integration of speech models and LLMs
+  - Deep integration of **speech models** and **LLMs**
 
-    - Not only of processing audio & but also interacting through natural language
+  - Not only of processing audio & but also interacting through natural language
 
-    - New interactive paradigm to the field of speech recognition 
+  - New interactive paradigm to the field of speech recognition 
 
-  - Dataset: Construct SpeechInstruct with discrete speech representations
-    - Large-scale cross-modal speech instruction dataset. 
-  - Three-stage training strategy
-    - (1) Modality-adaptation pretraining
-    - (2) Cross-modal instruction fine-tuning
-    - (3) Chain-of-modality instruction fine-tuning
-  - 논문 5쪽확인해보기
+- Dataset: Construct **SpeechInstruct** with discrete speech representations
+  - Large-scale cross-modal speech instruction dataset. 
+  
+- Three-stage training strategy
+  - (1) Modality-adaptation pretraining
+  - (2) Cross-modal instruction fine-tuning
+  - (3) Chain-of-modality instruction fine-tuning
 
 ![figure2](/assets/img/llm/img515.png)
 
@@ -324,42 +347,34 @@ Examples:
 
 <br>
 
-- [4] **AudioPaLM (2023)**
+[4] **AudioPaLM (2023)**
 
-  ( Title: *AudioPaLM: A Large Language Model That Can Speak and Listen* )
+( Title: *AudioPaLM: A Large Language Model That Can Speak and Listen* )
 
-  - AudioPaLM = LLM for speech understanding and generation
+- (1) **AudioPaLM** = LLM for speech understanding and generation
 
   - Expand the capabilities of speech recognition into **multimodal processing**
 
     $$\rightarrow$$ Enhancing performance in **multimodal tasks**
 
-  - Details
+- (2) Details = **PaLM-2 (text-based)** + **AudioLM (speech-based)** 
 
-    - PaLM-2 (text-based) + AudioLM (speech-based) 
+  $$\rightarrow$$ Into a unified multimodal architecture
 
-      $$\rightarrow$$ Into a unified multimodal architecture
+  - Can process and generate text and speech
 
-    - Can process and generate text and speech
+- (3) Datasets
+  - Audio: Speech in the source language
+  - Transcript: Transcript of the speech in Audio
+  - Translated audio: Spoken translation of the speech in Audio
+  - Translated transcript: Written translation of the speech in Audio. 
 
-  - Applications:
-
-    - Speech recognition 
-    - Speech-to-speech translation
-
-  - Types of datasets & tasks 
-
-    - Datasets
-      - Audio: Speech in the source language
-      - Transcript: Transcript of the speech in Audio
-      - Translated audio: Spoken translation of the speech in Audio
-      - Translated transcript: Written translation of the speech in Audio. 
-    - Tasks
-      - ASR (automatic speech recognition): Audio $$\rightarrow$$ Transcript
-      - AST (automatic speech translation): Audio $$\rightarrow$$ Translated transcript
-      - S2ST (speech-to-speech translation): Audio $$\rightarrow$$ Translated audio
-      - TTS (text-to-speech): Transcript $$\rightarrow$$ Audio
-      - MT (text-to-text machine translation): Transcript $$\rightarrow$$ Translated transcript
+- (4) Tasks
+  - **ASR (automatic speech recognition)**: Audio $$\rightarrow$$ Transcript
+  - **AST (automatic speech translation)**: Audio $$\rightarrow$$ Translated transcript
+  - **S2ST (speech-to-speech translation)**: Audio $$\rightarrow$$ Translated audio
+  - **TTS (text-to-speech)**: Transcript $$\rightarrow$$ Audio
+  - **MT (text-to-text machine translation)**: Transcript $$\rightarrow$$ Translated transcript
 
 ![figure2](/assets/img/llm/img518.png)
 
@@ -373,23 +388,32 @@ Examples:
 
 Examples:
 
-- Pengi (2023)
+[1] **Pengi (2023)**
+
+( Title: *Pengi: An audio language model for audio tasks* )
+
+- (1) Motivation
   
-  ( Title: *Pengi: An audio language model for audio tasks* )
+  = Current models inherently lack the capacity to produce the requisite language for **open-ended tasks**
   
-  - Current models: Inherently lack the capacity to produce the requisite language for open-ended tasks
-    - e.g., Audio Captioning or Audio Question Answering. 
-  - Pengi: A novel **Audio Language Model**
-    - Leverages Transfer Learning by framing all audio tasks as text-generation tasks. 
-    - Projects **"speech"** modality into the **"text"** space of LLMs **w/o changing LLM params**
-  - **Input & Output**
-    - Input: Audio & Text
-      - Audio input = Represented as a sequence of continuous embeddings by an audio encoder. 
-      - Text input = ~ by text encoder
-    - Output: Free-form text
-    - Both input & output are combined as a prefix to prompt a pre-trained frozen LLMs
-  - **Unified architecture** 
-    - Enables open-ended tasks and close-ended tasks w/o any additional fine-tuning or task-specific extensions
+  - e.g., Audio Captioning or Audio Question Answering. 
+  
+- (2) Pengi: A novel **Audio Language Model**
+  - Leverages Transfer Learning by framing all audio tasks as **text-generation tasks**. 
+  - Projects **"speech"** modality into the **"text"** space of LLMs **w/o changing LLM params**
+  
+- (3) **Input & Output**
+  - Input: **Audio & Text**
+    - **a) Audio input** = Represented as a sequence of continuous embeddings by an audio encoder. 
+    - **b) Text input** = ~ by text encoder
+  - Output: **Free-form text**
+  - Both input & output are combined as a **prefix** to prompt a pre-trained frozen LLMs
+  
+- **Unified architecture** 
+  
+  - Enables both **open-ended** tasks and **close-ended** tasks 
+  
+    ***w/o any additional fine-tuning*** or task-specific extensions
 
 ![figure2](/assets/img/llm/img519.png)
 
@@ -397,19 +421,19 @@ Examples:
 
 <br>
 
-- **SLAM-LLM (2024)**
+[2] **SLAM-LLM (2024)**
 
-  ( Title: *An embarrassingly simple approach for llm with strong asr capacity* )
+( Title: *An embarrassingly simple approach for llm with strong asr capacity* )
 
-  - (1) Task: **Automatic speech recognition (ASR)**
-  - (2) Motivation: Recent works use **complex designs** such as ...
-    - Compressing the output temporally for the speech encoder
-    - Tackling modal alignment for the projector
-    - Utilizing PEFT for the LLM. 
-  
-  - (3) Finding: **Simple design is OK!**
-  
-  - (4) How: Addition of a ***linear projector***
+- (1) Task: **Automatic speech recognition (ASR)**
+- (2) Motivation: Recent works use **complex designs** such as ...
+  - Compressing the output temporally for the speech encoder
+  - Tackling modal alignment for the projector
+  - Utilizing PEFT for the LLM
+
+- (3) Finding: **Simple design is OK!**
+
+- (4) How: Addition of a ***linear projector***
 
 ![figure2](/assets/img/llm/img521.png)
 
@@ -439,13 +463,13 @@ Address the issues inherent in these conventional methods!
 
 <br>
 
-[2] SpeechX (2024)
+**[2] SpeechX (2024)**
 
 ( Title: *Speechx: Neural codec language model as a versatile speech transformer* )
 
-- (1) Recent works: Generative speech models based on **audio-text prompts** 
+- (1) Recent works:  Generative speech models based on **"audio-text"** prompts
 
-- (2) Motvation: Limitations in handling **diverse audio-text speech generation tasks**
+- (2) Motivation: Limitations in handling diverse **audio-text speech generation** tasks
 
   - e.g., Transforming input speech & processing audio captured in adverse acoustic conditions
 
@@ -489,62 +513,60 @@ Speech LLM paradigm
 
 ### a) Improvement in Traditional Tasks in SLU
 
-Traditional tasks (in speech understanding)
+Traditional tasks
 
-- (1) Automatic speech recognition
-- (2) Speaker identification
-- (3) Speech translation
+- (1) Automatic speech recognition **(ASR)**
+- (2) Speaker identification **(SID)**
+- (3) Speech translation **(ST)**
 
 <br>
 
 **(1) Automatic Speech Recognition (ASR)** 
 
-- Task: Convert **spoken language** into **text**
-- Modern ASR systems: Enhanced by **LLMs**!
-- Aim to achieve ...
-  - a) Higher accuracy
-  - b) Better noise resilience
-  - c) Greater adaptability to diverse accents and dialects 
+- a) Task: Convert **spoken language** into **text**
+- b) Modern ASR systems: Enhanced by **LLMs**!
+- c) Aim to achieve ...
+  - a) Higher **accuracy**
+  - b) Better **noise resilience**
+  - c) Greater adaptability to **diverse accents and dialects** 
 
-- Foundational for ...
+- d) Foundational for ...
 
   - a) Voice-controlled applications
   - b) Interactive voice response systems
   - c) Automated transcription services. 
 
-- Metric: **Word Error Rate (WER)**
+- e) Metric: **Word Error Rate (WER)**
 
-- Traditional models:
-
-  - Based on LSTM or GRU
+- f) Traditional models: Based on LSTM or GRU
 
   $$\rightarrow$$ ***Introduction of LLMs has significantly improved these results!***
 
 - In multilingual speech recognition, LLMs have demonstrated superior performance across various languages!
-  - Dataset: Multilingual LibriSpeech (MLS) 
+  - Dataset: **Multilingual LibriSpeech (MLS)** 
 
 <br>
 
 **(2) Speech translation** 
 
-- Task: Converting **"spoken language"** $$\rightarrow$$ into (written or spoken text in) **"another language"**
+- a) Task: Converting **"spoken language"** $$\rightarrow$$ into (written or spoken text in) **"another language"**
 
-- Involves two key steps
+- b) Two steps
 
   - Step 1) **Automatic speech recognition (ASR)**
     - Transcribes spoken words into text
   - Step 2) **Machine translation (MT)**
     - Translates the transcribed text into the target language
 
-- Used in real-time applications 
+- c) Used in real-time applications 
 
   - e.g., multilingual meetings, conferences, and live broadcasts
 
-- With the successful application of LLMs in the field of MT
+- d) With the successful application of LLMs in the field of MT
 
-  $$\rightarrow$$ speech translation domain has also begun to gradually incorporate LLMs!
+  $$\rightarrow$$ speech translation domain has also begun to **gradually incorporate LLMs!**
 
-- Advancements
+- e) Advancements
   - Not only has it improved the accuracy of speech translation tasks 
   - but it has also broadened the range of supported languages 
 
@@ -552,7 +574,7 @@ Traditional tasks (in speech understanding)
 
 (3) Others
 
-- LLMs have excelled in multitask learning scenarios!
+- LLMs have excelled in **multitask** learning scenarios!
 
 - Example: **Qwen-Audio model (2023)**
 
@@ -576,7 +598,7 @@ $$\rightarrow$$ Struggled with ***long-form*** speech understanding!!
 
 "**Long-form** speech understanding"
 
-- Why? Due to ***context loss over "extended" periods***
+- Why? Due to ***context loss** over **"extended" periods***
 - When? Particularly pronounced in ***audio segments longer than "one minute"***
   - a) **Traditional** models: Sharp increase in WER
   - b) **LLM-based** models: Significantly mitigated this problem!
@@ -608,11 +630,11 @@ Especially in **noisy environments**!!
 
 ( Title: *GenTranslate: Large Language Models are Generative Multilingual Speech and Machine Translators* )
 
-- Substantial improvements in this area!
+- a) Task: **Translation**
 
-- Motivation: Recent advances in LLMs + Speech:
+- b) Recent advances in LLMs + Speech:
 
-  - Multilingual speech and machine translation
+  - **Multilingual** speech and machine translation
 
     $$\rightarrow$$ Typically utilize beam search decoding and top-1 hypothesis selection for inference. 
 
@@ -621,9 +643,9 @@ Especially in **noisy environments**!!
     - Struggle to fully exploit the rich information in the diverse N-best hypotheses
     - Making them less optimal for translation tasks that require a single, high-quality output sequence
 
-- Solution: GenTranslate
+- Solution: **GenTranslate**
 
-  - Goal? Generate better results from the diverse translation versions in N-best list
+  - Goal? Generate better results from the **diverse** translation versions in **N-best list**
   - How? By leveraging the **contextual understanding capabilities of LLMs**
 
 - Result: 
@@ -641,7 +663,7 @@ Especially in **noisy environments**!!
 ( Title: *Multimedia-assisted llm-based asr* )
 
 - Not only improves hotword recognition accuracy
-- But also  adapts dynamically to ***new hotwords in real-time***!
+- But also adapts dynamically to ***new hotwords in real-time***!
 
 $$\rightarrow$$ Particularly valuable in ***dynamic environments*** 
 
@@ -653,7 +675,7 @@ $$\rightarrow$$ Particularly valuable in ***dynamic environments***
 
 ### d) Real-time Multimodal Interaction
 
-The integration of LLMs into speech recognition
+The integration of **LLMs** into **speech recognition**
 
 $$\rightarrow$$ Expanded the scope of tasks beyond traditional speech-to-text
 
@@ -699,7 +721,7 @@ LLM-based systems have introduced **new functionalities**!
 
 $$\rightarrow$$ E.g., **Generation of descriptive text**, summaries, and even translations based on audio input. 
 
-
+<br>
 
 **[2] ViOLA (2023)**
 
@@ -708,7 +730,7 @@ $$\rightarrow$$ E.g., **Generation of descriptive text**, summaries, and even tr
 - Proposal: VIOLA
 
   - **Single** auto-regressive Transformer **decoder-only** network
-  - **Unifie**s various crossmodal tasks involving speech and text!
+  - **Unifies** various crossmodal tasks involving speech and text!
     - e.g., speech-to-text, text-to-text, text-to-speech, and speech-to-speech tasks
   - Conditional **codec language model task** via multi-task learning framework. 
 
