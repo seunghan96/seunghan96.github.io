@@ -71,7 +71,7 @@ from huggingface_hub import login
 ## (2) **Hugging face 로그인**
 
 ```python
-my_hf_key='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'
+my_hf_key='###'
 login(my_hf_key)
 ```
 
