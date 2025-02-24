@@ -1,6 +1,6 @@
 ---
 title: Quantization
-categories: [DLF, LLM, Python, MULT]
+categories: [DLF, LLM, PYTHON, MULT]
 tags: []
 excerpt: Float32 vs Float16 vs BFloat16
 ---

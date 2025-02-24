@@ -1,6 +1,6 @@
 ---
 title: DeepSpeed
-categories: [DLF, LLM, Python, MULT]
+categories: [DLF, LLM, PYTHON, MULT]
 tags: []
 excerpt: 
 ---
