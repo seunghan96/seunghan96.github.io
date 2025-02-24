@@ -16,71 +16,70 @@ https://arxiv.org/pdf/2410.18908
 
 ## Contents
 
-4. Multimodal Information Fusion
-5. Training Strategies
+4.Multimodal Information Fusion
+
+5.Training Strategies
 
 <br>
 
 # 4. Multimodal Information Fusion
 
-Most critical issue in Speech LLM
+**Critical issue** (in Speech LLM)??
 
-$$\rightarrow$$ Alignment between the **(1) audio modality** & the **(2) text modality**
+$$\rightarrow$$ Alignment btw **(1) audio modality** & the **(2) text modality**
 
 <br>
 
-Requires two steps
+Requires 2 steps
 
 - Step 1) **Audio Feature** Post-Process
-  - Focuses on determining **"what specific audio info"** is needed
-- Step 2) **Audio** and **Text** Connection,
-  - Addresses how to **"effectively combine"** these two types of information.
+- Step 2) **Audio** and **Text** Connection
 
 <br>
 
-## Step 1) Audio Feature Post-Process
+## Step 1) "Audio Feature" Post-Process
 
-Tend to directly use the ***final layer output*** of the encoder
-
-Mainstream approach
-
-- \# 1. Extract the output of the final layer of the encoder as the primary source of audio modality information.
+$\rightarrow$ Focuses on determining **"what specific audio info"** is needed
 
 <br>
 
-Alternatives:
+Tend to directly use the ***"final layer" output*** of the encoder
 
-- \# 2. Using intermediate layer outputs to capture more granular features
-- \# 3. Attention mechanisms to emphasize relevant parts of the audio signal
+Approaches
+
+- \# 1. Extract the **"output of the final layer"** of the encoder 
+
+- \# 2. Using "**intermediate layer outputs**" to capture more granular features
+- \# 3. **"Attention"** mechanisms to emphasize relevant parts of the audio signal
 
 <br>
 
-## Step 2) Audio and Text Connection
+## Step 2) Audio & Text Connection
+
+$\rightarrow$ Addresses how to **"effectively combine"** these two types of information.
+
+<br>
 
 Audio feature must be integrated with the textual modality!
 
-$$\rightarrow$$ To enable the LLM to perform the final inference. 
+$$\rightarrow$$ To enable the **LLM** to perform the final inference. 
 
 <br>
 
-Classified into two categories:
+Classified into 2 categories:
 
-- (1) Transforming the **audio feature** into the **textual** modality space,
+- (1) Transforming the **audio feature** into the **textual** modality space
 - (2) **Merging** the audio and textual modality spaces
 
 <br>
 
-### a) Audio-to-Text Modality Conversion
+### a) "Audio-to-Text" Modality Conversion
 
 ***LLMs are primarily designed for "TEXT"modalities!***
 
-Effect?
-
-- Minimizes modifications to the LLM
-
-How? 
-
-- Employ projector to transform the extracted audio modality features
+- How? Employ **"projector"** 
+  - To transform the extracted audio modality features
+- Effect? **Minimizes modifications to the LLM**
 
 <br>
 
@@ -92,8 +91,8 @@ Two common methods are employed!
 
 **(1) Direct Projection**
 
-- Step 1) Projection
-  - Directly projected into the LLM’s text feature space
+- Step 1) **Projection**
+  - Directly projected into the **LLM’s text feature space**
 - Step 2) Concatenate
   - Audio embeddings are then concatenated with the input text’s embedding vector
 - Step 3) Feed to LLM
@@ -102,11 +101,10 @@ Two common methods are employed!
 
 **(2) Token Mapping**
 
-- Step 1) Map into tokens
+- Step 1) **Map into tokens**
 
   - Audio feature information is mapped into **text tokens**
-  - How? Audio features are passed through a projector to generate representations that correspond to text tokens. 
-
+  
 - Step 2) Concatenate
 
   - Audio tokens are combined with the text tokens
@@ -117,7 +115,7 @@ Two common methods are employed!
 
 <br>
 
-### b) Combining Audio and Text Feature Space
+### b) "Combining" Audio and Text Feature Space
 
 Above method: Does not achieve lossless modality fusion in the true sense
 
@@ -145,10 +143,10 @@ Training of current Speech LLMs: 3 approaches
 
 ## (1) Pretraining
 
-- Dataset: Audio-text pairs
+- Dataset: **Audio-text** pairs
 
 - Common strategies: **SSL**
-  - To better integrate speech encoders with LLMs, some researchers attempt to **re-pretrain speech encoders**
+  - To better integrate **speech encoders with LLMs**, some researchers attempt to **re-pretrain speech encoders**
 
 - Thorough re-training of multimodal large models is necessary!
 
@@ -156,7 +154,9 @@ Training of current Speech LLMs: 3 approaches
 
 ## (2) Supervised Fine-Tuning (SFT)
 
-Further fine-tuning is often required!
+$\rightarrow$ Further fine-tuning is often required!
+
+<Br>
 
 **Supervised fine-tuning**
 
