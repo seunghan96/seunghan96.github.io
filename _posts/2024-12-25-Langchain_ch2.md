@@ -1,3 +1,15 @@
+---
+title: Langchain 실습 2
+categories: [LLM, NLP]
+tags: []
+excerpt: -
+
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+# Langchain 실습 1
+
 # 2. Prompt
 
 ## (0) Intro
