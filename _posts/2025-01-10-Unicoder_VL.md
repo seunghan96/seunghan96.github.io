@@ -1,6 +1,5 @@
 ---
-title: Unicoder-VL; A Universal Encoder for Vision and Language by Cross-modal
-Pre-training
+title: Unicoder-VL; A Universal Encoder for Vision and Language by Cross-modal Pre-training
 categories: [MULT, LLM, NLP, CV]
 tags: []
 excerpt: AAAI 2020
