@@ -1,6 +1,6 @@
 ---
 title: VLM summary
-categories: [PPT,VLM, CV, NLP, LLM]
+categories: [PPT, MULT, CV, NLP, LLM]
 tags: []
 excerpt: 94 Architectures
 ---
