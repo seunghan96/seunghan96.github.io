@@ -85,8 +85,6 @@ VLM downstream task의 종류들
   - Train/Val/Test = 10k/20k/20k 
   - 3 questions per image
 
-<br>
-
 ![figure2](/assets/img/llm/img656.png)
 
 <br>
@@ -109,8 +107,6 @@ VQA v1의 한계점을 극복하기 위해 등장
 
   ( + 3 plausible answers (but wrong) per question )
 
-<br>
-
 ![figure2](/assets/img/llm/img657.png)
 
 <br>
@@ -127,12 +123,10 @@ $$\rightarrow$$ 정답을 내기 위해서, **외부 지식 (open knowledge)**�
 
 특징
 
-- Image + Question (+ external knowledge) $$\rightarrow$$ Answer
-- Train?Test: 9099/5046
+- Image + Question + ***External knowledge*** $$\rightarrow$$ Answer
+- Train/Test: 9099/5046
 - 5 GT per question
 - 10 categories
-
-<br>
 
 ![figure2](/assets/img/llm/img658.png)
 
@@ -146,8 +140,6 @@ $$\rightarrow$$ 정답을 내기 위해서, **외부 지식 (open knowledge)**�
 - Step 2) **Wikipedia search API** 통한 retrieval
 - Step 3) Select most **relevant sentences**
 
-<br>
-
 ![figure2](/assets/img/llm/img659.png)
 
 <br>
@@ -156,7 +148,7 @@ $$\rightarrow$$ 정답을 내기 위해서, **외부 지식 (open knowledge)**�
 
 ***Conversation (image + caption)용***
 
-- Image + Caption **(+ Dialog history)** + Question $$\rightarrow$$ Answer
+- Image + Caption + ***Dialog history*** + Question $$\rightarrow$$ Answer
 
 <br>
 
@@ -165,9 +157,9 @@ $$\rightarrow$$ 정답을 내기 위해서, **외부 지식 (open knowledge)**�
 - 1 image = 1 dialog
   - 1 dialog = 10 rounds (20 turns) of Q&A
 
-<br>
-
 ![figure2](/assets/img/llm/img660.png)
+
+![figure2](/assets/img/llm/img672.png)
 
 <br>
 
@@ -175,47 +167,41 @@ $$\rightarrow$$ 정답을 내기 위해서, **외부 지식 (open knowledge)**�
 
 그래프 구조를 띈 GQA
 
-- Image + **정교한 질문** $$\rightarrow$$ Answer
-- **정교한 질문** = 이미지 내의 **object, attributes, relation** 관련 질문들
-
-<br>
+- Image + **"정교한" Question** $$\rightarrow$$ Answer
+- **"정교한" Question** = 이미지 내의 **object, attributes, relation** 관련 질문들
 
 ![figure2](/assets/img/llm/img661.png)
 
 <br>
 
-## (6) VCR
+## (6) VCR (Visual Common sense Reasoning)
 
 이미지에 대한 **상식 (common sense)** 등의 고차원적인 답변을 요구
 
 - (1) 질문에 대한 답변 ( = VQA )
   - Q $$\rightarrow$$ A (Answer)
-- (2) 위의 (1)에 대한 rationale을 선택 ( = VCR )
-  - Q, A $$\rightarrow$$ R (rationale)
+- (2) **위의 (1)에 대한 rationale을 선택 ( = VCR )**
+  - Q, A $$\rightarrow$$ R (**rationale**)
 
 <br>
 
 특징
 
-- image2text retrieval 모델링이 기본
+- **image2text** retrieval 모델링이 기본
 
   (QA by multiple choice)
 
 - VQA 보다 어렵다!
 
-<br>
-
 ![figure2](/assets/img/llm/img662.png)
 
 <br>
 
-## (7) NVLR
+## (7) NVLR (Natural Language Visual Reasoning)
 
 ***한 쌍의 (두 개의) 이미지를 대상으로 질문***!
 
 - (상세) 한 쌍의 이미지에 대한 description이 True/False 맞추기!
-
-<br>
 
 ![figure2](/assets/img/llm/img663.png)
 
@@ -236,18 +222,16 @@ $$\rightarrow$$ 정답을 내기 위해서, **외부 지식 (open knowledge)**�
 
 - 구성: (image, caption text)
 
-<br>
-
 ![figure2](/assets/img/llm/img664.png)
 
 <br>
 
 ### Visual Reasoning (NVLR2) 과 Visual Entailment (SNLI-VE)의 차이점은?
 
-- VR: image + question에 대한 대답을 T/F로 답변
-- VE: image에 대한 text를 Entailment / Neutral / Contradiction 중 하나로 대답.
+- **VR**: image + **question**에 대한 대답을 **T/F**로 답변
+- **VE**: image에 대한 **text**를 **Entailment / Neutral / Contradiction** 중 하나로 대답.
 
-즉, 본질적으로는, 주어지는 **text가 hypotheseis (VE)인지, question (VR)인지**
+즉, 주어지는 **text가 "hypotheseis (VE)"인지, "question (VR)"인지** 차이가 있다!
 
 <br>
 
@@ -275,13 +259,11 @@ Hierarchical Category
 - 91 categories
   - 1000 images per category
 
-<br>
-
 ![figure2](/assets/img/llm/img665.png)
 
 <br>
 
-## (2) noCap
+## (2) noCap (Novel Object Captioning)
 
 특징
 
@@ -292,8 +274,6 @@ Hierarchical Category
   - NIND (Near in-domain)
   - OOD (Out of domain)
 
-<br>
-
 ![figure2](/assets/img/llm/img666.png)
 
 <br>
@@ -303,17 +283,15 @@ Hierarchical Category
 Visual Grounding vs. Image Captioning
 
 - Image Captioning: 이미지에 대한 거시적 설명
-- Visual Grounding: 이미지에 대한 ***특정 부분을 indicate***하고 있음!
-  - bounding box (Bbox)가 존재함
+- Visual Grounding: 이미지에 대한 ***특정 부분을 "indicate"***하고 있음!
+  - **Bounding box**가 존재함
 
 <br>
 
 ## (1) Flickr30k
 
-- 1개의 image = 5개의 caption sentence
-- 1개의 caption sentence: 각 문장의 entity(phrase)에 대한 Bounding box이 달려있음
-
-<br>
+- 1개의 image = **5개의 caption** sentence
+- 1개의 caption sentence: 각 문장의 **entity(phrase)**에 대한 **"Bounding box"**이 달려있음
 
 ![figure2](/assets/img/llm/img667.png)
 
@@ -321,25 +299,23 @@ Visual Grounding vs. Image Captioning
 
 ## (2) RefCOCO
 
-Visual Grounding을 더 상세하게 한 benchmark!
+Visual Grounding을 **"더 상세하게"** 한 benchmark!
 
-$$\rightarrow$$ Referring expression comprehension (보다 자세히 묘사함)
+$$\rightarrow$$ ***Referring expression comprehension*** (보다 자세히 묘사함)
 
 <br>
 
-세 종류의 데이터셋 (**평균 답변 길이 & image 당 카테고리 수** )
+세 종류의 데이터셋 (**평균 답변 길이 & image 당 카테고리 수**)
 
 - RefCOCOg (8.43 & 1.63)
 - RefCOCO (3.61 & 3.9)
 - RefCOCO+ (3.53 & 3.9)
 
-<br>
-
 ![figure2](/assets/img/llm/img668.png)
 
 <br>
 
-### Phase grounding (Flickr30)과  Referring expression comprehension의 차이점
+### Phase grounding (Flickr30)과  Referring expression comprehension (RefCOCO)의 차이점
 
 ![figure2](/assets/img/llm/img669.png)
 
@@ -351,9 +327,7 @@ $$\rightarrow$$ Referring expression comprehension (보다 자세히 묘사함)
 
 Flickr30k의 multilingual version (영어+독일어+프랑스어)
 
-- 전문 번역가를 통해 번역함
-
-<br>
+- **전문 번역가**를 통해 번역함
 
 ![figure2](/assets/img/llm/img670.png)
 
@@ -393,8 +367,6 @@ Wikpedia-based Image Text dataset
 - 규모가 매우 큼
 - 108개의 언어 지원
 - Unparalleled (언어 쌍 존재 X)
-
-<br>
 
 ![figure2](/assets/img/llm/img671.png)
 
