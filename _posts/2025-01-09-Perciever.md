@@ -1,6 +1,6 @@
 ---
 title: Perceiver IO; A General Architecture for Structured Inputs & Outputs
-categories: [LLM, CV, NLP]
+categories: [LLM, CV, NLP, MULT]
 tags: []
 excerpt: 
 ---
