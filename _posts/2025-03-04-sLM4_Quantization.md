@@ -6,21 +6,15 @@ excerpt:
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-![figure2](/assets/img/llm/img709.png)
+# Quantization 실습
 
-# Quanitzation 실습
-
-## Contents
-
- 
+## Contents 
 
 1. Quantization 시작하기
 2. Quantization 코드
    1. Load Model
    2. Inference (Single)
    3. Inference (Batch)
-
- 
 
 <br>
 
