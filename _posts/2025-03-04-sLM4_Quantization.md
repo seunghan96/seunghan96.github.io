@@ -6,6 +6,7 @@ excerpt:
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # Quantization 실습
 
 ## Contents 
@@ -47,7 +48,7 @@ from huggingface_hub import notebook_login
 notebook_login()
 ```
 
-
+<br>
 
 # 2. Quantization 코드
 
@@ -255,7 +256,6 @@ outputs = model.generate(
     no_repeat_ngram_size=2,   
     pad_token_id=tokenizer.eos_token_id  
 )
-
 ```
 
 <br>
