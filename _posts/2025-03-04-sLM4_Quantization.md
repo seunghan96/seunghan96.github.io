@@ -41,16 +41,6 @@ excerpt:
 
 <br>
 
-Huggingface에 로그인하기
-
-```python
-from huggingface_hub import notebook_login
-
-notebook_login()
-```
-
-<br>
-
 # 2. Quantization 코드
 
 ## (1) Load Model
@@ -275,7 +265,7 @@ for i, output in enumerate(outputs):
 response 1:  I think you're asking who Yi Sun-sin is!
 
 Yi Sun-shin (1545-1598) was a Korean admiral and
-response 2:  I'm happy to help! 😊
+response 2:  I'm happy to help! 
 
 Sejong the Great (1396-1450) was the fourth king of the Joseon Dynasty in
 ```
