@@ -1,8 +1,8 @@
 ---
 title: FinTSB; A Comprehensive and Practical Benchmark for Financial Time Series Forecasting
-categories: [TS, MULT]
+categories: [TS, MULT, LLM]
 tags: []
-excerpt: NeurIPSW TSALM 2024
+excerpt: 
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
@@ -42,19 +42,18 @@ excerpt: NeurIPSW TSALM 2024
 
 **Financial time series (FinTS)**
 
-$$\rightarrow$$ Three systemic limitations in the evaluation of the area
+$$\rightarrow$$ Three systemic limitations in the ***evaluation*** of the area
 
 <br>
 
 ### a) Limitations
 
-- (1) Diversity Gap
-  - Failure to account for the **full spectrum** of stock movement patterns
-- (2) Standardization Deficit
-  - Absence of **unified** assessment protocols
-- (3) Real-World Mismatch
-  - Neglect of **critical market structure factors**
-  - Resulting in inflated performance metrics that lack practical applicability
+- ***(1) Diversity Gap***
+  - Failure to account for the full spectrum of stock **"movement patterns"**
+- ***(2) Standardization Deficit***
+  - Absence of **"unified"** assessment protocols
+- ***(3) Real-World Mismatch***
+  - Neglect of **"critical market structure factors"**
 
 <br>
 
@@ -62,17 +61,19 @@ $$\rightarrow$$ Three systemic limitations in the evaluation of the area
 
 Comprehensive and practical benchmark for FinTSF
 
-- **Solve (1) Diversity Gap**: To increase the variety
+- **Solve (1) Diversity Gap**: 
 
   $$\rightarrow$$ Categorize movement patterns into ***"four specific parts"***
 
-- **Solve (2) Standardization Deficit**: To eliminate biases due to different evaluation settings
+- **Solve (2) Standardization Deficit**: 
 
-  $$\rightarrow$$ Standardize the metrics across ***"three dimensions"*** & Build a user-friendly, lightweight pipeline incorporating methods from various backbones
+  $$\rightarrow$$ Standardize the metrics across ***"three dimensions"*** 
 
-- **Solve (e) Real-World Mismatch**: To accurately simulate real-world trading scenarios
+  $$\rightarrow$$ Build a user-friendly, lightweight pipeline incorporating methods from various backbones
 
-  $$\rightarrow$$ Extensively model various regulatory constraints, including transaction fees, among others. 
+- **Solve (e) Real-World Mismatch**: 
+
+  $$\rightarrow$$ Extensively model ***"various regulatory constraints"***, including transaction fees, among others. 
 
 <br>
 
@@ -82,25 +83,22 @@ Comprehensive and practical benchmark for FinTSF
 
 ### a) Financial time series
 
-Def) Sequence of data points which are...
+Def) **Sequence of data points** which ...
 
-- Ordered chronologically
-- Represent asset price factors or market indicators
-- Reflect the dynamic behavior of financial markets
+- Represent **asset price factors** (or market indicators)
+- Reflect the **dynamic** behavior of financial markets
 
 <br>
 
 ### b) Financial time series (FinTS) forecasting 
 
-- Unlike general TS prediction challenges ...
+( Unlike general TS prediction challenges ... )
 
-- Stock prices are **not merely statistical series**, 
+Stock prices are ***not merely statistical series*** ,
 
-  but the **manifestation of complex, often chaotic human behavior**
+but the **manifestation of complex, often chaotic human behavior**
 
-  ( Shaped by many cognitive, emotional, and sociopolitical factors )
-
-$$\rightarrow$$ FinTSF has emerged as a cutting-edge domain of scholarly exploration!
+( Shaped by many cognitive, emotional, and sociopolitical factors )
 
 <br>
 
@@ -143,7 +141,7 @@ $$\rightarrow$$ FinTSF has emerged as a cutting-edge domain of scholarly explora
 
 ![figure2](/assets/img/ts/img694.png)
 
-Demand for **comprehensive and practical empirical evaluations**!
+Demand for **comprehensive & practical empirical evaluations**!
 
 Nonetheless... existing evaluation frameworks often face challenges!
 
@@ -157,15 +155,11 @@ Nonetheless... existing evaluation frameworks often face challenges!
 
 Novel ***evaluation*** framework
 
-$$\rightarrow$$ To enhance the robustness and applicability of empirical assessments
-
-$$\rightarrow$$ Improve the evaluation capabilities in FinTSF
+$$\rightarrow$$ To enhance the robustness and applicability of empirical assessments!
 
 <br>
 
 ### a) Diversity Gap
-
-Inherent complexity of financial markets
 
 ***[Case 1] Different phases of stock movement***
 
@@ -176,11 +170,11 @@ Inherent complexity of financial markets
 
 **Dataset A vs. B**
 
-- Dataset (A): Contain only 3~5 years of historical data
+- Dataset (A): Contain only **3~5 years** of historical data
 
   $$\rightarrow$$ Fails to comprehensively represent all possible movement patterns
 
-- Dataset (B): Decades of data
+- Dataset (B): **Decades** of data
 
   $$\rightarrow$$ Suffer from severe distribution shifts
 
@@ -190,9 +184,9 @@ Inherent complexity of financial markets
 
 **Dataset C vs. D**
 
-- Dataset (C) Chinese stock market
+- Dataset (C) **Chinese** stock market
   - High retail participation & higher volatility
-- Dataset (D) U.S. stock market
+- Dataset (D) **U.S.** stock market
   - More balanced mix of institutional and retail investors & Generally higher degree of efficiency
 
 $$\rightarrow$$ Some existing works evaluate models in only one market!
@@ -201,9 +195,9 @@ $$\rightarrow$$ Some existing works evaluate models in only one market!
 
 Proposal: ***Emphasizes the diversity of FinTS***
 
-- a) Comprehensiveness of movement patterns
+- a) Comprehensiveness of **movement patterns**
   - Fine-grained analysis of how different methods perform over different periods of market volatility
-- b) Broad scope of financial markets
+- b) **Broad scope** of financial markets
 
 <br>
 
@@ -215,13 +209,13 @@ $$\rightarrow$$ Inconsistencies in performance comparisons
 
 <br>
 
-Solution: Classify the current evaluation metrics into 3main categories
+Solution: Classify the current evaluation metrics into **3 main categories**
 
-- (1) Ranking metrics
+- **(1) Ranking metrics**
   - Assess the distribution between predicted and actual daily returns
-- (2) Portfolio-based metrics, 
+- **(2) Portfolio-based metrics**
   - Evaluate the profitability and risk of investment strategies derived from predictions
-- (3) Error metrics
+- **(3) Error metrics**
   - Quantify the degree of approximation between predicted and true values
 
 $$\rightarrow$$ Note that **forecasting errors** show little correlation with **overall investment returns**
@@ -236,7 +230,7 @@ $$\rightarrow$$ Need for a **unified, user-friendly, and lightweight evaluation*
 
 ### c) Real-world Alignment
 
-Stringent requirements for simulating realistic trading conditions
+Stringent requirements for simulating **realistic trading conditions**
 
 $$\rightarrow$$ Recent works overlooks these constraints!
 
@@ -246,9 +240,9 @@ Example)
 
 - (1) Some models still assume short selling in the Chinese A-share market
 
-  $$\rightarrow$$ Impractical due to restrictions in certain sectors
+  $$\rightarrow$$ **Impractical due to restrictions in certain sectors**
 
-- (2) Do not take transaction fees into account
+- (2) Do not take **transaction fees** into account
 
   $$\rightarrow$$ Critical when constructing portfolios based on the prediction of stocks with top-𝑘 returns. 
 
@@ -260,15 +254,15 @@ Proposal: Emphasize the necessity of **incorporating these real-world constraint
 
 ### Contribution
 
-1. Diversity Inclusion
+1. **Diversity Inclusion**
    - Collect and pre-process tokenization historical financial TS data
    - Captures all types of movement patterns across various markets. 
-2. Standardization Consistency
+2. **Standardization Consistency**
    - Comprehensive evaluation of the capabilities of various methods from three perspectives
    - (1) Ranking & (2) Portfolio & (3) Error
-3. Real-World Alignment
+3. **Real-World Alignment**
    - We meticulously design investment strategies that align with real-world market conditions, facilitating practical implementation in actual trading environments. 
-4. In-depth Evaluation
+4. **In-depth Evaluation**
    - Evaluate a wide range of FinTSF methods
    - Extract key insights that advance the understanding of model performance in the context of financial TS forecasting
 
@@ -300,7 +294,7 @@ $$S=\left\{s_1, s_2, \ldots, s_N\right\} \in \mathbb{R}^{N \times L \times F}$$:
 
 <br>
 
-**Ranking ( on any trading day $$t$$ )**
+**Ranking (on any trading day $$t$$)**
 
 - Ranked according to their underlying scores (based on return ratios)
 - Scores:  $$Y^t=\left\{y_1^t \geq y_2^t \geq \ldots \geq y_N^t\right\}$$. 
@@ -310,9 +304,9 @@ $$S=\left\{s_1, s_2, \ldots, s_N\right\} \in \mathbb{R}^{N \times L \times F}$$:
 
 ### b) Financial TS forecasting
 
-- Input) Stock-specific time series information of $$\mathcal{S}$$ 
+- **Input)** Stock-specific TS information of $$\mathcal{S}$$ 
 
-- Goal) Develop a ranking function that predicts the scores $$Y^{L+1}$$  ( for the next day )
+- **Goal)** Develop a ranking function that **predicts the scores $$Y^{L+1}$$  (for the next day)**
 
   & Ordering the stocks $$s_i$$ by their expected profitability
 
@@ -330,21 +324,21 @@ For a more thorough evaluation of the **sophisticated dynamics**
 
 Movement pattern
 
-- (1) Uptrends
+- **(1) Uptrends**
 
   = Higher frequency of trading days with positive $$r$$
 
-- (2) Downtrends
+- **(2) Downtrends**
 
   = Higher frequency of trading days with negative $$r$$
 
-- (3) Periods of volatility
+- **(3) Periods of volatility**
 
   = Roughly equal number of positive and negative $$r$$
 
   = More frequent market fluctuations without a clear directional trend
 
-- (4) Extreme events
+- **(4) Extreme events**
 
   = Defined by significant fluctuations in $$r$$
 
@@ -364,8 +358,8 @@ Such TS are considered to be **integrated of order $$k$$** denoted as $$I(k)$$
 
 How to test?
 
-- Augmented Dickey-Fuller (ADF) test
-- Null hypothesis: "TS is non-stationary"
+- **Augmented Dickey-Fuller (ADF) test**
+- Null hypothesis: ***"TS is non-stationary"***
   - $$\Delta s_i^t=\alpha+\beta t+\gamma s_i^{t-1}+\sum_{j=1}^p \delta_j \Delta s_i^{t-j}+\epsilon_t$$.
 
 $$\therefore$$ Smaller ADF test result $$\rightarrow$$ More stationary TS
@@ -374,7 +368,7 @@ $$\therefore$$ Smaller ADF test result $$\rightarrow$$ More stationary TS
 
 ### Characteristic 3. Autocorrelation
 
-Measures the degree to which a stock’s ***past price*** movements influence its ***future behavior***
+Measures the degree to which a stock’s ***PAST price*** movements influence its ***FUTURE behavior***
 
 $$\tau\left(s_i\right)=\frac{\sum_{t=1}^{L-k}\left(s_i^t-\bar{s}_i\right)\left(s_i^{t+k}-\bar{s}_i\right)}{\sum_{t=1}^L\left(s_i^t-\bar{s}_i\right)^2}$$.
 
@@ -384,9 +378,9 @@ $$\tau\left(s_i\right)=\frac{\sum_{t=1}^{L-k}\left(s_i^t-\bar{s}_i\right)\left(s
 
 (Following ForeCA [17])
 
-Leverage frequency domain properties to assess the forecastability $$\phi(\cdot)$$ of a TS
+Leverage **frequency domain** properties to assess the **forecastability $$\phi(\cdot)$$ of a TS**
 
-- Higher value $$\phi(x)$$ $$\rightarrow$$ $$x$$ exhibits a lower forecast uncertainty ( = higher forecastability )
+- ***Higher*** value $$\phi(x)$$ $$\rightarrow$$ $$x$$ exhibits a ***lower*** forecast uncertainty ( = ***higher*** forecastability )
 
 <br>
 
@@ -410,7 +404,7 @@ $$\phi\left(s_i\right)=1-\frac{H\left(s_i\right)}{\log (2 \pi)}$$.
 
 - **Step 2) Segmentation (patching)**
 
-  - Divide 15 years of historical stock data into non-overlapping segments
+  - Divide **15 years** of historical stock data into **non-overlapping** segments
 
 - **Step 3) Calculate return**
 
@@ -418,14 +412,15 @@ $$\phi\left(s_i\right)=1-\frac{H\left(s_i\right)}{\log (2 \pi)}$$.
 
 - **Step 4) Categorization**
 
-  - Categorize the stocks in each fixed 250-day segment,
+  - Categorize the stocks in each fixed **250-day segment**
 
-    Into one of four distinct movement patterns,
+    Into one of **four** distinct movement patterns
 
     Based on the return (in step 2) 
 
-  - (1) Extreme outliers $$\rightarrow$$ Black swan eventes
-  - (2) Remainings $$\rightarrow$$ Rank them based on a positive change rate
+  - **(1) Extreme outliers** $$\rightarrow$$ Black swan events
+  - **(2) Remainings** $$\rightarrow$$ Rank them based on a positive change rate
+    
     - Top 300 = uptrends
     - Bottom 300 = downtrends
     - Remaining 300 = volatility
@@ -436,7 +431,7 @@ $$\phi\left(s_i\right)=1-\frac{H\left(s_i\right)}{\log (2 \pi)}$$.
 
     &  Choose 5 appropriate segments per pattern
 
-  - Result: 5 smaller datasets for each of the 4 movement patterns
+  - Result: **5 smaller datasets** for each of the **4 movement patterns**
 
     $$\rightarrow$$ Total of 20 datasets in the FinTSB. 
 
@@ -448,7 +443,7 @@ Summary: FinTSB is comprehensive and diverse, accurately reflecting the dynamics
 
 ### b) Dataset Overview
 
-[1] 20 datasets (containing 300 stocks)
+**[1] 20 datasets (containing 300 stocks)**
 
 - 4 different movement patterns
 - 5 segments 
@@ -456,13 +451,13 @@ Summary: FinTSB is comprehensive and diverse, accurately reflecting the dynamics
 
 <br>
 
-[2] Statistics
+**[2] Statistics**
 
 ![figure2](/assets/img/ts/img695.png)
 
-- All patterns exhibit strong non-stationarity
+- All patterns exhibit strong **non-stationarity**
 
-- Uptrend and downtrend patterns tend to exhibit higher autocorrelation
+- Uptrend and downtrend patterns tend to exhibit **higher autocorrelation**
 
   $$\rightarrow$$ Persistence of their directional movements
 
@@ -471,7 +466,7 @@ Summary: FinTSB is comprehensive and diverse, accurately reflecting the dynamics
 
 <br>
 
-[3] Summary 
+**[3] Summary** 
 
 - Encompasses a wide variety of sequence indicators
 - Captures the multifaceted nature of FinTS
@@ -483,12 +478,12 @@ Summary: FinTSB is comprehensive and diverse, accurately reflecting the dynamics
 
 Covers the six categories of methods 
 
-- (1) Classic strategies: CSM [28], BLSW [51]
-- (2) ML-based methods: XGBoost [6], LightGBM [30], DoubleEnsemble [2020], ARIMA [4]
-- (3) DL-based methods: Linear, LSTM [22], ALSTM [52], GRU [10], GCN [31], GAT [59], TCN [3], Transformer [58], Mamba [18], PatchTST [47], Crossformer [76], iTransformer [43], AMD [24], PDF [11], Localformer [77]. 
-- (4) RL-based methods: PPO [54], DDPG [36], SAC [19], DQN [5]
-- (5) Generative-based methods: DDPM [21], DDIM [57], FactorVAE [15]
-- (6) LLM-based methods: Timer [44], Time-MoE [55], Chronos [2]
+- **(1) Classic strategies**: CSM [28], BLSW [51]
+- **(2) ML-based methods**: XGBoost [6], LightGBM [30], DoubleEnsemble [2020], ARIMA [4]
+- **(3) DL-based methods**: Linear, LSTM [22], ALSTM [52], GRU [10], GCN [31], GAT [59], TCN [3], Transformer [58], Mamba [18], PatchTST [47], Crossformer [76], iTransformer [43], AMD [24], PDF [11], Localformer [77]. 
+- **(4) RL-based methods**: PPO [54], DDPG [36], SAC [19], DQN [5]
+- **(5) Generative-based methods**: DDPM [21], DDIM [57], FactorVAE [15]
+- **(6) LLM-based methods**: Timer [44], Time-MoE [55], Chronos [2]
 
 <br>
 
@@ -497,8 +492,22 @@ Covers the six categories of methods
 11 metrics (across 3 dimensions)
 
 - a) Ranking (4 metrics) 
+  - **[1] Information Coefficient (IC)** 
+  - **[2] Information Coefficient Information Ratio (ICIR)**
+  - **[3] Rank Information Coefficient (RankIC)**
+  - **[4] Rank Information Coefficient Information Ratio (RankICIR)** 
+
 - b) Portfolio (5 metrics)
+  - **[5] Annualized Return Ratio (ARR)**
+  - **[6] Annualized Volatility (AVol)** 
+  - **[7] Maximum Draw Down (MDD)**
+  - **[8] Annualized Sharpe Ratio (ASR)**
+  - **[9] Information Ratio (IR)**
+
 - c) Error (2 metrics)
+  - **[10] MSE**
+  - **[11] MAE**
+
 
 <br>
 
@@ -514,18 +523,18 @@ Assess the performance of **"predicted ranking scores (returns) $$Y$$"**
 
 $$\mathrm{IC}=\frac{1}{N} \sum_{i=1}^N \frac{\sum_{k=1}^t\left(r_i^k-\bar{r}_i\right)\left(Y_i^k-\bar{Y}_i\right)}{\sqrt{\sum_{k=1}^t\left(r_i^k-\bar{r}_i\right)^2} \cdot \sqrt{\sum_{k=1}^t\left(Y_i^k-\bar{Y}_i\right)^2}}$$.
 
-- Goal: Quantifies the directional alignment between..
+- Goal: Quantifies the directional alignment between ...
   - (1) Predicted $$Y$$ 
   - (2) GT $$r$$
 - Metric: Spearman correlation coefficient
 - Evaluates the raw predictive power of scores $$Y$$
-  - Statistically significant positive IC values $$\rightarrow$$ Meaningful forecasting power.
+  - Statistically significant positive IC values $$\rightarrow$$ Meaningful forecasting power
 
 <br>
 
 **[2] Information Coefficient Information Ratio (ICIR)**
 
-$$\left(\mathrm{ICIR}=\frac{\text { mean }(\mathrm{IC})}{\operatorname{std}(\mathrm{IC})}\right)$$.
+$$\mathrm{ICIR}=\frac{\text { mean }(\mathrm{IC})}{\operatorname{std}(\mathrm{IC})}$$.
 
 - Goal: Measures the **stability** of the performance of $$Y$$ 
 - How: By comparing the annualized **mean IC** with its **temporal volatility**
@@ -594,7 +603,7 @@ $$\mathrm{MDD}=-\max \left(\frac{p_{\text {peak }}-p_{\text {trough }}}{p_{\text
 $$\mathrm{ASR}=\frac{\mathrm{ARR}}{\mathrm{AVol}}$$.
 
 - Measures the excess return per unit of total risk
-- Assesses risk-adjusted performance
+- Assesses **risk-adjusted** performance
 
 <br>
 
@@ -641,7 +650,7 @@ $$\rightarrow$$ ***Unified pipeline*** ,that is structurally divided into ...
 ### a) Data Layer 
 
 - Comprehensive market information in FinTSB
-- Four different movement patterns
+- **Four** different movement patterns
 - Data pre processing..
   - (1) Tokenization (anonymization)
   - (2) Normalization
@@ -672,8 +681,8 @@ $$\rightarrow$$ ***Unified pipeline*** ,that is structurally divided into ...
 
 - Two classic strategies:
 
-  - (1) Top𝐾 
-  - (2) Top𝐾-Drop
+  - **(1) Top𝐾** 
+  - **(2) Top𝐾-Drop**
 
   with transaction cost simulations reflecting real market conditions
 
@@ -720,8 +729,8 @@ $$\mathcal{L}=\frac{1}{L} \sum_{t=1}^L\left(\sum_{i=1}^N \mid \mid Y_i^t-r_i^t \
 
 - Dual-objective optimization framework: Composite loss function that integrates both ...
 
-  - (1) Point-wise regression loss 
-  - (2) Pair-wise ranking loss
+  - **(1) Point-wise regression loss** 
+  - **(2) Pair-wise ranking loss**
 
   ( with adaptive weighting coefficient $$\eta = 5$$ )
 
