@@ -72,7 +72,7 @@ Attention mechanisms provide the following advantages:
 
 - (1) **Non-sequential** processing
 - (2) **Efficient** handling of long-sequences
-  - But $O(n^2)$ complexity $\rightarrow$ Sparse atetntion, linear Transformer ..
+  - But $$O(n^2)$$ complexity $$\rightarrow$$ Sparse atetntion, linear Transformer ..
 
 <br>
 
@@ -118,7 +118,7 @@ The attention mechanism enables models to ...
 
 - **Transformer + GAN [85]**
 
-  $\rightarrow$ Further enhance AD by enabling **unsupervised** or **semi-supervised** learning
+  $$\rightarrow$$ Further enhance AD by enabling **unsupervised** or **semi-supervised** learning
 
 <br>
 
@@ -265,7 +265,7 @@ Key dimensions include ...
 
     - Trained with a CE loss 
 
-      $\rightarrow$ Treating the forecasting task as a regression via classification
+      $$\rightarrow$$ Treating the forecasting task as a regression via classification
 
 - Key features
 
@@ -303,6 +303,13 @@ Key dimensions include ...
 
 **Time-MOE**
 
+(https://arxiv.org/pdf/2409.16040)
+
+```
+Xiang Shi, and others, Time-MoE: Billion-Scale Time Series Foundation Models
+with Mixture of Experts, ICLR, 2025.
+```
+
 - MoE + Decoder-only
   - MoE: Replace FFN with MoE layer
 - Details
@@ -317,8 +324,17 @@ Key dimensions include ...
 
 **Toto**
 
-- For MTS forecasting
-- Key innovations: Handle both TD & CD
+(https://arxiv.org/pdf/2407.07874)
+
+```
+Ben Cohen, Emaad Khwaja, Kan Wang, Charles Masson, Elise Ramé, Youssef
+Doubli, and Othmane Abou-Amal, Toto: Time Series Optimized Transformer for
+Observability, arXiv preprint arXiv:2407.07874, 2024, https://arxiv.org/abs/2407.
+07874.
+```
+
+- For **MTS** forecasting $$\rightarrow$$ Handle both **TD & CD**
+- Decoder-only model
 - Details
   - [SSL] **NTP**
   - Probabilistic prediction head: Student-T Mixture Model (SMM)
@@ -331,31 +347,395 @@ Key dimensions include ...
 
 **Timer**
 
- applies large language models (LLMs) to time series forecasting by leveraging the sequential nature of both time series data and language. It emphasizes the use of extensive, high-quality datasets, such as the Unified Time Series Dataset [129] (UTSD) with up to 1 billion time points across seven domains, and integrates LOTSA [117] for zero-shot forecasting. Timer introduces a unified format called single-series sequence (S3) to handle diverse time series data, allowing for easier preprocessing and normalization without the need for alignment across domains. The model is trained using generative pre-training in an autoregressive manner, predicting future time series values based on historical context. A decoder-only Transformer architecture is employed to maintain the sequential dependencies inherent in time series data, making it well-suited for time series forecasting tasks. This design ensures scalable, adaptable, and effective forecasting across varied datasets.
+(https://arxiv.org/pdf/2402.02368)
+
+```
+Yuxuan Liu, Hao Zhang, Chenhan Li, Xiangyang Huang, Jiang Wang, and
+Mingsheng Long, Timer: Generative Pre-Trained Transformers Are Large Time
+Series Models, Forty-first International Conference on Machine Learning, 2024.
+```
+
+-  LLM to TS forecasting (Decoder-only model)
+- Dataset 1: **Unified Time Series Dataset (UTSD)**
+  - Up to 1 billion time points across seven domains
+- Dataset 2: **Large-scale Open Time Series Archive (LOTSA)**
+  - Over 27B observations across nine domains
+  - For zero-shot forecasting
+- **Single-series sequence (S3)**
+  - Unified format to handle diverse time series data
+  - For easier preprocessing and normalization w/o the need for alignment across domains
+- Pretraining task
+  - Decoder-only $$\rightarrow$$ Autoregressive Generative pre-training
+
+<br>
+
+Timer
+
+![figure2](/assets/img/ts/img737.png)
+
+<br>
+
+UTSD
+
+![figure2](/assets/img/ts/img735.png)
+
+<br>
+
+S3
+
+![figure2](/assets/img/ts/img736.png)
 
 <br>
 
 **TimesFM**
 
-a Transformer-based architecture designed for efficient long-horizon time-series forecasting. It operates by breaking input time-series into non-overlapping patches, which reduces computational costs and enhances inference speed. The model uses a decoder-only architecture, where it predicts the next patch based on prior patches, enabling parallel prediction and avoiding inefficiencies in multi-step autoregressive decoding. A random masking strategy is employed during training to handle variable context lengths, allowing the model to generalize across different input sizes. The core of the model consists of stacked Transformer layers with causal masking to ensure that future timesteps do not influence past predictions. During inference, the model generates future time-series in an auto-regressive manner, where each forecast is concatenated with the input for further prediction. The loss function used is Mean Squared Error (MSE), optimizing for point forecasting accuracy. TimesFM’s design offers flexibility in forecast horizons and context lengths, making it adaptable to various time-series datasets and suitable for zero-shot forecasting tasks
+(https://arxiv.org/pdf/2310.10688)
+
+```
+Abhimanyu Das, Weihao Kong, Rajat Sen, and Yichen Zhou, A decoder-only
+foundation model for time-series forecasting, arXiv preprint arXiv:2310.10688, 2024,
+https://arxiv.org/abs/2310.10688.
+```
+
+- Patchify TS
+- Decoder-only architecture
+- [SSL] Next Patch Prediction 
+- Random masking strategy 
+  - To handle variable context (input) lengths
+- Summary: Flexibility in forecast horizons and context lengths
+
+![figure2](/assets/img/ts/img739.png)
 
 <br>
 
 **Lag-LLaMA**
 
-Transformer-based model for univariate probabilistic time series forecasting, built on the LLaMA [57] architecture. It incorporates a specialized tokenization scheme that includes lagged features (past values at specified lags) and temporal covariates (e.g., day-of-week, hour-of-day), allowing it to handle varying frequencies of time series data. The model uses a decoderonly Transformer with causal masking and Rotary Positional Encoding (RoPE) for sequential data processing. For forecasting, the output is passed through a distribution head that predicts the parameters of a probability distribution, providing not only point forecasts but also uncertainty quantification through probabilistic distributions. During training, it minimizes the negative log-likelihood of predicted distributions, and at inference, it generates multiple forecast trajectories through autoregressive decoding.
+(https://arxiv.org/pdf/2310.08278)
+
+```
+Kashif Rasul, and others, Lag-Llama: Towards Foundation Models for Time Series
+Forecasting, R0-FoMo:Robustness of Few-shot and Zero-shot Learning in Large
+Foundation Models, 2023, https://openreview.net/forum?id=jYluzCLFDM.
+```
+
+- Univariate probabilistic TS forecasting
+
+- Based on LLaMA
+
+  - Decoder-only Transformer with causal masking
+  - Rotary Positional Encoding (RoPE)
+
+- Specialized tokenization scheme: Includes .. 
+
+  - (1) Lagged features (past values at specified lags)
+  - (2) Temporal covariates (e.g., day-of-week, hour-of-day)
+
+  $$\rightarrow$$ Handle varying frequencies
+
+- Probabilsitic forecasting
+
+  - Output is passed through a distribution head 
+
+    ( Predicts the parameters of a probability distribution )
+
+- Loss function: NLL
+- Inference: Multiple forecast trajectories through autoregressive decoding
+
+![figure2](/assets/img/ts/img744.png)
 
 <br>
 
 ### e) Adapting LLM
 
+**Chronos**
 
+(https://arxiv.org/pdf/2403.07815)
+
+```
+Ahmed F. Ansari, and others, Chronos: Learning the Language of Time Series,
+arXiv preprint, 2024, https://arxiv.org/abs/2403.07815.
+```
+
+- Adapts LLM for probabilistic TS forecasting
+- Novel tokenization approach
+  - Continuous TS $$\rightarrow$$ Discrete tokens 
+  - Step 1) Scaling the data (using mean normalization)
+  - Step 2) Quantizing it through a binning process
+    - Values are assigned to predefined bins
+- Loss function: CE loss $$\rightarrow$$ Learn multimodal distributions
+- Base model: 
+  - T5 (encoder-decoder model)
+  - (But can also be adapted to decoder-only models )
+- Architecture remains largely unchanged from standard language models
+- Minor adjustmnets
+  - Vocabulary size to account for the quantization bins
+- Pretraining task: Autoregressive probabilistic predictions
+
+![figure2](/assets/img/ts/img743.png)
+
+<br>
+
+**AutoTimes** 
+
+(https://arxiv.org/pdf/2402.02370)
+
+```
+Yuxuan Liu, Ganqu Qin, Xiangyang Huang, Jiang Wang, and Mingsheng Long,
+AutoTimes: Autoregressive Time Series Forecasters via Large Language Models,
+arXiv preprint arXiv:2402.02370, 2024.
+```
+
+- Adapts LLMs for MTS forecasting
+- Patchify TS
+  - Each segment = Single variate (treated independently)
+- Timestamp position embeddings
+- Pretraining task: Next token prediction
+- Handle varying lookback & forecast lengths 
+- (Summary) Key innovations 
+  - Segment-wise tokenization
+  - Timestamp embeddings for temporal context
+  - Autoregressive multi-step forecasting
+
+![figure2](/assets/img/ts/img740.png)
+
+![figure2](/assets/img/ts/img741.png)
+
+![figure2](/assets/img/ts/img742.png)
+
+<br>
+
+**LLMTime**
+
+(https://arxiv.org/abs/2310.07820)
+
+```
+Nate Gruver, Marc Finzi, Shikai Qiu, and Andrew Gordon Wilson, Large
+Language Models Are Zero-Shot Time Series Forecasters, NeurIPS 2023.
+```
+
+- Pretraining task: Next-token prediction
+- TS = String of numerical digits
+  - Each time step = Individual digits separated by spaces
+
+![figure2](/assets/img/ts/img745.png)
+
+![figure2](/assets/img/ts/img746.png)
+
+<br>
+
+**TIME-LLM**
+
+(https://arxiv.org/pdf/2310.01728)
+
+```
+Mingyu Jin, and others, Time-LLM: Time Series Forecasting by Reprogramming
+Large Language Models, ICLR 2024.
+```
+
+- Reprogramming framework
+
+  - Adapts LLM to TS forecasting, w/o fine-tuning the backbone
+
+- Transforming TS into text prototype representations
+
+- Input TS : Before being reporgrammed with learned text prototypes...
+
+  - Univarate TS + normalized, patched, embedded 
+
+- Prompts: Augmented with domain-specific prompts
+
+- Architecture
+
+  - Frozen LLM
+  - Only the input transformation and output projection parameters updated
+
+  $$\rightarrow$$ Allow for efficient few-shot and zero-shot forecasting
+
+![figure2](/assets/img/ts/img748.png)
+
+![figure2](/assets/img/ts/img749.png)
+
+![figure2](/assets/img/ts/img750.png)
+
+![figure2](/assets/img/ts/img751.png)
+
+<br>
+
+**Frozen Pretrained Transformer (FPT)**
+
+(https://arxiv.org/pdf/2103.05247)
+
+```
+Kevin Lu, Aditya Grover, Pieter Abbeel, and Igor Mordatch, Frozen Pretrained
+Transformers as Universal Computation Engines, AAAI 2022
+```
+
+- Leverages pre-trained language or vision models
+  - e.g., GPT [58], BERT [96], and BEiT [138]
+- Freeze vs. Fine-tuning
+  - [Freeze] Self-attention and FFN
+  - [Fine-tune] Positional embedding, layer normalization, output layers
+- Redesigned input embedding layer to project TS data into the required dimensions, employing linear probing to reduce training parameters
+
+![figure2](/assets/img/ts/img747.png)
+
+<br>
 
 ## (2) Patch vs. Non-Patch
 
+### a) Patch-based
+
+- Tiny Time Mixers
+
+  - Non overlapping windows as patches during pre-training phase
+
+- Timer-XL
+
+  - Patch-level generation based on long-context sequences for MTS forecasting
+
+- Toto 
+
+  - Pre-trained on the next patch prediction
+
+- MOMENT
+
+  - Dividing TS into fixed-length segments, embedding each segment
+  - Pretrain with MTM
+
+- MOIRAI 
+
+  - Patch-based approach to modeling time series with a masked encoder architecture
+
+- AutoTimes
+
+  - Each segment representing a single variate ( = Treated as individual tokens )
+  - Capture inter-variate correlations while simplifying the temporal structure for the LLM
+
+- Timer
+
+  - TS is processed as single-series sequences (S3)
+
+    = Each TS as a sequence of tokens
+
+- TimesFM
+  - Input TS is split into non-overlapping patches
+- TIME-LLM 
+  - Divite MTS into univariate patches
+  - Reprogrammed with learned text prototypes
+- Frozen Pretrained Transformer (FPT)
+  - Patching
+
+<br>
+
+### b) Non Patch-based
+
+Time-MOE
+
+- Point-wise tokenization
+
+TimeGPT
+
+Chronos
+
+- Discretizing the TS values into bins rather than splitting the data into fixed-size patches
+
+Lag-LLaMA
+
+- Does not use patching or segmentation 
+- Rather, tokenizes TS data by incorporating lagged features and temporal covariates
+  - Each token = Past values at specified lag indices + Additional time-based features
+
+LLMTime
+
+- TS as a string of numerical digits
+
+  (  = Treating each time step as a sequence of tokens )
+
+<br>
+
 ## (3) Objective Functions
 
+### a) MSE
+
+- Tiny Time Mixers
+- Timer-XL
+- MOMENT
+- AutoTimes
+- Timer
+- TimesFM
+- TIME-LLM
+- Frozen Pretrained Transformer (FPT)
+
+<br>
+
+### b) Huber Loss
+
+( by Time-MOE  )
+
+<br>
+
+Combines the advantages of MSE & MAE
+
+$$L_{\delta}(r) = \begin{cases} \frac{1}{2} r^2 & \text{if} \  \mid r \mid  \leq \delta \\ \delta ( \mid r \mid  - \frac{1}{2} \delta) & \text{if} \  \mid r \mid  > \delta \end{cases}$$.
+
+where:
+
+- $$\delta > 0$$ is a user-defined threshold.
+- If the residual is small ($$ \mid r \mid  \leq \delta$$), it behaves like MSE.
+- If the residual is large ($$ \mid r \mid  > \delta$$), it behaves like MAE but transitions smoothly.
+
+<br>
+
+Summary
+
+- For small errors, it uses the squared error (sensitive to small deviations).
+- For large errors, it switches to absolute error (robust to outliers).
+
+- Improve robustness to outliers and ensure stability during training
+
+<br>
+
+### c) LL & NLL
+
+- Toto 
+- Chronos
+- Lag-LLaMA
+- MOIRAI
+- LLMTime (only training, no pretraining in LLMTime)
+
+<br>
+
 ## (4) UTS vs. MTS
+
+### a) Univariate
+
+TimeGPT & Chronos & MOMENT & Lag-LLaMA
+
+- Only UTS
+
+<br>
+
+### b) Multivariate
+
+MOMENT & MOIRAI & Frozen Pretrained Transformer (FPT) & Tiny Time Mixers & Time-XL & Time-MOE & Toto & AutoTimes
+
+- Both UTS & MTS
+
+<br>
+
+Timer 
+
+- Primarily supports UTS
+- But can treat MTS by flattening into single sequence! (feat. S3)
+
+<br>
+
+TimesFM 
+
+- Appears to focus on UTS (no support for MTS)
+- But still could theoretically accommodate MTS
+
+<br>
 
 ## (5) Probabilistic vs. Non-probabilistic 
 
