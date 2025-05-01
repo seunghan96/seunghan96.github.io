@@ -7,7 +7,7 @@ header:
 excerpt: "ML, DL, Data Science, Data Engineering, Statistics <br> Since 2020.03"
 intro: 
   - title: "Recent Publications (First author)"
-  - excerpt: "<br> - [***NeurIPSW 2024 Oral***] Partial Channel Dependence with Channel Masks for Time Series Foundation Models <br> - [***NeurIPSW 2024***] Sequential Order-Robust Mamba for Time Series Forecasting <br> - [***NeurIPS 2024***] ANT: Adaptive Noise Schedule for Time Series Diffusion Models <br> - [***ICLR 2024 Spotlight***] Soft Contrastive Learning for Time Series <br> - [***ICLR 2024, NeurIPSW 2023 Oral***] Learning to Embed Time Series Patches Independently <br> <br> <br>"
+  - excerpt: "<br> - [***ICML 2025***] Channel Normalization for Time Series Channel Identification <br> - [***NeurIPSW 2024 Oral***] Partial Channel Dependence with Channel Masks for Time Series Foundation Models <br> - [***NeurIPSW 2024***] Sequential Order-Robust Mamba for Time Series Forecasting <br> - [***NeurIPS 2024***] ANT: Adaptive Noise Schedule for Time Series Diffusion Models <br> - [***ICLR 2024 Spotlight***] Soft Contrastive Learning for Time Series <br> - [***ICLR 2024, NeurIPSW 2023 Oral***] Learning to Embed Time Series Patches Independently <br> <br> <br>"
 feature_row2:    
   - image_path: /assets/img/prml.jpg
     alt: "placeholder image 2"
