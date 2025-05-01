@@ -198,7 +198,14 @@ Key dimensions include ...
 
 ### a) Non-Transformer
 
-**Tiny Time Mixers (TTM)**
+**Tiny Time Mixers (TTM)** (NeurIPS 2024)
+
+(https://arxiv.org/pdf/2401.03955)
+
+```
+Vijay Ekambaram, and others, Tiny Time Mixers (TTMs): Fast Pre-Trained Models
+for Enhanced Zero/Few-Shot Forecasting of Multivariate Time Series, NeurIPS 2024.
+```
 
 - Based on **TSMixer**
 - Details
@@ -213,7 +220,14 @@ Key dimensions include ...
 
 ### b) Encoder-decoder
 
-**TimeGPT**
+**TimeGPT** (arxiv 2023)
+
+(https://arxiv.org/pdf/2310.03589)
+
+```
+Azul Garza, Cristian Challu, and Max Mergenthaler-Canseco, TimeGPT-1, arXiv
+preprint arXiv, 2023.
+```
 
 - For TS forecasting
 - Components from LLMs + CNN
@@ -231,7 +245,15 @@ Key dimensions include ...
 
 ### c) Encoder-only
 
-**MOMENT** 
+**MOMENT** (ICML 2024)
+
+(https://arxiv.org/pdf/2402.03885)
+
+```
+Mononito Goswami, Konrad Szafer, Arjun Choudhry, Yifu Cai, Shuo Li, and
+Artur Dubrawski, MOMENT: A Family of Open Time-series Foundation Models,
+ICML, 2024.
+```
 
 - Details
   - [Arch] Patching + Transformer + Relative PE + Instance norm
@@ -249,7 +271,14 @@ Key dimensions include ...
 
 <br>
 
-**MOIRAI**
+**MOIRAI** (ICML 2024)
+
+(https://arxiv.org/pdf/2402.02592)
+
+```
+Jacek Cyranka, and Szymon Haponiuk, Unified Long-Term Time-Series Forecasting Benchmark, arXiv preprint arXiv:2309.15946, 2023, https://arxiv.org/abs/2309.
+15946
+```
 
 - Probabilistic MTS forecasting
 
@@ -266,6 +295,8 @@ Key dimensions include ...
     - Trained with a CE loss 
 
       $$\rightarrow$$ Treating the forecasting task as a regression via classification
+    
+    - Dataset: LOTSA
 
 - Key features
 
@@ -284,7 +315,15 @@ Key dimensions include ...
 
 ### d) Decoder-only
 
-**Timer-XL**
+**Timer-XL** (ICLR 2025)
+
+(https://arxiv.org/pdf/2410.04803)
+
+```
+Yuxuan Liu, Ganqu Qin, Xiangyang Huang, Jiang Wang, and Mingsheng Long,
+Timer-XL: Long-Context Transformers for Unified Time Series Forecasting, arXiv
+preprint arXiv:2410.04803, 2024.
+```
 
 - Key innovation: **TimeAttention** mechanism
   - Capture complex dependencies **within and across** TS
@@ -301,7 +340,7 @@ Key dimensions include ...
 
 <br>
 
-**Time-MOE**
+**Time-MOE** (ICLR 2025)
 
 (https://arxiv.org/pdf/2409.16040)
 
@@ -345,17 +384,17 @@ Observability, arXiv preprint arXiv:2407.07874, 2024, https://arxiv.org/abs/2407
 
 <br>
 
-**Timer**
+**Timer** (ICML 2024)
 
 (https://arxiv.org/pdf/2402.02368)
 
 ```
 Yuxuan Liu, Hao Zhang, Chenhan Li, Xiangyang Huang, Jiang Wang, and
 Mingsheng Long, Timer: Generative Pre-Trained Transformers Are Large Time
-Series Models, Forty-first International Conference on Machine Learning, 2024.
+Series Models, ICML, 2024.
 ```
 
--  LLM to TS forecasting (Decoder-only model)
+- Decoder-only model
 - Dataset 1: **Unified Time Series Dataset (UTSD)**
   - Up to 1 billion time points across seven domains
 - Dataset 2: **Large-scale Open Time Series Archive (LOTSA)**
@@ -387,14 +426,13 @@ S3
 
 <br>
 
-**TimesFM**
+**TimesFM** (ICML 2024)
 
 (https://arxiv.org/pdf/2310.10688)
 
 ```
 Abhimanyu Das, Weihao Kong, Rajat Sen, and Yichen Zhou, A decoder-only
-foundation model for time-series forecasting, arXiv preprint arXiv:2310.10688, 2024,
-https://arxiv.org/abs/2310.10688.
+foundation model for time-series forecasting, ICML, 2024.
 ```
 
 - Patchify TS
