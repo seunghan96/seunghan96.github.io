@@ -2,7 +2,7 @@
 title: Causal Inference - Part 2
 categories: [ML, TS]
 tags: []
-excerpt: 
+excerpt: Causal Graph, DAG, 조건부 독립성, 충돌 변수
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>

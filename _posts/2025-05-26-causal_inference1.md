@@ -2,7 +2,7 @@
 title: Causal Inference - Part 1
 categories: [ML, TS]
 tags: []
-excerpt: 
+excerpt: Causal Inference란, 대표적인 방법론
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
