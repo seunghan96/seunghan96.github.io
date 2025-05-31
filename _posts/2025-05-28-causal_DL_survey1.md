@@ -2,7 +2,7 @@
 title: Causal Inference Meets Deep Learning; A Comprehensive Survey - Part 1
 categories: [ML, TS]
 tags: []
-excerpt: 
+excerpt: Three levels of causality, POM, SCM
 ---
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
@@ -10,25 +10,52 @@ excerpt:
 
 <br>
 
+# Contents
+
+0. Abstract
+1. Introduction
+   1. Overview and organization
+   2. Why AI needs causal inference
+      1. Improved accuracy of decision-making
+      2. Improving model generalization & robustness
+      3. Improving the interpretability of models
+   3. Previous works
+2. Brain-Inspired Reasoning
+3. Basic of Causal Inference
+   1. Three levels of causality
+      1. Association 
+      2. Intervention
+      3. Counterfactuals
+   2. The basic paradigim of causal intervention
+      1. Potential outcomes model (POM)
+      2. Structural causal modeling (SCM)
+      3. Summary of POM vs. SCM
+
+<br>
+
 # Abstract
 
-Deep Learning (DL) & Causal Inference (CI)
+- (1) **DL models** = May learn ***"spurious correlations"***
 
-- **DL models** = May learn ***"spurious correlations"***
+  $$\rightarrow$$ Reduce robustness & interpretability
 
-  $$\rightarrow$$ Reduce robustness and interpretability
+- (2) **Causal inference** 
 
-- **Causal inference** = Offers more ***"stable and interpretable"*** alternatives
+  $$\rightarrow$$ Offers more ***"stable and interpretable"*** alternatives
 
-$$\rightarrow$$ This survey: Causal learning concepts + Integration with DL
+<br>
+
+Goal of this paper
+
+= **(2) Causal learning** concepts + Integration with **(1) DL**
 
 <br>
 
 # 1. Introduction
 
-### Current DL methods 
+### a) Limitation of DL
 
-- Risk overfitting to spurious correlations
+- Overfitting to spurious correlations
 
   $$\rightarrow$$ ***Limiting generalization and robustness***
 
@@ -38,7 +65,7 @@ $$\rightarrow$$ This survey: Causal learning concepts + Integration with DL
 
 <br>
 
-### Causal understanding 
+### b) Causal Learning
 
 - Proposed to enhance **interpretability & trustworthiness**
 
@@ -52,34 +79,32 @@ $$\rightarrow$$ This survey: Causal learning concepts + Integration with DL
 
 ## (1) Overview and organization
 
-### Causal Learning
+### Goal of Causal Learning
 
-- Identify and **reduce** data bias and **spurious** **correlations**
+- Identify and reduce **data bias** & **spurious** **correlations**
 - New lens to **understand DL model behavior** and limitations
 - Improves **model robustness**
 
 <br>
 
-### Causality research
+Splits into "two main areas"
 
-Splits into two main areas
-
--  (1) **Causal discovery** 
+-  (1) **Causal "discovery"** 
   - **"Identifies"** causal structures from observed data
   - Data- and compute-intensive, making it less practical in DL
-- (2) **Causal inference**
+- (2) **Causal "inference"**
   - **"Quantifies"** the strength of known causal effects 
   - More applicable to DL tasks
 
 <br>
 
-DL often assumes that...
+DL often ...
 
-- a) ***"Causal structure exists"*** 
+- a) Assumes that ***"causal structure exists"*** 
 
-- b) Focuses on **estimating causal effects** from observational data
+- b) Focuses on **"estimating causal effects"** from observational data
 
-$$\rightarrow$$ This paper focuses on **causal inference** aspect within DL contexts
+$$\rightarrow$$ This paper focuses on **CAUSAL INFERENCE** aspect within DL contexts
 
 <br>
 
@@ -107,13 +132,12 @@ $$\rightarrow$$ This paper focuses on **causal inference** aspect within DL cont
 
 ### a) Improved accuracy of decision-making
 
-**Correlation-based models** 
+**DL models** 
 
 - Lack interpretability 
 
 - Struggle in safety-critical domains 
 
-  (e.g., Healthcare and autonomous driving)
 
 <br>
 
@@ -131,7 +155,7 @@ $$\rightarrow$$ This paper focuses on **causal inference** aspect within DL cont
 
 - Suffer from **weak generalization** and robustness 
 
-  (Due to reliance on data correlations)
+  ($$\because$$ Reliance on data correlations)
 
 - Limitation in **real-world shifts** 
 
@@ -149,7 +173,7 @@ $$\rightarrow$$ This paper focuses on **causal inference** aspect within DL cont
 
 ### c) Improving the interpretability of models
 
-Traditional interpretable ML methods 
+**Traditional interpretable ML methods** 
 
 - E.g., **rule-based** and local surrogate models
 
@@ -179,31 +203,43 @@ Pearl’s foundational survey
   - **Counterfactuals**
   - **Direct/indirect effects**
 
+<br>
+
 Guo et al. and Chen et al. 
 
 - Explored causal inference and discovery 
 - Across various data types and variable paradigms
 
+<br>
+
 Moraffah et al. 
 
-- Applied causal inference to TS tasks
+- Applied **causal inference to TS tasks**
 - e.g., Effect estimation and causal structure learning
+
+<br>
 
 Liang et al. 
 
-- Discussed challenges like convergence in applying causal analysis to AI 
+- Discussed challenges like convergence in applying **causal analysis to AI** 
+
+<br>
 
 Yao et al. 
 
-- Focused on potential outcome frameworks in statistical and ML methods
+- Focused on **potential outcome frameworks** in statistical and ML methods
+
+<br>
 
 Schölkopf 
 
-- Emphasized links between graphical causal inference and AI/ML
+- Emphasized links between **graphical causal inference** and AI/ML
+
+<br>
 
 Lu 
 
-- Proposed causal representation learning
+- Proposed **causal representation learning**
 
 - To improve generalization and adaptation
 
@@ -214,7 +250,7 @@ Lu
 Most prior work:
 
 - Emphasizes causal discovery and statistical learning
-- Limited integration of causal learning in DL
+- ***Limited integration of causal learning in DL***
 
 <br>
 
@@ -224,7 +260,7 @@ Luo et al. and others
 
 <br>
 
-Causal deep learning (CDL) frameworks 
+**Causal deep learning (CDL) frameworks** 
 
 - Covering dimensions like structure, parameters, and time
 
@@ -278,27 +314,9 @@ a + b) **Brain-inspired AI**
 
 <br>
 
-## (1) Brain cognition & causality
-
-- Pass
-
-<br>
-
-## (2) Causal reasoning in cognitive neuroscience
-
-- pass
-
-<br>
-
-## (3) Multimodal reasoning of the brain
-
-- pass
-
-<br>
-
 # 3. Basic of Causal Inference
 
-## (1) Three leveles of causality
+## (1) Three levels of causality
 
 **Causality** 
 
@@ -306,11 +324,9 @@ a + b) **Brain-inspired AI**
 
   ( = **"Cause-effect link"** )
 
-- Viewed as objective, not influenced by human perception
-
 - *The Book of Why* presents the **“ladder of causality"**
 
-  $$\rightarrow$$ Outlining three distinct levels of causal understanding
+  $$\rightarrow$$ Outlining **three distinct levels** of causal understanding
 
 <br>
 
@@ -318,11 +334,20 @@ a + b) **Brain-inspired AI**
 
 (= First level of causality )
 
-- Based on observing **"correlations"** without establishing cause
+- Based on observing **"correlations"** w/o establishing cause
+  - Correlation: temporal (X), undirectional
+  - Causailiy: temporal (O), directional
 
-- Correlation differs from causation
-  - **Causality** requires **"temporal order"** and **"directional"** influence
 - **Confounders** = Variables that distort the observed relationship (btw two variables)
+  - Needs to be "controlled" (O), "removed" (X)
+
+```
+Feat. ChatGPT
+A variable is a confounder if it usually meets these conditions:
+	1.	It is a cause of the treatment (e.g., temperature affects ice cream sales)
+	2.	It is a cause of the outcome (e.g., temperature affects drowning accidents)
+	3.	It opens a backdoor path between the treatment and the outcome
+```
 
 <br>
 
@@ -332,8 +357,12 @@ a + b) **Brain-inspired AI**
 
 - Involving active **"manipulation of variables"**
 
-- Aims to **reduce confounding** (to estimate true causal effects)
+- Aims to **reduce confounding** 
+
+  $$\rightarrow$$ Crucial to estimate true causal effects
+
 - Focuses on average causal effect **"across groups, not individuals"**
+
 - Key methods: 
   - (1) **Randomized controlled trials (RCT)**
   - (2) **Observational studies (using the do-operator)**
@@ -343,7 +372,7 @@ a + b) **Brain-inspired AI**
 
 ### c) Counterfactuals
 
-( = Highest level of the causal ladder )
+( = Highest causal level )
 
 - Address ***“what if”*** scenarios 
   - By reasoning about alternative outcomes
@@ -355,7 +384,7 @@ a + b) **Brain-inspired AI**
 
 ## (2) The basic paradigim of causal intervention
 
-Various causal inference frameworks
+Various causal inference frameworks!
 
 Two most commonly utilized approaches
 
@@ -370,10 +399,10 @@ Two most commonly utilized approaches
 
 - Defines outcomes as either ...
 
-  - (1) **Factual (observed)**
-  - (2) **Counterfactual (unobserved)**
+  - (1) **Factual (= observed)**
+  - (2) **Counterfactual (= unobserved)**
 
-- ***Only one potential outcome*** is realized per individual!
+- ***Only "one" potential outcome*** is realized per individual!
 
   $$\rightarrow$$ Limiting direct causal observation
 
@@ -381,40 +410,49 @@ Two most commonly utilized approaches
 
 **Individual Treatment Effect (ITE)** 
 
+- Quantifies **causal impact** for a specific **intervention** at the **individual** level
 - $$\tau_i=Y_i(1)-Y_i(0)$$.
-  - where $$Y(t)$$ represents the potential outcome when the treatment $$T=t $$
-- Quantifies **causal impact** (for a specific **intervention**) at the **individual** level
+  - $$Y(t)$$ : **"potential"** outcome when the treatment $$T=t $$
 
 <br>
 
 Fundamental challenge? 
 
-= **Inability to observe both $$Y_i(1)$$ and$$Y_i(0)$$**
+= **Inability to observe both $$Y_i(1)$$ and $$Y_i(0)$$**
 
 $$\rightarrow$$ Thus, **"counterfactual"** approach must be used!
 
 <br>
 
-**Assumption 1: SUTVA**
+Three assumptions of POM
+
+- **Assumption 1: SUTVA**
+- **Assumption 2: Ignorability assumption**
+- **Assumption 3: Positivity assumption**
+
+<br>
+
+[**Assumption 1: SUTVA**]
 
 ( Stable unit treatment value assumption )
 
 = **Each unit is independent**
 
-- This assumption has 2 implications
-  - **Unit independence**
-    - The stability of the intervention 
-    - Potential outcomes of any unit are not affected by the interventions of other units. 
+- This assumption has 2 implications:
+  - (1) **Unit independence**
+    - Potential outcomes of **any unit** are not affected by the interventions of **other units**. 
     - e.g., If the effects of drug A are studied, the outcome of one patient taking drug A will not change depending on whether or not other patients are taking drug A.
-  - **Treatment consistency**
-    - There should be no different forms or versions of the intervention that each unit receives that could lead to different potential outcomes. 
+  - (2) **Treatment consistency**
+    - There should be **no different forms/versions of the intervention** that each unit receives that could lead to different potential outcomes. 
     - e.g., If different doses of drug A lead to different outcomes in the clinical trial, then different doses of drug A should be treated as different treatments.
 
 <br>
 
-**Assumption 2: Ignorability assumption**
+[**Assumption 2: Ignorability assumption**]
 
 ( = Unconfoundedness assumption )
+
+(**“모든 confounder가** X**에 포함되어 있다면, 처치 할당은 랜덤한 것처럼 취급할 수 있다.”**)
 
 $$W \perp(Y(0), Y(1)) \mid X$$.
 
@@ -424,7 +462,7 @@ $$W \perp(Y(0), Y(1)) \mid X$$.
 
 <br>
 
-**Assumption 3: Positivity assumption**
+[**Assumption 3: Positivity assumption**]
 
 $$P(W=w \mid X=x)>0, \forall w \text { and } x$$.
 
@@ -435,19 +473,17 @@ $$P(W=w \mid X=x)>0, \forall w \text { and } x$$.
 
 <br>
 
-### b) Structural causal modeling
+### b) Structural causal modeling (SCM)
 
-Uses causal graphs and equations to model causal relationships
-
-- Edges in the graph represent the functional dependencies among variables
+Uses **"causal graphs"** and **"equations"** to model causal relationships
 
 <br>
 
-Consists of
+Causal graph consists of ...
 
-- Exogenous variables ($$U$$): have no parents
-- Endogenous variables ($$V$$): are influenced by others
-- Functional mappings ($$F$$)
+- **Exogenous** variables ($$U$$): Only influence others ( = have no parents )
+- **Endogenous** variables ($$V$$): Influenced by others ( = have parents )
+- **Functional mappings** ($$F$$)
 
 <br>
 
@@ -464,46 +500,48 @@ SCM involves both ..
 
 **(1) Structural Equation Models (SEM)**
 
-- $$y=\beta x + \epsilon$$: 
+- $$y=\beta x + \epsilon$$. 
 
-  - Linear equations with noise terms 
-  - $$\epsilon$$: To account for unobserved factors
-  - Algebraically symmetric, making causal direction ambiguous
+  - Linear equations with noise terms ($$\epsilon$$)
+    - $$\epsilon$$: To account for unobserved factors
+  - **Symmetric** $$\rightarrow$$ Makes causal direction ambiguous ... Then how??
 
 - **Path diagrams** (Wright [116])
-
-  - To express the directionality of causal relationships graphically
-  - Help visualize and clarify causal assumptions in SEM models
-  - Edge = Connection from cause to effect 
-  - Strength of this relationship can also be quantified by path coefficients. 
-
+  - To express the **directionality of causal relationships** graphically
+  - Visualization
+    - Edge = Connection from cause to effect 
+    - Path coefs = Strength of this relationship 
+  
 - **d-separation** (Pearl [111])
+  - To determine **conditional independence** in causal graphs
+  - Checks if **paths are blocked** by a conditioning set of variables
+  
 
-  - To determine conditional independence in causal graphs
-  - Checks if paths are blocked by a conditioning set of variables
+<br>
 
-- **Path diagrams & d-separation** 
+**Path diagrams & d-separation** 
 
-  $$\rightarrow$$ Mainly limited to **linear systems** !!
+$$\rightarrow$$ Mainly limited to **linear systems** !!
 
-- To handle **nonlinear or nonparametric** dependencies...
+<br>
 
-  $$\rightarrow$$  Pearl redefined “effect” beyond algebraic forms
+To handle **nonlinear/nonparametric** dependencies...
 
-  - Extended SEM with **simulation-based interventions** to estimate causal effects in more complex models:
-  -  $$x_i=f_i\left(p a_i, \mu_i\right), i=1, \ldots, n$$.
-    - $$pa_i$$: Set of variables that directly determinte the value of $$x_i$$
-    - $$\mu_i$$: Error/interference by ommited factors
+$$\rightarrow$$  Pearl redefined “effect” beyond algebraic forms
+
+- Extended SEM with **simulation-based interventions** to estimate causal effects in more complex models:
+-  $$x_i=f_i\left(p a_i, \mu_i\right), i=1, \ldots, n$$.
+  - $$pa_i$$: Set of variables that directly determinte the value of $$x_i$$
+  - $$\mu_i$$: Error/interference by ommited factors
 
 <br>
 
 **(2) Causal graphical models**
 
-- Encodes causal hypotheses about **data generation** using a probabilistic framework
+- Encodes causal hypotheses about **"data generation"** (via a probabilistic framework)
 - Often represented as **"directed acyclic graphs (DAGs)"**
-  - Where nodes are variables and edges indicate **direct causal effects**
 - Also known as **"path diagrams"** or **"causal Bayesian networks"**
-- Understanding causal graphical models requires familiarity with general **probabilistic graphical models**!
+- Understanding it requires familiarity with general **probabilistic graphical models**!
 
 <br>
 
@@ -511,37 +549,42 @@ SCM involves both ..
 
 - Probability theory + Graph structures
 
-  $$\rightarrow$$ To represent joint distributions
+  $$\rightarrow$$ To represent **"joint distributions"**
 
-- Attributes
+- Graphs
   - Nodes = Variables
   - Edges = Statistical dependencies
-- Simplify complex joint distributions through structured factorization
+- **Simplify** complex joint distributions through **"structured factorization"**
 - Allow for visual interpretation of variable relationships
 - Two main types: 
-  - a) Directed graphs (Bayesian networks)
-  - b) Undirected graphs (Markov random fields)
+  - a) **Directed graphs (Bayesian networks)**
+  - b) **Undirected graphs (Markov random fields)**
 
 <br>
 
 **Bayesian networks (BNs)**
 
-- PGMs that use DAGs to model variable dependencies
+- PGMs that **use DAGs** to model variable dependencies
+
 - Each node is associated with a **conditional probability table (CPT)** given its parents
-- Joint distribution = Factorized using these conditional probabilities
-- Provide both a graphical and probabilistic view of causal or statistical relationships
+
+- **Joint distribution** = Factorized using these **conditional** probabilities
+
+- Provide both a graphical and probabilistic view of **causal** or statistical relationships
 
 - Mathematical expression: $$P\left(X_i \mid p a_i\right)$$
 
   - where $$p a_i$$ is the set of parent nodes of variable $$X_i$$. 
 
-- Joint probability distribution of the network:
+- Joint pdf: $$P\left(X_1, X_2, \ldots, X_N\right)=\prod_{i=1}^N P\left(X_i \mid p a_i\right)$$.
 
-  - $$P\left(X_1, X_2, \ldots, X_N\right)=\prod_{i=1}^N P\left(X_i \mid p a_i\right)$$.
+  - Represents the probability of all possible states of the variables
 
-  - represents the probability of all possible states of the variables
+- (Unlike the original joint distribution model)
 
-- Unlike the original joint distribution model, BNs compute and store only the conditional probabilities given a parent node, reducing the number of parameters and the complexity of model computation.
+  BNs compute and store **only the conditional probabilities** given a parent node!
+
+  $$\rightarrow$$ Reduce the \# of params & complexity of model computation
 
 <br>
 
@@ -549,11 +592,9 @@ SCM involves both ..
 
 - Undirected graph model 
 
-- Clique = Subset of nodes with edges connecting any 2 points
+- **Clique** = Subset of nodes with edges connecting any 2 points
 
-- Joint pdf connecting multiple variables 
-
-  = can be decomposed into a product of multiple factors based on the cliques. 
+- **Joint distribution** = Cecomposed into a product of multiple factors based on the cliques 
 
 - Joint pdf: $$P(x)=\frac{1}{Z} \prod_{q \in C} \psi_q\left(x_q\right)$$.
 
@@ -562,25 +603,22 @@ SCM involves both ..
 BNs & MRFs
 
 - **MRFs**: w/o direction
-
 - **BNs**: w/ direction
-
-  - Model statistical dependencies, **not causality**
-  - Though not inherently causal, BNs’ DAG structure **allows for causal interpretation** under certain assumptions (feat. **Causal BNs**)
+  - (BN itself) models statistical dependencies, **not causality**
+    - Though not inherently causal, BNs’ DAG structure **allows for causal interpretation** under certain assumptions (feat. **Causal BNs**)
   - **Causal BNs**
+    - Prioritize structural causal information over probabilities
 
-  - Prioritize structural causal information over probabilities
-
-  - Enable causal inference using Markov independence & do-calculus
+    - Enable causal inference using Markov independence & do-calculus
 
 <br>
 
-### c) POM vs. SCM
+### c) Summary of POM vs. SCM
 
-- POM: Estimates causal effects by comparing potential outcomes under different interventions
+- POM: Estimates causal effects ***by comparing potential outcomes under different interventions***
   - Pros) Excels in probabilistic and symbolic representation / Not restricted by conditional independence
   - Cons) Lacks a complete rule-based mathematical model
-- SCM: Constructs causal graphs to analyze variable relationships and supports visual interpretation
+- SCM: ***Constructs causal graphs*** to analyze variable relationships and supports visual interpretation
   - Pros) Offers more intuitive analysis and better identification of confounders through DAG assumptions
   - Cons) restricted by conditional independence
 
