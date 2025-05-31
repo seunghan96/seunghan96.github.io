@@ -107,7 +107,7 @@ TS tasks:
 
 - (Basic) Forecasting, Classification, Anomaly detection, Imputation
 
-- **(Extension) Videos, event streams **
+- **(Extension) Videos, event streams**
 
   $$\rightarrow$$ These data are inherently multimodal!
 
