@@ -302,7 +302,11 @@ Categorized into...
 
 <br>
 
-`LLMTime`
+`TimeLLM`
+
+![figure2](/assets/img/ts/img768.png)
+
+![figure2](/assets/img/ts/img769.png)
 
 ![figure2](/assets/img/ts/img761.png)
 
