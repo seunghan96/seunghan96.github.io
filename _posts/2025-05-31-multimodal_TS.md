@@ -51,7 +51,7 @@ Group the works by the introduced modality type
 
 ## (1) Multimodal + TS
 
-![figure2](/assets/img/tab/img752.png)
+![figure2](/assets/img/ts/img752.png)
 
 - (1) Modality reusing
 - (2) Multimodal enhancement
@@ -115,7 +115,7 @@ TS tasks:
 
 ## (2) Taxonomy
 
-![figure2](/assets/img/tab/img753.png)
+![figure2](/assets/img/ts/img753.png)
 
 (Existing surveys: Mainly focus on reusing LLMs for TSA (i.e., our Time As Text))
 
@@ -193,19 +193,19 @@ Key concepts
 
 `LLMTime`
 
-![figure2](/assets/img/tab/img754.png)
+![figure2](/assets/img/ts/img754.png)
 
 <br>
 
 `PromptCast`
 
-![figure2](/assets/img/tab/img755.png)
+![figure2](/assets/img/ts/img755.png)
 
 <br>
 
 `LSTPrompt`
 
-![figure2](/assets/img/tab/img756.png)
+![figure2](/assets/img/ts/img756.png)
 
 <br>
 
@@ -284,41 +284,41 @@ Categorized into...
 
 `aLLM4TS`
 
-![figure2](/assets/img/tab/img759.png)
+![figure2](/assets/img/ts/img759.png)
 
-![figure2](/assets/img/tab/img758.png)
+![figure2](/assets/img/ts/img758.png)
 
 <br>
 
 `OneFitsAll`
 
-![figure2](/assets/img/tab/img760.png)
+![figure2](/assets/img/ts/img760.png)
 
 <br>
 
 `LLM4TS`
 
-![figure2](/assets/img/tab/img757.png)
+![figure2](/assets/img/ts/img757.png)
 
 <br>
 
 `LLMTime`
 
-![figure2](/assets/img/tab/img761.png)
+![figure2](/assets/img/ts/img761.png)
 
 <br>
 
 `ChatTS`
 
-![figure2](/assets/img/tab/img762.png)
+![figure2](/assets/img/ts/img762.png)
 
-![figure2](/assets/img/tab/img763.png)
+![figure2](/assets/img/ts/img763.png)
 
 <br>
 
 `FSCA`
 
-![figure2](/assets/img/tab/img764.png)
+![figure2](/assets/img/ts/img764.png)
 
 <br>
 
@@ -358,12 +358,12 @@ Differ in how they design the **adaptor functions** to map TS to expanded vocabu
 
 `Chronos`
 
-![figure2](/assets/img/tab/img766.png)
+![figure2](/assets/img/ts/img766.png)
 
-![figure2](/assets/img/tab/img767.png)
+![figure2](/assets/img/ts/img767.png)
 
 <br>
 
 `ChatTime`
 
-![figure2](/assets/img/tab/img765.png)
+![figure2](/assets/img/ts/img765.png)
