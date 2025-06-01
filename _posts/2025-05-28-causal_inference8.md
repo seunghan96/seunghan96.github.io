@@ -43,27 +43,27 @@ excerpt: Causal Discovery - PC 알고리즘, FCI 알고리즘
 | **단계**                                          | **설명**                                                     |
 | ------------------------------------------------- | ------------------------------------------------------------ |
 | **1. Fully-connected Graph 초기화**               | 모든 변수 쌍에 대해 edge가 있는 완전 무방향 그래프 생성      |
-| **2. 조건부 독립성 검정으로 edge 제거**           | 점점 더 큰 조건 집합을 사용해 엣지를 제거, $Sepset(X,Y)$ 기록 |
+| **2. 조건부 독립성 검정으로 edge 제거**           | 점점 더 큰 조건 집합을 사용해 엣지를 제거, $$Sepset(X,Y)$$ 기록 |
 | **3. 방향성 부여 (v-structure 및 DAG 규칙 적용)** | collider 구조 식별 후, 방향성 부여. 비순환성과 조건부 독립성 유지하도록 방향 확장 |
 
 <br>
 
 ### Step 1: Initialize graph
 
-- 변수 집합 $V = \{X_1, X_2, \dots, X_n\}$
-- 초기 그래프 $G_0 = (V, E)$: Fully-connected + Undirected graph
+- 변수 집합 $$V = \{X_1, X_2, \dots, X_n\}$$
+- 초기 그래프 $$G_0 = (V, E)$$: Fully-connected + Undirected graph
 
 <br>
 
 ### Step 2: 조건부 독립성 검정
 
-모든 변수 쌍 $(X, Y)$에 대해, 
+모든 변수 쌍 $$(X, Y)$$에 대해, 
 
-가능한 조건 변수 집합 $Z \subseteq V \setminus \{X, Y\}$ 에 대해, $X \perp Y \mid Z$ 이면 ...
+가능한 조건 변수 집합 $$Z \subseteq V \setminus \{X, Y\}$$ 에 대해, $$X \perp Y \mid Z$$ 이면 ...
 
-$\rightarrow$ Edge $X - Y$ 제거
+$$\rightarrow$$ Edge $$X - Y$$ 제거
 
-- 이때 $Z$는 $\text{Sepset}(X, Y)$ 로 저장
+- 이때 $$Z$$는 $$\text{Sepset}(X, Y)$$ 로 저장
 
 <br>
 
@@ -71,9 +71,9 @@ $\rightarrow$ Edge $X - Y$ 제거
 
 V-structure 판별 (collider)
 
-- 만약 $X - Z - Y$, 그리고 $X \not\sim Y$ (Edge없음), 그리고 $Z \notin \text{Sepset}(X, Y)$ 이면
+- 만약 $$X - Z - Y$$, 그리고 $$X \not\sim Y$$ (Edge없음), 그리고 $$Z \notin \text{Sepset}(X, Y)$$ 이면
 
-  => $X \rightarrow Z \leftarrow Y$
+  => $$X \rightarrow Z \leftarrow Y$$
 
 <br>
 
@@ -92,17 +92,17 @@ Z에서도 다른 변수로 뻗어 나갈 수도 있지 않나?
 
 Details
 
-- 그래프 구조: $X - Z - Y$
-- X와 Y는 **엣지가 없음** → $X \perp Y$
-- 그런데 X와 Y는 **Z를 조건으로 하면 의존함** → $X \not\perp Y \mid Z$
+- 그래프 구조: $$X - Z - Y$$
+- X와 Y는 **엣지가 없음** → $$X \perp Y$$
+- 그런데 X와 Y는 **Z를 조건으로 하면 의존함** → $$X \not\perp Y \mid Z$$
 
 <br>
 
-| **구조 형태** | **조건 없이**   | **Z로 조건 시**        | **방향**                   |
-| ------------- | --------------- | ---------------------- | -------------------------- |
-| $X ← Z → Y$   | $X \not\perp Y$ | $X \perp Y \mid Z$     | Z가 공통 원인              |
-| $X → Z → Y$   | $X \not\perp Y$ | $X \perp Y \mid Z$     | Z가 중간 매개자            |
-| $X → Z ← Y$   | $X \perp Y$     | $X \not\perp Y \mid Z$ | ✅ Z가 공통 결과 (collider) |
+| **구조 형태** | **조건 없이**     | **Z로 조건 시**          | **방향**                   |
+| ------------- | ----------------- | ------------------------ | -------------------------- |
+| $$X ← Z → Y$$ | $$X \not\perp Y$$ | $$X \perp Y \mid Z$$     | Z가 공통 원인              |
+| $$X → Z → Y$$ | $$X \not\perp Y$$ | $$X \perp Y \mid Z$$     | Z가 중간 매개자            |
+| $$X → Z ← Y$$ | $$X \perp Y$$     | $$X \not\perp Y \mid Z$$ | ✅ Z가 공통 결과 (collider) |
 
 <br>
 
@@ -180,7 +180,7 @@ PC 알고리즘의 Step 1~3은 동일하지만,
 
 ### Step 4) Possible-D-Sep
 
-- (PC) 조건 집합 $Z$를 **"직접 연결"된 이웃만** 고려
+- (PC) 조건 집합 $$Z$$를 **"직접 연결"된 이웃만** 고려
 
 - (FCI) **"간접적"으로 연결된 노드도 조건 집합으로 고려**
 
@@ -197,10 +197,10 @@ PC 알고리즘의 Step 1~3은 동일하지만,
 
 ## (4) Output: **PAG (Partial Ancestral Graph)**
 
-- 방향이 확실한 엣지: $X \rightarrow Y$
+- 방향이 확실한 엣지: $$X \rightarrow Y$$
 - 방향이 불확실하거나 숨은 변수 가능성 있음:
-  - $X$ o→ $Y$
-  - $X$ o–o $Y$ (latent confounder 가능성)
+  - $$X$$ o→ $$Y$$
+  - $$X$$ o–o $$Y$$ (latent confounder 가능성)
 
 <br>
 
