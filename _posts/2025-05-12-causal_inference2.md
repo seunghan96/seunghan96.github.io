@@ -1,6 +1,6 @@
 ---
 title: Causal Inference - Part 2
-categories: [ML, TS]
+categories: [ML, CI]
 tags: []
 excerpt: Causal Graph, DAG, 조건부 독립성, 충돌 변수
 ---

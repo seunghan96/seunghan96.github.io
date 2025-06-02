@@ -1,6 +1,6 @@
 ---
 title: Causal Inference - Part 1
-categories: [ML, TS]
+categories: [ML, CI]
 tags: []
 excerpt: Causal Inference란, 대표적인 방법론
 ---

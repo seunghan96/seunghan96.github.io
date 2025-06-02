@@ -1,6 +1,6 @@
 ---
 title: Causal Inference - Part 4
-categories: [ML, TS]
+categories: [ML, CI]
 tags: []
 excerpt: Structural Causal Model (SCM) 상세
 ---

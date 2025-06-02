@@ -1,6 +1,6 @@
 ---
 title: Causal Inference - Part 6
-categories: [ML, TS]
+categories: [ML, CI]
 tags: []
 excerpt: Causal Inference in ML
 ---
@@ -21,12 +21,12 @@ excerpt: Causal Inference in ML
 
 # 1. ML vs. CI
 
-| **항목**  | 머신 러닝 (ML)                         | **인과 추론** (CI)                            |
-| --------- | -------------------------------------- | --------------------------------------------- |
-| 목표      | 예측 (예: $P(Y \mid X)$)               | 인과 효과 추정 (예: $P(Y \mid \text{do}(X))$) |
-| 학습 방식 | 주어진 데이터로 패턴 학습              | 개입 또는 반사실 시나리오 고려                |
-| 전제      | i.i.d. (독립 동일 분포), 상관관계 중심 | 인과 구조, 개입 및 반사실 기반                |
-| 한계      | 개입 상황에서 잘 작동 안 함            | 개입/정책/설명에 강함                         |
+| **항목**  | 머신 러닝 (ML)                         | **인과 추론** (CI)                              |
+| --------- | -------------------------------------- | ----------------------------------------------- |
+| 목표      | 예측 (예: $$P(Y \mid X)$$)             | 인과 효과 추정 (예: $$P(Y \mid \text{do}(X))$$) |
+| 학습 방식 | 주어진 데이터로 패턴 학습              | 개입 또는 반사실 시나리오 고려                  |
+| 전제      | i.i.d. (독립 동일 분포), 상관관계 중심 | 인과 구조, 개입 및 반사실 기반                  |
+| 한계      | 개입 상황에서 잘 작동 안 함            | 개입/정책/설명에 강함                           |
 
 <br>
 
@@ -55,11 +55,11 @@ excerpt: Causal Inference in ML
 
 Example
 
-$Y = f(X, \text{do}(T))$.
+$$Y = f(X, \text{do}(T))$$.
 
-- $T$: 개입 변수, $X$: 공변량, $Y$: 결과
+- $$T$$: 개입 변수, $$X$$: 공변량, $$Y$$: 결과
 
-$\rightarrow$ 인과 그래프를 이용해 backdoor adjustment로 보정
+$$\rightarrow$$ 인과 그래프를 이용해 backdoor adjustment로 보정
 
 <br>
 
@@ -67,12 +67,12 @@ $\rightarrow$ 인과 그래프를 이용해 backdoor adjustment로 보정
 
 머신러닝 기법을 이용해 **인과 추론의 각 단계**를 자동화하거나 강화함:
 
-| **단계**       | **인과 추론 작업** | **머신러닝 활용 예**                        |
-| -------------- | ------------------ | ------------------------------------------- |
-| 인과 구조 학습 | DAG 구조 학습      | GNN, NOTEARS 등                             |
-| 반사실 추정    | $Y(0), Y(1)$ 추정  | TARNet, CFRNet, GANITE 등                   |
-| 효과 추정      | ATE, ITE 등        | X-Learner, T-Learner, S-Learner 등          |
-| 변수 선택      | Confounder 탐지    | Representation learning, Invariant learning |
+| **단계**       | **인과 추론 작업**  | **머신러닝 활용 예**                        |
+| -------------- | ------------------- | ------------------------------------------- |
+| 인과 구조 학습 | DAG 구조 학습       | GNN, NOTEARS 등                             |
+| 반사실 추정    | $$Y(0), Y(1)$$ 추정 | TARNet, CFRNet, GANITE 등                   |
+| 효과 추정      | ATE, ITE 등         | X-Learner, T-Learner, S-Learner 등          |
+| 변수 선택      | Confounder 탐지     | Representation learning, Invariant learning |
 
 <br>
 

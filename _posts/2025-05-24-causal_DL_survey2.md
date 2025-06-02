@@ -1,6 +1,6 @@
 ---
 title: Causal Inference Meets Deep Learning; A Comprehensive Survey - Part 2
-categories: [ML, TS]
+categories: [ML, CI]
 tags: []
 excerpt: 
 ---

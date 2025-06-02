@@ -1,6 +1,6 @@
 ---
 title: Causal Inference - Part 3
-categories: [ML, TS]
+categories: [ML, CI]
 tags: []
 excerpt: Rubin Causal Model (RCM) 상세
 ---

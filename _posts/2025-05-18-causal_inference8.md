@@ -1,6 +1,6 @@
 ---
 title: Causal Inference - Part 8
-categories: [ML, TS]
+categories: [ML, CI]
 tags: []
 excerpt: Causal Discovery - PC 알고리즘, FCI 알고리즘
 ---

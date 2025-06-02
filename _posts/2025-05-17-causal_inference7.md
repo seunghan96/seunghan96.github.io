@@ -1,6 +1,6 @@
 ---
 title: Causal Inference - Part 7
-categories: [ML, TS]
+categories: [ML, CI]
 tags: []
 excerpt: Causal Discovery란
 ---

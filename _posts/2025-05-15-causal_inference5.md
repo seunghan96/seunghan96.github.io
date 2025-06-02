@@ -1,6 +1,6 @@
 ---
 title: Causal Inference - Part 5
-categories: [ML, TS]
+categories: [ML, CI]
 tags: []
 excerpt: Propensity Score Matching (PSM), Inverse Propensity Weighting (IPW), Doubly Robust (DR) Estimator
 ---
