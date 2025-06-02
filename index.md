@@ -79,7 +79,15 @@ feature_row2:
     excerpt: "Multimodal Deep Learning"
     url: "categories/mult/"
     btn_label: "Read More"
-    btn_class: "btn--primary"    
+    btn_class: "btn--primary"
+
+  - image_path: /assets/img/CI.png
+    alt: "placeholder image 2"
+    title: "Causal Inference"
+    excerpt: "Causal Discovery, Inference"
+    url: "categories/mult/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
         
   - image_path: /assets/img/CV2.jpg
     alt: "placeholder image 2"
