@@ -66,7 +66,7 @@ Adversarial attack + Causal Inference
 
 - Testing for conditional independence in a **multi-dimensional** dataset
 
-  $\rightarrow$  Can be challenging!!
+  $$\rightarrow$$  Can be challenging!!
 
 - Adversarial attack the IID distn
 
@@ -113,27 +113,140 @@ Zhang et al. [163]
 
 - Eliminate the differences between natural & adversarial distns
 
-  $\rightarrow$ Robustness of the model is improved!
+  $$\rightarrow$$ Robustness of the model is improved!
 
 <br>
 
 ### c) GAN
 
-Kocaoglu et al. [166] 
+**CausalGAN** = 2-stage causal GAN
 
-- CausalGAN = 2-stage causal GAN
-  - Stage 1) Trains a causal implicit generative model on binary labels
-  - Stage 2) New conditional GAN to help the generator sample from the correct intervention distribution. 
+- Kocaoglu et al. [166] 
+
+- Stage 1) Trains a causal implicit GAN on binary labels
+- Stage 2) New conditional GAN to help the generator sample from the correct intervention distribution. 
+
+![figure2](/assets/img/tab/img78.png)
 
 <br>
 
-- Moraffah et al. [167]argued that the causal graph constructed in CausalGAN relieson known labels, making it challenging to apply the model toreal-world tasks and difficult to scale with large amounts oflabeled data. To address these issues, they proposed a scalablegenerative causal adversarial network (CAN). CAN is structuredinto 2 parts: the label generating network (LGN), which learnscausal relationships from data and generates samples, and theconditional image generating network (CIGN), which receiveslabels and generates the corresponding images. Goudet et al.Model Publication Key characteristics Deep algorithm Causal methodDOVI [183] NeurIPS 2021 Confounded observationaldata, causal reinforcementlearningReinforcement learning Causal intervention- [184] ACC 2023 Gene regulatory networks,reinforcement learning,causal inferenceReinforcement learning Causal interventionDeep- Deconf [189] ACM 2022 Recommender systems,causal inference, multi-causeconfoundersRecommendation algorithm Causal inferenceCountER [186] ACM 2021 Explainable recommendation,counterfactual explanation,counterfactual reasoning,machine learning, explainableAIRecommendation algorithm CounterfactualCEF [187] ACM 2022 Explainable fairness,recommender systems,explainable recommendation,fairness in AI, counterfactualreasoningRecommendation algorithm CounterfactualCauser [188] 2022 Sequential recommendation,causal behavior discoveryRecommendation algorithm Causal discoveryTable 1. (Continued)
+**Scalable generative causal adversarial network (CAN)**
 
-[168] introduced a framework called causal generative neuralnetworks (CGNNs) to learn data distributions with causalconstruction generators. Wen et al. [169] proposed a datageneration architecture called Causal-TGAN, which aims tosolve the causal problem in tabular data generation and gener-ate datasets with different variable types. Multiple causal pro-cesses are captured by building an SCM, which improves theaccuracy of the target data distribution. Bica et al. [170] pro-posed a hierarchical discriminator called SCIGAN, for estimat-ing counterfactual outcomes at successive interventions. Thekey idea is to generate counterfactual outcomes through amodified GAN model and learn an inferential model using astandard supervised approach to estimate counterfactuals fornew samples.
+- Moraffah et al. [167]
 
+- Limitation of Causal GAN
 
+  = Causal graph constructed in CausalGAN **relies on known labels!**
 
-## (2) Contrastive Learning
+- CAN: Learns the causal relations ***from the data iteslf!***
+
+- Structured into 2 parts: 
+  - (1) **Label generating network (LGN)**
+    - Learns causal relationships from data and generates samples
+  - (2) **Conditional image generating network (CIGN)**
+    - Receives labels and generates the corresponding images
+
+![figure2](/assets/img/tab/img79.png)
+
+<br>
+
+**Causal generative neural networks (CGNNs)** 
+
+- Goudet et al. [168]
+
+- Learn data distributions with causal construction generators
+
+<br>
+
+**Causal-TGAN**
+
+- Wen et al. [169] 
+
+- Goal: Generate **synthetic tabular data** using the tabular data’s causal information
+
+- Multiple causal processes are captured by building an **SCM**
+
+<br>
+
+**SCIGAN**: Hierarchical discriminator 
+
+- Bica et al. [170] 
+
+- Estimatie counterfactual outcomes at successive interventions. 
+
+- Goal: Estimatie counterfactual outcomes at successive interventions. 
+
+- How? Significantly modified GAN model 
+
+  - Generate counterfactual outcomes
+
+    $$\rightarrow$$ Used to learn an inference model ( with standard supervised methods )
+
+![figure2](/assets/img/tab/img80.png)
+
+<br>
+
+## (2) Contrastive Learning (CL)
+
+### a) Supervised contrastive learning
+
+$$C^2L$$: Causal-based CL 
+
+- Choi et al. [171] 
+
+- To improve the robustness of **"text categorization"** models
+- Candidate tokens are selected based on **attribution scores**
+- Causality of these candidate tokens 
+  - Verified by evaluating their individualized treatment effect (ITE)
+
+![figure2](/assets/img/tab/img81.png)
+
+<br>
+
+**Proactive Pseudo-Intervention (PPI)**
+
+- Wang et al. [172] 
+
+- Causal intervention-based CL (for **visual problems**)
+
+- Pseudo-interventions are synthesized from observational data using CL
+
+  $$\rightarrow$$ Reduces the model’s dependence on image features that are strongly correlated with the target label but not causally related
+
+- Result: Addresses the issue of DNNs over-relying on non-causal visual informationin image classification 
+
+![figure2](/assets/img/tab/img82.png)
+
+<br>
+
+### b) Self-supervised contrastive learning
+
+**Graph contrastive invariant learning (GCIL)**
+
+- Mo et al. [173] 
+
+- Graph generation based on the SCM
+
+- Limitation of previous works: Traditional graph CL is affected by non-causal information
+
+- GCIL
+
+  - Uses an SCM to describe the graph generation process
+
+  - Original graph $$G$$: Divided into ..
+
+    - (1) A set of causal variables $$C$$ 
+    - (2) A set of non-causal variables $$S$$
+
+  - Intervene causally on the noncausal variable $$S$$ 
+
+    $$\rightarrow$$ T ensure that the variable satisfies the following equation:
+
+    $$P^{d o\left(S=s_i\right)}(Y \mid C)=P^{d o\left(S=s_j\right)}(Y \mid C)$$.
+
+- Summary: Generates causal views to model interventions on non-causal factors from a graph perspective
+
+<br>
 
 ## (3) Diffusion Models
 
