@@ -85,7 +85,7 @@ feature_row2:
     alt: "placeholder image 2"
     title: "Causal Inference"
     excerpt: "Causal Discovery, Inference"
-    url: "categories/mult/"
+    url: "categories/ci/"
     btn_label: "Read More"
     btn_class: "btn--primary"
         
