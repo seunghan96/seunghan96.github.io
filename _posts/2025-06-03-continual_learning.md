@@ -27,8 +27,8 @@ excerpt:
 
 # 1. Transfer in CL
 
-- Forward transfer: 과거 task의 knowledge $\rightarrow$ 미래 task 성능 $\uparrow$
-- Backward transfer: 미래 task의 knowledge $\rightarrow$ 과거 task 성능 $\uparrow$
+- Forward transfer: 과거 task의 knowledge $$\rightarrow$$ 미래 task 성능 $$\uparrow$$
+- Backward transfer: 미래 task의 knowledge $$\rightarrow$$ 과거 task 성능 $$\uparrow$$
 
 ![figure2](/assets/img/CONT/img23.png)
 
@@ -70,7 +70,7 @@ Baseline의 두 종류
 # 4. Categories of CL
 
 1. Regularization-based
-   - Loss function + **Reg term** $\rightarrow$ 과거 task forgetting 방지
+   - Loss function + **Reg term** $$\rightarrow$$ 과거 task forgetting 방지
 2. Replay-based
    - Memory buffer 안에 과거 task의 dataset을 구축 (혹은 생성)
 3. Architecture-based
