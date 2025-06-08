@@ -33,20 +33,18 @@ excerpt: EWC, SI, MAS
 - **Domain-Incremental** Learning (Domain-IL)
 - **Class-Incremental** Learning (Class-IL)
 
-<br>
-
 ![figure2](/assets/img/CONT/img16.png)
 
 <br>
 
 ### Frameworks
 
-| **전략 종류**            | **대표 기법**     | **설명**                             |
-| ------------------------ | ----------------- | ------------------------------------ |
-| (1) Regularization-based | EWC, SI, MAS      | 파라미터 이동 억제                   |
-| (2) Replay-based         | ER, A-GEM, DER++  | 예전 데이터(또는 생성 데이터) 재사용 |
-| (3) Parameter isolation  | PNN, HAT, PackNet | task별 서브네트워크 유지             |
-| Dynamic architecture     | DEN, ExpandNet    | 필요시 네트워크 구조 확장            |
+| **전략 종류**                | **대표 기법**     | **설명**                             |
+| ---------------------------- | ----------------- | ------------------------------------ |
+| **(1) Regularization-based** | **EWC, SI, MAS**  | **param 이동 억제**                  |
+| (2) Replay-based             | ER, A-GEM, DER++  | 예전 데이터(또는 생성 데이터) 재사용 |
+| (3) Parameter isolation      | PNN, HAT, PackNet | task별 서브네트워크 유지             |
+| (4) Dynamic architecture     | DEN, ExpandNet    | 필요시 네트워크 구조 확장            |
 
 ![figure2](/assets/img/CONT/img17.png)
 
@@ -81,14 +79,14 @@ https://arxiv.org/abs/1612.00796
 
 - $$\theta_i$$: 현재 파라미터
 - $$\theta_i^*$$: 이전 task에서 학습한 파라미터
-- $$F_i$$: 파라미터 $$\theta_i$$의 Fisher information (중요도)
+- $$F_i$$: param $$\theta_i$$의 Fisher information (중요도)
 - $$\lambda$$: Reg strength
 
 <br>
 
 ## (3) Fisher Information Matrix (FIM)
 
-$$F_i = \mathbb{E}_{x \sim D} \left[ \left( \frac{\partial \log p(y \mid x, \theta)}{\partial \theta_i} \right)^2 \right]$$
+$$F_i = \mathbb{E}_{x \sim D} \left[ \left( \frac{\partial \log p(y \mid x, \theta)}{\partial \theta_i} \right)^2 \right]$$.
 
 - 핵심: **param이 log prob를 얼마나 민감하게 변화시키는가**
 - $$F_i$$가 크다 = 해당 param은 모델 예측에 중요한 역할을 함
@@ -117,7 +115,7 @@ def ewc_loss(model, fisher, theta_old, lambda_ewc):
 ```
 
 - `fisher`: 각 파라미터의 FIM 추정값 (사전 저장)
-- `theta_old`: 이전 task의 파라미터 복사본
+- `theta_old`: 이전 task의 param 복사본
 
 <br>
 
@@ -127,8 +125,6 @@ def ewc_loss(model, fisher, theta_old, lambda_ewc):
 
 - 간단하고 직관적
 - 대부분의 모델에 쉽게 적용 가능
-
-<br>
 
 ### Cons
 
@@ -147,9 +143,9 @@ https://arxiv.org/abs/1703.04200
 
 ## (1) Key Idea
 
-학습 중에 ***각 파라미터가 손실 감소에 얼마나 기여했는지 추적***
+학습 중에, 각 파라미터가 ***"손실 감소"에 얼마나 기여***했는지 추적
 
-$$\rightarrow$$  그 정보로 파라미터 중요도를 추정!
+$$\rightarrow$$  그 정보로 param의 중요도를 추정!
 
 if 높은 중요도 $$\rightarrow$$ 이후 task에서 **변화하지 않도록 규제**
 
@@ -200,7 +196,7 @@ $$\Omega_i = \frac{\omega_i}{(\Delta \theta_i)^2 + \epsilon}$$.
 2. 한 task 끝나면 $$\Omega$$ 계산
 3. 다음 task부터는:
    - $$\Omega$$ 기반 reg loss 추가
-   - 이전 파라미터 $$\theta_i^{*}$$도 저장
+   - 이전 param$$\theta_i^{*}$$도 저장
 
 <br>
 
@@ -233,7 +229,7 @@ for name in omega:
 
 ### Cons
 
-- 모든 파라미터 변화량과 그라디언트를 **매 step마다 저장/추적**해야!
+- 모든 param변화량과 그라디언트를 **매 step마다 저장/추적**해야!
 - 학습 속도에 부하 있음
 - 여전히 quadratic penalty
 
@@ -284,7 +280,7 @@ $$\Omega_i = \mathbb{E}_{x \sim D} \left[  \mid \mid  \frac{\partial f(x)}{\part
 
 $$\mathcal{L}_{\text{MAS}} = \lambda \sum_i \Omega_i \cdot (\theta_i - \theta_i^*)^2$$
 
-- $$\theta^*_i$$: 이전 task 학습이 끝난 후의 파라미터 값
+- $$\theta^*_i$$: 이전 task 학습이 끝난 후의 param값
 - $$\Omega_i$$: 중요도
 
 <br>
@@ -348,5 +344,5 @@ for data in dataloader:
 | **알고리즘** | **핵심 아이디어** | **중요도 측정 방식** | **장점**        | **한계**                    |
 | ------------ | ----------------- | -------------------- | --------------- | --------------------------- |
 | EWC          | FIM 기반 정규화   | Fisher Information   | 간단, 널리 사용 | 계산량 큼, task 많으면 경직 |
-| SI           | 학습 기여 기반    | 파라미터 경로 추적   | 온라인, 효율적  | 구현 복잡                   |
+| SI           | 학습 기여 기반    | param경로 추적       | 온라인, 효율적  | 구현 복잡                   |
 | MAS          | 출력 민감도 기반  | activation gradient  | 비지도 가능     | 해석 제한적                 |
