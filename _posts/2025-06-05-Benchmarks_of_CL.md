@@ -31,6 +31,49 @@ excerpt:
 
 <br>
 
+### Forgetting Metric (FM)
+
+$$F_k = \max_{l < t} a_{k, l} - a_{k, t}$$.
+
+- $$F_k$$: task $$k$$에 대한 forgetting
+- $$a_{k, l}$$: task $$k$$에 대해, 학습 과정 중 time step $$l$$에서의 정확도
+- $$a_{k, t}$$: 최종 시점(또는 마지막 task 학습 이후)에서의 task $$k$$ 정확도
+- $$t$$: 마지막 task index
+
+즉, task $$k$$에 대해 가장 잘했던 순간과 마지막 정확도 간의 차이입니다.
+
+<br>
+
+### 전체 Forgetting (FM) 계산
+
+실험에서는 모든 과거 task에 대한 forgetting을 평균
+
+$$FM = \frac{1}{T - 1} \sum_{k=1}^{T - 1} F_k$$.
+
+- $$T$$: 전체 task 수
+
+<br>
+
+Example) 
+
+Task 1 학습 직후 정확도: 90%
+
+전체 실험 종료 후 Task 1 정확도: 65%
+
+→ Forgetting: 90 - 65 = 25 %
+
+<br>
+
+기타 지표
+
+| **지표** | **의미**                                      |
+| -------- | --------------------------------------------- |
+| **ACC**  | 평균 정확도 (Average accuracy over all tasks) |
+| **FM**   | 평균 Forgetting                               |
+| **LA**   | 마지막 task 학습 정확도 (Learning Accuracy)   |
+
+<br>
+
 ## TA vs. TF
 
 | **항목**        | **Task-Aware (TA)** | **Task-Free (TF)**     |

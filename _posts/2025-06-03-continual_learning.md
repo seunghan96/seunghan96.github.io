@@ -83,3 +83,5 @@ Baseline의 두 종류
 과거 task의 forgetting 능력을 측정하기 위한 메트릭!
 
 ![figure2](/assets/img/CONT/img26.png)
+
+<br>
