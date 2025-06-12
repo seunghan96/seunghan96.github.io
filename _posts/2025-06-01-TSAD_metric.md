@@ -14,16 +14,14 @@ excerpt:
 
 # 1. Precision, Recall, F1-score
 
-| **실제 / 예측**     | **Positive (이상 탐지)** | **Negative (정상)** |
-| ------------------- | ------------------------ | ------------------- |
-| **Positive (이상)** | TP (True Positive)       | FN (False Negative) |
-| **Negative (정상)** | FP (False Positive)      | TN (True Negative)  |
+| **실제 / 예측**     | **Positive (이상)** | **Negative (정상)** |
+| ------------------- | ------------------- | ------------------- |
+| **Positive (이상)** | TP (True Positive)  | FN (False Negative) |
+| **Negative (정상)** | FP (False Positive) | TN (True Negative)  |
 
-$\text{Precision} = \frac{TP}{TP + FP}$
-
-$\text{Recall} = \frac{TP}{TP + FN}$
-
-$\text{F1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$
+- $$\text{Precision} = \frac{TP}{TP + FP}$$.
+- $$\text{Recall} = \frac{TP}{TP + FN}$$.
+- $$\text{F1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$$.
 
 <br>
 
@@ -133,7 +131,7 @@ plt.show()
 
 **이상 점수(anomaly score)** 에 대해 **여러 임계값(threshold)** 을 시도
 
-$\rightarrow$ **각 threshold에서의 분류 성능 (TP, FP 등)** 을 계산해 그리는 **곡선**
+$$\rightarrow$$ **각 threshold에서의 분류 성능 (TP, FP 등)** 을 계산해 그리는 **곡선**
 
 <br>
 

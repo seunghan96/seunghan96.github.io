@@ -46,8 +46,6 @@ excerpt: EWC, SI, MAS
 | (3) Parameter isolation      | PNN, HAT, PackNet | task별 서브네트워크 유지             |
 | (4) Dynamic architecture     | DEN, ExpandNet    | 필요시 네트워크 구조 확장            |
 
-![figure2](/assets/img/CONT/img17.png)
-
 <br>
 
 # 1. EWC (Elastic Weight Consolidation)
