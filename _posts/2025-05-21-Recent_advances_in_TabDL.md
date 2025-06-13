@@ -1,6 +1,6 @@
 ---
 title: Recent Advancement in Tabular Deep Learning
-categories: [PPT, TAB]
+categories: [TAB]
 tags: []
 excerpt: 
 ---
