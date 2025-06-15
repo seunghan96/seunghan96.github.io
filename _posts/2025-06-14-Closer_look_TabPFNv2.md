@@ -1,5 +1,5 @@
 ---
-title: A Closer Look at TabPFN v2: Understanding Its Strengths and Extending Its Capabilities
+title: A Closer Look at TabPFN v2; Understanding Its Strengths and Extending Its Capabilities
 categories: [TAB]
 tags: []
 excerpt: arxiv 2025
@@ -21,7 +21,15 @@ arxiv: https://arxiv.org/pdf/2502.17361
 
 # Contents
 
-1. 
+0. Abstract
+1. Introduction
+2. Related Work
+3. Backround
+4. Comprehensive Evaluation of TabPFN v2
+5. How Does TabPFN v2 Effectively Handle Data Heterogenity
+6. TabPFN v2 can be Trasnformed into an Effective Feature Encoder
+7. Improving TabPFN v2 via Test-Time Divide-and Conquer
+8. Conclusion
 
 <br>
 
@@ -238,8 +246,8 @@ Several key modifications.
 
 - (3) Two types of self-attention
 
-  - Over samples (among the \( $$N + 1$$ \) instances)
-  - Over attributes (among the \( $$d + 1$$ \) dimensions)
+  - Over samples (among the  $$N + 1$$  instances)
+  - Over attributes (among the  $$d + 1$$  dimensions)
 
 - Output token ( = test instance’s dummy label $$\tilde{y}^{*}$$ )
 
@@ -416,7 +424,7 @@ $$\rightarrow$$ Enable to learn from diverse pre-training datasets & transfer it
 
 Token-based methods
 
-- (From) $$d$$-dimensional instance \( $$x \in \mathbb{R}^d$$ \) 
+- (From) $$d$$-dimensional instance  $$x \in \mathbb{R}^d$$  
 
 - (To) Set of $$d$$ fixed-dimensional tokens (each of dimension  $$k$$)
 
@@ -435,7 +443,7 @@ Embedding
   - (1) pre-defined semantic embeddings (e.g., word vectors of attribute names)
   - (2) Dataset-specific embeddings
 - Notation: 
-  -  $$d$$ attribute-specific tokens \( $$[r_1, \dots, r_d] \in \mathbb{R}^{d \times k}$$ \) .
+  -  $$d$$ attribute-specific tokens  $$[r_1, \dots, r_d] \in \mathbb{R}^{d \times k}$$  .
   - (Before) $$x_i \in \mathbb{R}^d$$
   - (After) $$[x_i^1 \cdot r_1, \dots, x_i^d \cdot r_d] \in \mathbb{R}^{d \times k}$$.
     - where $$x_i^j$$ denotes the $$j$$-th element of $$x_j$$
@@ -520,27 +528,80 @@ $$\rightarrow$$ Consistently **differentiate attributes across instances!**
 
 # 6. TabPFN v2 can be Transformed into an Effective Feature Encoder
 
-In Section 5, we show that TabPFN v2’s in-context learning process infers meaningful attribute
+TabPFN v2’s ICL process infers ***meaningful attribute relationships***
 
-relationships. Here, we examine whether TabPFN v2 also produces separable instance representations.
+( = Effective feature encoder )
 
+<br>
 
+![figure2](/assets/img/tab/img108.png)
 
 ## (1) Naive Feature Extraction Fails
 
-As shown in Figure~\ref{fig:1} (left), TabPFN v2 makes predictions based on the output token corresponding to the (dummy) label embedding \( \tilde{y}^* \) of the test instance. This output token can thus be interpreted as the instance embedding for the test example. A natural extension to obtain embeddings for the training instances is to extract the output tokens corresponding to the training label embeddings \( \{ \tilde{y}_i \}_{i=1}^N \).
+[Figure 1] Prediction of TabPFN v2
 
-However, as shown in Figure~\ref{fig:4} (b), this naive approach leads to surprisingly discrepant feature distributions between training (darker cross) and test (lighter circle) examples. As a result, a linear classifier trained on these embeddings performs poorly on the test set. We attribute this discrepancy to the distinct roles of labeled training data and unlabeled test data in TabPFN v2’s in-context learning process. Specifically, the label embeddings for the training instances are derived from true labels, whereas those for the test instances rely on dummy labels. This mismatch renders the resulting output embeddings \emph{non-comparable} between training and test instances.
+- Based on the **output token** 
+  - Corresponding to the **(dummy) label embedding**  $\tilde{y}^*$ 
+- $\therefore$ Output token = Interpreted as the **instance embedding** for the test example
+
+<br>
+
+[Figure 4-(b)] **Discrepant feature distributions** between ...
+
+- Training (darker cross) 
+- Test (lighter circle)
+
+$\rightarrow$ Linear classifier trained on these embeddings ***performs poorly on the test set***
+
+- Reason: Mistmatch btw training & test
+  - Distinct roles of (labeled) training data and (unlabeled) test data in TabPFN v2’s ICL process
 
 <br>
 
 ## (2) Leave-on-fold-out Feature Extraction
 
-![figure2](/assets/img/tab/img108.png)
+Solution: **Leave-one-fold-out strategy**
 
-To address this challenge, we propose a leave-one-fold-out strategy that enables the extraction of comparable embeddings for training and test data. In the TabPFN v2 framework, we treat examples with true labels as the support set \( \mathcal{S} \), and those with dummy labels as the query set \( \mathcal{Q} \). Under the standard configuration, \( \mathcal{S} \) corresponds to the labeled training set and \( \mathcal{Q} \) to the unlabeled test instances. To extract comparable embeddings for the training examples, they must also be included in \( \mathcal{Q} \) with dummy label embeddings. This, however, creates a dilemma: effective in-context learning relies on maximizing the size of \( \mathcal{S} \) to ensure sufficient knowledge transfer to \( \mathcal{Q} \). Including training examples in \( \mathcal{Q} \) thus competes with the need to keep \( \mathcal{S} \) as large as possible.
+-  Enables the extraction of **"comparable"** embeddings for **training & test data**
 
-To overcome this dilemma, we partition the training set into multiple folds, e.g., 10. In each round, one fold serves as \( \mathcal{Q} \)—with dummy labels used for embedding extraction—while the remaining folds form \( \mathcal{S} \) with true labels. This setup preserves sufficient label supervision in \( \mathcal{S} \) while enabling the extraction of embeddings for training instances in \( \mathcal{Q} \). Results in Figure~\ref{fig:4} (c)–(f) show that embeddings extracted by this strategy (with 10 folds) more faithfully capture dataset structure. We observe that TabPFN v2 simplifies the original tabular data distributions, transforming datasets into nearly linearly separable embedding spaces—especially after intermediate transformer layers.
+<br>
+
+Notaton
+
+- $\mathcal{S}$: **"Support"** set = Examples with true labels ( = TRAIN )
+- $\mathcal{Q}$: **"Query"** set = Examples with dummy labels ( = TEST )
+
+<br>
+
+To extract **comparable** embeddings for the training examples ($\mathcal{S}$)...
+
+- $\mathcal{S}$ must also be **included in $\mathcal{Q}$ with dummy label embeddings**
+
+$\rightarrow$ Causes dilemma!
+
+<br>
+
+Dilemma? 
+
+**Effective ICL**  relies on maximizing the size of $\mathcal{S}$ to ensure sufficient knowledge transfer to $\mathcal{Q}$
+
+- Including training examples in $\mathcal{Q}$ thus **competes with the need to keep $\mathcal{S}$ as large as possible**
+
+<br>
+
+Solution: **Partition the training set into multiple folds (e.g., 10)**
+
+Details: In each round...
+
+- [One fold] Serves as $\mathcal{Q}$ —with dummy labels used for embedding extraction
+- [Remaining folds] Form $\mathcal{S}$ with true labels
+
+<br>
+
+[Figure 4-(c--f)] **Leave-one-fold-out strategy**
+
+- Embeddings extracted by this strategy (with 10 folds) more faithfully capture dataset structure
+- Especially after intermediate layers
 
 <br>
 
@@ -548,127 +609,139 @@ To overcome this dilemma, we partition the training set into multiple folds, e.g
 
 ![figure2](/assets/img/tab/img109.png)
 
-To validate the quality of the extracted embeddings, we train a logistic regression on embeddings
+Evaluation of the **quality of the embeddings**
 
-derived from the training set and evaluate it on test set embeddings.
+$\rightarrow$ Train a logistic regression on embeddings (Table 2)
 
-The average rank across 29 classification
+- Train: with the training embeddings
+- Evaluation: with test set embeddings
 
-datasets from the tiny benchmark2 in [76]
+<br>
 
-is reported in Table 2. Remarkably, training
+Result
 
-a simple linear classifier on the extracted
-
-embeddings achieves performance compa-
-
-rable to that of TabPFN v2’s in-context
-
-learner. Furthermore, concatenating em-
-
-beddings from multiple layers (e.g., both
-
-output and intermediate representations)
-
-can sometimes lead to even better results.
-
-These findings underscore TabPFN v2’s potential as a strong and versatile 
+- Comparable to that of TabPFN v2’s in-context learner. 
+- Concatenate embeddings from multiple layers can sometimes lead to better results
 
 <br>
 
 # 7. Improving TabPFN v2 via Test-Time Divide-and-Conquer
 
-This section addresses the limitations discussed in Section 4.3, aiming to extend TabPFN v2’s
+(Post-hoc) **Divide-and-conquer** strategies
 
-applicability beyond the boundaries. Specifically, we propose post-hoc divide-and-conquer strategies
-
-inspired by Chain-of-Thought (CoT) prompting [71], which decompose challenging tasks into simpler
-
-subtasks that TabPFN v2 can effectively handle.
+- Inspired by **CoT** prompting
+- Decompose challenging tasks into **simpler subtasks**!
 
 <br>
 
+![figure2](/assets/img/tab/img110.png)
+
 ## (1) High Dimension Datasets
 
-High-dimensional datasets~\cite{datasetbench2022} present a unique challenge due to the quadratic complexity of TabPFN v2 with respect to the number of dimensions. To mitigate this, we propose subsampling the feature space into smaller subsets, processing each subset independently, and combining the predictions in an ensemble (bagging) fashion, similar to random forests~\cite{breiman2001random}.
+[1] Challenge: **"Quadratic"** complexity of TabPFN v2 w.r.t. dimension
 
-In detail, we iteratively sample \( m \) subsets, each containing \( d' < d \) randomly selected attributes. For each subset, we leverage TabPFN v2’s ability to handle lower-dimensional data to obtain predictions. We denote this divide-and-conquer and then ensemble strategy as TabPFN v2*, which aggregates outputs using averaging (for regression) or majority voting (for classification).
+<br>
 
-Figure~\ref{fig:5} (left) summarizes the results on 18 high-dimensional \textit{classification} datasets. A variant that utilizes PCA to reduce the dimensionality, together with bagging, resolves the dimensionality issue to some extent. TabPFN v2* with \( d' = 500 \) and \( m = \lceil d / d' \rceil \) significantly increases the mean accuracy (to the highest), effectively extending TabPFN v2’s scalability to datasets with \( d \geq 2000 \).
+[2] Solution: **Subsampling** the feature space (into smaller subsets)
+
+- Process each subset independently
+- Combine the predictions in an ensemble  fashion
+
+<br>
+
+[3] Procedures
+
+- Step 1) Iteratively sample $m$ subsets
+  - Each containing $d' < d$  randomly selected attributes
+- Step 2) For each subset...
+  - Leverage TabPFN v2’s ability to handle lower-dimensional data to obtain predictions
+- Step 3) Ensemble
+  - Aggregates outputs using averaging (for regression) or majority voting (for classification)
+
+<br>
+
+[Figure 5-(left)] 18 High-dimensional CLS datasets
+
+- PFNv2-\*: Divide-and-conquer + Ensemble
+- PFNv2-PCA: PCA for dimensionality reduction
 
 <br>
 
 ## (2) Multi-Class Problems with More Than 10 Classes
 
-To extend TabPFN v2 to tasks with more than 10 categories, we propose a decimal encoding approach that decomposes multi-class problems into multiple 10-class subproblems, ensuring compatibility with TabPFN v2’s constraints.
+[1] Challenge: Datasets with more than 10 categories
 
-For a task with \( C > 10 \) classes, we encode each label \( y \in [C] \) as a \( t \)-digit decimal representation, where \( t = \lceil \log_{10} C \rceil \). For each digit position \( j \in \{1, \dots, t\} \), we train a separate TabPFN v2 model \( f_j \) to predict the \( j \)-th digit. During inference, the predicted digits are reconstructed to obtain the final class label. This strategy is also developed in~\cite{tabpfn_decoding2024}, and we denote it as TabPFN v2-DPT. As the decimal encoding inherently introduces artificial correlations among classes—classes that share the same digit at a given position are grouped together, even if they are semantically unrelated—to mitigate this effect, our TabPFN v2* randomly permutes the class-to-digit mapping \( \sqrt{C} \) times, leading to different groupings in each run, and the prediction results are ensembles to improve robustness.
+<br>
 
-As shown in Figure~\ref{fig:5} (middle), this approach achieves the second-best mean accuracy on 12 datasets with more than 10 classes while preserving computational efficiency.
+[2] Solution: Decimal encoding approach (TabPFN v2-DPT)
+
+-  Decomposes multi-class problems into multiple 10-class subproblems
+
+<br>
+
+[3] Procedures
+
+- Step 1) For a task with  $C > 10$  classes...
+  - Encode each label  $y \in [C] $ as a  $t$-digit decimal representation, where  $t = \lceil \log_{10} C \rceil$
+- Step 2) For each digit position  $j \in \{1, \dots, t\}$ )
+  - Train a separate TabPFN v2 model  $f_j$  to predict the  $j$-th digit.
+- Step 3) Inference
+  - Predicted digits are reconstructed to obtain the final class label
+
+<br>
+
+[Figure 5-(middle)] 12 datasets with more than 10 classes
 
 <br>
 
 ## (3) Large-Scale Datasets
 
-![figure2](/assets/img/tab/img110.png)
+[1] Challenge: Large-scale datasets
 
-For large-scale datasets, we randomly sample 10,000 training examples from the full training set
+<br>
 
-as the support set and treat the remaining training examples and test instances as the query set. We
+[2] Solution: Random sample v1 (**TabPFN v2∗-SQ**)
 
-extract their embeddings to form a new tabular dataset, on which a logistic regression classifier is
+<br>
 
-trained to make predictions on the test set embeddings. This process is repeated four times, and the
+[3] Procedure
 
-final predictions are aggregated. We denote this version as TabPFN v2∗-SQ.
+- Step 1) Support set & Query set
+  - Support set: Randomly sample 10,000 training examples from the full training set
+  - Query set: Remaining training examples and test instances as the query set
+- Step 2) Extract their embeddings $\rightarrow$ Form a new tabular dataset
+- Step 3) Train a logistic regression classifier
+- Step 4) Inference: Repeat x 4 times & aggregate 
 
-We also investigate integrating TabPFN v2 with decision trees to handle large-scale tasks. We note
+<br>
 
-that a similar strategy was mentioned in [29] to handle within-dataset heterogeneity for a drastically
+[2] Solution: Random sample v2 (**TabPFN v2∗-DF**)
 
-different purpose. Specifically, we sample 32 subsets from the original training set, each containing
+<br>
 
-60% of the original data (sampled without replacement). For each subset, we first train a shallow
+[3] Procedure
 
-decision tree by setting the minimum number of samples required to split an internal node to 10,000.
+- Step 1) Sample 32 subsets from the original training set
+  - Each containing 60% of the original data (sampled without replacement)
+- Step 2) For each subset, Train a shallow decision tree
+  - Setting the **minimum number of samples** required to split an internal node to **10,000**
+  - Decision tree partitions the training set into smaller, more manageable subsets
+- Step 3) Predictions from all 32 models are aggregated. We
 
-The decision tree partitions the training set into smaller, more manageable subsets. During inference,
-
-a test instance is first passed through each of the shallow decision tree to a leaf node and then predicted
-
-by the corresponding TabPFN v2 model. The predictions from all 32 models are aggregated. We
-
-denote this extension as TabPFN v2∗-DF.
-
-Figure 5 (right) shows the average rank results, including TabPFN v2∗-SQ and TabPFN v2∗-DF
-
-alongside variants using bagging and KMeans-based sampling. We observe that all variants improve
-
-upon the vanilla TabPFN v2 on large-scale datasets, with TabPFN v2∗-DF and TabPFN v2∗-SQ
-
-achieving the most significant improvement.
-
-
+<br>
 
 # 8. Conclusion
 
-We present a timely investigation into TabPFN v2, a groundbreaking foundation model for tabular
+TabPFN v2 = Foundation model for tabular tasks
 
-tasks. Our analysis uncovers the core mechanism behind TabPFN v2’s strong performance across
+Uncovers the core mechanism behind TabPFN v2
 
-heterogeneous tabular datasets: it can infer attribute relationships on-the-fly—even from randomly
+<br>
 
-initialized token inputs—without relying on pre-defined semantics or learning dataset-specific repre-
+Findings & Proposal
 
-sentations. We also demonstrate that TabPFN v2 can be repurposed as a powerful feature encoder,
-
-enabling broader applications such as data visualization and diagnostic analysis. To address its
-
-limitations in more complex data regimes, we introduce post-hoc divide-and-conquer strategies that
-
-extend TabPFN v2’s utility without requiring model re-training. Together, these contributions offer
-
-fresh insights into advancing the development and application of foundation models for tabular data.
-
-
-
+- Can infer attribute relationships on-the-fly
+  - w/o relying on pre-defined semantics or learning dataset-specific representations
+- Can be repurposed as a powerful feature encoder
+- Ppost-hoc divide-and-conquer strategies 
+  - Extend TabPFN v2’s utility without requiring model re-training
