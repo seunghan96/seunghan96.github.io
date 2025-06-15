@@ -197,7 +197,7 @@ Notation
   - Belongs to  $$\{1, \dots, C\}$$  for a classification task
   - Numerical value for a regression task
 
-<r>
+<br>
 
 Assumption = All attributes of an instance are numerical (continuous)
 
