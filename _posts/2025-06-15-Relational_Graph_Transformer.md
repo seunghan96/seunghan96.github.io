@@ -1,6 +1,6 @@
 ---
 title: Relational Graph Transformer
-categories: [TAB, GNN]
+categories: [TAB, GNN, MULT]
 tags: []
 excerpt: arxiv 2025
 ---
