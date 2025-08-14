@@ -109,11 +109,10 @@ $p^{\text{adj}}_\theta(y_{\text{qy}} \mid x_{\text{qy}}, \mathcal{D}_{\text{trai
 |      |                   |                   |         |         |           |
 
 ```
-sleep 11111
-python -m src.evals.eval_tabpfn_label_wo_shift_v6_tau_auto
-python -m src.evals.eval_tabpfn_label_shift_v6_tau_auto
-python -m src.evals.eval_tabpfn_label_wo_shift_v4_tau_auto
-python -m src.evals.eval_tabpfn_label_shift_v4_tau_auto
+python -m src.evals.eval_tabpfn_label_shift_v3_tau_auto_pq_dist
+python -m src.evals.eval_tabpfn_label_wo_shift_v3_tau_auto_pq_dist
+python -m src.evals.eval_tabpfn_label_shift_v5_tau_auto_pq_dist
+python -m src.evals.eval_tabpfn_label_wo_shift_v5_tau_auto_pq_dist
 ```
 
 
