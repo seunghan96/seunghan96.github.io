@@ -1,8 +1,27 @@
 # Drift에 강한 TabPFN
 
+아래는 나의 제안한 DistPFN이라는 연구야. 이를 기반으로, 소개하는 글을 적어줘.
+
+- 아이디어: TabPFN의 test sample에 대한 class predicted probability를 test-time adaptation을 통해 조절함
+- 조절 방안: class predicted probability에 특정 scalar를 곱함.
+- 해당 scalar: (a) / (b)
+  - (a) Test predicted label distribution
+  - (b) Train label distribution (prior)
+- 의미: train의 prior를 줄이고, test dataset 스스로 자체의 예측값을 더 신뢰.
 
 
-# [1] LocalPFN의 수식
+
+
+
+아래의 섹션 구성 및 수식을 참고해서 작성해줘.
+
+Notation의 경우, 이전에 적었던 Preliminaries를 기준으로 수정해줘. Preliminaries는 곧 보여줄게.
+
+
+
+# Section 3. Methodology
+
+## (1) TabPFN: w/o test-time adaptation
 
 [Input] Entire training dataset + test dataset
 
@@ -21,12 +40,23 @@ Posterior predictive distribution
 
 
 
+## (2) DistPFN: w/ test-time adaptation
 
-# [2] LocalPFN 수식 기반으로 adjust
+$p_\theta(y_{\text{qy}} \mid x_{\text{qy}}, \mathcal{D}_{\text{train}}) = \frac{\exp\left(f_\theta(x_{\text{qy}}, \mathcal{D}_{\text{train}})[y_{\text{qy}}]\right)}{\sum_{c=1}^C \exp\left(f_\theta(x_{\text{qy}}, \mathcal{D}_{\text{train}})[c]\right)} \times \frac{\textbf{Test prior(= (b))}}{\textbf{Train prior(= (a))}}$.
 
-- $p_\theta(y_{\text{qy}} \mid x_{\text{qy}}, \mathcal{D}_{\text{train}}) = \frac{\exp\left(f_\theta(x_{\text{qy}}, \mathcal{D}_{\text{train}})[y_{\text{qy}}]\right)}{\sum_{c=1}^C \exp\left(f_\theta(x_{\text{qy}}, \mathcal{D}_{\text{train}})[c]\right)} \times \frac{\textbf{Test prior(= (b))}}{\textbf{Train prior(= (a))}}$.
+- (a) $p_{\text{train}}(y = c_k) = \frac{|\{i \in [N_{\text{train}}] : y_i = c_k\}|}{N_{\text{train}}}$.
+- (b) $p_{\text{test}}^{(\text{Pred})}(y_{\text{qy}}) = p_\theta(y_{\text{qy}} \mid x_{\text{qy}}, \mathcal{D}_{\text{train}})$.
 
 
+
+The proposed \textit{DistPFN} method extends the standard TabPFN formulation by applying test-time adaptation to improve robustness under label shift. While TabPFN outputs a predictive distribution over labels for each test input \( x_j \) based solely on the training set \( \mathcal{D}_{\text{train}} \), DistPFN adjusts this output by incorporating information about the distribution of predicted labels on the test set itself.
+
+여기에서 맨 마지막 문장만 수정해줘. "distribution of predicted labels on the test set itself"를 좀 더 엄밀히 구분하자면,
+
+- x_j 본인 스스로의 예측값의 class 분포, 혹은
+- x_j를 포함한 test set 전체의 예측값의 class 분포
+
+두 가지를 사용할 수 있어.
 
 # [3] GPT 수식 기반으로 adjust
 
@@ -98,21 +128,28 @@ $p^{\text{adj}}_\theta(y_{\text{qy}} \mid x_{\text{qy}}, \mathcal{D}_{\text{trai
 | ptest    | $p_{\text{test}}^{(\text{Pred})}$       | Prediction ($\hat{y}$)         | Estimated by using the model’s posterior prediction for each individual test input (per-query adjustment). | c                           |
 | ptest    | $p_{\text{test}}^{\text{(Uniform)}}$    | None                           | Uniform prior that assumes no prior information is available; each class is assigned equal probability. |                             |
 
-|      | Train             | Test              | Shift X | Shift O | Efficient |
-| ---- | ----------------- | ----------------- | ------- | ------- | --------- |
-| v1   | Ground truth      | Uniform           | X       |         | O         |
-| v4   | Ground truth      | Prediction (개별) | O       | OO      | O         |
-| v6   | Ground truth      | Prediction (평균) | O       | O       | O         |
-| v2   | Prediction (평균) | Uniform           | X       |         | X         |
-| v3   | Prediction (평균) | Prediction (개별) | O       |         | X         |
-| v5   | Prediction (평균) | Prediction (평균) | O       |         | X         |
-|      |                   |                   |         |         |           |
+|        | Train             | Test                  | Shift X | Shift O | Efficient |
+| ------ | ----------------- | --------------------- | ------- | ------- | --------- |
+| v1     | Ground truth      | Uniform               | X       |         | O         |
+| v4     | **Ground truth**  | **Prediction (개별)** | O       | OO      | O         |
+| v6     | Ground truth      | Prediction (평균)     | O       | O       | O         |
+| v2     | Prediction (평균) | Uniform               | X       |         | X         |
+| v3     | Prediction (평균) | Prediction (개별)     | O       |         | X         |
+| v5     | Prediction (평균) | Prediction (평균)     | O       |         | X         |
+| Oracle | **Ground truth**  | **Ground truth**      |         |         |           |
 
 ```
+<<<<<<< HEAD
 python -m src.evals.eval_tabpfn_label_shift_v3_tau_auto_pq_dist
 python -m src.evals.eval_tabpfn_label_wo_shift_v3_tau_auto_pq_dist
 python -m src.evals.eval_tabpfn_label_shift_v5_tau_auto_pq_dist
 python -m src.evals.eval_tabpfn_label_wo_shift_v5_tau_auto_pq_dist
+=======
+sleep 11111
+# 3
+python -m src.evals.eval_tabpfn_label_shift_v6_tau_auto
+python -m src.evals.eval_tabpfn_label_shift_v4_tau_sq
+>>>>>>> 3a8a1b4a (ab)
 ```
 
 
@@ -129,6 +166,14 @@ python -m src.evals.eval_tabpfn_label_wo_shift_v5_tau_auto_pq_dist
 | 4             | 예측 평균 (a-2) | 실제 라벨 (b-1) | $\times \frac{p_{\text{test}}^{(1)}}{p_{\text{train}}^{(2)}}$ |
 | 5             | 예측 평균 (a-2) | 예측 평균 (b-2) | $\times \frac{p_{\text{test}}^{(2)}}{p_{\text{train}}^{(2)}}$ |
 | 6             | 예측 평균 (a-2) | 예측 개별 (b-3) | $\times \frac{p_{\text{test}}^{(3)}}{p_{\text{train}}^{(2)}}$ |
+
+```
+sleep 12345
+python -m src.evals.eval_tabpfn_label_shift_v4_tau_auto_qp_dist
+
+sleep 12345
+python -m src.evals.eval_tabpfn_label_shift_v4_tau_auto_pq_dist
+```
 
 
 

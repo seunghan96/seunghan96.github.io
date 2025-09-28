@@ -106,9 +106,20 @@ X_train_imb, X_test, y_train_imb, y_test = imbalance_by_inverse_frequency_with_s
 
 
 
+나는 Problem definition관련 subsection을 5줄 내외로 작성하려고 해.
+
+Tabular dataset, 그 중에서도 classification task에 관해서 소개하려고해.
+
+이에 대한 Notation을 소개하는 글을 작성해줘.
+
+아래의 notation은 들어가야해
+
+- Train dataset: N_train 개
+- Test dataset: N_test 개
+- Class set (1~C)
+- TabPFN 모델 $f$, attention과 MLP로 구성
+
 ## **✅ 기능 요약**
-
-
 
 
 
@@ -241,23 +252,22 @@ X_train_imb, X_test, y_train_imb, y_test = imbalance_by_inverse_frequency_with_s
 
 - 전체 데이터셋:
 
-  \mathcal{D} = \{(x_i, y_i)\}_{i=1}^N
+  $\mathcal{D} = \{(x_i, y_i)\}_{i=1}^N$
 
 - 클래스 집합:
 
-  \mathcal{C} = \{c_1, c_2, \dots, c_K\}
+  $\mathcal{C} = \{c_1, c_2, \dots, c_K\}$
 
 - 클래스 c_k의 빈도 (전체 데이터 기준):
 
-  f_k = \frac{|\{i : y_i = c_k\}|}{N}
+  $f_k = \frac{|\{i : y_i = c_k\}|}{N}$
 
 
 
 
 
-------
-
-
+- - 
+- 
 
 
 
@@ -552,7 +562,7 @@ Meanwhile, the test set remains close to the original label distribution due to 
 
 This results in a training set with an intentionally skewed label distribution, while maintaining a balanced test set, thereby creating a controlled label shift scenario.
 
-
+![image-20250710001420783](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250710001420783.png)
 
 # 최최종
 
