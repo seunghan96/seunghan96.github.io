@@ -1,11 +1,18 @@
+---
+title: TRACE; Grounding Time Series in Context for Multimodal Embedding and Retrieval
+categories: [LLM, MULT, TS]
+tags: []
+excerpt: arxiv 2025
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # TRACE: Grounding Time Series in Context for Multimodal Embedding and Retrieval (arxiv 2025)
 
 - 인용 수 (2025-08-27 기준): 1회
 - https://arxiv.org/pdf/2506.09114
 
 <br>
-
-3,4,5,6,7
 
 # **1. Abstract**
 
@@ -56,7 +63,7 @@ TRACE는
 
 - TS과 Text를 **channel-level + sample-level**로 정렬
 
-  $\rightarrow$ Cross-modal embedding을 학습함.
+  $$\rightarrow$$ Cross-modal embedding을 학습함.
 
 - RAG 기반 forecasting도 지원 가능.
 

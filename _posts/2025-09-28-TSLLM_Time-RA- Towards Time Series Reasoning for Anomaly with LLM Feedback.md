@@ -1,3 +1,12 @@
+---
+title: Time-RA: Towards Time Series Reasoning for Anomaly with LLM Feedback
+categories: [LLM, MULT, TS]
+tags: []
+excerpt: KDD 2026
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # Time-RA: Towards Time Series Reasoning for Anomaly with LLM Feedback (KDD 2026)
 
 - 인용 수 (2025-08-27): 0회
@@ -49,7 +58,7 @@ Experiments
 
 - 실제 TSAD는 단순 탐지 이상으로 **"이유와 원인"에 대한 해석**이 중요!
 
-  $\rightarrow$ But 대부분 연구는 ***detection에만*** 집중.
+  $$\rightarrow$$ But 대부분 연구는 ***detection에만*** 집중.
 
 - 기존 데이터셋은 ***anomaly type 미구분*** or ***synthetic*** 중심
 - ***Text 및 Image modality 부족***
@@ -100,13 +109,13 @@ Experiments
 
 ## (1) Task 정의
 
-- Input: TS ($T$), Text ($D$), Image ($V$)
+- Input: TS ($$T$$), Text ($$D$$), Image ($$V$$)
 
 - Output:
 
-  - **Detection**: $y_l = \pi_{\text{detect}}(T, D, V) \in \{0,1\}$.
-  - **Classification**: $a = \pi_{\text{classify}}(T, D, V) \in C_{\text{uni}} \cup C_{\text{multi}}$.
-  - **Reasoning**: $r = \pi_{\text{reason}}(T, D, V)$.
+  - **Detection**: $$y_l = \pi_{\text{detect}}(T, D, V) \in \{0,1\}$$.
+  - **Classification**: $$a = \pi_{\text{classify}}(T, D, V) \in C_{\text{uni}} \cup C_{\text{multi}}$$.
+  - **Reasoning**: $$r = \pi_{\text{reason}}(T, D, V)$$.
   
 
 <br>

@@ -1,3 +1,12 @@
+---
+title: ITFormerl Bridging Time Series and Natural Language for Multi-Modal QA with Large-Scale Multitask Dataset
+categories: [LLM, MULT, TS]
+tags: []
+excerpt: ICML 2025
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # ITFormer: Bridging Time Series and Natural Language for Multi-Modal QA with Large-Scale Multitask Dataset (ICML 2025)
 
 - 인용 수 (2025-08-27 기준): 0회
@@ -52,9 +61,9 @@
 
 ## **(1) Problem Definition**
 
-- Input: 시계열 $T$, 자연어 질문 $q$
-- Output: 자연어 답변 $a$
-- Model: $f : (T, q) → a$ 를 학습
+- Input: 시계열 $$T$$, 자연어 질문 $$q$$
+- Output: 자연어 답변 $$a$$
+- Model: $$f : (T, q) → a$$ 를 학습
 
 <br>
 

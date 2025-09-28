@@ -1,3 +1,12 @@
+---
+title: Beyond Numbers; A Survey of Time Series Analysis in the Era of Multimodal LLMs
+categories: [LLM, MULT, TS]
+tags: []
+excerpt: arxiv 2025
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # Beyond Numbers: A Survey of Time Series Analysis in the Era of Multimodal LLMs
 
 - 인용 수 (2025-08-27): 2회
@@ -48,7 +57,7 @@
 
 <br>
 
-$\rightarrow$ 본 논문은 **시계열 데이터를 multimodal 관점에서 확장하고**, 해당 modality별로 적절한 MLLM 구조까지 포함한 최초의 서베이 .
+$$\rightarrow$$ 본 논문은 **시계열 데이터를 multimodal 관점에서 확장하고**, 해당 modality별로 적절한 MLLM 구조까지 포함한 최초의 서베이 .
 
 <br>
 

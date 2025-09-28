@@ -1,3 +1,13 @@
+---
+title: TempoGPT: Enhancing Time Series Reasoning via Quantizing Embedding
+categories: [LLM, MULT, TS]
+tags: []
+excerpt: arxiv 2025
+
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # TempoGPT: Enhancing Time Series Reasoning via Quantizing Embedding (arxiv 2025)
 
 - 인용 수: (2025-08-27 기준) 0회
@@ -47,7 +57,7 @@ Experiment
 
 - 기존 Multi-modal TS는 대부분 **단순 label만 존재** 
 
-  $\rightarrow$ ***Reasoning 학습 불가***
+  $$\rightarrow$$ ***Reasoning 학습 불가***
 
 <br>
 
@@ -71,7 +81,7 @@ Experiment
 - 중기) 이후 Prompt 기반 혹은 Alignment 기반 방법 등장.
 - 최근) Trend, seasonality 등 **기초 TS 특성 추출에는 성공**
 
-$\rightarrow$ 그러나 **복잡 reasoning에선 부진** !!
+$$\rightarrow$$ 그러나 **복잡 reasoning에선 부진** !!
 
 <br>
 

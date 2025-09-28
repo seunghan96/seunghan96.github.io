@@ -1,3 +1,12 @@
+---
+title: How Can Time Series Analysis Benefit From Multiple Modalities? A Survey and Outlook
+categories: [LLM, MULT, TS]
+tags: []
+excerpt: arxiv 2025
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # How Can Time Series Analysis Benefit From Multiple Modalities? A Survey and Outlook
 
 - 인용 수 (2025-08-27): 9회
@@ -42,7 +51,7 @@ TSA를 강화하기 위한 3가지 방식 제시:
 
 T는 **다른 modality와의 통합 부족**!!
 
-$\rightarrow$ Interpretability와 generalization 측면에서 한계가 있음.
+$$\rightarrow$$ Interpretability와 generalization 측면에서 한계가 있음.
 
 <br>
 

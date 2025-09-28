@@ -1,4 +1,13 @@
-# MTBench: A Multimodal Time Series Benchmark for Temporal Reasoning and Question Answering
+---
+title: MTBench; A Multimodal Time Series Benchmark for Temporal Reasoning and Question Answering
+categories: [LLM, MULT, TS]
+tags: []
+excerpt: arxiv 2025
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+# MTBench: A Multimodal Time Series Benchmark for Temporal Reasoning and Question Answering (arxiv 2025)
 
 - https://arxiv.org/pdf/2503.16858
 
@@ -8,7 +17,7 @@
 
 **"Text와 TS 간의 관계"**를 평가하는 기존 Benchmark:
 
-$\rightarrow$ **Cross-modal reasoning**을 충분히 다루지 못함!
+$$\rightarrow$$ **Cross-modal reasoning**을 충분히 다루지 못함!
 
 <br>
 
@@ -47,7 +56,7 @@ LLM (GPT-4o, Claude, Gemini 등)은 여전히 **causal 추론, 장기 의존성*
 
   - Forecasting 중심 & ***Reasoning 부족!***
 - Proposal: MTBench
-  - **TS과 의미적으로 연결된 Text**를 함께 제공 $\rightarrow$ Reasoning task 평가 가능.
+  - **TS과 의미적으로 연결된 Text**를 함께 제공 $$\rightarrow$$ Reasoning task 평가 가능.
   
 
 <br>
@@ -68,7 +77,7 @@ LLM (GPT-4o, Claude, Gemini 등)은 여전히 **causal 추론, 장기 의존성*
 
 <br>
 
-$\rightarrow$ MTBench는 **도메인 전문적 뉴스**와 **실제 TS**을 시간적으로 정렬된 구조로 구성하여 이전 한계를 보완함 .
+$$\rightarrow$$ MTBench는 **도메인 전문적 뉴스**와 **실제 TS**을 시간적으로 정렬된 구조로 구성하여 이전 한계를 보완함 .
 
 <br>
 

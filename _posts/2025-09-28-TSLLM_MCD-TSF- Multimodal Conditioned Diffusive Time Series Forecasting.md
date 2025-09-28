@@ -1,4 +1,13 @@
-# MCD-TSF: Multimodal Conditioned Diffusive Time Series Forecasting
+---
+title: MCD-TSF; Multimodal Conditioned Diffusive Time Series Forecasting
+categories: [LLM, MULT, TS]
+tags: []
+excerpt: arxiv 2025
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+# MCD-TSF: Multimodal Conditioned Diffusive Time Series Forecasting (arxiv 2025)
 
 - 인용 수 (2025-08-27 기준): 3회
 - https://arxiv.org/pdf/2504.19669
@@ -89,18 +98,18 @@ Limitation of previous works
 ![image-20250827144313588](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827144313588.png)
 
 - 3가지 입력: 
-  - TS $X$
+  - TS $$X$$
 
-  - Timestamp $T$
+  - Timestamp $$T$$
 
-  - Text $E$
+  - Text $$E$$
 
 - **Diffusion process**를 통해 "Noise→ Future TS"
 
 - 3가지 주요 구성:
   - **Multimodal Encoder**: Conv + BERT + timestamp 추출기
   - **Fusion Module**: TAA (timestamp), TTF (text)
-  - **CFG**: text 사용 강도 $w$로 조절
+  - **CFG**: text 사용 강도 $$w$$로 조절
 
 
 <br>
@@ -110,8 +119,8 @@ Limitation of previous works
 Forward & Reverse
 
 - [Forward] Gaussian noise 추가
-- [Reverse] $Y_{k-1} \sim \mathcal{N}(\mu, \sigma^2 I)$
-  - Condition: $(X, T, E)$
+- [Reverse] $$Y_{k-1} \sim \mathcal{N}(\mu, \sigma^2 I)$$
+  - Condition: $$(X, T, E)$$
 
 - Loss: Conditional MSE (text 포함/미포함 모두 학습)
 

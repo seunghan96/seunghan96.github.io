@@ -1,3 +1,12 @@
+---
+title: LLaVA; Visual Instruction Tuning 간단 요약
+categories: [LLM, MULT, CV]
+tags: []
+excerpt: arxiv 2025
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # LLaVA: Visual Instruction Tuning
 
 ## (1) Dataset
@@ -6,7 +15,7 @@
 - Model: GPT4
 - Output: Visual Instruction Tuning datasets (Three types)
 
-
+<br>
 
 ## (2) Architecture
 
@@ -18,7 +27,8 @@
 
 - (참고) 더 복잡한 방법 (Flamingo의 cross-attention, BLIP-2의 Q-former)은 future work로 남겨둠 .
 
-  
+
+<br>
 
 ## (3) Training
 
@@ -60,31 +70,10 @@
 
 <br>
 
-📌 요약
+## (4) Summary
 
 - **Stage 1**: CLIP feature ↔ LLM embedding alignment (Projection Layer만 학습)
 - **Stage 2**: Instruction-following fine-tuning (Projection + LLM 학습, Vision Encoder는 frozen)
 - 최종적으로 **이미지+텍스트 instruction → Assistant 답변**을 생성할 수 있는 end-to-end 모델 완성.
 
 
-
-
-
-------
-
-
-
-👉 여기까지 **Visual Instruction Tuning** 섹션 정리였습니다.
-
-“다음”이라고 하시면, 이어서 **5. Experiments**(Multimodal Chatbot, LLaVA-Bench, ScienceQA 결과)로 넘어가겠습니다.
-
-
-
-네네, 
-
-- DT = 90점
-- RF (DTxM개 parallel) = 95점 > 90점
-- XGB (DTxM개 sequential) = 97점 > 90점
-
-- RF (XGBxM개 parallel) = ?? 
-- Stacking (RF+XGB+kNN+...)

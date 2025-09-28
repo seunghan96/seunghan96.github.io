@@ -1,3 +1,12 @@
+---
+title: Towards Time-Series Reasoning with LLMs 
+categories: [LLM, MULT, TS]
+tags: []
+excerpt: NeurIPSW 2024
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # Towards Time-Series Reasoning with LLMs (NeurIPSW 2024)
 
 <br>
@@ -6,7 +15,7 @@
 
 기존의 TS 관련 LLM 연구는 **forecasting** 중심
 
-$\rightarrow$  **자연어 기반 reasoning**은 미개척 분야.
+$$\rightarrow$$  **자연어 기반 reasoning**은 미개척 분야.
 
 <br>
 
@@ -32,7 +41,7 @@ Experiment
 
 - 기존 MLLM은 vision 등에서 성공
 
-  $\rightarrow$ But, **TS에 대한 자연어 reasoning**은 아직 구현되지 않음.
+  $$\rightarrow$$ But, **TS에 대한 자연어 reasoning**은 아직 구현되지 않음.
 
 - 기존 방식은 TS를 Text로 변환 → **패턴 손실** 발생!
 
