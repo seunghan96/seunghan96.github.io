@@ -1,5 +1,5 @@
 ---
-title: ITFormerl Bridging Time Series and Natural Language for Multi-Modal QA with Large-Scale Multitask Dataset
+title: ITFormer; Bridging Time Series and Natural Language for Multi-Modal QA with Large-Scale Multitask Dataset
 categories: [LLM, MULT, TS]
 tags: []
 excerpt: ICML 2025
