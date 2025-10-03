@@ -1,4 +1,23 @@
+---
+title: Gradient Norm
+categories: [LLM, MULT]
+tags: []
+excerpt: 
+---
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # Gradient Norm
+
+## Contents
+
+1. 개요
+2. (학습 중) 체크 이유
+3. 높을 때 / 낮을 때 
+4. 적당한 값?
+5. Summary
+
+<br>
 
 # 1. 개요
 

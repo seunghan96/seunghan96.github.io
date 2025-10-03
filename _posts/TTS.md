@@ -37,13 +37,38 @@ e.g., OpenAI **o1** 계열
 ### a) **Breadth (가로 확장)** – 다중 샘플 & 표결
 
 - **Self-Consistency** (간단하지만 강력):
-  - Step 1) 같은 문제를 temperature sampling으로 **N번** 풀기
-  - Step 2) **다수결/스코어**로 최종 답 채택
-  - Reference: *Self-Consistency Improves Chain of Thought Reasoning in Language Models* (https://arxiv.org/pdf/2203.11171)
-  - 
-- **Best-of-N + Reranking**: 
-  - Step 1) 후보 N개 생성 
-  - Step 2) 외부 채점기 (Rule/Scorer/LLM-judge)로 최고 후보 선택.
+  - Procedure
+    - Step 1) 같은 문제를 temperature sampling으로 **N번** 풀기
+    - Step 2) **다수결/스코어**로 최종 답 채택
+  - Reference: 
+    - *Self-Consistency Improves Chain of Thought Reasoning in Language Models* (https://arxiv.org/pdf/2203.11171)
+
+![figure2](/assets/img/llm/img803.png)
+
+<br>
+
+- **Best-of-N + Reranking**:
+  - **Self-Consistency** 자체가 일종의 Best-of-N 아이디어를 포함
+  - 차이점? 더 일반적으로 **후보군 생성 → "검증/채점기로 reranking"**
+  -  Procedure
+    - Step 1) 후보 N개 생성 
+    - Step 2) 외부 채점기 (Rule/Scorer/LLM-judge)로 최고 후보 선택.
+
+  - Reference
+    - *STaR: Bootstrapping Reasoning With Reasoning* (https://arxiv.org/pdf/2203.14465)
+      - 여러 reasoning 후보를 생성 + 정답/검증 기준에 맞는 경로를 **재선택하여 학습 데이터에 반영**
+
+    - *Self-Refine: Iterative Refinement with Self-Feedback* (https://arxiv.org/pdf/2303.17651)
+      - 후보 답안을 생성한 뒤 모델 스스로 피드백을 주고, 그에 따라 **수정/재랭킹**하는 구조
+    - *Competition-Level Code Generation with AlphaCode* (https://arxiv.org/pdf/2203.07814)
+      - 수십만 code 후보 생성 후, **test case 채점기**로 성능 좋은 후보만 채택
+
+
+![figure2](/assets/img/llm/img804.png)
+
+![figure2](/assets/img/llm/img805.png)
+
+![figure2](/assets/img/llm/img806.png)
 
 <br>
 
@@ -59,6 +84,89 @@ resp = client.responses.create(
     max_output_tokens=800,
 )
 ```
+
+<br>
+
+- **Longer Inference / Chain-of-Thought Scaling**
+
+  - Procedure
+    - Step 1) 모델이 답을 내기 전 **더 많은 reasoning tokens**을 생성하도록 유도
+    - Step 2) 긴 사고 과정을 통해 정답률을 향상
+  - Reference
+    - *Chain-of-Thought Prompting Elicits Reasoning in Large Language Models* (https://arxiv.org/pdf/2201.11903)
+      - LLM이 **단계별 추론(CoT)**을 거치면 복잡한 수학/논리 문제에서 성능이 급상승
+    - *Scaling Instruction-Finetuned Language Models* (a.k.a. FLAN-PaLM, https://arxiv.org/pdf/2210.11416)
+      - 모델 크기뿐 아니라 **추론 토큰 길이**를 늘릴 때 성능이 함께 스케일링됨을 보고
+
+  
+
+![figure2](/assets/img/llm/img807.png)
+
+![figure2](/assets/img/llm/img808.png)
+
+<br>
+
+- **Deliberate Decoding / Deliberation Networks**
+
+  - Procedure
+
+    - Step 1) 모델이 초안(draft) 답변을 생성
+    - Step 2) **2-pass 구조**로 초안을 검토·수정 (한 경로를 더 정교화)
+
+  - Reference
+
+    - *Deliberation Networks: Sequence Generation Beyond One-Pass Decoding* (https://papers.nips.cc/paper_files/paper/2017/file/c6036a69be21cb660499b75718a3ef24-Paper.pdf)
+
+      - NMT에서 제안된 2-pass 디코딩, 이후 LLM reasoning에도 적용
+        ```
+        In this work, we introduce the deliberation process into the encoder-decoder framework and propose deliberation networks for sequence generation. A deliberation network has two levels of decoders, where the f irst-pass decoder generates a raw sequence and the second-pass decoder polishes and refines the raw sentence with deliberation. Since the second-pass deliberation decoder has global information about what the sequence to be generated might be, it has the potential to generate a better sequence by looking into future words in the raw sentence.
+        ```
+
+    - *Think Twice: Deliberation Improves Large Language Models* (https://arxiv.org/pdf/2311.10227)
+
+      - LLM이 **“다시 생각하기” 루프**를 거치면 정밀한 추론 성능이 향상
+
+![figure2](/assets/img/llm/img809.png)
+
+![figure2](/assets/img/llm/img810.png)
+
+<br>
+
+- **Reflection / Self-Consistency in Depth**
+
+  - Procedure
+
+    - Step 1) 모델이 답안을 낸 뒤 **자기 피드백(Reflection)**을 생성
+    - Step 2) 피드백을 반영해 다시 수정·보강 (깊이를 늘려 정답 안정화)
+
+  - Reference
+
+    - *Reflexion: Language Agents with Verbal Reinforcement Learning* (https://arxiv.org/pdf/2303.11366)
+
+      - 에이전트가 답을 낸 뒤 자기 피드백을 통해 **점진적으로 답변 품질을 개선**
+
+      ```
+      We propose Reflexion, a novel framework to reinforce language agents not by updating weights, but instead through linguistic feedback. Concretely, Reflexion agents verbally reflect on task feedback signals, then maintain their own reflective text in an episodic memory buffer to induce better decision-making in subsequent trials. 
+      ```
+
+    - *Self-Refine: Iterative Refinement with Self-Feedback* (https://arxiv.org/pdf/2303.17651)
+
+      - 후보 답안을 생성한 뒤 모델 스스로 피드백을 주고, 그에 따라 **수정/재랭킹**하는 구조
+      - (Breadth에도 해당되지만) 반복적 자기수정은 **한 경로를 점점 깊게 발전**시키는 형태도 가능
+
+![figure2](/assets/img/llm/img805.png)
+
+<br>
+
+- **Budget Forcing / Test-time Scaling (Depth Control)**
+  - Procedure
+    - Step 1) 추론 시 **토큰 예산**(budget)을 강제로 크게 부여
+    - Step 2) 모델이 **더 길게 생각**하도록 유도 → 성능 우상향 곡선 확보
+  - Reference
+    - *s1: Simple test-time scaling* (https://arxiv.org/pdf/2501.19393)
+      - 단순 SFT(1K 데이터) + **budget forcing**만으로도 o1류 모델처럼 **더 깊게 생각할수록 성능이 오르는 곡선** 재현
+
+![figure2](/assets/img/llm/img811.png)
 
 <br>
 
