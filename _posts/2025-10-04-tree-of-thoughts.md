@@ -19,7 +19,7 @@ Yao et al., Tree of Thoughts: Deliberate Problem Solving with Large Language Mod
 
 **Chain-of-Thought (CoT)**: 
 
-- 핵심: LLM이 reasoning할 때 한 줄(linear)로 생각의 흐름을 이어감.
+- 핵심: LLM이 reasoning할 때 한 줄(linear)로 생각의 흐름을 이어감
 
 - 문제: Greedy/linear reasoning은 ***중간에 잘못된 단계가 나오면 되돌리기 어렵고***, ***탐색 공간을 충분히 활용하지 못함***
 
@@ -49,10 +49,10 @@ Notation:
 Prompting
 
 - **IO prompting**: 
-  - $$y \sim p_\theta(y\mid \text{prompt}_{IO}(x))$$
+  - $$y \sim p_\theta(y\mid \text{prompt}_{IO}(x))$$.
   - 가장 단순한 입출력 방식
 - **Chain-of-Thought (CoT)**: 
-  - 중간 추론 조각 $$z_i$$를 순차 생성해 최종 답에 도달.
+  - 중간 추론 조각 $$z_i$$를 순차 생성해 최종 답에 도달
   - $$[z_{1\ldots n}, y] \sim p_\theta^{\text{CoT}}(\cdot \mid x)$$.
 - **Self-Consistency (CoT-SC)**: 
   - CoT 경로를 k개 i.i.d. 샘플링 후 **다수결**로 최종 답 선택
@@ -66,7 +66,7 @@ Prompting
 
 Procedure
 
-- Step 1) 여러 개의 CoT 추론 경로를 **독립적으로 샘플링**합니다.
+- Step 1) 여러 개의 CoT 추론 경로를 **독립적으로 sampling**
 - Step 2) 마지막 정답을 **다수결**로 뽑음
 
 <br>
@@ -75,7 +75,7 @@ Example) **(Q) 1,2,3,4 조합해서 8 만들기**
 
 - 경로 A: “1+2=3, 3+4=7 → 답=7”
 - 경로 B: “2+2=4, 4+4=8 → 답=8”
-- 경로 C: “3+3=6, 6+4=10 → 답=10 ✅”
+- **경로 C: “3+3=6, 6+4=10 → 답=10”**
 
 → 정답은 C에 있지만, 다수결은 7이나 8을 뽑아버릴 수 있음.
 
@@ -83,27 +83,27 @@ Example) **(Q) 1,2,3,4 조합해서 8 만들기**
 
 ## (2) 한계점
 
-### “한 경로 안에서 국소 탐색(local search)이 없다”**
+한계점 1) **“한 경로 안에서 국소 탐색(local search)이 없다”**
 
-- CoT-SC는 (경로를 여러 개 뽑기는 하지만) **경로 내부에서 분기하거나 되돌아보며 탐색은 X**
+- CoT-SC는 (경로를 **"여러 개"** 뽑기는 하지만...) **경로 내부에서 분기하거나 되돌아보며 탐색은 X**
 
   $$\rightarrow$$ 즉, ***하나의 reasoning line이 잘못 가면 그대로 끝까지 잘못 가는 것***
 
-- 그래서 이 방식은 **경로 내부(local level)에서 오류 수정이나 backtracking이 불가능**
+  $$\rightarrow$$ 경로 내부(local level)에서 **오류 수정 or backtracking 불가능**
 
 <br>
 
-### **“출력공간이 넓을 때 다수결의 한계”**
+한계점 2) **“출력공간이 넓을 때 다수결의 한계”**
 
-- 만약 가능한 **정답 후보가 (1개가 아니라) 다양한 경우 (= 출력 공간이 넓다)**
+- 가능한 **정답 후보가 다양한 경우 (= 출력 공간이 넓다)**라면 ??
 
-- 정답이 소수 branch에서만 나오는 경우라면, **다수결은 쉽게 틀릴 수 있음**
+  $\rightarrow$ 정답이 소수 branch에서만 나오는 경우라면, **다수결은 쉽게 틀릴 수 있음**!
 
 <br>
 
 # **3. Tree-of-Thoughts**
 
-ToT는 문제를 **Tree 탐색 문제**로 재정의
+ToT는 문제를 **"Tree 탐색" 문제**로 재정의
 
 <br>
 
@@ -111,8 +111,8 @@ ToT는 문제를 **Tree 탐색 문제**로 재정의
 
 - 사람은 **부분해(Partial solution)** 들을 잇는 **Tree**를 휴리스틱으로 탐색
 - 기존 LLM 추론의 두 한계
-  1. **로컬**: 한 단계(thought) 안에서 **여러 분기**를 탐색하지 않음
-  2. **글로벌**: **계획, lookahead, backtracking**이 없음
+  1. **Local**: 한 단계(thought) 안에서 **여러 분기**를 탐색하지 않음
+  2. **Global**: **계획, lookahead, backtracking**이 없음
 - ToT의 상태(state): $$s = [x, z_{1\ldots i}]$$.
   - (1) 입력 $$x$$
   - (2) 지금까지의 thought 시퀀스 $$z_{1\ldots i}$$로 구성된 **부분해 노드**.

@@ -96,7 +96,7 @@ CoT-decoding의 수식
 
 - $$y_t = \arg\max_{v} P(v \mid x, y_{<t})$$.
 
-을 선택합니다.
+을 선택
 
 → 항상 최빈 token만 이어져서, **“즉답(short answer)”**으로 끝날 가능성이 큼
 
