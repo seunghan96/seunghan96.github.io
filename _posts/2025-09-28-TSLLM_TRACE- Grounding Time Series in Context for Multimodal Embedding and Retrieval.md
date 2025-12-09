@@ -88,13 +88,13 @@ Limitation
   - e.g., TS2VEC, TS-RAG
 
 
-![image-20250827141241027](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827141241027.png).
+![figure2](/assets/img/ts/img962.png)
 
 <br>
 
 # **4. Methodology**
 
-![image-20250827142603703](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827142603703.png).
+![figure2](/assets/img/ts/img963.png)
 
 ## (1) Procedures
 
