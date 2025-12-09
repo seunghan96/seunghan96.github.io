@@ -84,7 +84,7 @@ LLM이 TS reasoning을 가능케 하는 구조 설계!
 
 ## (1) Architecture
 
-![image-20250827094325533](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827094325533.png).
+![figure2](/assets/img/ts/img960.png)
 
 - TS 입력을 patch 단위로 분할 → MHSA → LLM의 임베딩 차원에 맞춰 투영.
 - TS의 **mean, std 정보는 text로 변환하여 prefix로 입력**.
@@ -127,25 +127,25 @@ Captioning task
 
 ### **(2,3) Contextualization & Deductive Reasoning**
 
-![image-20250827094438995](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827094438995.png).
+![figure2](/assets/img/ts/img961.png)
 
 - UCR Archive 기반 zero-shot classification 평가 (11개 binary dataset 선정).
 
 - GPT-4o보다 다수 데이터셋에서 성능 우수:
 
-  
-
   - 예: *Chinatown* (Ours: 0.698 vs GPT-4o-text: 0.347, plot: 0.287)
   - *ItalyPowerDemand* (Ours: 0.701 vs GPT-4o-text: 0.564)
-
   
-
-- GPT-4o는 **TS encoder 부재로 추론 성능 미흡** .
+- GPT-4o는 **TS encoder 부재로 추론 성능 미흡** !!
 
 <br>
 
 # **6. Conclusion**
 
 - TS reasoning을 위한 핵심 능력을 정의 & 이를 구현하는 LLM 기반 framework 제안.
+
 - Encoder + CoT fine-tuning을 통해 Mistral-7B 같은 **소형 모델도 GPT-4o를 초과하는 추론 성능** 달성 가능함을 입증.
-- 인간 논리와 유사한 자연어 기반 TS 해석을 제공하며, **complex decision-making 및 multimodal agent**로 확장 가능성을 시사함 .
+
+- 인간 논리와 유사한 자연어 기반 TS 해석을 제공
+
+  $$\rightarrow$$  **Complex decision-making 및 multimodal agent**로 확장 가능성을 시사
