@@ -171,7 +171,7 @@ print(b.country)
 # south korea
 ```
 
-
+<br>
 
 # 3. **@staticmethod**
 

@@ -13,6 +13,16 @@ excerpt: arxiv 2025
 
 <br>
 
+GPT 5줄 요약
+
+1. **"Text & TS"**을 함께 이해하는 **"LLM의 능력"**을 평가하기 위한 **"최초의 대규모 Multimodal benchmark"**
+2. **"금융·날씨"** 도메인에서 시계열 예측, 트렌드 분류, 기술 지표 계산, 뉴스 기반 QA 등의 **"4가지 복합 reasoning task"**를 제공
+3. News–TS을 시간적으로 정렬 & 감성·카테고리·영향 범위 등을 자동 라벨링해 **정교한 "data pair"**을 구성
+4. (실험 결과) **"Text 추가"**는 전반적으로 foreasting 성능을 높였지만, LLM들은 **long-term forecasting, correlation reasoning, multimodal fusion**에서 여전히 약함
+5. MTBench는 미래 연구에서 **"temporal reasoning" & "cross-modal 이해"를 강화하는 모델 개발**을 위한 표준 평가 도구가 될 수 있음
+
+<br>
+
 # **1. Abstract**
 
 **"Text와 TS 간의 관계"**를 평가하는 기존 Benchmark:
@@ -137,10 +147,6 @@ $$\rightarrow$$ MTBench는 **도메인 전문적 뉴스**와 **실제 TS**을 �
 
 - Correlation Prediction (3/5-class)
 - Multi-choice QA (News + TS 기반 reasoning) 
-
-<br>
-
-![image-20250827152253343](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827152253343.png)
 
 <br>
 

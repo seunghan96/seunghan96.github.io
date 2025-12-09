@@ -16,25 +16,23 @@ excerpt: arxiv 2025
 
 # **1. Abstract**
 
-기존 Diffusion 기반 TSF
+Motivation: 기존 Diffusion-based TSF model은 **"Unimodal"**
 
-- 대부분 **numerical TS만 처리** 
-- **Multimodal 정보 활용 부족**
+- **Numerical TS** only ... **Multimodal 정보 활용 부족!**
 
 <br>
 
 Proposal: **"MCD-TSF"**
 
-- Diffusion 기반 예측 모델
-
-- **Timestamp + text**를 함께 조건으로 활용!
-- **Classifier-Free Guidance (CFG)**를 사용하여 text 사용 강도를 조절
+- Architecture: **Diffusion**-based TSF model
+- Condition: **(1) Timestamp & (2) Text**
+- How: **Classifier-Free Guidance (CFG)** $$\rightarrow$$ Text 사용 강도를 조절!
 
 <br>
 
-Experiments: 
+Experiments
 
-- 8개 real-world 도메인에서 **state-of-the-art** 성능 입증 .
+- 8개 real-world 도메인에서 **SoTA**
 
 - Code: https://github.com/synlp/MCD-TSF
 
@@ -46,22 +44,21 @@ Experiments:
 
 Limitation of previous works
 
-- (Deterministic) TS는 **무작위성 & 불확실성**을 포함 → ***Deterministic 모델로는 한계***
-- (LLM) 최근 LLM 기반 접근은 TS을 text로 변환하는데, 이 과정에서 **수치 정보 손실** 발생.
-- (Diffusion) 기존 diffusion 기반 TS 모델은 **단일 modality에 국한**
+- **[Deterministic]** TS는 **무작위성 & 불확실성**을 포함 → ***Deterministic 모델로는 한계***
+- **[LLM]** 최근 LLM 기반 접근은 **TS $$\rightarrow$$ text로 변환**하는데, 이 과정에서 **numerical 정보 손실** 발생
+- **[Diffusion]** 기존 diffusion-based TSF model은 **단일 modality**에 국한
   - e.g., Timestamp/text 등 부가 정보는 활용 부족.
-
 
 <br>
 
 ## (2) **Proposal: MCD-TSF**
 
-**Timestamp와 Text** 정보를 함께 사용하는 **diffusion 모델**
+**a) Timestamp & b) Text** 정보를 함께 사용하는 **conditional diffusion model**
 
-- Timestamp는 temporal 구조 보완
-- Text는 역사적 의미 강화
+- **a) Timestamp**: temporal 구조 보완
+- **b) Text**: historcal 의미 강화
 
-- Classifier free guidance (CFG)로 Text 정보 활용 정도를 **inference 시 동적으로 조절 가능!**
+- **CFG**: **Text 정보 활용 정도**를 inference 시 동적으로 조절 가능!
 
 <br>
 
@@ -71,11 +68,11 @@ Limitation of previous works
 
 예시: D3VAE, MG-TSD, CSDI
 
-한계점
+Limitations
 
-- (1) TSF/imputation 용도로 ***제한적 사용***
+- (1) **제한적 task**: TSF/imputation 용
 
-- (2) 대부분 temporal hierarchy나 ***external modality 활용에는 제한적***
+- (2) **External modality 활용 제한적**: 대부분 temporal hierarchy만 포착
 
 <br>
 
@@ -83,11 +80,11 @@ Limitation of previous works
 
 예시: TimeLLM, MM-TSF, PromptCast 등.
 
-- 방식) Text embedding + TS input을 concat
+- 방식) **[Text embedding + TS input]**을 concat
 - 단점) 
   - **LLM cost 과다**
-  - Text 과의존성 문제
-  - Timestamp 활용은 deterministic 처리만 존재 .
+  - **Text 과의존성** 문제
+  - Timestamp 활용은 deterministic 처리만 존재
 
 <br>
 
