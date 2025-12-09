@@ -43,7 +43,7 @@ LLM (GPT-4o, Claude, Gemini 등)은 여전히 **causal 추론, 장기 의존성*
 
 <br>
 
-![image-20250827152205587](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827152205587.png)
+![figure2](/assets/img/ts/img964.png)
 
 <br>
 
@@ -107,7 +107,7 @@ $$\rightarrow$$ MTBench는 **도메인 전문적 뉴스**와 **실제 TS**을 �
 
 <br>
 
-![image-20250827152229192](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827152229192.png)
+![figure2](/assets/img/ts/img965.png)
 
 <br>
 

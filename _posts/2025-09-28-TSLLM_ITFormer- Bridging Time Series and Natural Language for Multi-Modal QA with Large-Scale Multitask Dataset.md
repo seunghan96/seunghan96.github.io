@@ -69,7 +69,7 @@ excerpt: ICML 2025
 
 ## **(2) ITFormer 구조**
 
-![image-20250827140218077](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827140218077.png).
+![figure2](/assets/img/ts/img969.png)
 
 - **TPE (Time Token Position Encoding)**: 시간, 채널, 세그먼트 위치정보 부여
 - **LIT (Learnable Instruct Token)**: task-specific semantic instruction

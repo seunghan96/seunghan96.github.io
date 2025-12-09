@@ -27,7 +27,7 @@ excerpt: arxiv 2025
 
 <br>
 
-![image-20250827103551068](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827103551068.png)
+![figure2](/assets/img/ts/img980.png)
 
 <br>
 
@@ -89,11 +89,9 @@ $$\rightarrow$$ 본 논문은 **시계열 데이터를 multimodal 관점에서 �
 
 # (3) MLLM 구조 요소
 
-![image-20250827103616712](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827103616712.png)
+![figure2](/assets/img/ts/img981.png)
 
-![image-20250827103632239](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827103632239.png)
-
-
+![figure2](/assets/img/ts/img982.png)
 
 - **Modality Encoder**: 이미지, 오디오 등 입력 전처리
 - **Adapter**: modality-specific → LLM input 정렬 (MLP, Q-Former 등)

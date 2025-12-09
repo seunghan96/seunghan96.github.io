@@ -95,7 +95,7 @@ Limitation of previous works
 
 ## (1) Architecture
 
-![image-20250827144313588](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827144313588.png)
+![figure2](/assets/img/ts/img966.png)
 
 - 3가지 입력: 
   - TS $$X$$
@@ -171,9 +171,9 @@ Forward & Reverse
 - Timestamp-Assisted Attention (TAA)
 - Text-Time series Fusion (TTF)
 
-![image-20250827170209514](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827170209514.png).
+![figure2](/assets/img/ts/img967.png)
 
-![image-20250827170219915](/Users/seunghan96/Library/Application Support/typora-user-images/image-20250827170219915.png).
+![figure2](/assets/img/ts/img968.png)
 
 <br>
 
