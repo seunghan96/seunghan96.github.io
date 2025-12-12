@@ -110,15 +110,62 @@ FINDER
 
 - e.g., Figure 1)
 
-  
+  ![figure2](/assets/img/ts/img830.png)
 
-  - “MS trading revenue”처럼 ambiguous query를 요구하며,
+  - *“MS trading revenue”*처럼 **ambiguous query**를 요구하는 경우 종종 O
 
-  - System이 먼저 **MS → Morgan Stanley**를 해석해야 올바른 paragraph를 찾을 수 있음.
+  - System이 먼저 **MS → Morgan Stanley**를 해석해야 올바른 paragraph를 찾을 수 있음!
 
-    → 기존 datasets에서 등장하지 않는 고난도 retrieval reasoning.
+    → 기존 datasets에서 등장하지 않는 고난도 retrieval reasoning
 
-  
+
+<br>
+
+
+
+# 3. FINDER Dataset
+
+## (1) Overview
+
+- **5,703개의 query–evidence–answer** triplets로 구성된 금융 QA용 RAG benchmark
+- 기존 QA dataset과의 차이점?
+  - **predefined context 없음** → 모델이 **retrieval 자체를 수행해야 함**.
+- Query는 실제 금융 전문가의 검색 행태를 반영해 **짧고, ambiguous하고, acronym-heavy**함.
+- Evidence는 10-K annual report에서 **전문가가 수동으로 선택한 문단**.
+- FINDER의 목적: **retrieval 난이도 + generation 정확도**를 동시에 평가하는 현실적 benchmark.
+
+<br>
+
+## (2) Components
+
+FINDER는 아래 4개의 구성요소:
+
+1. **Documents**: S&P 500 기업의 최신 10-K annual report (총 490개).
+2. **Questions**: Hedge fund·IB·PM 등 금융 전문가가 실제 사용한 search query.
+3. **Ground-truth Evidence**: 문서에서 해당 질문을 해결하는 데 필요한 문단/테이블.
+4. **Answers**: 전문가가 evidence 기반으로 작성·검증한 정확한 답변.
+
+<br>
+
+## (3) Collection
+
+- Query 수집: 금융 Q&A 플랫폼에서 전문가가 남긴 실제 질문 추출.
+- Company filtering: S&P 500 기준으로 매칭, 중복 제거, 질문 없는 기업 제외.
+- Evidence filtering: 10-K에서 **관련 evidence가 없는 질문은 제거**하여 품질 확보.
+- 최종적으로 **7,000 → 5,703개의 정제된 QA pair** 도출.
+
+<br>
+
+## (4) Annotation Process
+
+- Annotation은 **투자은행 애널리스트 + CPA** 두 명의 전문가가 수행.
+- 단계별 절차:
+  1. 두 명이 **독립적으로 evidence 후보**를 수집
+  2. evidence 기반으로 각각 answer 초안 생성
+  3. GPT-o1으로 **format standardization** (내용은 그대로 유지)
+  4. 두 annotator가 cross-review하여 불일치 해결
+
+
 
 
 
@@ -128,6 +175,56 @@ FINDER
 
 
 
-원하면 **Section 3. FINDER Dataset** 요약으로 이어갈게!
+
+
+## **3.5 Statistics**
+
+
+
+
+
+- Query structure 특징:
+
+  
+
+  - **도메인 jargon/acronym 비율 매우 높음** — 43%가 3–4개, 46%가 5개 이상 포함. (Figure 2)
+
+  
+
+- Topic distribution (Table 1):
+
+  
+
+  - Company Overview(18.95%), Financials(17.36%), Footnotes(16.71%), Governance(12.59%) 등 다양한 financial domain 포함.
+
+  
+
+- Reasoning type(표 2):
+
+  
+
+  - Qualitative(84.52%) > Quantitative(15.48%)
+
+  
+
+- Quantitative subtypes(표 3):
+
+  
+
+  - Compositional Reasoning이 절반(49.83%) 차지 → multi-step financial calculation 필요.
+
+  
+
+- 전체적으로 **real-world financial QA의 폭넓은 reasoning 요구사항**을 반영한 dataset임.
+
+
+
+
+
+------
+
+
+
+원하면 **Section 4. Experimental Setup** 요약으로 넘어갈게!
 
 계속하려면 **“다음”**이라고 해줘.
